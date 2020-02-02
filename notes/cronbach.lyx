@@ -1,0 +1,2472 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Reliability and Decision Theory
+\end_layout
+
+\begin_layout Abstract
+The classical definition of reliability is the ratio of the variance of
+ the true scores to the variance in the measurements.
+ I propose to a decision theoretic approach to reliability.
+\end_layout
+
+\begin_layout Part
+Paper
+\end_layout
+
+\begin_layout Section
+General Latent Variable Models
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $Z$
+\end_inset
+
+ be a latent variable and 
+\begin_inset Formula $X_{i}=g_{i}\left(Z,\epsilon_{i}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $i=1,\ldots,k$
+\end_inset
+
+ be a set of observed variables.
+ Here 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+ measurable functions and 
+\begin_inset Formula $\epsilon_{i}$
+\end_inset
+
+ are error terms independent of 
+\begin_inset Formula $Z$
+\end_inset
+
+ that can without loss of generality be assumed to be uniform.
+ Our goal is to recover 
+\begin_inset Formula $Z$
+\end_inset
+
+ from the knowledge of 
+\begin_inset Formula $\left\{ X_{i}\right\} _{i=1}^{n}$
+\end_inset
+
+.
+ This can be done by finding a function 
+\begin_inset Formula $f$
+\end_inset
+
+ solving the decision theoretic problem
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\textrm{argmin}_{f\in\mathcal{F}}E\left[l\left(Z,f\left(X\right)\right)\right]\label{eq:Decision problem}
+\end{equation}
+
+\end_inset
+
+for some loss function 
+\begin_inset Formula $l$
+\end_inset
+
+ and class of functions 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+.
+ The 
+\emph on
+risk
+\emph default
+ is 
+\begin_inset Formula $R=\textrm{min}_{f\in\mathcal{F}}E\left[l\left(Z,f\left(X\right)\right)\right]$
+\end_inset
+
+, which measures how wrong we are when using 
+\begin_inset Formula $f\left(X\right)$
+\end_inset
+
+ instead of 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+Let 
+\begin_inset Formula $X=\lambda_{0}+\lambda_{1}Z+\lambda_{2}Z^{2}+\epsilon$
+\end_inset
+
+ and both 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $Z$
+\end_inset
+
+ be standard normal.
+ Let 
+\begin_inset Formula $l$
+\end_inset
+
+ be the quadratic loss and 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ be the set of linear combinations of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Then we must minimize 
+\begin_inset Formula $E\left\{ \left[Z-w\left(\lambda_{0}+\lambda_{1}Z+\lambda_{2}Z^{2}+\epsilon\right)-\theta\right]^{2}\right\} $
+\end_inset
+
+ with respect to 
+\begin_inset Formula $w$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+The derivative with respect to 
+\begin_inset Formula $\theta$
+\end_inset
+
+ yields
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\theta=-w\left(\lambda_{0}+\lambda_{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Take the derivative with respect to 
+\begin_inset Formula $w$
+\end_inset
+
+ and obtain
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+E\left\{ 2\left(\lambda_{0}+\lambda_{1}Z+\lambda_{2}Z^{2}+\epsilon\right)\left(w\left(\lambda_{0}+\lambda_{1}Z+\lambda_{2}Z^{2}+\epsilon\right)-\left(Z-\theta\right)\right)\right\} 
+\]
+
+\end_inset
+
+Here 
+\begin_inset Formula 
+\begin{eqnarray*}
+E\left\{ 2\left(\lambda_{0}+\lambda_{1}Z+\lambda_{2}Z^{2}+\epsilon\right)\left(Z-\theta\right)\right\}  & = & -2\lambda_{0}\theta+2\lambda_{1}E\left[Z^{2}\right]-2\lambda_{2}\theta E\left[Z^{2}\right]\\
+ & = & -2\lambda_{0}\theta+2\lambda_{1}-2\lambda_{2}\theta
+\end{eqnarray*}
+
+\end_inset
+
+And
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\begin{eqnarray*}
+w2E\left[\left(\lambda_{0}+\lambda_{1}Z+\lambda_{2}Z^{2}+\epsilon\right)\left(\lambda_{0}+\lambda_{1}Z+\lambda_{2}Z^{2}+\epsilon\right)\right] & =\\
+2wE\left[\lambda_{0}^{2}+2\lambda_{0}\lambda_{2}Z^{2}+\lambda_{1}^{2}Z^{2}+\lambda_{2}^{2}Z^{4}+\epsilon^{2}\right] & =\\
+2w\left(\lambda_{0}^{2}+2\lambda_{0}\lambda_{2}+\lambda_{1}^{2}+3\lambda_{2}^{2}+1\right)
+\end{eqnarray*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula 
+\[
+w=\frac{\lambda_{1}-\left(\lambda_{0}+\lambda_{2}\right)\theta}{\lambda_{0}^{2}+2\lambda_{0}\lambda_{2}+\lambda_{1}^{2}+3\lambda_{2}^{2}+1}
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $\theta=-w\left(\lambda_{0}+\lambda_{2}\right)$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+w=\frac{\lambda_{1}+\left(\lambda_{0}+\lambda_{2}\right)^{2}w}{\lambda_{0}^{2}+2\lambda_{0}\lambda_{2}+\lambda_{1}^{2}+3\lambda_{2}^{2}+1}
+\]
+
+\end_inset
+
+Hence
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\begin{eqnarray*}
+w & = & \frac{\lambda_{1}\left(\lambda_{0}^{2}+2\lambda_{0}\lambda_{2}+\lambda_{1}^{2}+3\lambda_{2}^{2}+1\right)}{\lambda_{0}^{2}+2\lambda_{0}\lambda_{2}+\lambda_{1}^{2}+3\lambda_{2}^{2}+1-\left(\lambda_{0}+\lambda_{2}\right)^{2}}\\
+ & = & \frac{\lambda_{1}\left(\lambda_{0}^{2}+2\lambda_{0}\lambda_{2}+\lambda_{1}^{2}+3\lambda_{2}^{2}+1\right)}{\lambda_{1}^{2}+2\lambda_{2}^{2}+1}
+\end{eqnarray*}
+
+\end_inset
+
+When 
+\begin_inset Formula $\lambda_{0}=0$
+\end_inset
+
+, this is
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\frac{\lambda_{1}\left(\lambda_{1}^{2}+2\lambda_{2}^{2}+1\right)+\lambda_{1}\lambda_{2}}{\lambda_{1}^{2}+2\lambda_{2}^{2}+1}=\lambda_{1}\left(1+\frac{\lambda_{2}}{\lambda_{1}^{2}+2\lambda_{2}^{2}+1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Linear Latent Variable Models
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $Z$
+\end_inset
+
+ be a latent variable with unit variance and zero mean.
+ Assume each testlet is 
+\begin_inset Formula $X_{i}=\mu_{i}+\lambda_{i}Z+\sigma_{i}\epsilon_{i}$
+\end_inset
+
+ for some mean zero 
+\begin_inset Formula $\epsilon_{i}$
+\end_inset
+
+ with unit variance and 
+\begin_inset Formula $i=1,\ldots,k$
+\end_inset
+
+.
+ Consider the problem of reconstructing 
+\begin_inset Formula $Z$
+\end_inset
+
+ from the knowledge of the vector 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ This can be done by finding a function 
+\begin_inset Formula $f$
+\end_inset
+
+ solving a decision theoretic problem
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\textrm{argmin}_{f\in\mathcal{F}}E\left[l\left(Z,f\left(X\right)\right)\right]\label{eq:Decision problem 2}
+\end{equation}
+
+\end_inset
+
+for some loss function 
+\begin_inset Formula $l$
+\end_inset
+
+ and class of functions 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+.
+ The 
+\emph on
+risk
+\emph default
+ is 
+\begin_inset Formula $R=\textrm{min}_{f\in\mathcal{F}}E\left[l\left(Z,f\left(X\right)\right)\right]$
+\end_inset
+
+, which measures how wrong we are when using 
+\begin_inset Formula $f\left(X\right)$
+\end_inset
+
+ instead of 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A convenient choice of loss function is the quadratic loss.
+ If not restrictions are made on 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+, the the optimal 
+\begin_inset Formula $f\left(X\right)$
+\end_inset
+
+ equals the conditional expecation 
+\begin_inset Formula $E\left(Z\mid X\right)$
+\end_inset
+
+.
+ A reasonable choice of function class 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ is the set of all linear combinations of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ The decision theoretic population level 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ is defined as 
+\begin_inset Formula $R^{2}=1-\frac{\textrm{min}_{\mu}E\left[l\left(Z,\mu\right)\mid X\right]}{\textrm{min}_{\mu}E\left[l\left(Z,\mu\right)\right]}.$
+\end_inset
+
+ Since 
+\begin_inset Formula $\textrm{min}_{\mu}E\left[l\left(Z,\mu\right)\right]=1$
+\end_inset
+
+ when 
+\begin_inset Formula $Z$
+\end_inset
+
+ has variance 
+\begin_inset Formula $1$
+\end_inset
+
+ and 
+\begin_inset Formula $l$
+\end_inset
+
+ is the quadratic loss, 
+\begin_inset Formula $R^{2}=1-\textrm{min}_{f\in\mathcal{F}}E\left[l\left(Z,f\left(X\right)\right)\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+Let 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ be set of linear combinations of 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $l$
+\end_inset
+
+ the quadratic loss.
+ The solution to the decision problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Decision problem 2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is 
+\begin_inset Formula $\sum_{i=1}^{k}w_{i}\left(X_{i}-\mu_{i}\right)$
+\end_inset
+
+, where
+\begin_inset Formula 
+\begin{equation}
+w_{j}=\lambda_{j}\left[\sigma_{j}^{2}\left(1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}\right)\right]^{-1}\label{eq:Optimal weights}
+\end{equation}
+
+\end_inset
+
+The risk is 
+\begin_inset Formula 
+\begin{equation}
+R_{Z}\left(X\right)=\left(1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}\right)^{-1}\label{eq:Risk}
+\end{equation}
+
+\end_inset
+
+While the 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Proposition
+\begin_inset Formula 
+\begin{equation}
+R^{2}=\frac{\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}}{1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}}\label{eq:R^2, general}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The weights are always non-zero when 
+\begin_inset Formula $\lambda_{j}$
+\end_inset
+
+, hence it is always profitable to add more items.
+ The 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:R^2, general"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ was derived by Allen (1974) using a slightly different method.
+ It is sometimes known as the 
+\begin_inset Formula $H$
+\end_inset
+
+ coefficient.
+\end_layout
+
+\begin_layout Standard
+We can also solve the decision theoretic problem with equal weights.
+ In the following proposition I will use the notation 
+\begin_inset Formula $\overline{x}$
+\end_inset
+
+ to denote the mean of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+Let 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ be set of functions on the form 
+\begin_inset Formula $w\sum_{i=1}^{k}\left(X_{i}-\mu_{i}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $l$
+\end_inset
+
+ the quadratic loss.
+ The solution to the decision problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Decision problem 2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is
+\begin_inset Formula 
+\begin{equation}
+w=\overline{\lambda}\left(\overline{\sigma^{2}}+k\overline{\lambda}^{2}\right)^{-1}\label{eq:Weigh cronbach}
+\end{equation}
+
+\end_inset
+
+The risk is 
+\begin_inset Formula 
+\begin{equation}
+R_{Z}\left(X\right)=\left(1+\frac{k\overline{\lambda}^{2}}{\overline{\sigma^{2}}}\right)^{-1}\label{eq:Risk, cronbach}
+\end{equation}
+
+\end_inset
+
+While the 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Proposition
+\begin_inset Formula 
+\begin{equation}
+R^{2}=\left(1+\frac{\overline{\sigma^{2}}}{k\overline{\lambda}^{2}}\right)^{-1}\label{eq:R^2, cronbach}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:R^2, cronbach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ has several names, including McDonald's omega and the congeneric reliability.
+\end_layout
+
+\begin_layout Standard
+Consider the case when 
+\begin_inset Formula $\lambda$
+\end_inset
+
+s are equal (this is called tau-equivalence in the psychometric literature).
+ Let 
+\begin_inset Formula $\overline{v}$
+\end_inset
+
+ be the mean of the diagonal elements of the empirical covariance matrix
+ and 
+\begin_inset Formula $\overline{c}$
+\end_inset
+
+ be the mean of its off-diagal elements.
+ A natural estinator of 
+\begin_inset Formula $\overline{\sigma^{2}}$
+\end_inset
+
+ is 
+\begin_inset Formula $\overline{v}-\overline{c}$
+\end_inset
+
+, while a natural estimator of 
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+ is 
+\begin_inset Formula $\overline{c}$
+\end_inset
+
+.
+ Hence a natural estimator of 
+\begin_inset Formula $\left(1+\frac{\sigma^{2}}{\lambda^{2}k}\right)^{-1}$
+\end_inset
+
+ is 
+\begin_inset Formula $\left(1+\frac{\overline{v}-\overline{c}}{\overline{c}k}\right)^{-1}$
+\end_inset
+
+, which is coefficient alpha #insert reference#.
+ This is a consistent estimator of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:R^2, cronbach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ if and only if all 
+\begin_inset Formula $\lambda$
+\end_inset
+
+s are equal.
+ [[Prove or verify.]] In terms of populations quantities, 
+\begin_inset Formula 
+\[
+\left(1+\frac{\overline{v}-\overline{c}}{\overline{c}k}\right)^{-1}=\left(1+\frac{\frac{1}{n}\sum_{i=1}^{n}\left(\sigma_{i}^{2}+\lambda^{2}\right)-\lambda^{2}\text{}}{\lambda^{2}k}\right)^{-1}
+\]
+
+\end_inset
+
+if 
+\begin_inset Formula $\lambda_{j}$
+\end_inset
+
+ is not equal.
+\end_layout
+
+\begin_layout Standard
+((Do the same for the standardized alpha.)) [[Maybe possible to prove efficiency
+ by ML on the covariance matrix: Find the asymptotic relative efficiency.
+ Very likely be equally efficient.]]
+\end_layout
+
+\begin_layout Standard
+Both the 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:R^2, general"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:R^2, cronbach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ can be written as classical reliabilities, namely the ratio of the true
+ score variance to the ratio of the observed score variance:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}\right)^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\textrm{Var}\left(T\right)}{\textrm{Var}\left(X\right)} & = & \frac{\left(\sum w_{i}\lambda_{i}\right)^{2}}{E\left[\left(Z-X\right)^{2}\right]-1+2\sum w_{i}\lambda_{i}}\\
+ &  & \frac{\left(\sum w_{i}\lambda_{i}\right)^{2}}{\left(1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}\right)^{-1}-1+2\sum w_{i}\lambda_{i}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First look at McDonald's omega:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\textrm{Var}\left(T\right)}{\textrm{Var}\left(X\right)} & = & \frac{\textrm{Var}\left(Z\sum_{i=1}^{k}w_{i}\lambda_{i}\right)}{\textrm{Var}\left(Z\sum_{i=1}^{k}w_{i}\lambda_{i}+\sum_{i=1}^{n}w_{i}\sigma_{i}\epsilon_{i}\right)}\\
+ & = & \frac{\sum_{i=1}^{k}\lambda_{i}^{2}}{\sum_{i=1}^{k}\lambda_{i}^{2}+\sum_{i=1}^{k}\sigma_{i}^{2}}\\
+ & = & \frac{1}{1+\frac{\overline{\sigma^{2}}}{k\overline{\lambda}}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then the 
+\begin_inset Formula $H$
+\end_inset
+
+ coefficient:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\textrm{Var}\left(T\right)}{\textrm{Var}\left(X\right)} & = & \frac{\textrm{Var}\left(Z\sum_{i=1}^{k}w_{i}\lambda_{i}\right)}{\textrm{Var}\left(Z\sum_{i=1}^{k}w_{i}\lambda_{i}+\sum_{i=1}^{n}w_{i}\sigma_{i}\epsilon_{i}\right)}\\
+ & = & \frac{\left(\sum_{i=1}^{n}\lambda_{i}w_{i}\right)^{2}}{\left(\sum_{i=1}^{n}\lambda_{i}w_{i}\right)^{2}+\sum_{i=1}^{n}\sigma_{i}^{2}w_{i}^{2}}\\
+ & = & \left[1+\frac{\sum_{i=1}^{n}\sigma_{i}^{2}w_{i}^{2}}{\left(\sum_{i=1}^{n}\lambda_{i}w_{i}\right)^{2}}\right]^{-1}\\
+ & = & \left[1+\frac{\sum_{i=1}^{n}\sigma_{i}^{2}\lambda_{j}^{2}\left[\sigma_{j}^{2}\left(1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}\right)\right]^{-2}}{\left(\sum_{j=1}^{k}\lambda_{j}\lambda_{j}^{2}\left[\sigma_{j}^{2}\left(1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}\right)\right]^{-1}\right)^{2}}\right]^{-1}\\
+ &  & \left[1+\frac{\sum_{i=1}^{n}\sigma_{i}^{-2}\lambda_{j}^{2}}{\left(\sum_{j=1}^{k}\lambda_{j}\lambda_{j}^{2}\sigma_{j}^{-2}\right)^{2}}\right]^{-1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The results can easily be generalized to multiple latent variables.
+ The weighted 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ lost is 
+\begin_inset Formula 
+\[
+\sum\omega_{j}\left(z_{j}-y_{j}\right)^{2}
+\]
+
+\end_inset
+
+The weights are the same, but the risk is 
+\begin_inset Formula $\sum_{j=1}^{J}\omega_{j}\left(1+\sum_{i=1}^{k}\lambda_{ij}^{2}\sigma_{ij}^{-2}\right)^{-1}$
+\end_inset
+
+ and the 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ equals
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+1-\frac{\sum_{j=1}^{J}\omega_{j}\left(1+\sum_{i=1}^{k}\lambda_{ij}^{2}\sigma_{ij}^{-2}\right)^{-1}}{\sum_{j=1}^{J}\omega_{j}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\sum_{j=1}^{J}\omega_{j}\right)^{-1}\sum_{j=1}^{J}\omega_{j}\left[\frac{\sum_{i=1}^{k}\lambda_{ij}^{2}\sigma_{i}^{-2}}{1+\sum_{i=1}^{k}\lambda_{ij}^{2}\sigma_{i}^{-2}}\right]
+\]
+
+\end_inset
+
+If the weights sum to 
+\begin_inset Formula $1$
+\end_inset
+
+, this is the weighted combination of 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+s.
+ A natural choice of weights is 
+\begin_inset Formula $w_{j}=J^{-1}$
+\end_inset
+
+, which places equal importance on each latent variable.
+\end_layout
+
+\begin_layout Subsection
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+E\left[\left(Z-\sum_{i=1}^{k}w_{i}\left(X_{i}-\mu_{i}\right)\right)^{2}\right] & = & E\left[\left(\left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]Z-\sum_{i=1}^{k}w_{i}\sigma_{i}\epsilon_{i}\right)^{2}\right]\\
+ & = & E\left[\left(\left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]Z\right)^{2}\right]+E\left[\left(\sum_{i=1}^{k}w_{i}\sigma_{i}\epsilon_{i}\right)^{2}\right]\\
+ & = & \left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}
+\end{eqnarray*}
+
+\end_inset
+
+By differentiation, the minimum satisfies 
+\begin_inset Formula $\lambda_{j}\sum_{i=1}^{k}\lambda_{i}w_{i}+w_{j}\sigma_{j}^{2}=\lambda_{j}$
+\end_inset
+
+, thus 
+\begin_inset Formula 
+\[
+1-\sum_{i=1}^{k}\lambda_{i}w_{i}=\frac{w_{j}\sigma_{j}^{2}}{\lambda_{j}}
+\]
+
+\end_inset
+
+This implies 
+\begin_inset Formula $w_{i}=w_{j}\frac{\sigma_{j}^{2}}{\sigma_{i}^{2}}\frac{\lambda_{i}}{\lambda_{j}}$
+\end_inset
+
+ for each 
+\begin_inset Formula $i,j$
+\end_inset
+
+, hence 
+\begin_inset Formula $\sum_{i=1}^{k}w_{j}\lambda_{i}^{2}\frac{\sigma_{j}^{2}}{\sigma_{i}^{2}}+w_{j}\sigma_{j}^{2}=\lambda_{j}$
+\end_inset
+
+ for each 
+\begin_inset Formula $j$
+\end_inset
+
+, and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{j}=\frac{\lambda_{j}}{\sigma_{j}^{2}\left(1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}\right)}
+\]
+
+\end_inset
+
+The risk is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+w_{j}^{2}\frac{\sigma_{j}^{4}}{\lambda_{j}^{2}}+\sum_{i=1}^{k}w_{j}^{2}\frac{\sigma_{j}^{4}}{\sigma_{i}^{2}}\frac{\lambda_{i}^{2}}{\lambda_{j}^{2}} & = & w_{j}^{2}\lambda_{j}^{-2}\sigma_{j}^{4}\left(1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}\right)\\
+ & = & \lambda_{j}^{-1}\sigma_{j}^{2}w_{j}\\
+ & = & \frac{1}{1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}}
+\end{eqnarray*}
+
+\end_inset
+
+Hence 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\frac{\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}}{1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The Usefulness of More Items
+\end_layout
+
+\begin_layout Standard
+The conditional inflation rate is defined as 
+\begin_inset Formula 
+\[
+i_{Y}\left(X\mid Z\right)=\frac{E\left[R_{Y}\left(Z\right)\right]}{E\left[R_{Y}\left(Z,X\right)\right]}
+\]
+
+\end_inset
+
+This is useful to quantify the benefit of adding more questions to a questionair
+e or more items to a psychometric test.
+ In the case of the general setting in the last section: Let 
+\begin_inset Formula $I$
+\end_inset
+
+ and 
+\begin_inset Formula $J$
+\end_inset
+
+ be two index sets.
+ The benefit of adding the items indexed by 
+\begin_inset Formula $I$
+\end_inset
+
+ to a test indexed by 
+\begin_inset Formula $J$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i_{Y}\left(X_{I}\mid X_{J}\right)=\frac{1+\sum_{i\in I}\lambda_{i}^{2}\sigma_{i}^{-2}+\sum_{j\in J}\lambda_{j}^{2}\sigma_{j}^{-2}}{1+\sum_{j\in J}\lambda_{j}^{2}\sigma_{j}^{-2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Notes
+\end_layout
+
+\begin_layout Standard
+Main tasks:
+\end_layout
+
+\begin_layout Standard
+1.) Verify formula in R: Linear formula.
+ ✓
+\end_layout
+
+\begin_layout Standard
+2.) Verify formula in R: Sum score formula.
+ ✓
+\end_layout
+
+\begin_layout Standard
+3.) Compare scoring to previous scorings.
+\end_layout
+
+\begin_layout Standard
+3.) Verify formula for simple cases: Linear formula.
+\end_layout
+
+\begin_layout Standard
+4.) Verify formula for simple cases: Sum score formula.
+\end_layout
+
+\begin_layout Standard
+Consider the following linear inverse problem:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+X=\mu+\Lambda Z+\Sigma^{1/2}\epsilon\label{eq:Linear problem}
+\end{equation}
+
+\end_inset
+
+Here 
+\begin_inset Formula $X\in\mathbb{R}^{K}$
+\end_inset
+
+ is the observed variable, 
+\begin_inset Formula $Z\in\mathbb{R}^{J}$
+\end_inset
+
+ is the mean-zero latent variable , while 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is a mean-zero noise term with the identity covariance matrix, which is
+ independent of 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ Assume 
+\begin_inset Formula $X,Z,\epsilon$
+\end_inset
+
+ have finite second moments.
+ Let's imagine the case when we known 
+\begin_inset Formula $\mu,\Lambda$
+\end_inset
+
+ and all the moments of 
+\begin_inset Formula $X,Z,\epsilon$
+\end_inset
+
+, and consider the problem for estimating 
+\begin_inset Formula $Z$
+\end_inset
+
+ from 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Lambda=\left[\begin{array}{cccc}
+\lambda_{11} & \lambda_{21} & \cdots & \lambda_{J1}\\
+\lambda_{12} & \lambda_{22} & \cdots & \lambda_{J2}\\
+\vdots & \vdots & \ddots & \vdots\\
+\lambda_{1K} & \lambda_{2K} & \cdots & \lambda_{JK}
+\end{array}\right]=\left[\begin{array}{ccc}
+\Lambda_{1} & \cdots & \Lambda_{J}\end{array}\right]
+\]
+
+\end_inset
+
+It is a 
+\begin_inset Formula $K\times J$
+\end_inset
+
+ matrix.
+ 
+\begin_inset Formula $W=\left[\begin{array}{c}
+w_{1}^{T}\\
+\vdots\\
+w_{J}^{T}
+\end{array}\right]$
+\end_inset
+
+ is a 
+\begin_inset Formula $J\times K$
+\end_inset
+
+ matrix of weights for each factor.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Gamma & = & \textrm{Cov}Z
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\widehat{Z} & = & \textrm{argmin}_{A}E\left[\left\Vert Z-W\left(X-\mu\right)\right\Vert _{2}^{2}\right]\\
+ & = & \textrm{argmin}_{A}E\left\{ \left[Z-W\left(X-\mu\right)\right]^{T}\left[Z-W\left(X-\mu\right)\right]\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\textrm{argmin}_{W}E\left[\sum_{j=1}^{J}\left\Vert Z_{j}-w_{j}\left(X-\mu\right)\right\Vert _{2}^{2}\right]\\
+\textrm{argmin}_{W}E\left[\sum_{j=1}^{J}\left\Vert Z_{j}-w_{j}^{T}\left(\Lambda Z+\Sigma^{1/2}\epsilon\right)\right\Vert _{2}^{2}\right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then 
+\begin_inset Formula 
+\begin{eqnarray*}
+E\left\Vert Z_{j}-\left(\Lambda Z+\Sigma^{1/2}\epsilon\right)w_{j}\right\Vert _{2}^{2} & = & EZ_{j}^{2}-2E\left[Z_{j}\left(\Lambda Z+\Sigma^{1/2}\epsilon\right)\right]w_{j}^{T}+E\left[\left(\Lambda Z+\Sigma^{1/2}\epsilon\right)^{T}w_{j}w_{j}^{T}\left(\Lambda Z+\Sigma^{1/2}\epsilon\right)\right]\\
+ & = & \Gamma_{jj}-2E\left[Z_{j}\Lambda Z\right]w_{j}^{T}+\left[\textrm{Var}\left(w_{j}^{T}\Lambda Z\right)+\textrm{Var}\left(w_{j}^{T}\Sigma^{1/2}\epsilon\right)\right]\\
+ & = & \Gamma_{jj}-2w_{j}^{T}E\left[Z_{j}\Lambda Z\right]+w_{j}^{T}\left[\Lambda^{T}\Gamma\Lambda+\Sigma\right]w_{j}
+\end{eqnarray*}
+
+\end_inset
+
+Here 
+\begin_inset Formula 
+\begin{eqnarray*}
+2E\left[Z_{j}\Lambda Z\right] & = & 2E\left[Z_{j}\left[\begin{array}{cccc}
+\Lambda_{1}Z_{1} & \Lambda_{2}Z_{2} & \cdots & \Lambda_{J}Z_{J}\end{array}\right]\right]\\
+ & = & 2\left[\begin{array}{cccc}
+\Lambda_{1}\Gamma_{j1} & \Lambda_{2}\Gamma_{jJ} & \cdots & \Lambda_{J}\Gamma_{jJ}\end{array}\right]\\
+ & = & 2\Lambda\Gamma_{j}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Gamma_{jj}-2w_{j}^{T}\Lambda\Gamma_{j}+w_{j}^{T}\left[\Lambda^{T}\Gamma\Lambda+\Sigma\right]w_{j}
+\]
+
+\end_inset
+
+Differentiate wrt 
+\begin_inset Formula $w_{j}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+-2\left(\Lambda\Gamma_{j}\right)^{T}+2w_{j}^{T}\left[\Lambda^{T}\Gamma\Lambda+\Sigma\right] & = & 0\\
+w_{j}^{} & = & \Gamma_{j}^{T}\Lambda^{T}\left(\Lambda^{T}\Gamma\Lambda+\Sigma\right)^{-1}\\
+ & = & \left(\Lambda^{T}\Gamma\Lambda+\Sigma\right)^{-1}\Lambda\Gamma_{j}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Partly verified.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{j}=\lambda_{j}\left[\sigma_{j}^{2}\left(1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}\right)\right]^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+Hence 
+\begin_inset Formula $W^{T}=\left(\Lambda^{T}\Gamma\Lambda+\Sigma\right)^{-1}\Lambda\Gamma$
+\end_inset
+
+.
+ The risk is pretty comples too.
+\end_layout
+
+\begin_layout Standard
+Task: Find source for differentation wrt 
+\begin_inset Formula $W$
+\end_inset
+
+ and steamline.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\textrm{tr\Gamma}-2W\Lambda\Gamma+W\left[\Lambda^{T}\Gamma\Lambda+\Sigma\right]W^{T}\\
+\textrm{tr\Gamma}-\Gamma^{T}\Lambda^{T}\left(\Lambda^{T}\Gamma\Lambda+\Sigma\right)^{-1}\Lambda\Gamma
+\end{eqnarray*}
+
+\end_inset
+
+If 
+\begin_inset Formula $\Gamma=I$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\textrm{tr\Gamma}-\Lambda^{T}\left(\Lambda^{T}\Lambda+\Sigma\right)^{-1}\Lambda
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Partly verified)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}\right)^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Results:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+W^{T} & = & \left(\Lambda\Gamma\Lambda^{T}+\Sigma\right)^{-1}\Lambda\Gamma\\
+R & = & \textrm{tr\Gamma}-\textrm{tr}\left(\Lambda\Gamma\Lambda^{T}\Gamma^{T}\left(\Lambda^{T}\Gamma\Lambda+\Sigma\right)^{-1}\right)\\
+R^{2} & = & \frac{\Lambda^{T}\Gamma^{T}\left(\Lambda^{T}\Gamma\Lambda+\Sigma\right)^{-1}\Lambda\Gamma}{\textrm{tr\Gamma}}\\
+I & = & \left(1-\frac{\textrm{tr}\left(\Lambda^{T}\Gamma^{T}\left(\Lambda^{T}\Gamma\Lambda+\Sigma\right)^{-1}\Lambda\Gamma\right)}{\textrm{tr\Gamma}}\right)^{-1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The isolated risks are
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Gamma_{jj}-2\left(\Lambda^{T}\Gamma\Lambda+\Sigma\right)^{-1}\Lambda\Gamma_{j}\Lambda\Gamma_{j}+\left(\Lambda\Gamma_{j}\right)^{T}\left(\Lambda^{T}\Gamma\Lambda+\Sigma\right)^{-1}\left(\Lambda\Gamma_{j}\right)\\
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\textrm{diag}\Gamma-\textrm{diag}\left\{ \Lambda^{T}\Gamma^{T}\left(\Lambda^{T}\Gamma\Lambda+\Sigma\right)^{-1}\Lambda\Gamma\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sum Scores
+\end_layout
+
+\begin_layout Standard
+Now consider sum scores.
+ Let 
+\begin_inset Formula $I_{j}$
+\end_inset
+
+ be an indicator vector for the 
+\begin_inset Formula $j$
+\end_inset
+
+th latent variable and consider the problems
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\textrm{argmin}_{W}E\left[\sum_{j=1}^{J}\left\Vert Z_{j}-w_{j}I_{j}^{T}\left(X-\mu\right)\right\Vert _{2}^{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\textrm{argmin}_{W,I_{j}}E\left[\sum_{j=1}^{J}\left\Vert Z_{j}-w_{j}I_{j}^{T}\left(X-\mu\right)\right\Vert _{2}^{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\textrm{argmin}_{W,I_{j}}E\left[\sum_{j=1}^{J}\left\Vert Z_{j}-w_{j}I_{j}^{T}\left(X-\mu\right)\right\Vert _{2}^{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the first problem all the indicator vectors are given a priori.
+ This is common pratice in both single and multifactor models.
+\end_layout
+
+\begin_layout Standard
+In the second proble we allow the algorithm to choose the best indicator
+ vectors for us.
+\end_layout
+
+\begin_layout Standard
+In the third problem we optimize the sign of the indicator vectors to.
+\end_layout
+
+\begin_layout Subsubsection
+Proof
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $w_{j}$
+\end_inset
+
+ is a scalar.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+E\left\Vert Z_{j}-w_{j}I_{j}^{T}\left(\Lambda Z+\Sigma^{1/2}\epsilon\right)\right\Vert _{2}^{2} & = & EZ_{j}^{2}-2Ew_{j}I_{j}^{T}\left[Z_{j}\left(\Lambda Z+\Sigma^{1/2}\epsilon\right)\right]+w_{j}^{2}E\left[\left(\Lambda Z+\Sigma^{1/2}\epsilon\right)^{T}I_{j}I_{j}^{T}\left(\Lambda Z+\Sigma^{1/2}\epsilon\right)\right]\\
+ & = & \Gamma_{jj}-2Ew_{j}I_{j}^{T}\left[Z_{j}\Lambda Z\right]+w_{j}^{2}\left[\textrm{Var}\left(I_{j}^{T}\Lambda Z\right)+\textrm{Var}\left(I_{j}^{T}\Sigma^{1/2}\epsilon\right)\right]\\
+ & = & \Gamma_{jj}-2w_{j}I_{j}^{T}\Lambda E\left[Z_{j}Z\right]+w_{j}^{2}\left[I_{j}\Lambda^{T}\Gamma\Lambda I_{j}^{T}+I_{j}\Sigma I_{j}^{T}\right]\\
+ & = & \Gamma_{jj}-2w_{j}I_{j}^{T}\Lambda\Gamma_{j}+w_{j}^{2}\left[I_{j}\Lambda^{T}\Gamma\Lambda I_{j}^{T}+I_{j}\Sigma I_{j}^{T}\right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here 
+\begin_inset Formula $\Gamma_{j}=E\left(Z_{j}Z\right)$
+\end_inset
+
+ is the 
+\begin_inset Formula $j$
+\end_inset
+
+th column of 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+, the covariance matrix of 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ Write this one as 
+\begin_inset Formula $\Gamma e_{j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+w_{j} & = & \frac{I_{j}^{T}\Lambda\Gamma_{j}}{I_{j}\Lambda^{T}\Gamma\Lambda I_{j}^{T}+I_{j}\Sigma I_{j}^{T}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Risk:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Gamma_{jj}-\frac{\left(I_{j}^{T}\Lambda\Gamma_{j}\right)^{2}}{I_{j}\Lambda\Gamma\Lambda^{T}I_{j}^{T}+I_{j}\Sigma I_{j}^{T}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Verified for one factor.) (Wrie 
+\begin_inset Formula $\Lambda\Gamma_{j}=v_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $V_{j}=\textrm{diag}v_{j}$
+\end_inset
+
+ to get 
+\begin_inset Formula $I_{j}^{T}V_{j}I_{j}$
+\end_inset
+
+ in the numerator.
+ Then 
+\begin_inset Formula 
+\[
+R=\Gamma_{jj}-\frac{I_{j}^{T}V_{j}I_{j}}{I_{j}^{T}\left(\Lambda\Gamma\Lambda^{T}+\Sigma\right)I_{j}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\textrm{tr}\Gamma-\sum_{j=1}^{J}\frac{\left(\iota_{j}^{T}\Lambda\Gamma_{j}\right)^{2}}{\iota_{j}\left(\Lambda\Gamma\Lambda^{T}+\Sigma\right)\iota_{j}^{T}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This can be used to find the optimal 
+\begin_inset Formula $\iota=\left(\iota_{1},\iota_{2},\ldots,\iota_{J}\right)$
+\end_inset
+
+.
+ There are 
+\begin_inset Formula $J$
+\end_inset
+
+ independent problems where each can efficiently be solved by
+\end_layout
+
+\begin_layout Standard
+1.) Calculate 
+\begin_inset Formula $\Lambda^{T}\Gamma\Lambda+\Sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+2.) For each 
+\begin_inset Formula $j=1,\ldots,J$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+[Problem: Must choose all subsets from 
+\begin_inset Formula $K$
+\end_inset
+
+? Or can we order in some other way?]
+\end_layout
+
+\begin_layout Standard
+Minimizing the risk is equivalent to maximizing 
+\begin_inset Formula $\frac{\left(I_{j}^{T}\Lambda\Gamma_{j}\right)^{2}}{I_{j}\Lambda\Gamma\Lambda^{T}I_{j}^{T}+I_{j}\Sigma I_{j}^{T}}$
+\end_inset
+
+.
+ This can probably be by transforming the problem to a linear integer program.
+\end_layout
+
+\begin_layout Standard
+This looks like quadratic 
+\begin_inset Formula $0-1$
+\end_inset
+
+ or integer programming, which is NP-hard.
+ Program it in lpsolve.
+ Q: Is it a linear program for real?
+\end_layout
+
+\begin_layout Standard
+Two steps:
+\end_layout
+
+\begin_layout Standard
+1.) Linearize the quadratic terms
+\end_layout
+
+\begin_layout Standard
+2.) Use the transformation of linear-fractional programming.
+\end_layout
+
+\begin_layout Standard
+3.) Use e.g.
+ lpsolve.
+\end_layout
+
+\begin_layout Part
+Old
+\end_layout
+
+\begin_layout Section
+Reliability
+\end_layout
+
+\begin_layout Standard
+Coefficient alpha is the most popular measure of validity in psychometry.
+\end_layout
+
+\begin_layout Standard
+It can recovered as follows.
+ Assume 
+\begin_inset Formula $Z$
+\end_inset
+
+ is standard normal.
+ Assume 
+\begin_inset Formula $x$
+\end_inset
+
+ is a vector of 
+\begin_inset Formula $K$
+\end_inset
+
+ conditionally (on 
+\begin_inset Formula $z$
+\end_inset
+
+) independent reals with normal densities, 
+\begin_inset Formula $p\left(x_{i}\mid z,\sigma_{i}\right)=\phi\left(x_{i}\mid z,\sigma_{i}\right)$
+\end_inset
+
+.
+ Consider the decision theoretic 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ with quadratic loss, 
+\begin_inset Formula $r_{Z}\left(X,\sigma\right)=1-\frac{E\left(R\left(Z\mid X,\sigma\right)\right)}{E\left(R\left(Z\right)\right)}$
+\end_inset
+
+.
+ Since the conditional optimal act is the weighted mean 
+\begin_inset Formula $a^{\star}\left(X,\sigma\right)=\left(\sum_{i=1}^{k}\sigma_{i}^{-1}\right)^{-1}\sum_{i=1}^{k}\sigma_{i}^{-1}X_{i}$
+\end_inset
+
+ and the unconditional optimal act is 
+\begin_inset Formula $0$
+\end_inset
+
+, the numerator is 
+\begin_inset Formula 
+\begin{eqnarray*}
+E\left[\left(Z-\left(\sum_{i=1}^{k}\sigma_{i}^{-1}\right)^{-1}\sum_{i=1}^{k}\sigma_{i}^{-1}X_{i}\right)^{2}\right] & = & E\left[\left(Z-\left(Z+\sqrt{k}\left(\sum_{i=1}^{k}\sigma_{i}^{-1}\right)^{-1}\epsilon\right)\right)^{2}\right]\\
+ & = & E\left[\left(\sqrt{k}\left(\sum_{i=1}^{k}\sigma_{i}^{-1}\right)^{-1}\epsilon\right)^{2}\right]\\
+ & = & \sqrt{k}\left(\sum_{i=1}^{k}\sigma_{i}^{-1}\right)^{-2}
+\end{eqnarray*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is standard normal.
+ Hence the 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+-based reliability is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+1-k\left(\sum_{i=1}^{k}\sigma_{i}^{-1}\right)^{-2}
+\]
+
+\end_inset
+
+and the 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ inflation rate is 
+\begin_inset Formula $\sum_{i=1}^{k}\sigma_{i}^{-1}$
+\end_inset
+
+.
+ In particular, the 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ inflation is 
+\begin_inset Formula $k/\sigma$
+\end_inset
+
+ when all 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+s are equal.
+\end_layout
+
+\begin_layout Subsection
+A Point
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $Z$
+\end_inset
+
+ be a standard normal latent variable and 
+\begin_inset Formula $X=Z+\epsilon$
+\end_inset
+
+ for some mean zero noise 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $Z-X=\epsilon$
+\end_inset
+
+, 
+\begin_inset Formula $E\left[\left(Z-X\right)^{2}\right]=\textrm{Var}\epsilon$
+\end_inset
+
+, 
+\begin_inset Formula $X$
+\end_inset
+
+ aids in prediction of 
+\begin_inset Formula $Z$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $\textrm{Var}\epsilon<1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+f\left[\left(Z-\sum_{i=1}^{k}w_{i}X_{i}\right)^{2}\right] & = & E\left[\left(\left[1-\sum_{i=1}^{k}w_{i}\right]Z-\sum_{i=1}^{k}w_{i}\sigma_{i}\epsilon_{i}\right)^{2}\right]\\
+ & = & E\left[\left(\left[1-\sum_{i=1}^{k}w_{i}\right]Z\right)^{2}\right]+E\left[\left(\sum_{i=1}^{k}w_{i}\sigma_{i}\epsilon_{i}\right)^{2}\right]\\
+ & = & \left[1-\sum_{i=1}^{k}w_{i}\right]^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}
+\end{eqnarray*}
+
+\end_inset
+
+Derivative wrt 
+\begin_inset Formula $w_{j}$
+\end_inset
+
+ yields
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+2\left[\sum_{i=1}^{k}w_{i}-1\right]+2w_{j}\sigma_{j}^{2}\\
+\sum_{i=1}^{k}w_{i} & +w_{j}\sigma_{j}^{2}= & 1
+\end{eqnarray*}
+
+\end_inset
+
+This is a linear system with matrix 
+\begin_inset Formula $A=J+\Sigma$
+\end_inset
+
+, where is the matrix of ones and 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ has the 
+\begin_inset Formula $\sigma_{j}^{2}$
+\end_inset
+
+s on the diagonal.
+\end_layout
+
+\begin_layout Standard
+When all the variances are equal, by symmetry, each 
+\begin_inset Formula $w_{j}$
+\end_inset
+
+ are equal, hence 
+\begin_inset Formula $\left(k+\sigma^{2}\right)w_{j}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $w_{j}=\frac{1}{k+\sigma^{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Anyhow, the risk is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[1-\sum_{i=1}^{k}w_{i}\right]^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}=w_{j}^{2}\sigma_{j}^{4}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}
+\]
+
+\end_inset
+
+Hence 
+\begin_inset Formula $w_{i}^{2}\sigma_{i}^{4}=w_{1}^{2}\sigma_{1}^{4}$
+\end_inset
+
+ and 
+\begin_inset Formula $w_{i}^{2}=w_{1}^{2}\frac{\sigma_{1}^{4}}{\sigma_{i}^{4}}$
+\end_inset
+
+, hence it suffices to find one weight 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+w_{1}^{2}\sigma_{1}^{4}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2} & = & w_{1}^{2}\sigma_{1}^{4}+\sum_{i=1}^{k}w_{1}^{2}\sigma_{1}^{4}\sigma_{i}^{2}\\
+ & = & w_{1}^{2}\sigma_{1}^{4}\left(1+\sum_{i=1}^{k}\sigma_{i}^{-2}\right)
+\end{eqnarray*}
+
+\end_inset
+
+Since
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{i}=w_{1}\frac{\sigma_{1}^{2}}{\sigma_{i}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{i=1}^{k}w_{i}+w_{1}\sigma_{1}^{2}=w_{1}\sigma_{1}^{2}\left(1+\sum_{i=1}^{k}\sigma_{i}^{-2}\right)
+\]
+
+\end_inset
+
+Thus 
+\begin_inset Formula $w_{1}=\frac{1}{\sigma_{1}^{2}\left(1+\sum_{i=1}^{k}\sigma_{i}^{-2}\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $w_{j}=\frac{1}{\sigma_{j}^{2}\left(1+\sum_{i=1}^{k}\sigma_{i}^{-2}\right)}$
+\end_inset
+
+ in general.
+\end_layout
+
+\begin_layout Standard
+The risk is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+w_{j}^{2}\sigma_{j}^{4}\left(1+\sum_{i=1}^{k}\sigma_{i}^{-2}\right) & = & \frac{\left(1+\sum_{i=1}^{k}\sigma_{i}^{-2}\right)}{\left(1+\sum_{i=1}^{k}\sigma_{i}^{-2}\right)^{2}}\\
+ & = & \frac{1}{\left(1+\sum_{i=1}^{k}\sigma_{i}^{-2}\right)}
+\end{eqnarray*}
+
+\end_inset
+
+Hence 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\begin{eqnarray*}
+1-\frac{1}{\left(1+\sum_{i=1}^{k}\sigma_{i}^{-2}\right)} & = & \frac{\sum_{i=1}^{k}\sigma_{i}^{-2}}{\left(1+\sum_{i=1}^{k}\sigma_{i}^{-2}\right)}\\
+ & = & \frac{\textrm{tr}\Sigma^{-1}}{1+\textrm{tr}\Sigma^{-1}}
+\end{eqnarray*}
+
+\end_inset
+
+This can be estimated with maximum likelihood.
+ Notice that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X=N\left(0,\Gamma\right)
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $\Gamma=\lambda^{2}J_{kk}+\Sigma$
+\end_inset
+
+, where 
+\begin_inset Formula $J_{kk}$
+\end_inset
+
+ is the 
+\begin_inset Formula $k\times k$
+\end_inset
+
+ matrix of ones and 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ is the diagonal matrix with 
+\begin_inset Formula $\sigma_{i}^{2}$
+\end_inset
+
+ on the diagonal.
+ (Maybe the ML of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is the mean covariance between the 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+s? Then 
+\begin_inset Formula $\sigma_{i}^{2}=\textrm{Var}X_{i}-\lambda$
+\end_inset
+
+ is an estimator of 
+\begin_inset Formula $\sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+With different loadings 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+, the covariance is 
+\begin_inset Formula $\lambda_{i}\lambda_{j}$
+\end_inset
+
+ instead.
+ Hence 
+\begin_inset Formula $\Gamma=\lambda\lambda^{T}+\Sigma$
+\end_inset
+
+.
+ With different means 
+\begin_inset Formula $\tau$
+\end_inset
+
+, it is 
+\begin_inset Formula $X=N\left(\tau,\lambda\lambda^{T}+\Sigma\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+And
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\sigma^{4}}{\left(k+\sigma^{2}\right)^{2}}+k\frac{\sigma^{2}}{\left(k+\sigma^{2}\right)^{2}}=\frac{k\sigma^{2}+\sigma^{4}}{\left(k+\sigma^{2}\right)^{2}}
+\]
+
+\end_inset
+
+when the variances are equal.
+ The 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+1-\frac{k\sigma^{2}+\sigma^{4}}{\left(k+\sigma^{2}\right)^{2}} & = & \frac{\left(k+\sigma^{2}\right)^{2}-k\sigma^{2}-\sigma^{4}}{\left(k+\sigma^{2}\right)^{2}}\\
+ & = & \frac{k\left(k+\sigma^{2}\right)}{\left(k+\sigma^{2}\right)^{2}}\\
+ & = & \frac{k}{\left(k+\sigma^{2}\right)}\\
+ & = & \frac{1}{1+\sigma^{2}/k}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A reasonable estimator is 
+\begin_inset Formula $\frac{1}{1+\frac{\overline{v}-\overline{c}}{k}}$
+\end_inset
+
+, but Cronbach's alpha is 
+\begin_inset Formula $\frac{1}{1+\frac{\overline{v}-\overline{c}}{k\overline{c}}}$
+\end_inset
+
+, where 
+\begin_inset Formula $\overline{c}$
+\end_inset
+
+ is the average covariance – aha! This allows for different lambdas.
+\end_layout
+
+\begin_layout Section
+With 
+\begin_inset Formula $\lambda$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+f\left[\left(Z-\sum_{i=1}^{k}w_{i}X_{i}\right)^{2}\right] & = & E\left[\left(\left[1-\lambda\sum_{i=1}^{k}w_{i}\right]Z-\sum_{i=1}^{k}w_{i}\sigma_{i}\epsilon_{i}\right)^{2}\right]\\
+ & = & E\left[\left(\left[1-\sum_{i=1}^{k}w_{i}\right]Z\right)^{2}\right]+E\left[\left(\sum_{i=1}^{k}w_{i}\sigma_{i}\epsilon_{i}\right)^{2}\right]\\
+ & = & \left[1-\lambda\sum_{i=1}^{k}w_{i}\right]^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}
+\end{eqnarray*}
+
+\end_inset
+
+By differentiatio, the minimum satisfies 
+\begin_inset Formula $\lambda\sum_{i=1}^{k}w_{i}+w_{j}\sigma_{j}^{2}=1$
+\end_inset
+
+.
+ Still, 
+\begin_inset Formula $w_{i}=w_{j}\frac{\sigma_{j}^{2}}{\sigma_{i}^{2}}$
+\end_inset
+
+ for each 
+\begin_inset Formula $i,j$
+\end_inset
+
+, hence 
+\begin_inset Formula $\lambda\sum_{i=1}^{k}w_{j}\frac{\sigma_{j}^{2}}{\sigma_{i}^{2}}+w_{j}\sigma_{j}^{2}=1$
+\end_inset
+
+, or 
+\begin_inset Formula $w_{j}\sigma_{j}^{2}\left(1+\lambda\sum_{i=1}^{k}\sigma_{i}^{-2}\right)=1$
+\end_inset
+
+, thus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{j}=\frac{1}{\sigma_{j}^{2}\left(1+\lambda\sum_{i=1}^{k}\sigma_{i}^{-2}\right)}
+\]
+
+\end_inset
+
+The risk is 
+\begin_inset Formula 
+\begin{eqnarray*}
+w_{j}^{2}\sigma_{j}^{4}\left(1+\lambda\sum_{i=1}^{k}\sigma_{i}^{-2}\right) & = & \frac{\sigma_{j}^{4}\left(1+\lambda\sum_{i=1}^{k}\sigma_{i}^{-2}\right)}{\sigma_{j}^{4}\left(1+\lambda\sum_{i=1}^{k}\sigma_{i}^{-2}\right)^{2}}\\
+ & = & \frac{1}{\left(1+\lambda\sum_{i=1}^{k}\sigma_{i}^{-2}\right)}
+\end{eqnarray*}
+
+\end_inset
+
+Hence 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\frac{\lambda^{2}\sum_{i=1}^{k}\sigma_{i}^{-2}}{\left(1+\lambda^{2}\sum_{i=1}^{k}\sigma_{i}^{-2}\right)}
+\]
+
+\end_inset
+
+When the variances are equal, this reduces to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\lambda^{2}k\sigma^{-2}}{1+\lambda^{2}k\sigma^{-2}}=\frac{1}{1+\frac{\sigma^{2}}{\lambda^{2}k}}
+\]
+
+\end_inset
+
+A natural estinator of 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ is 
+\begin_inset Formula $\overline{v}-\overline{c}$
+\end_inset
+
+, while a natural estimator of 
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+ is 
+\begin_inset Formula $\overline{c}$
+\end_inset
+
+.
+ Hence a natural estimator of 
+\begin_inset Formula $\left(1+\frac{\sigma^{2}}{\lambda^{2}k}\right)^{-1}$
+\end_inset
+
+ is 
+\begin_inset Formula $\left(1+\frac{\overline{v}-\overline{c}}{\overline{c}k}\right)^{-1}$
+\end_inset
+
+, which is Cronbach's alpha.
+\end_layout
+
+\begin_layout Section
+Variable 
+\begin_inset Formula $\lambda$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Use the same derivation to arrive at:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}}{1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}}
+\]
+
+\end_inset
+
+Notice some things:
+\end_layout
+
+\begin_layout Standard
+1.) Normality is not required for any of the variables.
+\end_layout
+
+\begin_layout Standard
+2.) The only requirement is finite variance for each variable.
+\end_layout
+
+\begin_layout Standard
+3.) Increments can easily be calculated.
+\end_layout
+
+\begin_layout Standard
+4.) The optimal act (or test composition) is not unique across loss functions.
+\end_layout
+
+\begin_layout Standard
+Problem: Is the linear combination optimal?
+\end_layout
+
+\begin_layout Section
+Questions
+\end_layout
+
+\begin_layout Enumerate
+What is 
+\begin_inset Formula $p\left(z\mid x_{1},\ldots,x_{k}\right)$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Enumerate
+Are linear combinations always optimal? (Find the expectation of 
+\begin_inset Formula $Z\mid X$
+\end_inset
+
+).
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Not in absolute generality, but maybe in our case? Can make 
+\begin_inset Formula $X_{i},X_{j}$
+\end_inset
+
+ orthogonal by conditioning on 
+\begin_inset Formula $Z$
+\end_inset
+
+, which might help?
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+What is the asymptotic distribution of the reliability? (Use the delta method
+ and the asymptotic distribution of the ML estimates or MoM.
+ Not many lines on this?)
+\end_layout
+
+\begin_layout Enumerate
+How can inflation factors be used to quantify the utility of more questions?
+\end_layout
+
+\begin_layout Subsection
+Normal Density
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Quotes eld
+\end_inset
+
+reversed
+\begin_inset Quotes erd
+\end_inset
+
+ density is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p\left(z\mid x_{1},\ldots,x_{k}\right)\propto\prod_{i=1}^{k}p\left(x_{i}\mid z\right)p\left(z\right)
+\]
+
+\end_inset
+
+When everything is normal, it is proportional to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\prod_{i=1}^{k}\phi\left(x_{i},\mu_{i}+\lambda_{i}z,\sigma_{i}\right)\phi\left(z\right)
+\]
+
+\end_inset
+
+The resulting density is normal with 
+\begin_inset Formula $\sigma^{2}=\left[1+\sum_{i=1}^{k}\lambda_{i}^{-2}/\sigma_{i}^{2}\right]^{-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu=\sum_{i=1}^{k}\left(x_{i}-\mu_{i}\right)\left[\lambda_{j}^{-2}\sigma_{j}^{2}\left(1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}\right)\right]^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Conditional Expectation
+\end_layout
+
+\begin_layout Standard
+The optimal 
+\begin_inset Formula $f$
+\end_inset
+
+ is a weighted linear combination since the conditional expectation is an
+ 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ projection:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E\left(Z\mid X_{1},\ldots,X_{k}\right)=\sum_{i=1}^{k}\left\langle Z,X_{i}^{\star}\right\rangle X_{i}^{\star}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\left\{ X_{i}^{\star}\right\} _{i=1}^{k}$
+\end_inset
+
+ is an orthogonalization of the original 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ (centered and normalized).
+ This can be found by Gram-Schidt.
+ Since
+\begin_inset Formula 
+\[
+\left\langle X_{j},X_{i}\right\rangle =\lambda_{i}\lambda_{j}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+Y_{1}^{\star} & = & X_{1}\\
+Y_{2}^{\star} & = & X_{2}-\lambda_{1}\lambda_{2}X_{1}\\
+Y_{3}^{\star} & = & X_{3}-\lambda_{1}\lambda_{3}X_{1}-\lambda_{2}\lambda_{3}X_{2}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+Y_{j}^{\star} & = & X_{j}+\sum_{j=1}^{j-1}\lambda_{i}\lambda_{j}X_{i}\\
+X_{j}^{\star} & = & Y_{j}^{\star}/\left(1+\sum_{j=1}^{j-1}\lambda_{i}^{2}\lambda_{j}^{2}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+..
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+E\left[\left|Z-\sum_{i=1}^{k}w_{i}\left(X_{i}-\mu_{i}\right)\right|\right] & = & E_{Z>\sum_{i=1}^{k}w_{i}\left(X_{i}-\mu_{i}\right)}\left[Z-\sum_{i=1}^{k}w_{i}\left(X_{i}-\mu_{i}\right)\right]+E_{Z\leq\sum_{i=1}^{k}w_{i}\left(X_{i}-\mu_{i}\right)}\left[Z-\sum_{i=1}^{k}w_{i}\left(X_{i}-\mu_{i}\right)\right]\\
+ & = & E\left[\left(\left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]Z\right)^{2}\right]+E\left[\left(\sum_{i=1}^{k}w_{i}\sigma_{i}\epsilon_{i}\right)^{2}\right]\\
+ & = & \left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}
+\end{eqnarray*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $Z-\sum_{i=1}^{k}w_{i}\left(X_{i}-\mu_{i}\right)=\left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]Z+\sum_{i=1}^{k}w_{i}\sigma_{i}\epsilon_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $Z>\sum_{i=1}^{k}w_{i}\left(X_{i}-\mu_{i}\right)$
+\end_inset
+
+ is equivalent to 
+\begin_inset Formula $\left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]Z>\sum_{i=1}^{k}w_{i}\sigma_{i}\epsilon_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This depends on the distribution of the 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+E\left[\left(Z-w\sum_{i=1}^{k}\left(X_{i}-\mu_{i}\right)-\theta\right)^{2}\right] & = & E\left[\left(\left[1-w\sum_{i=1}^{k}\lambda_{i}\right]Z-w\sum_{i=1}^{k}\sigma_{i}\epsilon_{i}\right)^{2}\right]\\
+ & = & E\left[\left(\left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]Z\right)^{2}\right]+E\left[\left(w\sum_{i=1}^{k}\sigma_{i}\epsilon_{i}\right)^{2}\right]\\
+ & = & \left[1-w\sum_{i=1}^{k}\lambda_{i}\right]^{2}+w^{2}\sum_{i=1}^{k}\sigma_{i}^{2}
+\end{eqnarray*}
+
+\end_inset
+
+Differentation wrt 
+\begin_inset Formula $\omega$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2\sum_{i=1}^{k}\lambda_{i}\left[w\sum_{i=1}^{k}\lambda_{i}-1\right]+2w\sum_{i=1}^{k}\sigma_{i}^{2}
+\]
+
+\end_inset
+
+Hence 
+\begin_inset Formula $w=\frac{\overline{\lambda}}{\overline{\sigma^{2}}+k\overline{\lambda}^{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The risk is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\left[1-wk\overline{\lambda}\right]^{2}+w^{2}k\overline{\sigma^{2}} & = & \left[1-\frac{k\overline{\lambda}^{2}}{\overline{\sigma^{2}}+k\overline{\lambda}^{2}}\right]^{2}+\frac{k\overline{\lambda}^{2}\overline{\sigma^{2}}}{\left(\overline{\sigma^{2}}+k\overline{\lambda}^{2}\right)^{2}}\\
+ & = & \frac{\overline{\sigma^{2}}^{2}}{\left(\overline{\sigma^{2}}+k\overline{\lambda}^{2}\right)^{2}}+\frac{k\overline{\lambda}^{2}\overline{\sigma^{2}}}{\left(\overline{\sigma^{2}}+k\overline{\lambda}^{2}\right)^{2}}\\
+ & = & \frac{\overline{\sigma^{2}}}{\overline{\sigma^{2}}+k\overline{\lambda}^{2}}\\
+ & = & \frac{1}{1+k\frac{\overline{\lambda}^{2}}{\overline{\sigma}^{2}}}
+\end{eqnarray*}
+
+\end_inset
+
+The risk is greater by definition unless all 
+\begin_inset Formula $\lambda$
+\end_inset
+
+s and all 
+\begin_inset Formula $\sigma$
+\end_inset
+
+s are equal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+1-\frac{1}{1+k\frac{\overline{\lambda}^{2}}{\overline{\sigma}^{2}}}=\frac{1}{1+\frac{\overline{\sigma}^{2}}{k\overline{\lambda}^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

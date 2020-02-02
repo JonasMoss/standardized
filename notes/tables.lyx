@@ -1,0 +1,4426 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Argument 2
+\end_layout
+
+\begin_layout Standard
+I have two arguments against using standardized alpha for standardized test
+ items.
+ First, you should not standardize test items.
+ Second, even if you decide to standardize test items, please avoid standardized
+ alpha and use a suitably modified congeneric reliability instead.
+\end_layout
+
+\begin_layout Standard
+My point of departure is the following quote of Osburn (p.
+ 348):
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+enquote{However, it is important to note that the true reliability of a
+ measure is the same for both standardized and unstandardized observed scores.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I will argue against this.
+ The purpose of a reliability coefficient is, among other things, to be
+ used to correct correlations for attenuation.
+ In order for this to be possible, the reliability has to be the 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ between the predicted value of 
+\begin_inset Formula $Z$
+\end_inset
+
+ and the true 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ This 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ will change on the population level when you use standardized scores, as
+ I will explain soon.
+\end_layout
+
+\begin_layout Standard
+How you interpret 
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+ changes when you stop viewing it as an approximation to the congeneric
+ reliability 
+\begin_inset Formula $\omega$
+\end_inset
+
+ to an approximation to the standardized reliability 
+\begin_inset Formula $\omega_{s}$
+\end_inset
+
+.
+ For instance, 
+\begin_inset Formula $\alpha_{s}=\omega_{s}$
+\end_inset
+
+ will be true in a more general setting now, not only for parallel models
+ (as we will see, 
+\begin_inset Formula $\omega_{s}=\omega$
+\end_inset
+
+ under the parallel model).
+\end_layout
+
+\begin_layout Standard
+So the question is not only if you believe in the parallel model, but if
+ (a) if you actually want to standardize, and (b) if you can believe in
+ the new assumptions about the model implied by your usage of the standardized
+ congeneric reliability.
+ 
+\end_layout
+
+\begin_layout Standard
+For question (a), I will argue against standardizing your variables, at
+ least in the usual sense.
+ For question (b), I will argue you should not use 
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+ even if you choose to standardize your variables, but rather the standardized
+ congeneric reliability instead.
+ Before I can start expanding on these arguments, I will have to explain
+ the concept of reliability and why you do not want to approximate 
+\begin_inset Formula $\omega$
+\end_inset
+
+ when you standardize your scores.
+\end_layout
+
+\begin_layout Standard
+Let me explain what it means to standardize scores in this setting.
+ Assume the congeneric model with 
+\begin_inset Formula $k$
+\end_inset
+
+ items.
+ Suppose you know the vector of loadings 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ and all the error variances 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+.
+ You observe the value of 
+\begin_inset Formula $X\in\mathbb{R}^{k}$
+\end_inset
+
+ and want to use to the knowledge about 
+\begin_inset Formula $X,\lambda$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ to predict the value of 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The easiest to way is to predict 
+\begin_inset Formula $Z$
+\end_inset
+
+ is the sum score, or 
+\begin_inset Formula $\widehat{Z}=\sum_{i=1}^{k}X_{i}$
+\end_inset
+
+.
+ The mean squared error of this prediction is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E\left[\left(Z-\widehat{Z}\right)^{2}\right]=E\left[\left(Z-\sum\lambda Z+\Psi^{1/2}\epsilon\right)^{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using standardized scores is different.
+ Instead of using the sum score, you use a linear function of 
+\begin_inset Formula $X$
+\end_inset
+
+, with weights equal to 
+\begin_inset Formula $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\widehat{Z}_{(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}}=\sum_{i=1}^{k}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1}X_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I will now argue you are never justified to use 
+\begin_inset Formula $w=(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$
+\end_inset
+
+.
+ Using some 
+\begin_inset Formula $w\ne1$
+\end_inset
+
+ seems reasonable, for you would not want items with large variance to overshado
+w all the other contributions to 
+\begin_inset Formula $\sum_{i=1}^{k}X_{i}$
+\end_inset
+
+.
+ But there is something strange about this particular 
+\begin_inset Formula $w$
+\end_inset
+
+.
+ Wouldn't it be just as sensible to use 
+\begin_inset Formula $w=\sigma_{i}^{-1}$
+\end_inset
+
+? Dividing by 
+\begin_inset Formula $\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}$
+\end_inset
+
+ seems wrong, because you want items with large loadings to have a large
+ influece on your prediction of 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ But while we are at it, why not just use the optimal weights, yielding
+ coefficient 
+\begin_inset Formula $H$
+\end_inset
+
+ and the Thurstone factor scores instead of the standardized alpha and standardi
+zed sum scores?
+\end_layout
+
+\begin_layout Standard
+What we need is a way to compare weights.
+ Before we start on this, recall that 
+\begin_inset Formula $Z$
+\end_inset
+
+ is forced to have variance 
+\begin_inset Formula $1$
+\end_inset
+
+ in the congeneric model.
+ In this cae, the sum score 
+\begin_inset Formula $\sum_{i=1}^{k}X_{i}$
+\end_inset
+
+ does not make sense a predictor of 
+\begin_inset Formula $Z$
+\end_inset
+
+, as it does not take the scale into account.
+ The scale can be ignored when using only sum scores, but cannot be ignored
+ when we compare sum scores to other kinds of scores.
+ Instead of dealing with sum scores directly, we will deal with scores of
+ the type
+\begin_inset Formula 
+\[
+w_{0}\sum_{i=1}^{k}X_{i},
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{eqnarray}
+w_{0} & = & \argmin_{w\in\mathbb{R}}E\left[\left(Z-w\sum_{i=1}^{k}X_{i}\right)^{2}\right].\nonumber \\
+ & = & \overline{\lambda^{2}}/\left(k\overline{\lambda}^{2}+\overline{\sigma^{2}}\right)\label{eq:w0}
+\end{eqnarray}
+
+\end_inset
+
+See the appendix page [[ref]] for a proof for the argmin.
+\end_layout
+
+\begin_layout Standard
+Define the mean squared errors
+\begin_inset Formula 
+\[
+\textsc{MSE}=E\left[\left(Z-EZ\right)\right]=\Var Z=1,
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\Var Z=1$
+\end_inset
+
+ by assumption, and the mean squared error of
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\textsc{MSE}\left(\widehat{Z}\right)=E\left[\left(Z-\widehat{Z}\right)^{2}\right]
+\]
+
+\end_inset
+
+and the 
+\begin_inset Formula $\widehat{Z}$
+\end_inset
+
+-reliability as
+\begin_inset Formula 
+\begin{eqnarray}
+\omega\left(\widehat{Z}\right) & =1-\frac{\textsc{MSE}\left(\widehat{Z}\right)}{\textsc{MSE}}= & 1-\textsc{MSE}\left(\widehat{Z}\right)\label{eq:Z-reliability}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By the law of total variance, 
+\begin_inset Formula $0\leq\textsc{MSE}\left(\widehat{Z}\right)\leq1$
+\end_inset
+
+, so that 
+\begin_inset Formula $0\leq\omega\left(\widehat{Z}\right)\leq1$
+\end_inset
+
+ too.
+ The definition of 
+\begin_inset Formula $\omega(\widehat{Z})$
+\end_inset
+
+ is analagous to that of 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+, and it shares most of its properties.
+ I will explore the connection between reliabiltiy coefficients and 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ further in a future paper.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:Z-reliabiltiy"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\widehat{Z}=\sum_{i=1}^{k}w_{i}X_{i}$
+\end_inset
+
+ be a linear predictor of 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $\widehat{Z}=w_{0}\sum_{i=1}^{k}X_{i}$
+\end_inset
+
+ is the sum score, the 
+\begin_inset Formula $\widehat{Z}$
+\end_inset
+
+-reliability 
+\begin_inset Formula $\omega\left(\widehat{Z}\right)$
+\end_inset
+
+ equals the congeneric reliability,
+\begin_inset Formula 
+\[
+\omega\left(\widehat{Z}\right)=\omega=\frac{k\overline{\lambda}^{2}/\overline{\sigma^{2}}}{k\overline{\lambda}^{2}/\overline{\sigma^{2}}+1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $w$
+\end_inset
+
+ are the 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+-optimal weights, that is, 
+\begin_inset Formula $w$
+\end_inset
+
+ is the solution to
+\begin_inset Formula 
+\[
+\argmin_{w}\textsc{MSE}\left(\widehat{Z}\right)=E\left[\left(Z-\sum_{i=1}^{k}w_{i}X_{i}\right)^{2}\right]
+\]
+
+\end_inset
+
+then the 
+\begin_inset Formula $\widehat{Z}$
+\end_inset
+
+-reliability 
+\begin_inset Formula $\omega\left(\widehat{Z}\right)$
+\end_inset
+
+ equals coefficient 
+\begin_inset Formula $H$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\omega\left(\widehat{Z}\right)=\omega_{H}=\frac{k\overline{\lambda^{2}\sigma^{-2}}}{k\overline{\lambda^{2}\sigma^{-2}}+1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $w=w_{0}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\omega\left(\widehat{Z}\right)=\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}+1}\label{eq:Standardized reliability}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $w=w_{0}\sigma_{i}^{-1}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\omega\left(\widehat{Z}\right)=\frac{k\overline{\lambda\sigma^{-1}}^{2}}{k\overline{\lambda\sigma^{-1}}^{2}+1}\label{eq:Sigma-standardized reliability}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(Please write down the proof, please.) (iii) Consider the modified model
+ 
+\begin_inset Formula $X^{\star}=X\lambda_{i}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}+\epsilon$
+\end_inset
+
+, which is congeneric with 
+\begin_inset Formula $\lambda^{\star}=\lambda/(\lambda^{2}+\sigma^{2})^{-1/2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{\star}=\sigma/(\lambda^{2}+\sigma^{2})^{-1/2}$
+\end_inset
+
+.
+ By [[ref congeneric]], 
+\begin_inset Formula 
+\begin{eqnarray*}
+\omega\left(\widehat{Z}\right) & = & \frac{k\overline{\lambda^{\star}}^{2}}{k\overline{\lambda^{\star}}^{2}+\overline{\sigma^{\star2}}}\\
+ & = & \frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}+\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}
+\end{eqnarray*}
+
+\end_inset
+
+(iv) This one is similar to (ii).
+ Just use the modified model 
+\begin_inset Formula $X^{\star}=X\lambda\sigma^{-1}+\epsilon$
+\end_inset
+
+, which is congeneric with 
+\begin_inset Formula $\lambda^{\star}=\lambda/\sigma^{-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{\star}=1$
+\end_inset
+
+.
+ By [[ref congeneric]],
+\begin_inset Formula 
+\begin{eqnarray*}
+\omega\left(\widehat{Z}\right) & = & \frac{k\overline{\lambda\sigma^{-1}}^{2}}{k\overline{\lambda\sigma^{-1}}^{2}+1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The predicted values 
+\begin_inset Formula $\widehat{Z}$
+\end_inset
+
+ are factor scores, and the reliabiltiy coefficients in Propositions 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Z-reliabiltiy"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ are to the implied factor score.
+ For coefficient 
+\begin_inset Formula $H$
+\end_inset
+
+, the factor scores are the Thurstone regressions scores, for 
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha_{\sigma}$
+\end_inset
+
+ the appropriately weighted sum scores, and for 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ the ordinary sum score.
+\end_layout
+
+\begin_layout Standard
+No one would use the standardized reliability 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Standardized reliability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ or the sigma reliability 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Sigma-standardized reliability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ if 
+\begin_inset Formula $\sigma_{i}^{2}=\sigma^{2}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ The following Theorem exposes a basic fact about these three reliability
+ coefficients:
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:Properties of three"
+
+\end_inset
+
+ Assume the 
+\begin_inset Formula $\tau$
+\end_inset
+
+-equivalent model, i.e.
+ the congeneric model with 
+\begin_inset Formula $\lambda_{i}=\lambda>0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+ but possibly different 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+s.
+ Let 
+\begin_inset Formula $\omega$
+\end_inset
+
+ be the congeneric reliability, 
+\begin_inset Formula $\omega_{s}$
+\end_inset
+
+ the standardized reliability 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Standardized reliability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\omega_{\sigma}$
+\end_inset
+
+ the sigma reliability 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Sigma-standardized reliability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and 
+\begin_inset Formula $\omega_{H}$
+\end_inset
+
+ coefficient 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+\omega_{h}\geq\omega_{\sigma}\geq\omega_{s}\geq\omega,
+\]
+
+\end_inset
+
+with all inequalities strict unless 
+\begin_inset Formula $\sigma_{i}=\sigma\geq0$
+\end_inset
+
+ or all 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Each reliability is on the form 
+\begin_inset Formula $a/(a+1)$
+\end_inset
+
+ for some 
+\begin_inset Formula $a>0$
+\end_inset
+
+, and 
+\begin_inset Formula $a/(a+1)\geq b(b+1)$
+\end_inset
+
+ iff 
+\begin_inset Formula $a>b$
+\end_inset
+
+.
+ Let's take on 
+\begin_inset Formula $\omega_{h}\geq\omega_{\sigma}$
+\end_inset
+
+ first, which happens iff 
+\begin_inset Formula $\overline{\lambda^{2}\sigma^{-2}}\geq\overline{\lambda\sigma^{-1}}^{2}$
+\end_inset
+
+.
+ Expand it and use Chebyshev's inequality to see 
+\begin_inset Formula $\omega_{h}\geq\omega_{\sigma}$
+\end_inset
+
+ is true with equality only when 
+\begin_inset Formula $\sigma_{i}=\sigma\geq0$
+\end_inset
+
+ or all 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Let's take on 
+\begin_inset Formula $\omega_{\sigma}>\omega_{s}$
+\end_inset
+
+ first.
+ That is
+\begin_inset Formula 
+\[
+k\lambda^{2}\overline{\sigma^{-1}}^{2}\geq k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}
+\]
+
+\end_inset
+
+this is equivalent to
+\begin_inset Formula 
+\[
+k\sum_{i=1}^{k}\sigma_{i}^{2}(\lambda^{2}+\sigma_{i}^{2})^{-1}\geq\left[\sum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})^{-1/2}\right]^{2}\overline{\sigma^{-1}}^{-2}
+\]
+
+\end_inset
+
+Divide boths sides with 
+\begin_inset Formula $\left[\sum_{i=1}^{k}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1}\right]^{2}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $m=\sum_{i=1}^{k}\sigma_{i}^{2}(\lambda^{2}+\sigma_{i}^{2})^{-1}/\left[\sum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})^{-1}\right]^{2}$
+\end_inset
+
+ is a weighted mean with 
+\begin_inset Formula $w_{i}=(\lambda^{2}+\sigma_{i}^{2})^{-1}$
+\end_inset
+
+ decreasing in 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+.
+ By Lemma [[ref]], 
+\begin_inset Formula $m\leq\overline{\sigma^{2}}$
+\end_inset
+
+, hence 
+\series bold
+???????
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+m
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now look at 
+\begin_inset Formula $\omega_{\sigma}>\omega_{s}$
+\end_inset
+
+ first.
+ 
+\begin_inset Formula 
+\[
+k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}\geq k\overline{\lambda}^{2}/\overline{\sigma^{2}}
+\]
+
+\end_inset
+
+is equivalent to 
+\begin_inset Formula 
+\[
+\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\overline{\sigma^{2}}\geq\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}
+\]
+
+\end_inset
+
+or
+\begin_inset Formula 
+\[
+\left[\frac{1}{k}\sum_{i=1}^{k}(\lambda+\sigma_{i}^{2})^{-1/2}\right]^{2}\frac{1}{k}\sum_{i=1}^{k}\sigma_{i}^{2}\geq\frac{1}{k}\sum_{i=1}^{k}\sigma_{i}^{2}(\lambda^{2}+\sigma_{i}^{2})^{-1}
+\]
+
+\end_inset
+
+Now 
+\begin_inset Formula $\left[\sum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})^{-1}\right]^{-1}\sum_{i=1}^{k}\sigma_{i}^{2}(\lambda+\sigma_{i}^{2})^{-1}$
+\end_inset
+
+ is a weighted mean with 
+\begin_inset Formula $w_{i}=(\lambda^{2}+\sigma_{i}^{2})^{-1}$
+\end_inset
+
+ decreasing in 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{equation}
+k\left[\frac{1}{k}\sum_{i=1}^{k}(\lambda+\sigma_{i}^{2})^{-1/2}\right]^{2}\left[\sum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})^{-1}\right]^{-1}\frac{1}{k}\sum_{i=1}^{k}\sigma_{i}^{2}\geq\left[\sum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})^{-1}\right]^{-1}\sum_{i=1}^{k}\sigma_{i}^{2}(\lambda+\sigma_{i}^{2})^{-1}\label{eq:inequality, omega_s > omega}
+\end{equation}
+
+\end_inset
+
+We know
+\begin_inset Formula 
+\[
+\frac{1}{k}\sum_{i=1}^{k}\sigma_{i}^{2}\geq\left[\sum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})^{-1}\right]^{-1}\sum_{i=1}^{k}\sigma_{i}^{2}(\lambda+\sigma_{i}^{2})^{-1}
+\]
+
+\end_inset
+
+from Lemma [[ref]].
+ From Chebyshev's inequality
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+k\left[\frac{1}{k}\sum_{i=1}^{k}(\lambda+\sigma_{i}^{2})^{-1/2}\right]^{2}\left[\sum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})^{-1}\right]^{-1}\geq1
+\]
+
+\end_inset
+
+Plug it into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:inequality, omega_s > omega"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to get the inequality we want.
+\end_layout
+
+\begin_layout Standard
+You can interpret Theorem 2 as a ranking factor scores too.
+ It says regression scores are better than 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-standardized sum scores, which in turn are better than the standardized
+ sum scores, which are better than the ordinary sum scores.
+\end_layout
+
+\begin_layout Standard
+We can use the expressions of Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Z-reliabiltiy"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to compare the effect of 
+\begin_inset Formula $\widehat{Z}$
+\end_inset
+
+ on the reliability of our measurements.
+\end_layout
+
+\begin_layout Standard
+Since coefficient 
+\begin_inset Formula $H$
+\end_inset
+
+ uses the optimal weights, it is guarateed to be larger than the three other
+ reliabilities mentioned above.
+ The other three reliabilities can be in any order, but will usually follow
+ 
+\begin_inset Formula $\omega_{\sigma}$
+\end_inset
+
+ will usually be the largest, sometimes .
+ In a short simulation (
+\begin_inset Formula $10^{5}$
+\end_inset
+
+ repetitions) of 
+\begin_inset Formula $k=5$
+\end_inset
+
+ items with 
+\begin_inset Formula $\lambda_{i}\sim\Exp(1)$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{i}\sim\Exp(1)$
+\end_inset
+
+ idependently with 
+\begin_inset Formula $i=1,\ldots,5$
+\end_inset
+
+, 
+\begin_inset Formula $\omega_{\sigma}$
+\end_inset
+
+ was the largest 
+\begin_inset Formula $0.98\%$
+\end_inset
+
+ of the time, 
+\begin_inset Formula $\omega$
+\end_inset
+
+ largest 
+\begin_inset Formula $0.02\%$
+\end_inset
+
+ of the time, but 
+\begin_inset Formula $\omega_{s}$
+\end_inset
+
+ was never the largest (
+\begin_inset Formula $\omega_{s}>\omega_{\sigma}$
+\end_inset
+
+ happened though).
+ The congeneric 
+\begin_inset Formula $\omega$
+\end_inset
+
+ dominated 
+\begin_inset Formula $\omega_{s}$
+\end_inset
+
+ in 
+\begin_inset Formula $6$
+\end_inset
+
+ of 
+\begin_inset Formula $10$
+\end_inset
+
+ iterations.
+ You could argue this simulation study is somewhat unrealistic: In a slightly
+ different simulation with 
+\begin_inset Formula $\lambda_{i}^{2}\sim N(0,1)$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{i}\sim\HalfNormal(0,1)$
+\end_inset
+
+, 
+\begin_inset Formula $\omega_{\sigma}$
+\end_inset
+
+ was the largest 
+\begin_inset Formula $0.92\%$
+\end_inset
+
+ of the time and 
+\begin_inset Formula $\omega_{s}>\omega$
+\end_inset
+
+ a nice 
+\begin_inset Formula $70\%$
+\end_inset
+
+ of the time.
+ Again, 
+\begin_inset Formula $\omega_{s}$
+\end_inset
+
+ was never the largest, which suggest it cannot be larger than both 
+\begin_inset Formula $\omega$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega_{\sigma}$
+\end_inset
+
+ at the same time.
+ The take-away from these two simulation studies is that 
+\begin_inset Formula $\omega_{\sigma}$
+\end_inset
+
+ generally does better than 
+\begin_inset Formula $\omega_{s}$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega$
+\end_inset
+
+, while it is hard to predict the winner among 
+\begin_inset Formula $\omega$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega_{s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+My second argument against 
+\begin_inset Formula $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1}$
+\end_inset
+
+ follows Falk.
+ The assumptions of a 
+\begin_inset Formula $\tau$
+\end_inset
+
+-equivalent model are hard to justify to begin with, and unlikely to be
+ true.
+ The standardized coefficient alpha equals the congeneric reliability for
+ standardized variable (i.e 
+\begin_inset Formula $\omega\left(\widehat{Z}\right)$
+\end_inset
+
+ from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Standardized reliability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Z-reliabiltiy"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) only when the modified model
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X_{i}^{\star}=\frac{\lambda_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}Z+\frac{\sigma_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}\epsilon_{i}\:i=1,\ldots,k
+\]
+
+\end_inset
+
+is 
+\begin_inset Formula $\tau$
+\end_inset
+
+-equivalent.
+ This occurs if and only if each 
+\begin_inset Formula $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda^{\star}$
+\end_inset
+
+ for some 
+\begin_inset Formula $\lambda^{\star}$
+\end_inset
+
+.
+ Of course, this would be an exceptional conincidence.
+ To avoid this crazy assumption, use structural equation modeling to estimate
+ 
+\begin_inset Formula $\lambda_{i},\sigma_{i}$
+\end_inset
+
+, and plug them into the formula for the congeneric reliability.
+\end_layout
+
+\begin_layout Standard
+This observation also counters a possible, but wrong, interpretation of
+ Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Properties of three"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+First 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Properties of three"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ states 
+\begin_inset Formula $\omega_{s}>\omega$
+\end_inset
+
+ under the 
+\begin_inset Formula $\tau$
+\end_inset
+
+-equivalent model.
+ Second, coefficient alpha equals 
+\begin_inset Formula $\omega$
+\end_inset
+
+ under the 
+\begin_inset Formula $\tau$
+\end_inset
+
+-equivalent model.
+ Then it seems reasonable to use standardized alpha, doesn't it? After all,
+ standardized alpha can be calculated from the covariance matrix alone,
+ and does not require any model assumptions But this is wrong! For as mentionion
+ed, 
+\begin_inset Formula $\alpha_{s}=\omega_{s}$
+\end_inset
+
+ only when 
+\begin_inset Formula $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda$
+\end_inset
+
+.
+ Otherwise, 
+\begin_inset Formula $\alpha_{s}<\omega_{s}$
+\end_inset
+
+ by Propositon 1.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\alpha_{\sigma}$
+\end_inset
+
+, an alpha for 
+\begin_inset Formula $\omega_{\sigma}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Both coefficient alpha and standardized alpha are simple functions of the
+ covariance matrix 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+.
+ The reliability coefficients in Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Z-reliabiltiy"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ are not simple functions of 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ except under exceptional circumstances such as 
+\begin_inset Formula $\tau$
+\end_inset
+
+-equivalence.
+ Everything else being equal, simple solutions should be preferred over
+ complex solutions, and this is a common argument for coefficient alpha
+ [[ref]].
+\end_layout
+
+\begin_layout Standard
+Just as 
+\begin_inset Formula $\omega$
+\end_inset
+
+ has 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega_{s}$
+\end_inset
+
+ has 
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+, the sigma reliability 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Sigma-standardized reliability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ has its own 
+\begin_inset Formula $\alpha$
+\end_inset
+
+-coefficient.
+ The covariance matrix 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ under the 
+\begin_inset Formula $\tau$
+\end_inset
+
+-equivalent model has diagonal elements 
+\begin_inset Formula $\lambda^{2}+\sigma_{i}^{2}$
+\end_inset
+
+ and off-digonal elements 
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\lambda^{2}=\left(k-1\right)^{-1}\left(\mathbf{i}^{T}\Sigma\mathbf{i}/k-\tr\Sigma/k\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{2}=\diag\Sigma-\lambda^{2}$
+\end_inset
+
+.
+ Define the sigma standardized matrix
+\begin_inset Formula 
+\begin{eqnarray*}
+\Xi & = & \diag\sigma^{-1}\Sigma\diag\sigma^{-1},
+\end{eqnarray*}
+
+\end_inset
+
+and the sigma coefficient alpha as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\alpha_{\sigma} & = & \frac{k}{k-1}\left(1-\frac{\tr\Xi}{\mathbf{i}^{T}\Xi\mathbf{i}}\right)\label{eq:alpha_sigma-1}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now 
+\begin_inset Formula $\alpha_{\sigma}=\omega_{\sigma}$
+\end_inset
+
+ only when
+\begin_inset Formula 
+\[
+X_{i}^{\star}=\frac{\lambda_{i}}{\sigma_{i}}Z+\epsilon_{i}\:i=1,\ldots,k
+\]
+
+\end_inset
+
+is 
+\begin_inset Formula $\tau$
+\end_inset
+
+-equivalent.
+ This happens if and only if every standardized factor loading is the same,
+ or 
+\begin_inset Formula $\lambda_{i}/\sigma_{i}=\lambda^{\star}$
+\end_inset
+
+ for some 
+\begin_inset Formula $\lambda^{\star}$
+\end_inset
+
+.
+ From Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Z-reliabiltiy"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (iii) and (ii) 
+\begin_inset Formula $\alpha_{\sigma}=\omega_{\sigma}=\omega_{H}$
+\end_inset
+
+ in this case.
+\end_layout
+
+\begin_layout Standard
+You can judge for yourself what assumptions are most likely to hold.
+\end_layout
+
+\begin_layout Standard
+To conclude, I have two arguments against using standardized alpha for standardi
+zed test items.
+ First, you should not standardize test items.
+ Second, even if you decide to standardize test items, please avoid standardized
+ alpha and.
+ Use coefficient 
+\begin_inset Formula $H$
+\end_inset
+
+ or the sigma reliability instead.
+\end_layout
+
+\begin_layout Part
+Notes
+\end_layout
+
+\begin_layout Subsection
+Comparison of 
+\begin_inset Formula $\omega_{s}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\omega_{s} & = & \frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}+\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}\\
+\alpha_{s} & = & \frac{k}{k-1}\left(\frac{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{\left(\sum\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}\text{-\ensuremath{\sum\left(\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}}}{\left(\sum\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}\text{-\ensuremath{\sum\left(\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}}+k}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{\left(\sum\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}\text{-\ensuremath{\sum\left(\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}}}{\left(\sum\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}\text{-\ensuremath{\sum\left(\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}}+\sum\left(\frac{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{\left(\sum\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}\text{-\ensuremath{\sum\left(\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}}}{\left(\sum\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}+\sum\left(\frac{\sigma_{i}^{2}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\text{-}\overline{\lambda^{2}/(\lambda^{2}+\sigma^{2})}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}+\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+This equals 
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{k}{k-1}\left[k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\text{-}\overline{\lambda^{2}/(\lambda^{2}+\sigma^{2})}\right] & = & k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\\
+\left[k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\text{-}\overline{\lambda^{2}/(\lambda^{2}+\sigma^{2})}\right] & = & \left(k-1\right)\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\\
+\overline{\lambda^{2}/(\lambda^{2}+\sigma^{2})} & = & \overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}
+\end{eqnarray*}
+
+\end_inset
+
+Let 
+\begin_inset Formula $a=k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $c=\overline{\lambda^{2}/(\lambda^{2}+\sigma^{2})}$
+\end_inset
+
+ and 
+\begin_inset Formula $b=\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}$
+\end_inset
+
+ then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\omega_{s}=\frac{a}{a+b}
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+\alpha_{s}=\frac{k}{k-1}\frac{a-c}{a+b}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha_{s}=\frac{a}{a+b}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Properties of the four reliabilities
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $\sigma_{i}=\sigma$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+ the sigma reliability equals the congeneric reliability.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k\overline{\lambda\sigma^{-1}}^{2}}{k\overline{\lambda\sigma^{-1}}^{2}+1}=\frac{k\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\sigma^{2}}
+\]
+
+\end_inset
+
+On the other hand, the standardized reliability is smaller:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}+\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}} & = & \frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}+\sigma^{2}/\overline{(\lambda^{2}+\sigma^{2})}}\\
+ & = & \frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}+\sigma^{2}/\overline{(\lambda^{2}+\sigma^{2})}}
+\end{eqnarray*}
+
+\end_inset
+
+When 
+\begin_inset Formula $\lambda_{i}=\lambda$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{i}=\lambda$
+\end_inset
+
+, the sigma reliability is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k\lambda^{2}\overline{\sigma^{-1}}^{2}}{k\lambda^{2}\overline{\sigma^{-1}}^{2}+1}=\frac{k\lambda^{2}}{k\lambda^{2}+1/\overline{\sigma^{-1}}^{2}}
+\]
+
+\end_inset
+
+and since 
+\begin_inset Formula $1/\overline{\sigma^{-1}}^{2}<\overline{\sigma}^{2}$
+\end_inset
+
+ by the harmonic mean inequality, with equality only when all 
+\begin_inset Formula $\sigma$
+\end_inset
+
+s are equal, the sigma reliability dominates the congeneric reliability
+ in this case.
+\end_layout
+
+\begin_layout Standard
+As for
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}+\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}} & = & \frac{k\lambda^{2}\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}{k\lambda^{2}\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}+\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}\\
+ & = & \frac{k\lambda^{2}}{k\lambda^{2}+\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}/\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}
+\end{eqnarray*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $\omega_{s}\geq\omega$
+\end_inset
+
+ iff 
+\begin_inset Formula $\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}/\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\leq\overline{\sigma}^{2}$
+\end_inset
+
+.
+ This inequality can be proved using Theorem 2 of Sbert and Poch together
+ with Chebyshev's inequality, with equality only when all 
+\begin_inset Formula $\sigma$
+\end_inset
+
+s are equal.
+\end_layout
+
+\begin_layout Standard
+Now consider 
+\begin_inset Formula $1/\overline{\sigma^{-1}}^{2}\leq\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}/\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\leq\overline{\sigma^{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+When both the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+s and 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ are unequal, all are possible.
+ (Provide example.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}/\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}=\frac{\sum\sigma_{i}^{2}/(\lambda^{2}+\sigma_{i}^{2})}{\sum1/(\lambda^{2}+\sigma_{i}^{2})}\frac{k\sum1/(\lambda^{2}+\sigma_{i}^{2})}{\left[\sum1/(\lambda^{2}+\sigma_{i}^{2})^{-1/2}\right]^{2}}
+\]
+
+\end_inset
+
+Here 
+\begin_inset Formula 
+\[
+\frac{k\sum1/(\lambda^{2}+\sigma_{i}^{2})}{\left[\sum1/(\lambda^{2}+\sigma_{i}^{2})^{-1/2}\right]^{2}}\geq1
+\]
+
+\end_inset
+
+with equality iff all 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+s are equal, by Chebyshev's equality.
+ By the harmonic mean inequality,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{i=1}^{k}\sigma_{i}^{2}w_{i}\geq\left(\sum_{i=1}^{k}\frac{w_{i}}{\sigma_{i}^{2}}\right)^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\sum_{i=1}^{k}w}{\left(\sum_{i=1}^{k}w_{i}^{1/2}\right)^{2}}k\sum_{i=1}^{k}x_{i}w_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Stuff
+\end_layout
+
+\begin_layout Standard
+Since
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha_{s} & = & \frac{k}{k-1}\left(1-\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k}{k-1}\left(\frac{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)=\frac{k\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k}{k-1}\left(\frac{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)=\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum\lambda_{i}^{2}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}=\sqrt{a}$
+\end_inset
+
+ for each 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\sum\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)=ak$
+\end_inset
+
+ and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k}{k-1}\left(\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak}\right)=\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum\lambda_{i}^{2}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak}
+\]
+
+\end_inset
+
+which is equivalent to 
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{k}{k-1}\left(\sum_{i\neq j}\lambda_{i}\lambda_{j}\right) & = & \sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum\lambda_{i}^{2}\\
+\sum_{i\neq j}\lambda_{i}\lambda_{j} & = & \left(k-1\right)\sum_{i=1}^{k}\lambda_{i}^{2}\\
+\sum_{i=1}^{k}\lambda_{i}^{2}+\sum_{i\neq j}\lambda_{i}\lambda_{j} & = & k\sum_{i=1}^{k}\lambda_{i}^{2}\\
+\left(\sum_{i=1}^{k}\lambda_{i}\right)^{2} & = & k\sum_{i=1}^{k}\lambda_{i}^{2}
+\end{eqnarray*}
+
+\end_inset
+
+The solution is
+\begin_inset Formula $\text{\ensuremath{\lambda_{i}=\lambda_{j}}}$
+\end_inset
+
+for all 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Key 1: Is continuous.
+\end_layout
+
+\begin_layout Standard
+Key 2: Is greater than 
+\begin_inset Formula $\omega$
+\end_inset
+
+ when 
+\begin_inset Formula $\sigma_{i}\neq\sigma_{j}$
+\end_inset
+
+ for some 
+\begin_inset Formula $i,j$
+\end_inset
+
+ and all 
+\begin_inset Formula $\lambda$
+\end_inset
+
+s are equal
+\end_layout
+
+\begin_layout Standard
+Key 3: Is less than 
+\begin_inset Formula $\omega$
+\end_inset
+
+ when 
+\begin_inset Formula $\text{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}=\sqrt{a}}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+ but some 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+ is different from the others.
+\end_layout
+
+\begin_layout Standard
+Okay, write this down and find an example.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+2\left(\frac{2\frac{\lambda_{1}\lambda_{2}}{ab}}{2\frac{\lambda_{1}\lambda_{2}}{ab}+2}\right) & = & \frac{2\lambda_{1}\lambda_{2}+\lambda_{1}^{2}+\lambda_{2}^{2}}{2\lambda_{1}\lambda_{2}+a^{2}+b^{2}}\\
+2\left(\frac{2\lambda_{1}\lambda_{2}}{2\lambda_{1}\lambda_{2}+2ab}\right) & = & \frac{2\lambda_{1}\lambda_{2}+\lambda_{1}^{2}+\lambda_{2}^{2}}{2\lambda_{1}\lambda_{2}+a^{2}+b^{2}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assume 
+\begin_inset Formula $\lambda_{2}=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2\left(\frac{2\lambda_{1}}{2\lambda_{1}+2ab}\right)=\frac{2\lambda_{1}+\lambda_{1}^{2}+1}{2\lambda_{1}+a^{2}+b^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+4\lambda_{1}\left(2\lambda_{1}+a^{2}+b^{2}\right)=\left(2\lambda_{1}+\lambda_{1}^{2}+1\right)\left(2\lambda_{1}+2ab\right)
+\]
+
+\end_inset
+
+Now put 
+\begin_inset Formula $a=1$
+\end_inset
+
+ and 
+\begin_inset Formula $b=2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+4\lambda_{1}\left(2\lambda_{1}+5\right)=\left(\lambda+1\right)^{2}\left(2\lambda_{1}+4\right)
+\]
+
+\end_inset
+
+This is a cubic equation with solutions in 
+\begin_inset Formula $\left\{ 2,-1-\sqrt{2},\sqrt{2}-1\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\lambda^{2}}{\left(\lambda^{2}+\sigma^{2}\right)+\frac{\left(1-\sigma^{2}\right)}{k}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Table
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="10">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n=20$
+\end_inset
+
+,
+\begin_inset Formula $k=4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Distribution
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gamma
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gamma
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gamma
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MSE for 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MSE for 
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="10">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n=20$
+\end_inset
+
+,
+\begin_inset Formula $k=10$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Distribution
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gamma
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gamma
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gamma
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MSE for 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MSE for 
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="10">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n=200$
+\end_inset
+
+,
+\begin_inset Formula $k=4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Distribution
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gamma
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gamma
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gamma
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MSE for 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MSE for 
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="10">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n=20$
+\end_inset
+
+,
+\begin_inset Formula $k=10$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Distribution
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gamma
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gamma
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gamma
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MSE for 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MSE for 
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There is no reason to choose standardized coefficient alpha over coefficient
+ alpha from an efficiency standpoint.
+ But it might still be the case that the standardized coefficient alpha
+ outperforms coefficient alpha in small samples.
+ I have devoted this section to a small simulation study comparing the scaled
+ mean squared error of the estimators under the parallel model.
+ Since the coefficient alpha is the maximum likelihood estimator for the
+ normal parallel model there is some heuristic reason to believe it will
+ perform better than the standardized estimator in this context.
+ Instead of normal errors I will use three non-standard errors distributions:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $t$
+\end_inset
+
+-distribution with 
+\begin_inset Formula $3$
+\end_inset
+
+ degrees of freedom.
+ The 
+\begin_inset Formula $t$
+\end_inset
+
+-distribution has heavier tails than the normal distribution but is still
+ symmetric.
+\end_layout
+
+\begin_layout Enumerate
+Beta distribution with 
+\begin_inset Formula $\alpha=\beta=1/10$
+\end_inset
+
+, rescaled with 
+\end_layout
+
+\begin_layout Enumerate
+Gamma distribution with 
+\begin_inset Formula $\alpha=\beta=1/100$
+\end_inset
+
+.
+ This is asymmetric and with heavy tails.
+\end_layout
+
+\begin_layout Section
+Lemmas
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:weighted averages"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left\{ x_{i}\right\} _{i=1}^{k},\left\{ w_{i}\right\} _{i=1}^{k}$
+\end_inset
+
+ be sequences of positive numbers such that 
+\begin_inset Formula $x_{i}\leq x_{j}$
+\end_inset
+
+ implies 
+\begin_inset Formula $w'_{i}\geq w'_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sum_{i=1}^{k}w_{i}=1$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $k^{-1}\sum_{i=1}^{k}x_{i}\geq\sum_{i=1}^{k}w_{i}x_{i}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+See
+\end_layout
+
+\begin_layout Section
+\begin_inset Formula $\omega$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assume 
+\begin_inset Formula $\sigma_{i}=\sigma$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Thenf
+\begin_inset Formula 
+\begin{eqnarray*}
+\omega_{s} & = & \frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}+\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}\\
+\alpha_{s} & = & \frac{k}{k-1}\left(\frac{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma^{2}+\lambda_{i}^{2}}\sqrt{\sigma^{2}+\lambda_{j}^{2}}}}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma^{2}+\lambda_{i}^{2}}\sqrt{\sigma^{2}+\lambda_{j}^{2}}}+k}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{\left(\sum\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}\text{-\ensuremath{\sum\left(\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}}}{\left(\sum\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}\text{-\ensuremath{\sum\left(\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}}+k}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{\left(\sum\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}\text{-\ensuremath{\sum\left(\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}}}{\left(\sum\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}\text{-\ensuremath{\sum\left(\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}}+\sum\left(\frac{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{\left(\sum\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}\text{-\ensuremath{\sum\left(\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}}}{\left(\sum\frac{\lambda_{i}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}+\sum\left(\frac{\sigma_{i}^{2}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}}\right)^{2}}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\text{-}\overline{\lambda^{2}/(\lambda^{2}+\sigma^{2})}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}+\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{k(\lambda^{2}+\sigma^{2})\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\text{-}(\lambda^{2}+\sigma^{2})\overline{\lambda^{2}/(\lambda^{2}+\sigma^{2})}}{k(\lambda^{2}+\sigma^{2})\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}+\sigma^{2}}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}\text{-}\overline{\lambda^{2}/(\lambda^{2}+\sigma^{2})}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}+1}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\omega_{s}=\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Idea: Prove 
+\begin_inset Formula $\alpha_{s}=\omega_{s}-B$
+\end_inset
+
+, as for coefficient 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ (already done.) Then show 
+\begin_inset Formula $\omega_{s}\leq\omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Congeneric>
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\omega=\frac{\overline{\lambda^{2}}}{\overline{\lambda^{2}}+\sigma^{2}/k}
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+k\sum x^{2}w^{2}\geq\left(\sum xw\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum x^{2}w^{2}=leq\left(\sum xw\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By Chebyshev's inequality (the first)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+kM\left(\lambda^{2},\lambda^{2}+\sigma^{2}\right) & \geq & M\left(\lambda,\sqrt{\lambda^{2}+\sigma^{2}}\right)^{2}\\
+M\left(\lambda^{2},\lambda^{2}+\sigma^{2}\right) & \leq & M\left(\lambda,\sqrt{\lambda^{2}+\sigma^{2}}\right)^{2}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k}{k-1}\left(\frac{kM\left(\lambda,\sqrt{\lambda^{2}+\sigma^{2}}\right)^{2}\text{-}M\left(\lambda^{2},\lambda^{2}+\sigma^{2}\right)}{kM\left(\lambda,\sqrt{\lambda^{2}+\sigma^{2}}\right)^{2}+\sigma^{2}}\right)=\frac{kM\left(\lambda,\sqrt{\lambda^{2}+\sigma^{2}}\right)^{2}}{kM\left(\lambda,\sqrt{\lambda^{2}+\sigma^{2}}\right)^{2}+\sigma^{2}}+\frac{k}{k-1}\frac{M\left(\lambda,\sqrt{\lambda^{2}+\sigma^{2}}\right)^{2}-M\left(\lambda^{2},\lambda^{2}+\sigma^{2}\right)}{kM\left(\lambda,\sqrt{\lambda^{2}+\sigma^{2}}\right)^{2}+\sigma^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{k}{k-1}\left(\frac{kM\left(\lambda,\sqrt{\lambda^{2}+\sigma^{2}}\right)^{2}\text{-}M\left(\lambda^{2},\lambda^{2}+\sigma^{2}\right)}{kM\left(\lambda,\sqrt{\lambda^{2}+\sigma^{2}}\right)^{2}+\sigma^{2}}\right) & \leq & \frac{k}{k-1}\left(\frac{kM\left(\lambda,\sqrt{\lambda^{2}+\sigma^{2}}\right)^{2}\text{-}M\left(\lambda^{2},\lambda^{2}+\sigma^{2}\right)}{kM\left(\lambda^{2},\lambda^{2}+\sigma^{2}\right)+\sigma^{2}}\right)\\
+ & \leq & \frac{k}{k-1}\left(\frac{\left(k-1\right)\left(k+1\right)M\left(\lambda^{2},\lambda^{2}+\sigma^{2}\right)}{kM\left(\lambda^{2},\lambda^{2}+\sigma^{2}\right)+\sigma^{2}}\right)\\
+ & = & k\left(\frac{\left(k+1\right)M\left(\lambda^{2},\lambda^{2}+\sigma^{2}\right)}{kM\left(\lambda^{2},\lambda^{2}+\sigma^{2}\right)+\sigma^{2}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Look at 
+\begin_inset Formula $\omega$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega_{s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By definition, 
+\begin_inset Formula $\omega_{s}\leq\omega$
+\end_inset
+
+ when
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}+1}\leq\frac{k\overline{\lambda}^{2}/\overline{\sigma^{2}}}{k\overline{\lambda}^{2}/\overline{\sigma^{2}}+1}
+\]
+
+\end_inset
+
+Which is equivalent to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}\leq k\overline{\lambda}^{2}/\overline{\sigma^{2}}
+\]
+
+\end_inset
+
+or
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{(\lambda^{2}+\sigma^{2})^{-1}}\leq\overline{\lambda}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\leq\overline{\lambda}^{2}\overline{(\lambda^{2}+\sigma^{2})^{-1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\frac{1}{k}\sum_{i=1}^{k}\lambda_{i}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}\right)^{2}\leq\left(\frac{1}{k}\sum_{i=1}^{k}\lambda_{i}\right)\left(\frac{1}{k}\sum_{i=1}^{k}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1}\right)
+\]
+
+\end_inset
+
+is equivalent to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\frac{1}{\sum_{i=1}^{k}(\lambda_{i}^{2}+\sigma^{2})^{-1/2}}\sum_{i=1}^{k}\lambda_{i}(\lambda_{i}^{2}+\sigma^{2})^{-1/2}\right)^{2}\leq\left[\sum_{i=1}^{k}(\lambda_{i}^{2}+\sigma^{2})^{-1/2}\right]^{2}\left(\frac{1}{k}\sum_{i=1}^{k}\lambda_{i}\right)k\left(\sum_{i=1}^{k}(\lambda_{i}^{2}+\sigma^{2})^{-1}\right)
+\]
+
+\end_inset
+
+But 
+\begin_inset Formula $\left(\frac{1}{k}\sum_{i=1}^{k}\lambda_{i}\right)\leq\left(\frac{1}{\sum_{i=1}^{k}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}}\sum_{i=1}^{k}\lambda_{i}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}\right)^{2}$
+\end_inset
+
+ by Lemma X and
+\end_layout
+
+\begin_layout Section
+A Lemma
+\end_layout
+
+\begin_layout Standard
+The following Lemma relates
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lemma:mean inequalities"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left\{ x_{i}\right\} _{i=1}^{k}$
+\end_inset
+
+ be a sequence of positive real numbers and 
+\begin_inset Formula $w_{i}=1/a+x_{i}$
+\end_inset
+
+ for some 
+\begin_inset Formula $a>0$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{k}\sum_{i=1}^{k}x_{i}\geq\left(\sum_{i=1}^{k}w_{i}\right)^{-1}\sum_{i=1}^{k}w_{i}x_{i}\geq\left[\left(\sum_{i=1}^{k}w_{i}^{-1}\right)\sum_{i=1}^{k}\frac{1}{w_{i}x_{i}}\right]^{-1}\geq\left(\frac{1}{k}\sum_{i=1}^{k}\frac{1}{x_{i}}\right)^{-1}.\label{eq:mean-harmonic mean inequality}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The inequalities 
+\begin_inset Formula $\frac{1}{k}\sum_{i=1}^{k}x_{i}\geq\sum_{i=1}^{k}w_{i}x_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left[\left(\sum w_{i}^{-1}\right)\sum_{i=1}^{k}\frac{1}{w_{i}x_{i}}\right]^{-1}\geq\left(\frac{1}{k}\sum_{i=1}^{k}\frac{1}{x_{i}}\right)^{-1}$
+\end_inset
+
+ both follow from Theorem 2 of ?? since 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ is decreasing in 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

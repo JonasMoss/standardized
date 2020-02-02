@@ -1,0 +1,3543 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Coefficient alpha and standardized alpha
+\end_layout
+
+\begin_layout Abstract
+Is using the standardized coefficient alpha ever justified?
+\end_layout
+
+\begin_layout Section*
+Plan
+\end_layout
+
+\begin_layout Enumerate
+Limit distributions for alpha and standardized alpha under general conditions.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Under normality:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Coefficient alpha 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "equation 21"
+key "van2000distribution"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Standardized coefficient alpha 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "equation 10"
+key "hayashi2005note"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Without normality:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Coefficient alpha 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "equation 3a-b"
+key "yuan2003study"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Standardized coefficient alpha 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "equation 6"
+key "hayashi2005note"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+With parallell model and normality.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Coefficient alpha 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "equation 22"
+key "van2000distribution"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Standardized coefficient alpha: 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "appendix 3"
+key "hayashi2005note"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Parelellel model, normality, and log-transform
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Coefficient alpha 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "equation 22"
+key "van2000distribution"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Standardized coefficient alpha: None.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+With parallell model and same moments on all errors:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Coefficient alpha: None.
+\end_layout
+
+\begin_layout Enumerate
+Standardized coefficient alpha: None.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+With parallell model and non-normality:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Coefficient alpha: None.
+\end_layout
+
+\begin_layout Enumerate
+Standardized coefficient alpha: None.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Part
+Article
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Section
+Coefficient alpha and standardized coefficient alpha
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be random variable in 
+\begin_inset Formula $\mathbb{R}^{k}$
+\end_inset
+
+ with finite variance.
+ Let 
+\begin_inset Formula $\Sigma=\textrm{Cov}X$
+\end_inset
+
+ be the covariance matrix of 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $\Phi=\textrm{Corr}X$
+\end_inset
+
+ be the correlation matrix of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\mathbf{i}=\left(1,1,\ldots1\right)$
+\end_inset
+
+.
+ The population coefficient alpha is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\alpha\left(X\right) & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\label{eq:Coefficient alpha}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The population standardized alpha is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\alpha_{s}\left(X\right)=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\label{eq:Standardized coefficient alpha}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I will make use of the one-factor model for 
+\begin_inset Formula $X$
+\end_inset
+
+ in this paper.
+ There is a mean zero latent variable 
+\begin_inset Formula $Z$
+\end_inset
+
+ with unit variance and mean zero vector 
+\begin_inset Formula $\epsilon=\left(\epsilon_{1},\epsilon_{2},\ldots,\epsilon_{k}\right)$
+\end_inset
+
+ of uncorrelated errors with unit variance such that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+X=\mu+\lambda^{T}Z+\sigma^{T}\epsilon\label{eq:one-factor model}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Coefficient alpha and the standardized coefficient alpha are used since
+ they are equal to the population reliability under some restrictions.
+ The reliability of a test is usually defined as ...
+ [[fill in]]
+\end_layout
+
+\begin_layout Standard
+In particular, the sum score reliability for model 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:one-factor model"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is 
+\begin_inset Formula 
+\begin{equation}
+\omega\left(X\right)=\frac{k\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\label{eq:Congeneric reliability}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\overline{\lambda}=\frac{1}{k}\sum_{i=1}^{k}\lambda_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{\sigma^{2}}=\frac{1}{k}\sum_{i=1}^{k}\sigma_{i}^{2}$
+\end_inset
+
+.
+ This is variously known as the congeneric reliability or McDonald's omega.
+ The following proposition is a way of saying why we care about coefficient
+ alpha and the standardized coefficient alpha.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:Reliabilities."
+
+\end_inset
+
+Assume the one-factor model 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:one-factor model"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+(i) 
+\begin_inset Formula $\alpha\left(X\right)=\omega\left(X\right)-\left(\frac{\overline{\lambda^{2}}-\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right)$
+\end_inset
+
+ , hence 
+\begin_inset Formula $\alpha\left(X\right)\leq\omega\left(X\right)$
+\end_inset
+
+ with equality if and only if 
+\begin_inset Formula $\lambda_{i}=\lambda_{j}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i,j$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+(ii) 
+\begin_inset Formula $\alpha_{s}\left(X\right)=\omega\left(X\right)-\left(\frac{\overline{\lambda^{2}}-\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right)$
+\end_inset
+
+ if 
+\begin_inset Formula $\lambda_{i}=\lambda_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{i}^{2}=\sigma_{j}^{2}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i,j$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $k=2$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{s}\left(X\right)\geq\alpha\left(X\right)$
+\end_inset
+
+, but if 
+\begin_inset Formula $k>2$
+\end_inset
+
+, both 
+\begin_inset Formula $\alpha_{s}\left(X\right)>\alpha\left(X\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha_{s}\left(X\right)<\alpha\left(X\right)$
+\end_inset
+
+ are possible.
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\lambda_{i}=\lambda_{j}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i,j$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{i}=\sigma_{j}$
+\end_inset
+
+ model 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:one-factor model"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is a parallell model.
+ If 
+\begin_inset Formula $\lambda_{i}=\lambda_{j}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i,j$
+\end_inset
+
+ it is a tau-equivalent model.
+ If none of these conditions hold, the model is a congenerig model.
+ The main message of proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Reliabilities."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is that 
+\begin_inset Formula $\alpha\left(X\right)=\omega\left(X\right)$
+\end_inset
+
+ under tau-equivalence and 
+\begin_inset Formula $\alpha_{s}\left(X\right)=\omega\left(X\right)$
+\end_inset
+
+ under the parallell model.
+\end_layout
+
+\begin_layout Standard
+Let us proceed to sample variants of coefficient alpha and the standardized
+ coefficient alpha.
+ Let 
+\begin_inset Formula $S$
+\end_inset
+
+ be a sample covariance matrix based on 
+\begin_inset Formula $n$
+\end_inset
+
+ samples of 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $R$
+\end_inset
+
+ the corresponding correlation matrix.
+ The sample coefficient alpha is 
+\begin_inset Formula 
+\begin{equation}
+\widehat{\alpha}\left(X\right)=\frac{k}{k-1}\left(1-\frac{\textrm{tr}S}{\mathbf{i}^{T}S\mathbf{i}}\right)\label{eq:sample coefficient alpha}
+\end{equation}
+
+\end_inset
+
+while the sample standardized coefficient alpha is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\widehat{\alpha_{s}\left(X\right)}=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}R\mathbf{i}}\right)\label{eq:sample standardized coefficient alpha}
+\end{equation}
+
+\end_inset
+
+The congeneric reliability 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Congeneric reliability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ has no simple sample version, as it depends on estimates of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ which usually do not have closed forms.
+\end_layout
+
+\begin_layout Standard
+The sample coefficient alpha is by far the most popular method to measure
+ reliability in psychology, despite the stringent conditions that must be
+ satisfied for its population value to be equal to the true reliabiltiy
+ 
+\begin_inset Formula $\omega\left(X\right)$
+\end_inset
+
+.
+ This has been lamented by many methodologist (see e.g.
+ McNeish (2018)), and will not be reiterated here.
+\end_layout
+
+\begin_layout Standard
+From Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Reliabilities."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the continuous mapping theorem we know the standardized coefficient
+ alpha 
+\begin_inset Formula $\widehat{\alpha_{s}\left(X\right)}$
+\end_inset
+
+ is consistent for 
+\begin_inset Formula $\omega\left(X\right)$
+\end_inset
+
+ under the parallell model.
+ But the unstandardized coefficient alpha 
+\begin_inset Formula $\widehat{\alpha\left(X\right)}$
+\end_inset
+
+ is also consistent for 
+\begin_inset Formula $\omega\left(X\right)$
+\end_inset
+
+ under the parallell model, as it is a submodel of the tau-equivalent model.
+ This raises the question of which estimator to prefer.
+ The natural way to make the question precise is to ask which one of the
+ estimators is most efficient.
+ Provided the fourth moment of the latent variable and the error terms exist,
+ the limiting distribution is normal.
+ Using the delta method I derive the limiting distributions of 
+\begin_inset Formula $\widehat{\alpha\left(X\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\widehat{\alpha_{s}\left(X\right)}$
+\end_inset
+
+.
+ The result for 
+\begin_inset Formula $\widehat{\alpha\left(X\right)}$
+\end_inset
+
+ extends the result of Zyl (2000) [[ref]] from multivariate normals to aribtrary
+ distributions with finite fourth moment.
+\end_layout
+
+\begin_layout Standard
+While 
+\begin_inset Formula $\widehat{\alpha\left(X\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\widehat{\alpha_{s}\left(X\right)}$
+\end_inset
+
+ are estimators of 
+\begin_inset Formula $\omega\left(X\right)$
+\end_inset
+
+ tailored to specific cirumstances, they are not necessarily the most efficeint
+ estimators under their respective circumstances.
+ Indeed, it is easy to modify either for them and still obtain consistent
+ and reasonable estimators, e.g.
+ by using just a single covariance and variance in 
+\begin_inset Formula $\widehat{\alpha\left(X\right)}$
+\end_inset
+
+ or a single off-diagonal correlation in 
+\begin_inset Formula $\widehat{\alpha_{s}\left(X\right)}$
+\end_inset
+
+.
+ I derive the maximum likelihood estimators of 
+\begin_inset Formula $\omega\left(X\right)$
+\end_inset
+
+ assuming multivariate normality and study their relative efficiency.
+\end_layout
+
+\begin_layout Standard
+I compare the finite sample performance of the four estimators in a simulation
+ study.
+\end_layout
+
+\begin_layout Standard
+A corollary to theorem BLA is
+\end_layout
+
+\begin_layout Section
+Asymptotics of sample alpha and sample standardized alpha
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\textrm{vech}\left(S\right)$
+\end_inset
+
+ be the half-vectorization of 
+\begin_inset Formula $S$
+\end_inset
+
+, obtained by stacking the columns of the lower triangular part of 
+\begin_inset Formula $S$
+\end_inset
+
+ on top of each other.
+ Define 
+\begin_inset Formula $\Gamma=\textrm{Cov}\left\{ \textrm{vech}\left(S\right)\right\} $
+\end_inset
+
+ as covariance matrix of the half-vectorized covariance matrix.
+ Let 
+\begin_inset Formula $D_{n}$
+\end_inset
+
+ the 
+\emph on
+duplication matrix
+\emph default
+, the unique matrix satisfying 
+\begin_inset Formula $D_{k}\textrm{vech}\left(A\right)=\textrm{vec}\left(A\right)$
+\end_inset
+
+ for all 
+\begin_inset Formula $A\in\mathbb{R}^{k\times k}$
+\end_inset
+
+; let 
+\begin_inset Formula $L_{n}$
+\end_inset
+
+ be the 
+\emph on
+elimination matrix
+\emph default
+, the unique matrix satisfying 
+\begin_inset Formula $L_{k}\textrm{vec}\left(A\right)=\textrm{vech}\left(A\right)$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $L_{k}D_{k}=I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:Limit distributions (alpha)"
+
+\end_inset
+
+The limiting distribution of coefficient alpha is
+\begin_inset Formula 
+\begin{equation}
+\sqrt{n}\left(\widehat{\alpha}-\alpha\right)\stackrel{d}{\to}N\left(0,\frac{k^{2}}{\left(k-1\right)^{2}}G^{T}\Gamma G\right)\label{eq:Limit distribution (coefficient alpha)}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $G=\frac{1}{b^{T}\sigma}a-\frac{a^{T}\sigma}{\left(b^{T}\sigma\right)^{2}}b$
+\end_inset
+
+ and 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is the covariance matrix of 
+\begin_inset Formula $\textrm{vech}S$
+\end_inset
+
+.
+ The limiting distribution of standardized coefficient alpha is
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{equation}
+\sqrt{n}\left(\widehat{\alpha}-\alpha\right)\stackrel{d}{\to}N\left(0,\frac{k^{2}}{\left(k-1\right)^{2}}H^{T}\Gamma^{\star}H\right)\label{eq:Limit distribution (standardized coefficient alpha)}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $H=$
+\end_inset
+
+ and 
+\begin_inset Formula $\Gamma^{\star}=L\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}D_{k}\Gamma D_{k}^{T}\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}L_{k}^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $X$
+\end_inset
+
+ is multivariate normal with covariance matrix 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+, 
+\begin_inset Formula $\Gamma=2L_{k}\Sigma\otimes\Sigma L_{k}^{T}$
+\end_inset
+
+, see e.g.
+ [[ref]]
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:Limit distributions (alpha, normal)"
+
+\end_inset
+
+If 
+\begin_inset Formula $X$
+\end_inset
+
+ is multivariate normal with covariance matrix 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ and correlation matrix 
+\begin_inset Formula $\Phi$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Corollary
+\begin_inset Formula 
+\begin{equation}
+\sqrt{n}\left(\widehat{\alpha}-\alpha\right)\stackrel{d}{\to}N\left(0,2\frac{k^{2}}{\left(k-1\right)^{2}}G^{T}L_{k}\Sigma\otimes\Sigma L_{k}^{T}G\right)\label{eq:Limit distribution (coefficient alpha, normal)}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\sqrt{n}\left(\widehat{\alpha_{s}}-\alpha\right)\stackrel{d}{\to}N\left(0,2\frac{k^{2}}{\left(k-1\right)^{2}}H^{T}L_{k}\Phi\otimes\Phi L_{k}^{T}H\right)\label{eq:Limit distribution (standardized coefficient alpha, normal)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:Limiting distributions (parallell model)"
+
+\end_inset
+
+Assume 
+\begin_inset Formula $X$
+\end_inset
+
+ follows the parallell model, i.e.
+ 
+\begin_inset Formula $\lambda_{i}=\lambda_{j}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i,j$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{i}=\sigma_{j}$
+\end_inset
+
+ in the one-factor model 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:one-factor model"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Then both 
+\begin_inset Formula $\sqrt{n}\left(\widehat{\alpha_{s}}-\alpha\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\sqrt{n}\left(\widehat{\alpha}-\alpha\right)$
+\end_inset
+
+ have the same limiting distributions.
+\end_layout
+
+\begin_layout Corollary
+When 
+\begin_inset Formula $X$
+\end_inset
+
+ is multivariate normal, the shared limiting distribution is
+\begin_inset Formula 
+\[
+N\left(0,\frac{}{}\right)
+\]
+
+\end_inset
+
+moreover, the limit of 
+\begin_inset Formula $\sqrt{n}\left(\frac{1}{2}\log\left(1-\widehat{\alpha}\right)-\frac{1}{2}\log\left(1-\alpha\right)\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\sqrt{n}\left(\frac{1}{2}\log\left(1-\widehat{\alpha_{s}}\right)-\frac{1}{2}\log\left(1-\alpha_{s}\right)\right)$
+\end_inset
+
+ are equal to
+\begin_inset Formula 
+\[
+N\left(0,\frac{1}{2}\frac{k}{k-1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:Limiting distributions (parallell model)"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that 
+\begin_inset Formula $\frac{1}{2}\log\left(1-\widehat{\alpha}\right)-\frac{1}{2}\log\left(1-\alpha\right)$
+\end_inset
+
+ is an asymptotic pivot.
+ This makes it a good candidate for the non-parametric bootstrap, which
+ I will explore in section [[section]].
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "yuan2003study"
+literal "false"
+
+\end_inset
+
+ derived the asymptotics of the sample alpha:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sqrt{n}\left(\widehat{\alpha}-\alpha\right)\stackrel{d}{\to}N\left(0,\varphi^{2}\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\varphi^{2}=\frac{k^{2}}{\left(k-1\right)^{2}}G^{T}\Gamma G$
+\end_inset
+
+.
+ Here
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha\left(\sigma\right)=\frac{k}{k-1}\left(1-g\left(\sigma\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+g\left(\sigma\right)=\frac{a^{T}\sigma}{b^{T}\sigma}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $a$
+\end_inset
+
+ is a vector of 1s and 0s with 1s corresponding to 
+\begin_inset Formula $\sigma_{ii}$
+\end_inset
+
+ and 
+\begin_inset Formula $0$
+\end_inset
+
+s elsewhere, and 
+\begin_inset Formula $b$
+\end_inset
+
+ is a vector of 
+\begin_inset Formula $1$
+\end_inset
+
+s and 
+\begin_inset Formula $2$
+\end_inset
+
+s with 
+\begin_inset Formula $1$
+\end_inset
+
+s corresponding to 
+\begin_inset Formula $s_{ii}$
+\end_inset
+
+ and 
+\begin_inset Formula $2$
+\end_inset
+
+s elsewhere.
+\end_layout
+
+\begin_layout Standard
+The derivative
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla_{\sigma}g=\frac{1}{b^{T}\sigma}a-\frac{a^{T}\sigma}{\left(b^{T}\sigma\right)^{2}}b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+The only difference for the sample standardized alpha is that 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is replaced by 
+\begin_inset Formula 
+\[
+\Psi=\textrm{Cov}\left(\textrm{vech}\left\{ \left[D_{\Sigma}^{-1/2}\left(X_{i}-\mu\right)\right]\left[D_{\Sigma}^{-1/2}\left(X_{i}-\mu\right)\right]^{T}\right\} \right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $D_{\Sigma}$
+\end_inset
+
+ is the diagonal of 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+And
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha\left(\phi\right) & = & \frac{k}{k-1}\left(1-g\left(\phi\right)\right)\\
+g\left(\phi\right) & = & \frac{k}{\left(2\mathbf{i}^{T}\phi+k\right)}\\
+\nabla_{\phi}G & = & -\frac{2k}{\left(2\mathbf{i}^{T}\phi+k\right)^{2}}\mathbf{i}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus the derivative is changed.
+\end_layout
+
+\begin_layout Standard
+The main problem is to make sense of 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ and 
+\begin_inset Formula $\Psi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+1.) Study them for the normal case:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Gamma_{N}=2D_{p}^{+}\left(\Sigma\otimes\Sigma\right)D_{p}^{+T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+Under the parallell model, 
+\begin_inset Formula $\Psi=\frac{1}{\sigma^{2}+\lambda^{2}}\Gamma$
+\end_inset
+
+.
+ Show the asymptotics are equal.
+ (Hopefully.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Psi & = & \textrm{Cov}\left(\textrm{vech}\left\{ \left[D_{\Sigma}^{-1/2}\left(X_{i}-\mu\right)\right]\left[D_{\Sigma}^{-1/2}\left(X_{i}-\mu\right)\right]^{T}\right\} \right)\\
+ & = & \textrm{Cov}\left(L_{k}D_{k}\textrm{vech}\left\{ \left[D_{\Sigma}^{-1/2}\left(X_{i}-\mu\right)\right]\left[D_{\Sigma}^{-1/2}\left(X_{i}-\mu\right)\right]^{T}\right\} \right)\\
+ & = & \textrm{Cov}\left(L_{k}\textrm{vecs}\left\{ D_{\Sigma}^{-1/2}\left(X_{i}-\mu\right)\left(X_{i}-\mu\right)^{T}D_{\Sigma}^{-1/2}\right\} \right)\\
+ & = & \textrm{Cov}\left(L_{k}\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}\textrm{vecs}\left\{ \left(X_{i}-\mu\right)\left(X_{i}-\mu\right)^{T}\right\} \right)\\
+ & = & L_{k}\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}\Gamma\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}L_{k}^{T}\\
+\\
+ & = & \textrm{Cov}\left(L_{k}\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}D_{k}\textrm{vech}\left\{ \left(X_{i}-\mu\right)\left(X_{i}-\mu\right)^{T}\right\} \right)\\
+ & = & L_{k}\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}D_{k}\Gamma D_{k}^{T}\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}L_{k}^{T}\\
+ & = & L_{k}\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}D_{k}\Gamma D_{k}^{T}\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}L_{k}^{T}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $\Gamma=2L_{k}\Sigma\otimes\Sigma L_{k}^{T}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}\Gamma\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}} & = & \left(D_{\Sigma}^{-\frac{1}{2}}\Sigma D_{\Sigma}^{-\frac{1}{2}}\right)\otimes\left(D_{\Sigma}^{-\frac{1}{2}}\Sigma D_{\Sigma}^{-\frac{1}{2}}\right)\\
+ & = & \Phi\otimes\Phi
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here 
+\begin_inset Formula $L_{n}D_{n}=I$
+\end_inset
+
+.
+ Hence, if 
+\begin_inset Formula $D_{\Sigma}\otimes D_{\Sigma}=cI$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\left(\sigma^{2}+\lambda^{2}\right)^{2}}\Gamma
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\nabla_{\sigma}g & = & -\frac{k}{\left(b^{T}\phi\right)^{2}}b=-\frac{k\left(\sigma^{2}+\lambda^{2}\right)}{\left(b^{T}\mathbf{\sigma}\right)^{2}}b\\
+ & = & -\frac{k}{}b
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Normal result:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k^{2}}{\left(b^{T}\phi\right)^{4}}bL_{k}\Phi\otimes\Phi L_{k}^{T}b^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "Coefficient alpha and standardized alpha"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Theorems
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:Limit distributions (alpha)-1"
+
+\end_inset
+
+The limiting distribution of coefficient alpha is
+\begin_inset Formula 
+\begin{equation}
+\sqrt{n}\left(\widehat{\alpha}-\alpha\right)\stackrel{d}{\to}N\left(0,\frac{k^{2}}{\left(k-1\right)^{2}}G^{T}\Gamma G\right)\label{eq:Limit distribution (coefficient alpha)-1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $G=\frac{1}{b^{T}\sigma}a-\frac{a^{T}\sigma}{\left(b^{T}\sigma\right)^{2}}b$
+\end_inset
+
+ and 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is the covariance matrix of 
+\begin_inset Formula $\textrm{vech}S$
+\end_inset
+
+.
+ The limiting distribution of standardized coefficient alpha is
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{equation}
+\sqrt{n}\left(\widehat{\alpha}-\alpha\right)\stackrel{d}{\to}N\left(0,\frac{k^{2}}{\left(k-1\right)^{2}}H^{T}\Gamma^{\star}H\right)\label{eq:Limit distribution (standardized coefficient alpha)-1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $H=$
+\end_inset
+
+ and 
+\begin_inset Formula $\Gamma^{\star}=L\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}D_{k}\Gamma D_{k}^{T}\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}L_{k}^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Notes
+\end_layout
+
+\begin_layout Section
+Equal limiting distributions under the parallell model and multivariate
+ normality.
+\end_layout
+
+\begin_layout Standard
+The Combine the result of 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "eq. 22"
+key "van2000distribution"
+literal "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "appendix 3"
+key "hayashi2005note"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+after "eq. 22"
+key "van2000distribution"
+literal "false"
+
+\end_inset
+
+ showed that the asymptotic variance is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma^{2}\left(\alpha\right)=\frac{2k}{\left(k-1\right)\left[1+\rho\left(k-1\right)\right]^{3}}\left[\left(k-1\right)\rho^{3}-\left(2k-3\right)\rho^{2}+\left(k-3\right)\rho+1\right]
+\]
+
+\end_inset
+
+This can be simplified to
+\begin_inset Formula 
+\[
+\sigma^{2}\left(\alpha\right)=\frac{2k\left(\rho-1\right)^{2}}{\left(k-1\right)\left[1+\rho\left(k-1\right)\right]^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+after "equation 10"
+key "hayashi2005note"
+literal "false"
+
+\end_inset
+
+ found the asymptotic variance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma^{2}\left(\alpha_{s}\right)=\frac{1}{\left(k-1\right)^{2}}\frac{1}{\left(1+\rho\left(k-1\right)\right)^{4}}2\mathbf{1}^{T}Q_{p}\left(P\otimes P\right)Q_{P}^{T}\mathbf{1}.
+\]
+
+\end_inset
+
+The expression 
+\begin_inset Formula $2\mathbf{1}^{T}Q_{p}\left(P\otimes P\right)Q_{P}^{T}\mathbf{1}$
+\end_inset
+
+ can be rewritten to 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "appendix 3"
+key "hayashi2005note"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2k\left(k-1\right)\left\{ \left(k-1\right)^{2}\rho^{4}-2\left(k-1\right)\left(k-2\right)\rho^{3}+\left(k^{2}-6k+6\right)\text{\ensuremath{\rho^{2}+2\left(k-2\right)\rho+1}}\right\} ,
+\]
+
+\end_inset
+
+which can be further simplfied to 
+\begin_inset Formula $\left(\rho-1\right)^{2}\left(1+\rho\left(k-1\right)^{2}\right)^{2}$
+\end_inset
+
+.
+ Thus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma^{2}\left(\alpha_{s}\right)=\frac{2k}{\left(k-1\right)}\frac{\left(\rho-1\right)^{2}}{\left(1+\rho\left(k-1\right)\right)^{2}}
+\]
+
+\end_inset
+
+and the limits are equal.
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $\widehat{\alpha}$
+\end_inset
+
+ is the maximum likelihood estimator of 
+\begin_inset Formula $\omega$
+\end_inset
+
+ when 
+\begin_inset Formula $n$
+\end_inset
+
+ is large it is efficient.
+ And since the asymptotic variances of 
+\begin_inset Formula $\widehat{\alpha}$
+\end_inset
+
+ and 
+\begin_inset Formula $\widehat{\alpha_{s}}$
+\end_inset
+
+ coincides they are both efficient.
+\end_layout
+
+\begin_layout Standard
+The claim about 
+\begin_inset Formula $\log\left(1-\alpha\right)$
+\end_inset
+
+ follows from equation 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "eq. 14"
+key "van2000distribution"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Understanding 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Gamma=E\left[\left(X-\mu\right)\left(X-\mu\right)^{T}\otimes\left(X-\mu\right)\left(X-\mu\right)^{T}\right]-\left(\textrm{vec}\Sigma\right)\left(\textrm{vec}\Sigma\right)^{T}
+\]
+
+\end_inset
+
+Assume 
+\begin_inset Formula $\mu=0$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+XX^{T}\otimes XX^{T}=\begin{bmatrix}X_{1}^{4}\\
+X_{1}^{3}X_{2} & X_{1}X_{2}^{3}\\
+X_{1}^{3}X_{3} & X_{1}^{2}X_{2}X_{3} & X_{1}X_{3}^{3}\\
+\\
+\\
+\\
+\\
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+E\left[XX^{T}\otimes XX^{T}\right] & = & E\left[\left(\lambda F+\sigma\epsilon\right)\left(\lambda F+\sigma\epsilon\right)^{T}\otimes\left(\lambda F+\sigma\epsilon\right)\left(\lambda F+\sigma\epsilon\right)^{T}\right]\\
+ & = & \left(\lambda FF^{T}\lambda^{T}+\lambda F\epsilon^{T}\sigma^{T}+\sigma\epsilon F^{T}\lambda^{T}+\sigma\epsilon\epsilon^{T}\sigma^{T}\right)\otimes\left(\lambda FF^{T}\lambda^{T}+\lambda F\epsilon^{T}\sigma^{T}+\sigma\epsilon F^{T}\lambda^{T}\right)\\
+ & = & \lambda FF^{T}\lambda^{T}\otimes\lambda FF^{T}\lambda^{T}+....
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+Here
+\begin_inset Formula 
+\begin{eqnarray*}
+\lambda FF^{T}\lambda^{T}\otimes\lambda FF^{T}\lambda^{T} & = & \left(\lambda F\otimes\lambda F\right)\left(\lambda F\otimes\lambda F\right)^{T}\\
+ & = & \lambda\left(F\otimes F\right)\left(F\otimes F\right)^{T}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula 
+\[
+X=\lambda F+\sigma\epsilon
+\]
+
+\end_inset
+
+where all 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ are identically distributed and independent of 
+\begin_inset Formula $F$
+\end_inset
+
+, with 
+\begin_inset Formula $E\epsilon^{4}=\xi_{4}$
+\end_inset
+
+ and 
+\begin_inset Formula $EF^{4}=\kappa$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+EX_{i}^{4} & = & \lambda^{4}\kappa+6\lambda^{2}\sigma^{2}+\sigma^{4}\xi\\
+EX_{i}^{3}X_{j} & = & \lambda^{4}\kappa+3\lambda^{2}\sigma^{2}\\
+EX_{i}^{2}X_{j}^{2} & = & \lambda^{4}\kappa+2\lambda^{2}\sigma^{2}+\sigma^{4}\\
+EX_{i}^{2}X_{j}X_{k} & = & \lambda^{4}\kappa+\lambda^{2}\sigma^{2}\\
+EX_{i}X_{j}X_{k}X_{l} & = & \lambda^{4}\kappa
+\end{eqnarray*}
+
+\end_inset
+
+Hence first matrix is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\lambda^{4}\kappa\mathbf{i}^{T}\mathbf{i}+\sigma^{4}\xi K_{1}+\lambda^{2}\sigma^{2}K_{2},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $K_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ are the approppriate matrix.
+ On the other hand,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\textrm{vec}\Sigma\right)\left(\textrm{vec}\Sigma\right)^{T}=\left(\textrm{vec}\Sigma\right)\left(\textrm{vec}\Sigma\right)^{T}=\lambda^{4}\mathbf{i}^{T}\mathbf{i}+\sigma^{4}A+\sigma^{2}\lambda^{2}B+\sigma^{2}\lambda^{2}B^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\lambda^{4}\left(\kappa-1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Gamma Already Known?
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+after "theorem 1"
+key "yuan1999normal"
+literal "false"
+
+\end_inset
+
+ appears to cover what we need.
+ The 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ model can be generated by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\begin{bmatrix}\sigma_{1} &  &  &  &  & \lambda_{1}\\
+ & \sigma_{2} &  &  &  & \lambda_{2}\\
+ &  & \sigma_{3} &  &  & \lambda_{3}\\
+ &  &  & \ddots &  & \vdots\\
+ &  &  &  & \sigma_{k} & \lambda_{k}
+\end{bmatrix}
+\]
+
+\end_inset
+
+(Any linear factor model can be written as this.) The covariance matrix 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is, with 
+\begin_inset Formula $a_{j}$
+\end_inset
+
+ the 
+\begin_inset Formula $j$
+\end_inset
+
+th column of 
+\begin_inset Formula $A$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+2L\left(\Sigma\otimes\Sigma\right)L^{T}+\sum_{i=1}^{k+1}\left(\kappa_{j}-3\right)\textrm{vech}\left(a_{j}a_{j}^{T}\right)\textrm{vech}^{T}\left(a_{j}a_{j}^{T}\right)\\
+2L\left(\Sigma\otimes\Sigma\right)L^{T}+\sum_{i=1}^{k+1}\left(\kappa_{j}-3\right)L\left(a_{j}a_{j}^{T}\otimes a_{j}a_{j}^{T}\right)L^{T}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The last line holds since 
+\begin_inset Formula 
+\begin{eqnarray*}
+\textrm{vech}\left(A\right)\textrm{vech}^{T}\left(B\right) & = & LD\textrm{vech}\left(A\right)\left(LD\textrm{vech}\left(B\right)\right)^{T}\\
+ & = & L\textrm{vec}\left(A\right)\textrm{vec}\left(B\right)^{T}L^{T}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $E\epsilon_{i}^{4}=\kappa_{i}=3$
+\end_inset
+
+ for all variables, we reach the exact same asymptotics as in the normal
+ case.
+ (This is the pseudo-normal distribution according to 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 255"
+key "yuan2002robustness"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The value of 
+\begin_inset Formula $\textrm{vech}\left(a_{j}a_{j}^{T}\right)\textrm{vech}^{T}\left(a_{j}a_{j}^{T}\right)$
+\end_inset
+
+ when 
+\begin_inset Formula $j\leq k$
+\end_inset
+
+ is 
+\begin_inset Formula $\sigma_{j}^{4}M_{j}$
+\end_inset
+
+, where 
+\begin_inset Formula $M_{j}$
+\end_inset
+
+ is 
+\begin_inset Formula $1$
+\end_inset
+
+ on the diagonal where corresponding to 
+\begin_inset Formula $\sigma_{i}^{4}$
+\end_inset
+
+ in 
+\begin_inset Formula $\Sigma\otimes\Sigma$
+\end_inset
+
+ and 
+\begin_inset Formula $0$
+\end_inset
+
+ otherwise.
+ For 
+\begin_inset Formula $j=k+1$
+\end_inset
+
+, it equals 
+\begin_inset Formula $\lambda^{4}\mathbf{i}^{T}\mathbf{i}$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Gamma=L\left[2\left(\Sigma\otimes\Sigma\right)+\sum_{i=1}^{k}\left(\kappa_{j}-3\right)\sigma_{j}^{4}M_{j}+\left(\kappa-3\right)\lambda^{4}\mathbf{i}^{T}\mathbf{i}\right]L^{T}
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $LL^{T}=I$
+\end_inset
+
+, this can be written as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Gamma=L\left[2\left(\Sigma\otimes\Sigma\right)+\sum_{i=1}^{k}\left(\kappa_{j}-3\right)\sigma_{j}^{4}M_{j}\right]L^{T}+\left(\kappa-3\right)\lambda^{4}\mathbf{i}^{T}\mathbf{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Task:
+\series default
+ Verify the matrix above.
+ (Verified for 
+\begin_inset Formula $EX_{i}^{4}$
+\end_inset
+
+.) (Verified for 
+\begin_inset Formula $EX_{i}^{3}X_{j}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Task:
+\series default
+ Use this and the derivations in 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "equation 20"
+key "van2000distribution"
+literal "false"
+
+\end_inset
+
+ to find the asymptotic distribution of Cronbach alpha under compound symmetry
+ and non-normality in the one-factor model.
+ Should be OK easy.
+ But will it be beautiful?
+\end_layout
+
+\begin_layout Section
+Using asymptotic covariance
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\sigma=\textrm{vech}\Sigma$
+\end_inset
+
+, the half-vectorization of 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ the
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha\left(\sigma\right) & = & \frac{k}{k-1}\left(1-g\left(\sigma\right)\right)\\
+g\left(\sigma\right) & = & \frac{k}{2\sigma^{T}\left(A\sigma^{-1/2}\circ B\sigma^{-1/2}\right)+k}\\
+\nabla_{\phi}g & = & -\frac{2k}{\left(2\mathbf{i}^{T}\phi+k\right)^{2}}\mathbf{i}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Distribution of the Covariance and Correlation Matrix
+\end_layout
+
+\begin_layout Standard
+The key references here are:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset citation
+LatexCommand citet
+key "neudecker1990asymptotic"
+literal "false"
+
+\end_inset
+
+: Contains the asymptotics of the covariance matrix in half-vectorized form
+ and the asymptotics of the correlaton matrix in fully vectorized form.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset citation
+LatexCommand citet
+key "neudecker1996asymptotic"
+literal "false"
+
+\end_inset
+
+: The asymptotics of the correlation matrix in lower-half vectorized form
+ and a variant for elliptical distributions.
+\end_layout
+
+\begin_layout Standard
+Write down the definitions and a theorem containing both results.
+ (This is appendix meat.)
+\end_layout
+
+\begin_layout Subsection
+Definitions
+\end_layout
+
+\begin_layout Standard
+Assume 
+\begin_inset Formula $\textrm{Cov}\left(X\right)=\Sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K_{d}\textrm{vec}\left(A\right)=\textrm{vec}\left(\textrm{diag}\left(A\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K\textrm{vec}A=\textrm{vec}A^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $N=\frac{1}{2}\left(I+K\right)$
+\end_inset
+
+, thus 
+\begin_inset Formula $N\textrm{vec}A=\frac{1}{2}\left(\textrm{vec}A^{T}+\textrm{vec}A\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\textrm{vech}A$
+\end_inset
+
+: The vectorization of 
+\begin_inset Formula $A$
+\end_inset
+
+ with the both the super-diagonal elements excluded.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $w\left(A\right)$
+\end_inset
+
+: The vectorization of 
+\begin_inset Formula $A$
+\end_inset
+
+ with the both the diagonal and super-diagonal elements excluded.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $D$
+\end_inset
+
+: Transformes a lower-half vectorized matrix to a vectorized matrix.
+ 
+\begin_inset Formula $Dw\left(B\right)=\textrm{vec}B$
+\end_inset
+
+.
+ Its inverse is 
+\begin_inset Formula $\frac{1}{2}D^{T}$
+\end_inset
+
+, so that 
+\begin_inset Formula $\frac{1}{2}D^{T}\textrm{vec}B=w\left(B\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\Gamma=E\left[\left(X-\mu\right)\left(X-\mu\right)^{T}\otimes\left(X-\mu\right)\left(X-\mu\right)^{T}\right]-\left(\textrm{vec}\Sigma\right)\left(\textrm{vec}\Sigma\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Notes:
+\end_layout
+
+\begin_layout Enumerate
+For elliptical distributions with kurtosis 
+\begin_inset Formula $\kappa$
+\end_inset
+
+: 
+\begin_inset Formula $\Gamma=\left(1+\kappa\right)\left(I+K\right)\left(\Sigma\otimes\Sigma\right)+\kappa\left(\textrm{vec}\Sigma\right)\left(\textrm{vec}\Sigma\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+For the normal distribution, the elliptical distribution with kurtosis 
+\begin_inset Formula $\kappa=0$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Gamma & = & \left(I+K\right)\left(\Sigma\otimes\Sigma\right)\\
+ & = & 2L\left(\Sigma\otimes\Sigma\right)L^{T}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Correlation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi=\frac{1}{4}D^{T}\left(I-\left(I\otimes P\right)K_{d}\right)\left(\Sigma_{d}^{-1/2}\otimes\Sigma_{d}^{-1/2}\right)\Gamma\left(\Sigma_{d}^{-1/2}\otimes\Sigma_{d}^{-1/2}\right)\left(I-K_{d}\left(I\otimes P\right)\right)D
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Covariance:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi=LVL^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the covariance:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E\left[\left(\Sigma_{d}^{-1/2}\left(X-\mu\right)\right)\left(\Sigma_{d}^{-1/2}\left(X-\mu\right)\right)^{T}\otimes\left(\Sigma_{d}^{-1/2}\left(X-\mu\right)\right)\left(\Sigma_{d}^{-1/2}\left(X-\mu\right)\right)^{T}\right]-\left(\textrm{vec}P\right)\left(\textrm{vec}P\right)^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Standardized alpha
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha\left(\phi\right) & = & \frac{k}{k-1}\left(1-g\left(\phi\right)\right)\\
+g\left(\phi\right) & = & \frac{k}{\left(2\mathbf{i}^{T}\phi+k\right)}\\
+\nabla_{\phi}g & = & -\frac{2k}{\left(2\mathbf{i}^{T}\phi+k\right)^{2}}\mathbf{i}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And the log:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla_{\phi}\log\left(1-\alpha\left(\phi\right)\right)=-\frac{k^{2}}{\left(\left(k-1\right)k-2\mathbf{i}^{T}\phi\right)\left(k+2\left(\mathbf{i}^{T}\phi\right)\right)}\mathbf{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+With two observations [[verified: Both are asymptoticall 1.]]
+\end_layout
+
+\begin_layout Standard
+With two observations (and normality), 
+\begin_inset Formula $\sqrt{n}\left(\widehat{\phi}-\phi\right)=N\left(0,\left(1-\phi^{2}\right)^{2}\right)$
+\end_inset
+
+.
+ The limiting variance of 
+\begin_inset Formula $\frac{1}{2}\log\left(1-\widehat{\alpha_{s}}\right)$
+\end_inset
+
+ is 
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Without logs
+\end_layout
+
+\begin_layout Standard
+Since all variances are equal, 
+\begin_inset Formula 
+\begin{eqnarray*}
+\nabla_{\phi}h & = & -\frac{2}{k\left(2\phi+1\right)^{2}}\mathbf{i}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi=\frac{1}{4}\left(\lambda^{2}+\sigma^{2}\right)^{-2}D^{T}\left(I-\left(I\otimes P\right)K_{d}\right)\Gamma\left(I-K_{d}\left(I\otimes P\right)\right)D
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $k^{2}\left(2\frac{\lambda^{2}}{\lambda^{2}+\sigma^{2}}+\frac{\lambda^{2}+\sigma^{2}}{\lambda^{2}+\sigma^{2}}\right)^{4}=k^{2}\frac{}{\left(\lambda^{2}+\sigma^{2}\right)^{4}}\left(3\lambda^{2}+\sigma^{2}\right)^{4}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(\nabla_{\phi}h\right)^{T}\Psi\left(\nabla_{\phi}h\right)\\
+\frac{}{k^{2}\left(2\frac{\lambda^{2}}{\lambda^{2}+\sigma^{2}}+\frac{\lambda^{2}+\sigma^{2}}{\lambda^{2}+\sigma^{2}}\right)^{4}}\mathbf{i}^{T}D^{T}\left(I-\left(I\otimes P\right)K_{d}\right)\Gamma\left(I-K_{d}\left(I\otimes P\right)\right)D\mathbf{i}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here 
+\begin_inset Formula $I-\left(I\otimes P\right)$
+\end_inset
+
+ is the lower diagonal matrix with all elements equal to 
+\begin_inset Formula $\rho$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The other part is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla_{\sigma}g=\frac{1}{b^{T}\sigma}a-\frac{a^{T}\sigma}{\left(b^{T}\sigma\right)^{2}}b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\phi^{2}}{k^{2}\left(2\phi+1\right)^{4}}\mathbf{i}^{T}D^{T}\left(I-\left(I\otimes P\right)K_{d}\right)\Gamma\left(I-K_{d}\left(I\otimes P\right)\right)D\mathbf{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ under the parallell model
+\end_layout
+
+\begin_layout Standard
+Know that
+\begin_inset Formula 
+\[
+\Sigma=I\sigma^{2}+\lambda^{2}\mathbf{i}^{T}\mathbf{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Gamma=E\left[\left(X-\mu\right)\left(X-\mu\right)^{T}\otimes\left(X-\mu\right)\left(X-\mu\right)^{T}\right]-\left(\textrm{vec}\Sigma\right)\left(\textrm{vec}\Sigma\right)^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus 
+\begin_inset Formula $\left(\textrm{vec}\Sigma\right)\left(\textrm{vec}\Sigma\right)^{T}=\lambda^{4}\mathbf{i}^{T}\mathbf{i}+\sigma^{4}A+\sigma^{2}\lambda^{2}B+\sigma^{2}\lambda^{2}B^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2\times2
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+mean 
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+XX^{T}=\begin{bmatrix}X_{1}^{2}\\
+\\
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{bmatrix}X_{1}^{4} & X_{1}^{3}X_{2} & X_{1}^{3}X_{2} & X_{1}^{2}X_{2}^{2}\\
+X_{1}^{3}X_{2} & X_{1}^{2}X_{2}^{2} & X_{1}^{2}X_{2}^{2} & X_{1}X_{2}^{3}\\
+X_{1}^{3}X_{2} & X_{1}^{2}X_{2}^{2} & X_{1}^{2}X_{2}^{2} & X_{1}X_{2}^{3}\\
+X_{1}^{2}X_{2}^{2} & X_{1}X_{2}^{3} & X_{1}X_{2}^{3} & X_{2}^{4}
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Old
+\end_layout
+
+\begin_layout Standard
+The asymptotic distribution of the moment estimator of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Coefficient alpha"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is found in 
+\begin_inset Quotes eld
+\end_inset
+
+ON THE DISTRIBUTION OF THE MAXIMUM LIKELIHOOD ESTIMATOR OF CRONBACH'S ALPHA
+\begin_inset Quotes erd
+\end_inset
+
+ using the delta method and the limiting distribution of the sample covariance
+ matrix.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Task:
+\series default
+ Check if the derivation in OtDotMLEoCA depends on normality.
+ It might to.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Issue: 
+\series default
+The sample correlation matrix is not the MLE in a normal model.
+ (Mention but do not care too much about.)
+\end_layout
+
+\begin_layout Subsection
+Underestimating
+\end_layout
+
+\begin_layout Standard
+All of this is in the context of a SEM with one factor and uncorrelated
+ errors.
+\end_layout
+
+\begin_layout Subsubsection
+Coefficient alpha
+\end_layout
+
+\begin_layout Standard
+One-factor model:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
+ & = & \frac{k}{k-1}\left(1-\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}}{\sum_{i}\sum_{j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\sigma_{i}^{2}}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{k\overline{\lambda}^{2}-\overline{\lambda^{2}}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{k\overline{\lambda}^{2}-\overline{\lambda}^{2}-\overline{\lambda^{2}}+\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right)\\
+ & = & \frac{k\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}-\left(\frac{\overline{\lambda^{2}}-\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right)\\
+ & = & \omega-\left(\frac{\overline{\lambda^{2}}-\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\frac{\overline{\lambda^{2}}-\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\geq0$
+\end_inset
+
+ and equals 
+\begin_inset Formula $0$
+\end_inset
+
+ if and only if all 
+\begin_inset Formula $\lambda$
+\end_inset
+
+s are equal, 
+\begin_inset Formula $\alpha=\omega$
+\end_inset
+
+ iff all lambdas are equal and is otherwise an underestimate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\omega=\frac{k\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+In general
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ denote the covariance matrix of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Assume Then it can be written as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi=\Lambda^{T}\Gamma\Lambda+\Sigma
+\]
+
+\end_inset
+
+The trace is 
+\begin_inset Formula 
+\[
+\textrm{tr}\left(\Gamma\Lambda\Lambda^{T}\right)+\textrm{\textrm{tr}\ensuremath{\left(\Sigma\right)}}
+\]
+
+\end_inset
+
+While 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathbf{i}^{T}\Phi\mathbf{i} & = & \mathbf{i}^{T}\Lambda^{T}\Gamma\Lambda\mathbf{i}+\mathbf{i}^{T}\Sigma\mathbf{i}\\
+ & = & \textrm{tr}\left(\Lambda^{T}\Gamma\Lambda\mathbf{i\mathbf{i}^{T}}\right)+\textrm{tr}\ensuremath{\left(\Sigma\mathbf{i\mathbf{i}^{T}}\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Real:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\textrm{tr}\Gamma-\sum_{j=1}^{J}\frac{\left(\iota_{j}^{T}\Lambda\Gamma_{j}\right)^{2}}{\iota_{j}\left(\Lambda\Gamma\Lambda^{T}+\Sigma\right)\iota_{j}^{T}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Standardized coefficient alpha
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k}{k-1}\left(1-\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha_{s} & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\Phi}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\\
+ & = & \frac{k}{k-1}\left(1-\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)\\
+ & = & \frac{k}{k-1}\left(1-\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k} & = & \frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}\frac{\left(\overline{\sigma^{2}}+\overline{\lambda^{2}}\right)}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}\\
+ & =
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Guess: 
+\begin_inset Formula $\alpha_{s}\geq\alpha$
+\end_inset
+
+ with equality only when all 
+\begin_inset Formula $\sigma$
+\end_inset
+
+s and 
+\begin_inset Formula $\lambda$
+\end_inset
+
+s are equal.
+\end_layout
+
+\begin_layout Standard
+Must prove:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}\frac{\left(\overline{\sigma^{2}}+\overline{\lambda^{2}}\right)}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}\geq\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Same as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+2\lambda_{1}\lambda_{2}\left[\frac{2}{\lambda_{1}^{2}+\sigma_{1}^{2}+\lambda_{2}^{2}+\sigma_{2}^{2}}-\sqrt{\frac{1}{\left(\sigma_{1}^{2}+\lambda_{1}^{2}\right)\left(\sigma_{2}^{2}+\lambda^{2}\right)}}\right] & \geq & 0
+\end{eqnarray*}
+
+\end_inset
+
+For two points this is the geometric-arithmetic mean inequality, hence standardi
+zed alpha is larger.
+\end_layout
+
+\begin_layout Standard
+For larger 
+\begin_inset Formula $k$
+\end_inset
+
+ all are possible.
+\end_layout
+
+\begin_layout Subsubsection
+The proof.
+\end_layout
+
+\begin_layout Lemma
+For (ii) and (iii), have as a lemma in the appendix that that 
+\begin_inset Formula $\alpha_{s}\geq\alpha$
+\end_inset
+
+ if and only if
+\end_layout
+
+\begin_layout Lemma
+\begin_inset Formula 
+\begin{equation}
+\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma^{2}+\lambda_{j}^{2}}}\geq\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sum_{i=1}^{k}\left(\lambda_{i}^{2}+\sigma_{i}^{2}\right)/k}\label{eq:alpha_s_alpha_inequality}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First observe that 
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha_{s} & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\Phi}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\\
+ & = & \frac{k}{k-1}\left(1-\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)
+\end{eqnarray*}
+
+\end_inset
+
+and
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
+ & = & \frac{k}{k-1}\left(1-\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus 
+\begin_inset Formula $\alpha_{s}\geq\alpha$
+\end_inset
+
+ if and only if
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\leq\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}
+\]
+
+\end_inset
+
+which happens if and only if 
+\begin_inset Formula 
+\[
+\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma^{2}+\lambda_{j}^{2}}}\geq\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sum_{i=1}^{k}\left(\lambda_{i}^{2}+\sigma_{i}^{2}\right)/k}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+...
+\end_layout
+
+\begin_layout Proof
+(ii) From 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Alpha-alpha_s inequality"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{i}=\lambda$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\lambda^{2}\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}\geq\lambda^{2}\sum_{i\neq j}\frac{1}{\sum_{i=1}^{k}\left(\lambda^{2}+\sigma_{i}^{2}\right)/k}
+\]
+
+\end_inset
+
+Recall Jensen's inequality: When 
+\begin_inset Formula $f$
+\end_inset
+
+ is convex and 
+\begin_inset Formula $E\left[f\left(X\right)\right]\geq f\left[E\left(X\right)\right]$
+\end_inset
+
+.
+ The function 
+\begin_inset Formula $f\left(x,y\right)=\left(x+\lambda^{2}\right)^{-1/2}\left(y+\lambda^{2}\right)^{-1/2}$
+\end_inset
+
+ is convex for any 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $E\left(X,Y\right)=\left[k\left(k-1\right)\right]^{-1}\left(\sum_{i\neq j}x_{i},\sum_{i\neq j}y_{i}\right)$
+\end_inset
+
+ and observe that
+\begin_inset Formula 
+\begin{eqnarray*}
+f\left(E\left(\sigma^{2},\sigma^{2}\right)\right) & = & f\left(\left[k\left(k-1\right)\right]^{-1}\sum_{i\neq j}\sigma_{i}^{2},\left[k\left(k-1\right)\right]^{-1}\sum_{i\neq j}\sigma_{i}^{2}\right)\\
+ & = & \left[\left[k\left(k-1\right)\right]^{-1}\sum_{i\neq j}\sigma_{i}^{2}+\lambda^{2}\right]^{-1/2}\left[\left[k\left(k-1\right)\right]^{-1}\sum_{i\neq j}\sigma_{i}^{2}+\lambda^{2}\right]^{-1/2}\\
+ & = & \left(\sum_{i=1}^{k}\left(\lambda^{2}+\sigma_{i}^{2}\right)/k\right)^{-1}
+\end{eqnarray*}
+
+\end_inset
+
+and by Jensen's inequality
+\begin_inset Formula 
+\[
+\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}\geq\sum_{i\neq j}\frac{1}{\sum_{i=1}^{k}\left(\lambda^{2}+\sigma_{i}^{2}\right)/k}
+\]
+
+\end_inset
+
+with equality if and only if 
+\begin_inset Formula $\sigma_{i}^{2}=\sigma_{j}^{2}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i,j$
+\end_inset
+
+.
+ Since 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Alpha-alpha_s inequality"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is true when 
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+ too we are done.
+\end_layout
+
+\begin_layout Paragraph*
+First part
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha_{s} & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\Phi}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\\
+ & = & \frac{k}{k-1}\left(1-\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)
+\end{eqnarray*}
+
+\end_inset
+
+When 
+\begin_inset Formula $\lambda_{i}=\lambda_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{i}^{2}=\sigma_{j}^{2}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}=k\left(k-1\right)\frac{\lambda^{2}}{\sigma^{2}+\lambda^{2}}
+\]
+
+\end_inset
+
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha_{s} & = & \frac{k}{k-1}\left(1-\frac{\sigma^{2}+\lambda^{2}}{\left(k-1\right)\lambda^{2}+\sigma^{2}+\lambda^{2}}\right)\\
+ & = & \frac{k\lambda^{2}}{k\lambda^{2}+\sigma^{2}}=\alpha
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Second part (1)
+\end_layout
+
+\begin_layout Standard
+From the proof of (i) and (ii) observe that 
+\begin_inset Formula $\alpha_{s}\geq\alpha$
+\end_inset
+
+ if and only if
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\leq\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}\label{eq:Alpha-alpha_s inequality}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $k=2$
+\end_inset
+
+.
+ Then 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Alpha-alpha_s inequality"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ simplifies to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\frac{\lambda_{1}\lambda_{2}}{\sqrt{\left(\sigma_{1}^{2}+\lambda_{1}^{2}\right)\left(\sigma_{2}^{2}+\lambda_{2}^{2}\right)}}+1}\leq\frac{\left(\lambda_{1}^{2}+\sigma_{1}^{2}\right)+\left(\lambda_{2}^{2}+\sigma_{2}^{2}\right)}{2\lambda_{1}\lambda_{2}+\left(\lambda_{1}^{2}+\sigma_{1}^{2}\right)+\left(\lambda_{2}^{2}+\sigma_{2}^{2}\right)}
+\]
+
+\end_inset
+
+and further to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\sqrt{\left(\sigma_{1}^{2}+\lambda_{1}^{2}\right)\left(\sigma_{2}^{2}+\lambda_{2}^{2}\right)}}{\lambda_{1}\lambda_{2}+\sqrt{\left(\sigma_{1}^{2}+\lambda_{1}^{2}\right)\left(\sigma_{2}^{2}+\lambda_{2}^{2}\right)}} & \geq & \frac{\left[\left(\lambda_{1}^{2}+\sigma_{1}^{2}\right)+\left(\lambda_{2}^{2}+\sigma_{2}^{2}\right)\right]/2}{\lambda_{1}\lambda_{2}+\left[\left(\lambda_{1}^{2}+\sigma_{1}^{2}\right)+\left(\lambda_{2}^{2}+\sigma_{2}^{2}\right)\right]/2}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By the inequality of arithmetic and geometric means, 
+\begin_inset Formula $1/2\left[\left(\lambda_{1}^{2}+\sigma_{1}^{2}\right)+\left(\lambda_{2}^{2}+\sigma_{2}^{2}\right)\right]\geq\sqrt{\left(\sigma_{1}^{2}+\lambda_{1}^{2}\right)\left(\sigma_{2}^{2}+\lambda_{2}^{2}\right)}$
+\end_inset
+
+ with equality only if 
+\begin_inset Formula $\lambda_{1}^{2}+\sigma_{1}^{2}=\lambda_{2}^{2}+\sigma_{2}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+Second part (2)
+\end_layout
+
+\begin_layout Standard
+Consider the second claim of (iii).
+ Let 
+\begin_inset Formula $k>2$
+\end_inset
+
+ and assume all 
+\begin_inset Formula $\lambda_{j}=0$
+\end_inset
+
+ except 
+\begin_inset Formula $\lambda_{1},\lambda_{2}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\alpha_{s}>\alpha$
+\end_inset
+
+ if and only if
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k}{2\frac{\lambda_{1}\lambda_{2}}{\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}+k}<\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{2\lambda_{1}\lambda_{2}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}
+\]
+
+\end_inset
+
+or
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}{2\lambda_{1}\lambda_{2}+k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}} & \leq & \frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{2\lambda_{1}\lambda_{2}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}
+\end{eqnarray*}
+
+\end_inset
+
+Now 
+\begin_inset Formula $k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}>\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)$
+\end_inset
+
+ can be made true by choosing 
+\begin_inset Formula $\sigma_{i}^{2}=0$
+\end_inset
+
+ for 
+\begin_inset Formula $i>2$
+\end_inset
+
+.
+ For the other way around, just choose 
+\begin_inset Formula $\sigma_{i}^{2}$
+\end_inset
+
+ large enough.
+\end_layout
+
+\begin_layout Paragraph*
+Relation to 
+\begin_inset Formula $\omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\omega=\frac{k\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha_{s} & = & \frac{k}{k-1}\left(1-\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+When all 
+\begin_inset Formula $\lambda$
+\end_inset
+
+s are equal
+\end_layout
+
+\begin_layout Standard
+Question: Can we still get all the inequalities?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\leq\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}\geq\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)/k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k}{\lambda^{2}\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}+k}\leq\frac{k\lambda^{2}+\sum_{i=1}^{k}\sigma_{i}^{2}}{\lambda^{2}k\left(k-1\right)+k\lambda^{2}+\sum_{i=1}^{k}\sigma_{i}^{2}}
+\]
+
+\end_inset
+
+Assume 
+\begin_inset Formula $\lambda=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k}{\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+1}\sqrt{\sigma_{j}^{2}+1}}+k}\leq\frac{k+\sum_{i=1}^{k}\sigma_{i}^{2}}{k\left(k-1\right)+k+\sum_{i=1}^{k}\sigma_{i}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{k}\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+1}\sqrt{\sigma_{j}^{2}+1}}+1\geq\frac{\left(k-1\right)+1+\overline{\sigma^{2}}}{1+\overline{\sigma^{2}}}
+\]
+
+\end_inset
+
+Anta 
+\begin_inset Formula $\overline{\sigma^{2}}=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+1}\sqrt{\sigma_{j}^{2}+1}}\geq\frac{1}{2}k\left(k-1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(This appears to always be true, no?)
+\end_layout
+
+\begin_layout Standard
+Now let 
+\begin_inset Formula $\sigma_{i}^{2}=\sigma^{2}=1$
+\end_inset
+
+, then 
+\begin_inset Formula 
+\[
+\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+1}\sqrt{\sigma_{j}^{2}+1}}=\sum_{i\neq j}\frac{1}{2}=\frac{1}{2}k\left(k-1\right)
+\]
+
+\end_inset
+
+which is nice.
+ To make,..
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{i\neq j}\frac{1}{k\left(k-1\right)}\frac{1}{\sqrt{\sigma_{i}^{2}+1}\sqrt{\sigma_{j}^{2}+1}}\geq\sum
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+To do:
+\series default
+ Use Jensen's inequality to prove that 
+\begin_inset Formula $\alpha_{s}\geq\alpha$
+\end_inset
+
+ under the 
+\begin_inset Formula $\tau$
+\end_inset
+
+-equivalent model with equality if and only if the model is parallel.
+\end_layout
+
+\begin_layout Standard
+The function 
+\begin_inset Formula $f\left(x,y\right)=\left(x^{2}+1\right)^{-1/2}\left(y^{2}+1\right)^{-1/2}$
+\end_inset
+
+ is convex.
+ By Jensen's inequality,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{i\neq j}\frac{1}{k\left(k-1\right)}\frac{1}{\sqrt{\sigma_{i}^{2}+1}\sqrt{\sigma_{j}^{2}+1}}\geq\frac{1}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Paragraph*
+Cleanup
+\end_layout
+
+\begin_layout Standard
+Assume 
+\begin_inset Formula $\lambda=1$
+\end_inset
+
+ without loss of generality.
+ With 
+\begin_inset Formula $\overline{\sigma^{2}}$
+\end_inset
+
+ be the mean of variances, inequality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Alpha-alpha_s inequality"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is equivalent to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{1}{k}\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+1}\sqrt{\sigma_{j}^{2}+1}}+1 & \geq & \frac{\left(k-1\right)+1+\overline{\sigma^{2}}}{1+\overline{\sigma^{2}}}.
+\end{eqnarray*}
+
+\end_inset
+
+This inequality simplifies to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{k}\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+1}\sqrt{\sigma_{j}^{2}+1}}\geq\frac{\left(k-1\right)}{1+\overline{\sigma^{2}}}
+\]
+
+\end_inset
+
+and again to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{k\left(k-1\right)}\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+1}\sqrt{\sigma_{j}^{2}+1}}\geq\frac{1}{1+\overline{\sigma^{2}}}
+\]
+
+\end_inset
+
+Since the function 
+\begin_inset Formula $f\left(x,y\right)=\left(x^{2}+1\right)^{-1/2}\left(y^{2}+1\right)^{-1/2}$
+\end_inset
+
+ is convex it follows by Jensen's inequality that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{i\neq j}\frac{1}{k\left(k-1\right)}\frac{1}{\sqrt{\sigma_{i}^{2}+1}\sqrt{\sigma_{j}^{2}+1}}\geq\frac{1}{1+\overline{\sigma^{2}}}
+\]
+
+\end_inset
+
+with equality only when 
+\begin_inset Formula $\sigma_{i}=\sigma_{j}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i,j$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+When all sigmas are equal
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\leq\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{k}\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+1\geq\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{1}{k}\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma^{2}+\lambda_{i}^{2}}\sqrt{\sigma^{2}+\lambda_{j}^{2}}}+1 & \geq & \frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\lambda_{i}^{2}+k\sigma^{2}}{\sum_{i=1}^{k}\lambda_{i}^{2}+k\sigma^{2}}\\
+\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma^{2}+\lambda_{i}^{2}}\sqrt{\sigma^{2}+\lambda_{j}^{2}}} & \geq & \sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sum_{i=1}^{k}\left(\lambda_{i}^{2}+\sigma^{2}\right)/k}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Points
+\end_layout
+
+\begin_layout Subsection
+References
+\end_layout
+
+\begin_layout Standard
+Correlation matrix limit theory for normal distributions.
+\end_layout
+
+\begin_layout Standard
+Olkin.
+ I.
+ & Siotani.
+ (1964).
+ Asymptotic distribution of functions of a correlation matrix
+\end_layout
+
+\begin_layout Standard
+Correlation matrix limit theory for all distributions.
+\end_layout
+
+\begin_layout Standard
+Steiger, Hakstian (1982) - The asymptotic distribution of elements of a
+ correlation matrix
+\end_layout
+
+\begin_layout Subsection
+Find ML of parallell (normal)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{1}{2}k\log\left|\Sigma\right|+\textrm{tr}\left(S\Sigma^{-1}\right)
+\]
+
+\end_inset
+
+Here
+\begin_inset Formula 
+\[
+\left|\Sigma\right|=\sigma^{k}\left(\sigma^{4}+k\lambda^{2}\sigma^{k-2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Sigma^{-1}=\frac{1}{\sigma^{4}+k\lambda^{2}\sigma^{2}}\left(\textrm{diag}\left(\sigma^{2}+k\lambda^{2}\right)-\lambda^{2}\mathbf{i}^{T}\mathbf{i}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus, with 
+\begin_inset Formula $\overline{c}$
+\end_inset
+
+ the mean of off-diagonal elements in 
+\begin_inset Formula $S$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{v}$
+\end_inset
+
+ the mean of diagonal elements,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\textrm{tr}\left(S\Sigma^{-1}\right) & = & \frac{k}{\sigma^{4}+k\lambda^{2}\sigma^{2}}\left(\left(\sigma^{2}+k\lambda^{2}\right)\overline{v}-\left(k-1\right)\overline{c}\lambda^{2}\right)\\
+ & = & \frac{k}{\sigma^{4}+k\lambda^{2}\sigma^{2}}\left(\lambda^{2}\left(k\overline{v}-\left(k-1\right)\overline{c}\right)+\sigma^{2}\overline{v}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(It's not the standardized alpha anyway.)
+\end_layout
+
+\begin_layout Subsection
+Find ML of tau-equivalent (normal)
+\end_layout
+
+\begin_layout Standard
+[Probably no closed form: But fast algorithm possible for simulation study
+ or R-package.]
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{1}{2}k\log\left|\Sigma\right|+\textrm{tr}\left(S\Sigma^{-1}\right)
+\]
+
+\end_inset
+
+Here
+\begin_inset Formula 
+\[
+\left|\Sigma\right|=\prod_{i=1}^{k}\sigma_{i}^{2}\left(1+\lambda^{2}\left(\sum_{j=1}^{k}\sigma_{i}^{-2}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\textrm{tr}\left(S\Sigma^{-1}\right)=\frac{1}{\left|\Sigma\right|}\left[\sum_{i=1}^{k}s_{11}\sigma_{i}^{-2}\left(\left|\Sigma\right|-\sigma_{i}^{-2}\prod_{i=1}^{k}\sigma_{i}^{2}\right)+\lambda^{2}\sum_{i\neq j}s_{ij}\prod_{k\neq\left(i,j\right)}\sigma_{k}^{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+[[Verify these.]]
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\log\left|\Sigma\right| & = & \sum_{i=1}^{k}\log\sigma_{i}^{2}+\log\left(1+\lambda^{2}\sum_{j=1}^{k}\sigma_{i}^{-2}\right)\\
+\frac{d}{d\lambda}\log\left|\Sigma\right| & = & \frac{2\lambda\sum_{j=1}^{k}\sigma_{i}^{-2}}{1+\lambda^{2}\sum_{j=1}^{k}\sigma_{i}^{-2}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Sketch: Asymptotic variance.
+\end_layout
+
+\begin_layout Standard
+Use delta method on 
+\begin_inset Formula $\left\{ \lambda,\sigma_{i}^{2}\right\} $
+\end_inset
+
+.
+ Find the Fisher information first.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I\left(\theta\right)=-E\left[\frac{\partial^{2}}{\partial\theta^{2}}\log f\left(X;\theta\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The use the function 
+\begin_inset Formula $h\left(\lambda,\sigma^{2}\right)=\frac{k\lambda^{2}}{k\lambda^{2}+\overline{\sigma^{2}}}$
+\end_inset
+
+ on both sides.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial}{\partial\lambda}h\left(\lambda,\sigma^{2}\right) & = & \frac{2\overline{\sigma^{2}}k\lambda}{\left(k\lambda^{2}+\overline{\sigma^{2}}\right)^{2}}\\
+\frac{\partial}{\partial\sigma_{i}^{2}}h\left(\lambda,\sigma^{2}\right) & = & \frac{2\sigma_{i}^{2}k\lambda}{\left(k\lambda^{2}+\overline{\sigma^{2}}\right)^{2}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Population values
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Present everything from the population perspective
+\end_layout
+
+\begin_layout Standard
+Other possibilities for reliability under parallell and tau-equivalence:
+ Only need to estimate
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(1+\frac{\overline{\sigma^{2}}}{k\overline{\lambda}^{2}}\right)^{-1}
+\]
+
+\end_inset
+
+Under PT, 
+\begin_inset Formula $\overline{\sigma^{2}}=\sigma^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{\lambda}^{2}=\lambda^{2}$
+\end_inset
+
+, hence 
+\begin_inset Formula $1+\frac{\overline{\sigma^{2}}}{k\overline{\lambda}^{2}}=\frac{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}{k\overline{\lambda}^{2}}=\frac{\overline{\lambda}^{2}+\overline{\sigma^{2}}}{k\overline{\lambda}^{2}}+k-1=\frac{1}{k\rho}+k-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Perhaps possible to make a better estimator here? First possibility is to
+ constrain the correlation to be positive.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,373 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine biblatex
+\cite_engine_type authoryear
+\biblio_style plain
+\biblatex_bibstyle authoryear
+\biblatex_citestyle authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Bias of coefficient alpha with correlated errors
+\end_layout
+
+\begin_layout Section
+Defintions
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $F$
+\end_inset
+
+ be a random variable with 
+\begin_inset Formula $EF=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\textrm{Var}F=1$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ be a vector of independent random variables (of each other and 
+\begin_inset Formula $F$
+\end_inset
+
+) in 
+\begin_inset Formula $\mathbb{R}^{k}$
+\end_inset
+
+ with 
+\begin_inset Formula $E\epsilon_{i}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\textrm{Var}\epsilon_{i}=1$
+\end_inset
+
+ for each 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ The one-factor model is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+X=\mu+F\mathbf{\lambda}+\Psi^{1/2}\epsilon\label{eq:one-factor model}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{\lambda}$
+\end_inset
+
+ are the loadings and 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ is a covariance matrix in 
+\begin_inset Formula $\mathbb{R}^{k\times k}$
+\end_inset
+
+.
+ The covariance matrix of 
+\begin_inset Formula $X$
+\end_inset
+
+ is 
+\begin_inset Formula $\Sigma=\mathbf{\lambda}\mathbf{\lambda}^{T}+\Psi$
+\end_inset
+
+.
+ Coefficient alpha is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\alpha & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\label{eq:Coefficient alpha}
+\end{eqnarray}
+
+\end_inset
+
+while the sum score reliability 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 112"
+key "joreskog1971statistical"
+literal "false"
+
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\rho=\frac{\left(\mathbf{i}^{T}\mathbf{\lambda}\right)^{2}}{\left(\mathbf{i}^{T}\mathbf{\lambda}\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\label{eq:Sum-score reliabiltiy}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Value of Coefficient Alpha
+\end_layout
+
+\begin_layout Standard
+The following proposition relates coefficient alpha to the sum-score reliability.
+ I use the notation 
+\begin_inset Formula $\mathbf{i}$
+\end_inset
+
+ to denote the vector of only ones.
+\end_layout
+
+\begin_layout Proposition
+Assume the one-factor in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:one-factor model"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for 
+\begin_inset Formula $X.$
+\end_inset
+
+ Then
+\begin_inset Formula 
+\[
+\rho=\omega+B_{\Psi}-B_{\Lambda}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $B_{\Psi}=\frac{k}{k-1}\frac{\mathbf{i}^{T}\Psi\mathbf{i}-\textrm{tr}\Psi}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}$
+\end_inset
+
+ is the bias term for 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{\Lambda}=\frac{1}{k-1}\frac{\left(\mathbf{i}^{T}\Lambda\right)^{2}-k\textrm{tr}\left(\Lambda^{T}\Lambda\right)}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}$
+\end_inset
+
+ is the bias term for 
+\begin_inset Formula $\mathbf{\lambda}$
+\end_inset
+
+.
+ Here 
+\begin_inset Formula $B_{\Psi}$
+\end_inset
+
+ equals 
+\begin_inset Formula $0$
+\end_inset
+
+ when 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ is diagonal, while 
+\begin_inset Formula $B_{\Lambda}\geq0$
+\end_inset
+
+ with equality if and only if 
+\begin_inset Formula $\mathbf{\lambda}=\lambda\mathbf{i}$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $\alpha=\omega$
+\end_inset
+
+ if 
+\begin_inset Formula $\mathbf{\lambda}=\lambda\mathbf{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ is diagonal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Observe that 
+\begin_inset Formula $\mathbf{i}^{T}\mathbf{\lambda}\lambda^{T}\mathbf{i}=\left(\mathbf{i}^{T}\mathbf{\lambda}\right)^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{k}{k-1}\left(1-\frac{\frac{1}{k}\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\right)=\rho$
+\end_inset
+
+.
+ Thus
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{eqnarray*}
+ &  & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\left(\Sigma\right)}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
+ & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\left(\Lambda\Lambda^{T}\right)+\textrm{tr}\left(\Psi\right)}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\right)\\
+ & = & \frac{k}{k-1}\left(1-\frac{\frac{1}{k}\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}-\left(\mathbf{i}^{T}\Psi\mathbf{i}-\textrm{tr}\Psi\right)+\left(\left(\mathbf{i}^{T}\Lambda\right)^{2}-\frac{1}{k}\left(\mathbf{i}^{T}\Lambda\right)^{2}\right)}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\right)\\
+ & = & \rho+\left[\frac{k}{k-1}\frac{\mathbf{i}^{T}\Psi\mathbf{i}-\textrm{tr}\Psi}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\right]-\left[\frac{1}{k-1}\frac{\left(\mathbf{i}^{T}\Lambda\right)^{2}-k\textrm{tr}\left(\Lambda^{T}\Lambda\right)}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\right]\\
+ & = & \rho+B_{\Psi}-B_{\Lambda}
+\end{eqnarray*}
+
+\end_inset
+
+The claim about 
+\begin_inset Formula $B_{\Psi}$
+\end_inset
+
+ holds since 
+\begin_inset Formula $\mathbf{i}^{T}\Psi\mathbf{i}=\textrm{tr}\Psi$
+\end_inset
+
+ when 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ is diagonal and the claim about 
+\begin_inset Formula $B_{\mathbf{\lambda}}$
+\end_inset
+
+holds since 
+\begin_inset Formula $\left(\mathbf{i}^{T}\Lambda\right)^{2}-k\textrm{tr}\left(\Lambda^{T}\Lambda\right)\geq0$
+\end_inset
+
+ with equality if and only if 
+\begin_inset Formula $\mathbf{\lambda}=\lambda\mathbf{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus both positive and negative bias for coefficient alpha is possible.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "D:/Projects/Documents/Articles/Coefficient alpha and standardized alpha/Coefficient alpha and standardized alpha"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

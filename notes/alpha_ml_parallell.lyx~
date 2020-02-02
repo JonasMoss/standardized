@@ -1,0 +1,542 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine biblatex
+\cite_engine_type authoryear
+\biblio_style plain
+\biblatex_bibstyle authoryear
+\biblatex_citestyle authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Maximum Likelihood of Reliability
+\end_layout
+
+\begin_layout Section
+Defintions
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $F$
+\end_inset
+
+ be a random variable with 
+\begin_inset Formula $EF=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\textrm{Var}F=1$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ be a vector of independent random variables (of each other and 
+\begin_inset Formula $F$
+\end_inset
+
+) in 
+\begin_inset Formula $\mathbb{R}^{k}$
+\end_inset
+
+ with 
+\begin_inset Formula $E\epsilon_{i}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\textrm{Var}\epsilon_{i}=1$
+\end_inset
+
+ for each 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ The one-factor model is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+X=\mu+F\mathbf{\lambda}+\Psi^{1/2}\epsilon\label{eq:one-factor model}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{\lambda}$
+\end_inset
+
+ are the loadings and 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ is a covariance matrix in 
+\begin_inset Formula $\mathbb{R}^{k\times k}$
+\end_inset
+
+.
+ The covariance matrix of 
+\begin_inset Formula $X$
+\end_inset
+
+ is 
+\begin_inset Formula $\Sigma=\mathbf{\lambda}\mathbf{\lambda}^{T}+\Psi$
+\end_inset
+
+.
+ Coefficient alpha is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\alpha & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\label{eq:Coefficient alpha}
+\end{eqnarray}
+
+\end_inset
+
+while the sum score reliability 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 112"
+key "joreskog1971statistical"
+literal "false"
+
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\rho=\frac{\left(\mathbf{i}^{T}\mathbf{\lambda}\right)^{2}}{\left(\mathbf{i}^{T}\mathbf{\lambda}\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\label{eq:Sum-score reliabiltiy}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Parallell Model
+\end_layout
+
+\begin_layout Standard
+Assume 
+\begin_inset Formula $\lambda=\lambda\mathbf{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Psi=\sigma^{2}I$
+\end_inset
+
+ is diagonal.
+ Then 
+\begin_inset Formula $X$
+\end_inset
+
+ follows the parallel model.
+ [[CHECK: The maximum constraint on 
+\begin_inset Formula $\widehat{\lambda^{2}}$
+\end_inset
+
+ and verify that 
+\begin_inset Formula $\frac{1}{k-1}\left(\textrm{tr}S-\frac{\mathbf{i}^{T}S\mathbf{i}}{k}\right)>0$
+\end_inset
+
+ OR say the maximum likelihood estimator does not exist.
+ (Must add Langrange to prove the maximum thing.)
+\end_layout
+
+\begin_layout Proposition
+Assume the parallell model with all random variables are independent standard
+ normal.
+ (i) If 
+\begin_inset Formula $\mathbf{i}^{T}S\mathbf{i}\geq\textrm{tr}S$
+\end_inset
+
+, the maximum likelihood estimates of 
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ are 
+\begin_inset Formula $\widehat{\lambda^{2}}=\frac{1}{k-1}\left(\frac{\mathbf{i}^{T}S\mathbf{i}}{k}-\frac{\textrm{tr}S}{k}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\widehat{\sigma^{2}}=\frac{1}{k-1}\left(\textrm{tr}S-\frac{\mathbf{i}^{T}S\mathbf{i}}{k}\right)$
+\end_inset
+
+, otherwise the maximum likelihood estimates are 
+\begin_inset Formula $\widehat{\lambda^{2}}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\widehat{\sigma^{2}}=\frac{\textrm{tr}S}{k}$
+\end_inset
+
+.
+ (ii) The maximum likelihood estimator of the sum score reliability 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Sum-score reliabiltiy"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ equals the sample coefficient alpha, 
+\begin_inset Formula $\widehat{\rho}=\frac{k}{k-1}\left(1-\frac{\textrm{tr}S}{\mathbf{i}^{T}S\mathbf{i}}\right)$
+\end_inset
+
+ when 
+\begin_inset Formula $\mathbf{i}^{T}S\mathbf{i}\geq\textrm{tr}S$
+\end_inset
+
+ and 
+\begin_inset Formula $0$
+\end_inset
+
+ otherwise.
+\end_layout
+
+\begin_layout Standard
+See the appendix for a proof.
+ The maximum likelihood estimators were also derived by by 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 491"
+key "kristof1969estimation"
+literal "false"
+
+\end_inset
+
+ (verify).
+\end_layout
+
+\begin_layout Subsection
+Find ML of parallell (normal)
+\end_layout
+
+\begin_layout Standard
+The log-likelihood of the multivariate normal is [[ref]]
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+l\left(\Sigma;S\right)=-\frac{1}{2}\left[\log\left|\Sigma\right|+\textrm{tr}\left(S\Sigma^{-1}\right)+k\log2\pi\right]\label{eq:Log-likelihood}
+\end{equation}
+
+\end_inset
+
+Under the parallel model 
+\begin_inset Formula $\Sigma=\lambda^{2}\mathbf{i}\mathbf{i}^{T}+\sigma^{2}I$
+\end_inset
+
+.
+ By Sylvester's theorem [[ref]], 
+\begin_inset Formula $\left|\Sigma\right|=\sigma^{2k}+k\lambda^{2}\sigma^{2k-2}$
+\end_inset
+
+ and an application of the Sherman–Morrison formula [[ref]] gives us 
+\begin_inset Formula $\Sigma^{-1}=\sigma^{-2}I-\frac{\lambda^{2}}{\sigma^{4}\left(1+k\lambda^{2}\right)}\mathbf{i}\mathbf{i}^{T}$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $\textrm{tr}\left(S\Sigma^{-1}\right)=\sigma^{-2}\textrm{tr}S-\frac{\lambda^{2}}{\sigma^{4}+k\lambda^{2}\sigma^{2}}\mathbf{i}^{T}S\mathbf{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The gradients are, with differentation with respect to 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ first:
+\begin_inset Formula 
+\begin{eqnarray}
+\nabla\log\left|\Sigma\right| & = & \frac{2k}{\lambda^{2}k+\sigma^{2}}\left(\begin{array}{c}
+\frac{\lambda^{2}\left(k-1\right)+\sigma^{2}}{\sigma}\\
+\lambda
+\end{array}\right)\label{eq:Likelihood equations, parallell model}\\
+\nabla\log\textrm{tr}\left(S\Sigma^{-1}\right) & = & \left(\begin{array}{c}
+-2\sigma^{-3}\textrm{tr}S+2\lambda^{2}\left(\frac{1}{\sigma^{3}\left(\lambda^{2}k+\sigma^{2}\right)}+\frac{1}{\sigma\left(\lambda^{2}k+\sigma^{2}\right)^{2}}\right)\mathbf{i}^{T}S\mathbf{i}\\
+-\frac{2\lambda}{\left(\lambda^{2}k+\sigma^{2}\right)^{2}}\mathbf{i}^{T}S\mathbf{i}
+\end{array}\right)\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+The optimum is obtained when 
+\begin_inset Formula $-\nabla\log\textrm{tr}\left(S\Sigma^{-1}\right)=\nabla\log\left|\Sigma\right|$
+\end_inset
+
+.
+ I will show that 
+\begin_inset Formula $\frac{\mathbf{i}^{T}S\mathbf{i}}{k}=\lambda^{2}k+\sigma^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{\textrm{tr}S}{k}=\sigma^{2}+\lambda^{2}$
+\end_inset
+
+ are the unconstraied solutions to this equation.
+\end_layout
+
+\begin_layout Standard
+The second part of the likelihood equation is 
+\begin_inset Formula $\lambda$
+\end_inset
+
+
+\begin_inset Formula $\frac{2\lambda}{\left(\lambda^{2}k+\sigma^{2}\right)^{2}}\mathbf{i}^{T}S\mathbf{i}=\frac{2k\lambda}{\lambda^{2}k+\sigma^{2}}$
+\end_inset
+
+.
+ There are two solutions to this equation.
+ Either 
+\begin_inset Formula $\lambda>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{\mathbf{i}^{T}S\mathbf{i}}{k}=\left(\lambda^{2}k+\sigma^{2}\right)$
+\end_inset
+
+ or 
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+.
+ Assume 
+\begin_inset Formula $\lambda>0$
+\end_inset
+
+ and substitute and simplify the derivative with respect to 
+\begin_inset Formula $\sigma$
+\end_inset
+
+.
+ Now
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+-2\sigma^{-3}\textrm{tr}S+\left(\frac{2\lambda^{2}}{\sigma^{3}\left(\lambda^{2}k+\sigma^{2}\right)}+\frac{2\lambda^{2}}{\sigma\left(\lambda^{2}k+\sigma^{2}\right)^{2}}\right)\mathbf{i}^{T}S\mathbf{i} & =\\
+-2\sigma^{-3}\textrm{tr}S+2\lambda^{2}k\left(\frac{1}{\sigma^{3}}+\frac{k}{\sigma\mathbf{i}^{T}S\mathbf{i}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+and 
+\begin_inset Formula $\frac{2k}{\lambda^{2}k+\sigma^{2}}\frac{\lambda^{2}\left(k-1\right)+\sigma^{2}}{\sigma}=\frac{2k^{2}}{\mathbf{i}^{T}S\mathbf{i}}\frac{\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2}}{\sigma}$
+\end_inset
+
+.
+ I rearrange 
+\begin_inset Formula $2\sigma^{-3}\textrm{tr}S-2\lambda^{2}k\left(\frac{1}{\sigma^{3}}+\frac{k}{\sigma\mathbf{i}^{T}S\mathbf{i}}\right)=\frac{2k^{2}}{\mathbf{i}^{T}S\mathbf{i}}\frac{\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2}}{\sigma}$
+\end_inset
+
+ and get 
+\begin_inset Formula $\frac{\textrm{tr}S}{k}-\lambda^{2}\left(\frac{\mathbf{i}^{T}S\mathbf{i}+k\sigma^{2}}{\mathbf{i}^{T}S\mathbf{i}}\right)=\frac{\sigma^{2}k}{\mathbf{i}^{T}S\mathbf{i}}\left(\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2}\right)$
+\end_inset
+
+.
+ Theisolate 
+\begin_inset Formula $\frac{\textrm{tr}S}{k}$
+\end_inset
+
+ on the left hand side to get 
+\begin_inset Formula $\frac{\textrm{tr}S}{k}=\frac{1}{K}\left(\sigma^{2}\mathbf{i}^{T}S\mathbf{i}+\lambda^{2}\mathbf{i}^{T}S\mathbf{i}\right)$
+\end_inset
+
+, hence 
+\begin_inset Formula $\frac{\textrm{tr}S}{k}=\sigma^{2}+\lambda^{2}$
+\end_inset
+
+ as claimed.
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\mathbf{i}^{T}S\mathbf{i}\geq\textrm{tr}S$
+\end_inset
+
+ then 
+\begin_inset Formula $\widehat{\lambda^{2}}=\frac{1}{k-1}\left(\frac{\mathbf{i}^{T}S\mathbf{i}}{k}-\frac{\textrm{tr}S}{k}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\widehat{\sigma^{2}}=\frac{1}{k-1}\left(\textrm{tr}S-\frac{\mathbf{i}^{T}S\mathbf{i}}{k}\right)$
+\end_inset
+
+ are the maximum likelihood estimates.
+ If not, 
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+ as already mentioned.
+ In this case,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+-2\sigma^{-3}\textrm{tr}S+\left(\frac{2\lambda^{2}}{\sigma^{3}\left(\lambda^{2}k+\sigma^{2}\right)}+\frac{2\lambda^{2}}{\sigma\left(\lambda^{2}k+\sigma^{2}\right)^{2}}\right)\mathbf{i}^{T}S\mathbf{i}+\frac{2k}{\lambda^{2}k+\sigma^{2}}\frac{\lambda^{2}\left(k-1\right)+\sigma^{2}}{\sigma} & =\\
+-2\sigma^{-3}\textrm{tr}S+\frac{2k}{\sigma}
+\end{eqnarray*}
+
+\end_inset
+
+hence 
+\begin_inset Formula $\widehat{\sigma^{2}}=\frac{\textrm{tr}S}{k}$
+\end_inset
+
+ is another solution.
+\end_layout
+
+\begin_layout Standard
+As for (ii), provided the maximum likelihood estmator of 
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+ is not 
+\begin_inset Formula $0$
+\end_inset
+
+, the maximum likelihood of the reliability is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\left(\mathbf{i}^{T}\mathbf{\widehat{\lambda}}\right)^{2}}{\left(\mathbf{i}^{T}\mathbf{\widehat{\lambda}}\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}} & = & \frac{k\left(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S\right)}{k\left(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S\right)+\left(k\textrm{tr}S-\mathbf{i}^{T}S\mathbf{i}\right)}\\
+ & = & \frac{k\left(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S\right)}{\left(k-1\right)\mathbf{i}^{T}S\mathbf{i}}\\
+ & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}S}{\mathbf{i}^{T}S\mathbf{i}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+If he maximum likelihood estmator of 
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+ is 
+\begin_inset Formula $0$
+\end_inset
+
+, 
+\begin_inset Formula $\left(\mathbf{i}^{T}\mathbf{\widehat{\lambda}}\right)^{2}=0$
+\end_inset
+
+ and the maximum likelihood estimator of the reliability is 
+\begin_inset Formula $0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "D:/Projects/Documents/Articles/Coefficient alpha and standardized alpha/Coefficient alpha and standardized alpha"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

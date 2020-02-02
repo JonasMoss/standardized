@@ -1,0 +1,565 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Plan
+\end_layout
+
+\begin_layout Standard
+i.) Derive 
+\begin_inset Quotes eld
+\end_inset
+
+basic
+\begin_inset Quotes erd
+\end_inset
+
+ forms of both limit distributions under the parallel model.
+ They will be functions of the 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ matrix, 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $\rho=\frac{\sigma^{2}}{\sqrt{\lambda^{2}+\sigma^{2}}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+ii.) Do some matrix algebra to show they are equal.
+ (Ideally with a formula in terms of the functions above.)
+\end_layout
+
+\begin_layout Itemize
+Since 
+\begin_inset Formula $\Sigma_{d}^{-1/2}=\left(\sigma^{2}+\lambda^{2}\right)^{-1/2}I$
+\end_inset
+
+ it commetes with everything and just multiplies the end result with 
+\begin_inset Formula $\left(\sigma^{2}+\lambda^{2}\right)^{-1/2}$
+\end_inset
+
+.
+ Since the Hadamard product is used, just multiply with 
+\begin_inset Formula $\left(\sigma^{2}+\lambda^{2}\right)^{-1}$
+\end_inset
+
+ on both sides.
+\end_layout
+
+\begin_layout Itemize
+Since all variables are the same, 
+\begin_inset Formula $V$
+\end_inset
+
+ has compound symmetry.
+\end_layout
+
+\begin_layout Itemize
+I can use the mean of 
+\begin_inset Formula $\rho$
+\end_inset
+
+ instead...
+\end_layout
+
+\begin_layout Section
+The standardized alpha (1)
+\end_layout
+
+\begin_layout Standard
+This is taken from Kentaro Hayashi and Akihito Kamata.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma^{2}\left(\alpha_{s}\right)=\frac{1}{\left(k-1\right)^{2}}\left(\frac{1}{1+\rho\left(k-1\right)}\right)^{4}\mathbf{i}^{T}D\Gamma^{\star}D^{T}\mathbf{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Define 
+\begin_inset Formula $Q_{k}=I-\left(I_{k}\otimes\Phi\right)K_{d}$
+\end_inset
+
+, where 
+\begin_inset Formula $N_{k}=\frac{1}{2}\left(I+K_{k}\right)$
+\end_inset
+
+.
+ Then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Gamma^{\star} & = & \frac{1}{4}D^{T}Q_{k}\Sigma^{\star}\Gamma\Sigma Q_{k}^{T}D
+\end{eqnarray*}
+
+\end_inset
+
+Look at
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{1}{4}\mathbf{i}^{T}DD^{T}Q_{k}\Gamma Q_{k}^{T}DD^{T}\mathbf{i} & = & \mathbf{i}^{T}\left(N_{k}-K_{d}\right)Q_{k}\Gamma Q_{k}^{T}\left(N_{k}-K_{d}\right)\mathbf{i}\\
+ & = & \mathbf{i}^{T}N_{k}Q_{k}\Gamma Q_{k}^{T}N_{k}\mathbf{i}\\
+ & = & \mathbf{i}^{T}Q_{k}\Gamma Q_{k}^{T}\mathbf{i}
+\end{eqnarray*}
+
+\end_inset
+
+By appendix 
+\begin_inset Formula $4$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\mathbf{i}^{T}Q_{k}=\mathbf{i}^{T}-\left[1+\left(k-1\right)\rho\right]\mathbf{d}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{d}$
+\end_inset
+
+ equals 
+\begin_inset Formula $1$
+\end_inset
+
+ at the indices 
+\begin_inset Formula $1+\left(k+1\right)i$
+\end_inset
+
+, 
+\begin_inset Formula $i=0\ldots(k-1)$
+\end_inset
+
+ at 
+\begin_inset Formula $0$
+\end_inset
+
+ otherwise.
+ Thus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{i}^{T}Q_{k}\Gamma Q_{k}^{T}\mathbf{i}=\mathbf{i}^{T}\Gamma\mathbf{i}+\left[1+\left(k-1\right)\rho\right]^{2}\mathbf{d}^{T}\Gamma\mathbf{d}-2\left[1+\left(k-1\right)\rho\right]\mathbf{i}^{T}\Gamma\mathbf{d}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The standardized alpha
+\end_layout
+
+\begin_layout Standard
+Recall that 
+\begin_inset Formula $\alpha_{s}=\frac{k}{k-1}\left(1-\frac{k}{i^{T}\Phi i}\right)$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\phi=w\left(\Phi\right)$
+\end_inset
+
+ the vectorized infra-diagonal elements of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula 
+\[
+h\left(\phi\right)=\frac{k}{2\mathbf{i}^{T}\phi-k}
+\]
+
+\end_inset
+
+then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha_{s}=\frac{k}{k-1}\left[1-h\left(\phi\right)\right]
+\]
+
+\end_inset
+
+The derivative of 
+\begin_inset Formula $f$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H=-\frac{2k}{\left(2\mathbf{i}^{T}\phi+k\right)^{2}}\mathbf{i}
+\]
+
+\end_inset
+
+Under the parallel model, 
+\begin_inset Formula $\phi_{i}=\rho$
+\end_inset
+
+ for each 
+\begin_inset Formula $i$
+\end_inset
+
+, and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h\left(\phi\right)=\frac{k}{2\mathbf{i}^{T}\phi+k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H=-\frac{2k}{\left[k\left(k-1\right)\rho+k\right]^{2}}\mathbf{i}
+\]
+
+\end_inset
+
+Then 
+\begin_inset Formula 
+\[
+\frac{4k^{2}}{\left[k\left(k-1\right)\rho+k\right]^{4}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Inner matrix is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Gamma^{\star} & = & D^{T}\left(I-\left(I\otimes P\right)K_{d}\right)\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}\Gamma\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}\left(I-K_{d}\left(I\otimes P\right)\right)D\\
+ & = & \left(\sigma^{2}+\lambda^{2}\right)^{-2}D^{T}\left(I-\left(I\otimes P\right)K_{d}\right)\Gamma\left(I-K_{d}\left(I\otimes P\right)\right)D
+\end{eqnarray*}
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.Let 
+\begin_inset Formula $\textrm{vech}\left(S\right)$
+\end_inset
+
+ be the half-vectorization of 
+\begin_inset Formula $S$
+\end_inset
+
+, obtained by stacking the columns of the lower triangular part of 
+\begin_inset Formula $S$
+\end_inset
+
+ on top of each other.
+ Define 
+\begin_inset Formula $\Gamma=\textrm{Cov}\left\{ \textrm{vech}\left(S\right)\right\} $
+\end_inset
+
+ as covariance matrix of the half-vectorized covariance matrix.
+ Let 
+\begin_inset Formula $D_{n}$
+\end_inset
+
+ the 
+\emph on
+duplication matrix
+\emph default
+, the unique matrix satisfying 
+\begin_inset Formula $D_{k}\textrm{vech}\left(A\right)=\textrm{vec}\left(A\right)$
+\end_inset
+
+ for all 
+\begin_inset Formula $A\in\mathbb{R}^{k\times k}$
+\end_inset
+
+; let 
+\begin_inset Formula $L_{n}$
+\end_inset
+
+ be the 
+\emph on
+elimination matrix
+\emph default
+, the unique matrix satisfying 
+\begin_inset Formula $L_{k}\textrm{vec}\left(A\right)=\textrm{vech}\left(A\right)$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $L_{k}D_{k}=I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+The limiting distribution of standardized coefficient alpha is
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{equation}
+\sqrt{n}\left(\widehat{\alpha}-\alpha\right)\stackrel{d}{\to}N\left(0,\frac{k^{2}}{\left(k-1\right)^{2}}H^{T}\Gamma^{\star}H\right)\label{eq:Limit distribution (standardized coefficient alpha)}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $H=$
+\end_inset
+
+ and 
+\begin_inset Formula $\Gamma^{\star}=L\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}D_{k}\Gamma D_{k}^{T}\left(D_{\Sigma}\otimes D_{\Sigma}\right)^{-\frac{1}{2}}L_{k}^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The standardized alpha (with mean)
+\end_layout
+
+\begin_layout Standard
+The mean is 
+\begin_inset Formula $\frac{1}{k}i^{T}\phi$
+\end_inset
+
+, with differential 
+\begin_inset Formula $\frac{1}{k}i^{T}$
+\end_inset
+
+.
+ The limiting distribution is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{k}\left(\sigma^{2}+\lambda^{2}\right)^{-2}i^{T}A^{T}\Gamma Ai
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{k\rho}{\left(k-1\right)\rho+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Usual alpha
+\end_layout
+
+\begin_layout Standard
+Define 
+\begin_inset Formula 
+\[
+g\left(\boldsymbol{\sigma}\right)=\frac{a^{T}\boldsymbol{\sigma}}{b^{T}\boldsymbol{\sigma}}
+\]
+
+\end_inset
+
+The derivative is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{b^{T}\boldsymbol{\sigma}}a-\frac{a^{T}\boldsymbol{\sigma}}{\left(b^{T}\boldsymbol{\sigma}\right)^{2}}b
+\]
+
+\end_inset
+
+Under the parallell model, this equals
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{k\left(\sigma^{2}+\lambda^{2}\right)+k\left(k-1\right)\lambda^{2}}a-\frac{k\left(\sigma^{2}+\lambda^{2}\right)}{\left(k\left(\sigma^{2}+\lambda^{2}\right)+k\left(k-1\right)\lambda^{2}\right)^{2}}b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{k\sigma^{2}+k^{2}\lambda^{2}}\left(a-\frac{k\left(\sigma^{2}+\lambda^{2}\right)}{k\sigma^{2}+k^{2}\lambda^{2}}b\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $c=b-a$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{k\sigma^{2}+k^{2}\lambda^{2}}\left(\frac{k\left(\sigma^{2}+\lambda^{2}\right)}{k\sigma^{2}+k^{2}\lambda^{2}}\left(a-c\right)+a\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
