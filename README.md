@@ -1,19 +1,17 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Please avoid the standardized alpha <img src="man/figures/logo.png" align="right" width="140" height="70" />
+# Paper: Please avoid the standardized alpha <img src="man/figures/logo.png" align="right" width="140" height="70" />
 
-<!--[![Build Status](https://travis-ci.org/JonasMoss/paper-standardized.svg?branch=master)](https://travis-ci.org/JonasMoss/paper-standardized) -->
+<!--[![Build Status](https://travis-ci.org/JonasMoss/standardized.svg?branch=master)](https://travis-ci.org/JonasMoss/standardized) -->
 
-[![AppVeyor Build
-Status](https://ci.appveyor.com/api/projects/status/github/JonasMoss/paper-standardized?branch=master&svg=true)](https://ci.appveyor.com/project/JonasMoss/paper-standardized)
-[![Coverage
-Status](https://codecov.io/gh/JonasMoss/paper-standardized/branch/master/graph/badge.svg)](https://codecov.io/gh/JonasMoss/paper-standardized?branch=master)
-[![Project Status: Active – The project has reached a stable, usable
-state and is being actively
-developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-<!--[![Project Status: Unsupported – The project has reached a stable, usable state but the author(s) have ceased all work on it. A new maintainer may be -->
-desired.\](<https://www.repostatus.org/badges/latest/unsupported.svg>)\](<https://www.repostatus.org/#unsupported>)
+<!--[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JonasMoss/standardized?branch=master&svg=true)](https://ci.appveyor.com/project/JonasMoss/standardized) -->
+
+<!--[![CircleCI build status](https://circleci.com/gh/JonasMoss/standardized.svg?style=svg)](https://circleci.com/gh/JonasMoss/standardized)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)-->
+
+<!--[![Project Status: Unsupported – The project has reached a stable, usable state but the author(s) have ceased all work on it. A new maintainer may be desired.](https://www.repostatus.org/badges/latest/unsupported.svg)](https://www.repostatus.org/#unsupported) -->
+
 <!--[![DOI](https://zenodo.org/badge/120678148.svg)](https://zenodo.org/badge/latestdoi/120678148) -->
 
 Repository for the paper “Please avoid the standardized alpha”. Contains
@@ -28,14 +26,15 @@ folder `code` contains the code used to generate the paper’s figures,
 simulations, and so on.
 
 Some of the functions in this package could be of independent interest,
-but I will not make it a `CRAN` package.
+but I will not make it a `CRAN` package. Of course, feel free to grab
+the code here for your own projects.
 
 ## Installation
 
 From inside `R`, use one of the following commands:
 
 ``` r
-devtools::install_github("JonasMoss/paper-standardized")
+devtools::install_github("JonasMoss/standardized")
 ```
 
 The package needs to installed if you intend intend to run files in the
