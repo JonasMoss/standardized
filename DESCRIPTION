@@ -9,3 +9,5 @@ Description: Repository for the paper "Please avoid the standardized alpha".
 License: CCBY-4.0
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/JonasMoss/standardized
+BugReports: https://github.com/JonasMoss/standardized/issues
