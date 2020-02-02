@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Paper: Please avoid the standardized alpha <img src="man/figures/logo.png" align="right" width="140" height="70" />
+# Please avoid the standardized alpha <img src="man/figures/logo.png" align="right" width="140" height="70" />
 
 <!--[![Build Status](https://travis-ci.org/JonasMoss/standardized.svg?branch=master)](https://travis-ci.org/JonasMoss/standardized) -->
 
@@ -15,7 +15,7 @@
 <!--[![DOI](https://zenodo.org/badge/120678148.svg)](https://zenodo.org/badge/latestdoi/120678148) -->
 
 Repository for the paper “Please avoid the standardized alpha”. Contains
-the code required to reproduce the arXiv version of the paper.
+the code required to reproduce all arXiv versions of the paper.
 
 ## Overview
 
