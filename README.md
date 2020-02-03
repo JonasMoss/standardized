@@ -7,8 +7,9 @@
 
 <!--[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JonasMoss/standardized?branch=master&svg=true)](https://ci.appveyor.com/project/JonasMoss/standardized) -->
 
-<!--[![CircleCI build status](https://circleci.com/gh/JonasMoss/standardized.svg?style=svg)](https://circleci.com/gh/JonasMoss/standardized)
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)-->
+<!--[![CircleCI build status](https://circleci.com/gh/JonasMoss/standardized.svg?style=svg)](https://circleci.com/gh/JonasMoss/standardized) -->
+
+<!--[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)-->
 
 <!--[![Project Status: Unsupported – The project has reached a stable, usable state but the author(s) have ceased all work on it. A new maintainer may be desired.](https://www.repostatus.org/badges/latest/unsupported.svg)](https://www.repostatus.org/#unsupported) -->
 
