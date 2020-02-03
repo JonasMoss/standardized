@@ -23,12 +23,19 @@ addtorow$command <- c(
 )
 
 tab = xtable::xtable(tab, caption = caption)
-print(tab,
+tab_str = print(tab,
       sanitize.colnames.function = identity,
       sanitize.names.function = identity,
       sanitize.rownames.function = identity,
       hline.after = NULL,
       caption.placement = "top",
       include.colnames = FALSE,
-      print.results = TRUE,
-      add.to.row = addtorow)
+      add.to.row = addtorow,
+      print.results = FALSE)
+
+cat(tab_str, file = "chunks/simulations_table.tex")
+cat(paste0("\\newcommand{\\geomean}{",round((prod(sims))^(1/length(sims)),2),"}"),
+    file = "chunks/simulations_table.tex",
+    append = TRUE,
+    sep = "\n"
+    )

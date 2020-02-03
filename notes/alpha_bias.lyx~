@@ -175,7 +175,15 @@ where
 
 \end_inset
 
-while the sum score reliability 
+Define the reliability as 
+\begin_inset Formula $\rho=\sigma_{T}^{2}/\sigma_{X}^{2}$
+\end_inset
+
+, where 
+\begin_inset Formula $T=\sum_{i=1}^{k}X_{i}$
+\end_inset
+
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 after "p. 112"
@@ -184,7 +192,18 @@ literal "false"
 
 \end_inset
 
- is
+.
+ For the one-factor model 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:one-factor model"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ this equals
 \end_layout
 
 \begin_layout Standard
@@ -343,7 +362,7 @@ holds since
 \begin_inset Formula $\mathbf{\lambda}=\lambda\mathbf{i}$
 \end_inset
 
-.
+ by Chebyshev's inequality.
 \end_layout
 
 \begin_layout Standard
