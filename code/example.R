@@ -1,30 +1,3 @@
-#' Make pretty strings.
-#' @param x Numeric matrix.
-#' @param digits Digits to prettify with.
-
-pretty = function(x, digits = 3, nsmall = 3) {
-  y = sapply(x, function(x) format(signif(round(x, digits = digits), digits),
-                                   nsmall = nsmall))
-  dim(y) = dim(x)
-  y
-}
-
-
-#' Make "x (y)" from x and y.
-#' 
-#' 
-#' @param x Vector.
-#' @param y Vector.
-#' @value A vector of "mean (sd)".
-#' @source https://stat.ethz.ch/pipermail/r-help/2011-July/284323.html
-
-msd = function(means, sds) {
-  stopifnot(dim(means) == dim(sds))
-  y = paste(means, " (", sds, ")", sep = "") 
-  dim(y) = dim(means)
-  y
-} 
-
 models = list(' y  =~ A1 + A2 + A3 + A4 + A5 ',
               ' y  =~ C1 + C2 + C3 + C4 + C5 ',
               ' y  =~ E1 + E2 + E3 + E4 + E5 ',
@@ -36,22 +9,34 @@ reliabilities = sapply(models, function(model) {
   coefs <- lavaan::lavInspect(fit, what = "x")
   lambda <- c(coefs$lambda * sqrt(as.numeric(coefs$psi)))
   sigma <- sqrt(diag(lavaan::lavInspect(fit, what = "x")$theta))
-  rel(lambda, sigma)[c(3, 4, 2, 1)]
+  c(omega(lambda, sigma),
+    omega_h(lambda, sigma),
+    omega_std(lambda, sigma),
+    omega_sigma(lambda, sigma))
 })
 
-tab = pretty(reliabilities)
-tab = xtable::xtable(tab,
-                     caption = "Comparison of reliability coefficients on personality data")
+tab = prettify(reliabilities)
+caption = "Comparison of reliability coefficients on personality data"
+tab = xtable::xtable(tab, caption = caption)
 
-rownames(tab) = c("Congeneric reliability", 
-                  "Coefficient \\it{H}", 
+rownames(tab) = c("Congeneric reliability",
+                  "Coefficient \\it{H}",
                   "Standardized reliability",
                   "Sigma reliability")
 
 colnames(tab) = c("A", "C", "E", "N", "O")
 xtable::align(tab) = c("l", rep("c", 5))
 xtable::label(tab) = c("tab:reliabilites")
-print(tab, sanitize.rownames.function = identity,
+tab_str = print(tab, sanitize.rownames.function = identity,
       sanitize.colnames.function = identity,
       hline.after = NULL,
-      caption.placement = "top")
+      caption.placement = "top",
+      print.results = TRUE)
+
+description = "  \\vskip7.0pt
+A, agreeableness; C, conscientiousness; E, extraversion; N, neuroticism; O, openness to experience \n"
+
+tag = "\\end{tabular}\n"
+strs = strsplit(tab_str, tag, fixed = TRUE)
+cat(paste0(strs[[1]][1], tag, description, strs[[1]][2]),
+    file = "chunks/example_table.tex")
