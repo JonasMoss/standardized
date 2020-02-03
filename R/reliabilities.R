@@ -23,10 +23,14 @@ alpha_std <- function(S) {
 #' @rdname alpha
 #' @export
 alpha_sigma <- function(S) {
-  stop("Function not implemented yet.")
-  R <- stats::cov2cor(S)
   k <- nrow(S)
-  k / (k - 1) * (1 - k / sum(R))
+  #stop("Not implemented")
+  lambda_sq = (sum(S - diag(diag(S))))/(k * (k - 1))
+  sigma_sq = diag(S) - lambda_sq
+
+  xi <- (diag(1/sigma_sq)^(1/2)) %*% S %*% (diag(1/sigma_sq)^(1/2))
+  k <- nrow(S)
+  k / (k - 1) * (1 - tr(xi) / sum(xi))
 }
 
 #' Variants of the omega coefficient

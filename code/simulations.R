@@ -18,11 +18,14 @@ rownames(tab) = c("$k = 5, n = 50$",
 addtorow <- list()
 addtorow$pos <- list(0, 0)
 addtorow$command <- c(
-  "Distribution & $t(5)$ & $t(5)$ & $t(5)$ & Beta & Beta & Beta & Gamma & Gamma & Gamma \\\\\n",
-  "$\\sigma$ & $2$ & $1$ & $0.5$ & $2$ & $1$ & $0.5$ & $2$ & $1$ & $0.5$ \\\\\n"
+  " & $t(5)$ & $t(5)$ & $t(5)$ & Beta & Beta & Beta & Gamma & Gamma & Gamma \\\\\n",
+  " & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = 0.5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = 0.5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = 0.5$ \\\\\n"
 )
 
 tab = xtable::xtable(tab, caption = caption)
+
+xtable::label(tab) = c("tab:simulation")
+
 tab_str = print(tab,
       sanitize.colnames.function = identity,
       sanitize.names.function = identity,
