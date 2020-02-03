@@ -209,7 +209,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\rho=\frac{\left(\mathbf{i}^{T}\mathbf{\lambda}\right)^{2}}{\left(\mathbf{i}^{T}\mathbf{\lambda}\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\label{eq:Sum-score reliabiltiy}
+\omega=\frac{\left(\mathbf{i}^{T}\mathbf{\lambda}\right)^{2}}{\left(\mathbf{i}^{T}\mathbf{\lambda}\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\label{eq:Sum-score reliabiltiy}
 \end{equation}
 
 \end_inset
@@ -248,13 +248,13 @@ noprefix "false"
  Then
 \begin_inset Formula 
 \[
-\rho=\omega+B_{\Psi}-B_{\Lambda}
+\alpha=\omega+B_{\Psi}-B_{\lambda}
 \]
 
 \end_inset
 
 where 
-\begin_inset Formula $B_{\Psi}=\frac{k}{k-1}\frac{\mathbf{i}^{T}\Psi\mathbf{i}-\textrm{tr}\Psi}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}$
+\begin_inset Formula $B_{\Psi}=\frac{k}{k-1}\frac{\mathbf{i}^{T}\Psi\mathbf{i}-\textrm{tr}\Psi}{\left(\mathbf{i}^{T}\lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}$
 \end_inset
 
  is the bias term for 
@@ -262,7 +262,7 @@ where
 \end_inset
 
  and 
-\begin_inset Formula $B_{\Lambda}=\frac{1}{k-1}\frac{\left(\mathbf{i}^{T}\Lambda\right)^{2}-k\textrm{tr}\left(\Lambda^{T}\Lambda\right)}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}$
+\begin_inset Formula $B_{\lambda}=\frac{1}{k-1}\frac{\left(\mathbf{i}^{T}\Lambda\right)^{2}-k\textrm{tr}\left(\lambda^{T}\lambda\right)}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}$
 \end_inset
 
  is the bias term for 
@@ -283,7 +283,7 @@ where
 \end_inset
 
  is diagonal, while 
-\begin_inset Formula $B_{\Lambda}\geq0$
+\begin_inset Formula $B_{\lambda}\geq0$
 \end_inset
 
  with equality if and only if 
@@ -314,26 +314,25 @@ where
 \end_layout
 
 \begin_layout Proof
-Observe that 
-\begin_inset Formula $\mathbf{i}^{T}\mathbf{\lambda}\lambda^{T}\mathbf{i}=\left(\mathbf{i}^{T}\mathbf{\lambda}\right)^{2}$
+By the definition of 
+\begin_inset Formula $\alpha$
 \end_inset
 
  and 
-\begin_inset Formula $\frac{k}{k-1}\left(1-\frac{\frac{1}{k}\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\right)=\rho$
+\begin_inset Formula $\omega$
 \end_inset
 
-.
- Thus
+,
 \end_layout
 
 \begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray*}
- &  & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\left(\Sigma\right)}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
+\alpha & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\left(\Sigma\right)}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
  & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\left(\Lambda\Lambda^{T}\right)+\textrm{tr}\left(\Psi\right)}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\right)\\
- & = & \frac{k}{k-1}\left(1-\frac{\frac{1}{k}\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}-\left(\mathbf{i}^{T}\Psi\mathbf{i}-\textrm{tr}\Psi\right)+\left(\left(\mathbf{i}^{T}\Lambda\right)^{2}-\frac{1}{k}\left(\mathbf{i}^{T}\Lambda\right)^{2}\right)}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\right)\\
- & = & \rho+\left[\frac{k}{k-1}\frac{\mathbf{i}^{T}\Psi\mathbf{i}-\textrm{tr}\Psi}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\right]-\left[\frac{1}{k-1}\frac{\left(\mathbf{i}^{T}\Lambda\right)^{2}-k\textrm{tr}\left(\Lambda^{T}\Lambda\right)}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\right]\\
- & = & \rho+B_{\Psi}-B_{\Lambda}
+ & = & \frac{k}{k-1}\left(1-\frac{\frac{1}{k}\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}-\left(\mathbf{i}^{T}\Psi\mathbf{i}-\textrm{tr}\Psi\right)+\left(\left(\mathbf{i}^{T}\lambda\right)^{2}-\frac{1}{k}\left(\mathbf{i}^{T}\lambda\right)^{2}\right)}{\left(\mathbf{i}^{T}\lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\right)\\
+ & = & \omega+\left[\frac{k}{k-1}\frac{\mathbf{i}^{T}\Psi\mathbf{i}-\textrm{tr}\Psi}{\left(\mathbf{i}^{T}\Lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\right]-\left[\frac{1}{k-1}\frac{\left(\mathbf{i}^{T}\lambda\right)^{2}-k\textrm{tr}\left(\Lambda^{T}\lambda\right)}{\left(\mathbf{i}^{T}\lambda\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}}\right]\\
+ & = & \omega+B_{\Psi}-B_{\lambda}
 \end{eqnarray*}
 
 \end_inset
@@ -355,14 +354,14 @@ The claim about
 \end_inset
 
 holds since 
-\begin_inset Formula $\left(\mathbf{i}^{T}\Lambda\right)^{2}-k\textrm{tr}\left(\Lambda^{T}\Lambda\right)\geq0$
+\begin_inset Formula $\left(\mathbf{i}^{T}\lambda\right)^{2}-k\textrm{tr}\left(\lambda^{T}\lambda\right)\geq0$
 \end_inset
 
  with equality if and only if 
 \begin_inset Formula $\mathbf{\lambda}=\lambda\mathbf{i}$
 \end_inset
 
-.
+ by Chebyshev's inequality.
 \end_layout
 
 \begin_layout Standard
