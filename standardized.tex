@@ -93,12 +93,12 @@ I argue coefficient alpha should always be preferred over the standardized alpha
 \keywords{reliability \and coefficient alpha \and cronbach's alpha}
 
 \section{Introduction}
-Coefficient alpha still remains the most popular measure of reliability in psychometrics. Some authors have criticized it to no avail. A close cousin of coefficient alpha is the standardized coefficient alpha, or standardized alpha for short. The difference between these two alphas is simple to state. To calculate coefficient alpha you use the sample covariance matrix. To calculate the standardized alpha you use the sample correlation matrix.
+Coefficient alpha is the most popular method to approximate reliability coefficients. It has remained so for a long time, despite stong criticism from several authors. A close cousin of coefficient alpha is the standardized coefficient alpha, or standardized alpha for short. The difference between these two alphas is simple to state: To calculate coefficient alpha you use the sample covariance matrix. To calculate the standardized alpha you use the sample correlation matrix.
 
 I argue you should avoid standardized alpha in all circumstances. I make my case with two arguments:
 
 \begin{enumerate}[label=\arabic*.]
-\item Both alphas are estimators of the congeneric reliability. Both are consistent under the parallel model. But coefficient alpha never performs worse than the standardized alpha.
+\item First I compare standardized alpha to the coefficient alpha under the parallel model, and argue you should prefer coefficient alpha even if you have reason to believe in the parallel model. While the population values of standardized alpha and coefficient alpha both equal the congeneric reliability under the parallel model, coefficient alpha equals the congeneric reliability under the more general $\tau$-equivalent model. But standardized alpha will be greater than the congeneric reliability under the $\tau$-equivalent model. Moreover, sample coefficient alpha is the maximum likelihood estimator of the congeneric reliability under the normal parallel model, which provides a decent heuristic argument in favor of coefficient alpha. Moreover, provided the observed variables have finite fourth moments, sample coefficient alpha and sample standardized alpha have the same asymptotic variances. 
 
 \item A common stance on standardized coefficient is to use it only with standardized test scores. But even if you wish to standardize your test items, please avoid standardized alpha.  In this case, I argue in favour of coefficient $H$. If coefficient \it{H} is too hard to swallow, I propose to standardize with the the residual errors instead.
 \end{enumerate}
@@ -349,32 +349,18 @@ I have chosen $3$ degrees of freedom for the $t$-distribution since it is the fi
 	\label{fig::distributions}
 \end{figure}
 
-
-
-
-\begin{table}
-    \centering
-    \caption{Simulations of mean squared error in the parallel model}
-    \begin{tabular}{lccccccccc}
-    Distribution & $t(3)$ & $t(3)$ & $t(3)$ & Beta & Beta & Beta & Gamma & Gamma & Gamma\tabularnewline
-    $\sigma$ & $1$ & $0.5$ & $0.1$ & $1$ & $0.5$ & $0.1$ & $1$ & $0.5$ & $0.1$\tabularnewline
-    \multicolumn{10}{c}{$n=20$, $k=4$}\tabularnewline
-    MSE for $\alpha$ &  &  &  &  &  &  &  &  & \tabularnewline
-    MSE for $\alpha_{s}$ &  &  &  &  &  &  &  &  & \tabularnewline
-
-    \multicolumn{10}{c}{$n=20$, $k=10$}\tabularnewline
-    MSE for $\alpha$ &  &  &  &  &  &  &  &  & \tabularnewline
-    MSE for $\alpha_{s}$ &  &  &  &  &  &  &  &  & \tabularnewline
-
-    \multicolumn{10}{c}{$n=200$, $k=4$}\tabularnewline
-    MSE for $\alpha$ &  &  &  &  &  &  &  &  & \tabularnewline
-    MSE for $\alpha_{s}$ &  &  &  &  &  &  &  &  & \tabularnewline
-
-    \multicolumn{10}{c}{$n=200$, $k=10$}\tabularnewline
-    MSE for $\alpha$ &  &  &  &  &  &  &  &  & \tabularnewline
-    MSE for $\alpha_{s}$ &  &  &  &  &  &  &  &  & \tabularnewline
-    \end{tabular}
-    \label{tab:my_label}
+\begin{table}[ht]
+\centering
+\caption{Simulations of $100 \times \textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$ in the parallel model} 
+\begin{tabular}{rlllllllll}
+   Distribution & $t(3)$ & $t(3)$ & $t(3)$ & Beta & Beta & Beta & Gamma & Gamma & Gamma \\
+ $\sigma$ & $1$ & $0.5$ & $0.1$ & $1$ & $0.5$ & $0.1$ & $1$ & $0.5$ & $0.1$ \\
+ \\
+$k = 5, n = 50$ & 106 & 119 & 104 & 106 & 111 & 112 & 108 & 106 & 111 \\ 
+  $k = 20, n = 50$ & 114 & 108 & 103 & 95.9 & 91.2 & 99.1 & 97.2 & 97 & 94.9 \\ 
+  $k = 5, n = 200$ & 99.4 & 98.8 & 102 & 101 & 101 & 100 & 74.5 & 67.1 & 66.6 \\ 
+  $k = 20, n = 200$ & 36.8 & 185 & 118 & 146 & 78.5 & 233 & 303 & 205 & 151 \\ 
+  \end{tabular}
 \end{table}
 
 \section{Argument 2. The issue with standardized scores}
@@ -451,20 +437,9 @@ $i$.
 See the appendix, page \pageref{proof:Properties}.
 \end{proof}
 
-\begin{table}[ht]
-\centering
-\caption{Comparison of reliability coefficients on personality data} 
-\label{tab:reliabilites}
-\begin{tabular}{lccccc}
-  & A & C & E & N & O \\ 
- Congeneric reliability & 0.712 & 0.733 & 0.767 & 0.813 & 0.610 \\ 
-  Coefficient H & 0.765 & 0.739 & 0.778 & 0.850 & 0.651 \\ 
-  Standardized reliability & 0.724 & 0.734 & 0.763 & 0.815 & 0.618 \\ 
-  Sigma reliability & 0.744 & 0.736 & 0.770 & 0.836 & 0.630 \\ 
-  \end{tabular}
-  \vskip7.0pt
-A, agreeableness; C, conscientiousness; E, extraversion; N, neuroticism; O, openness to experience
-\end{table}
+%% <<<<< Example table start (\label{tab:reliabilites})
+\input{chunks/example_table.tex}
+%% example table end >>>>>
 
 \section{Remarks}
 In some cases you cannot access the sample covariance matrix $S$. Then coefficient alpha is unavailable. If you can get hold of the correlation matrix $R$ the standardized alpha might be the best you can do. An example of this scenario is $R$ is a polychoric correlation matrix.
