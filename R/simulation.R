@@ -17,7 +17,7 @@ vgamma <- function(shape, ratio) shape / ratio^2
 #' @param n Number of samples.
 #' @return Random variates.
 error_beta <- function(n) (stats::rbeta(n, 1 / 10, 1 / 10) * 2 - 1) / (2 * sqrt(vbeta(1 / 10, 1 / 10)))
-error_t <- function(n) stats::rt(n, df = 1) / sqrt(3)
+error_t <- function(n) stats::rt(n, df = 5) / sqrt(5/3)
 error_gamma <- function(n) {
   (stats::rgamma(n, shape = 1 / 100, rate = 1 / 100) - 1) / sqrt(vgamma(1 / 100, 1 / 100))
 }
@@ -52,8 +52,8 @@ simulate_tau <- function(n, k, lambda = 1, sigma = rep(1, k), latent = stats::rn
 #' @return Covariance matrix.
 #' @export
 simulate_MSE <- function(nreps = 10^5, n = 100, k = 5, sigma = 1, error = stats::rnorm) {
-  sigma <- rep(sigma, k)
-  lambda <- rep(1, k)
+  sigma <- rep_len(x = sigma, length.out = k)
+  lambda <- rep_len(1, length.out = k)
 
   sims <- replicate(nreps, {
     x <- simulate_tau(n, k, sigma = sigma, error = error, latent = stats::rnorm)
@@ -62,8 +62,8 @@ simulate_MSE <- function(nreps = 10^5, n = 100, k = 5, sigma = 1, error = stats:
   })
 
   alpha_true <- omega(lambda, sigma)
-  result <- sqrt(n) * (sims - alpha_true)
-  rowMeans(result^2)
+  result <- rowMeans((sqrt(n) * (sims - alpha_true))^2)
+  result[1]/result[2]
 }
 
 #' Run the simulation study of the paper.
@@ -75,28 +75,18 @@ simulation <- function(nreps) {
 
   ##  The parameters used; just as in the paper!
   params <- expand.grid(
-    k = c(4, 20), n = c(20, 200),
-    sigma = c(1, 0.5, 0.1),
+    k = c(5, 20), n = c(50, 200),
+    sigma = c(2, 1, 0.5),
     error = c(error_t, error_beta, error_gamma)
   )
 
-  sims <- t(apply(params, 1, function(param) {
+  sims <- apply(params, 1, function(param) {
     simulate_MSE(
       nreps = nreps, n = param$n, k = param$k, sigma = param$sigma,
       error = param$error
     )
-  }))
+  })
 
-  ## This is a convoluted way of changing the sims result into the format used
-  ## in the table in the paper. Please forgive my sloppiness!
-
-  sims_1 <- sims[, 1]
-  dim(sims_1) <- c(4, 9)
-  sims_2 <- sims[, 2]
-  dim(sims_2) <- c(4, 9)
-  dim(sims) <- c(8, 9)
-  sims[c(1, 3, 5, 7), ] <- sims_1
-  sims[c(2, 4, 6, 8), ] <- sims_2
-
-  sims
+  dim(sims) = c(9, 4)
+  t(sims)
 }

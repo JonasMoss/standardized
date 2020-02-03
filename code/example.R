@@ -31,7 +31,7 @@ tab_str = print(tab, sanitize.rownames.function = identity,
       sanitize.colnames.function = identity,
       hline.after = NULL,
       caption.placement = "top",
-      print.results = TRUE)
+      print.results = FALSE)
 
 description = "  \\vskip7.0pt
 A, agreeableness; C, conscientiousness; E, extraversion; N, neuroticism; O, openness to experience \n"

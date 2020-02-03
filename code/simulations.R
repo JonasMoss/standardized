@@ -1,29 +1,34 @@
-simulation = function(nreps) {
-  
-  ##  The parameters used; just as in the paper!
-  params = expand.grid(k = c(4, 20), n = c(20, 200), 
-                       sigma = c(1, 0.5, 0.1),
-                       error = c(error_t, error_beta, error_gamma))
-  
-  sims = t(apply(params, 1, function(param) {
-    simulate_MSE(nreps = nreps, n = param$n, k = param$k, sigma = param$sigma,
-                 error = param$error)
-  }))
-  
-  ## This is a convoluted way of changing the sims result into the format used
-  ## in the table in the paper. Please forgive my sloppiness!
-  
-  sims_1 = sims[, 1]
-  dim(sims_1) = c(4, 9)
-  sims_2 = sims[, 2]
-  dim(sims_2) = c(4, 9)
-  dim(sims) = c(8, 9)
-  sims[c(1, 3, 5, 7), ] = sims_1
-  sims[c(2, 4, 6, 8), ] = sims_2
-  
-  sims
-  
-}
-
+Nreps = 10^5
 set.seed(313)
-simulation(1000)
+sims = simulation(Nreps)
+
+caption = "Simulations of $100 \\times \\textrm{MSE}_\\alpha/\\textrm{MSE}_{\\alpha_s}$ in the parallel model"
+
+tab = prettify(sims * 100, 3, 0)
+
+colnames(tab) = c("$t(3)$", "$t(3)$", "$t(3)$",
+             "Beta", "Beta", "Beta",
+             "Gamma", "Gamma", "Gamma")
+
+rownames(tab) = c("$k = 5, n = 50$",
+                  "$k = 20, n = 50$",
+                  "$k = 5, n = 200$",
+                  "$k = 20, n = 200$")
+
+addtorow <- list()
+addtorow$pos <- list(0, 0)
+addtorow$command <- c(
+  "Distribution & $t(5)$ & $t(5)$ & $t(5)$ & Beta & Beta & Beta & Gamma & Gamma & Gamma \\\\\n",
+  "$\\sigma$ & $2$ & $1$ & $0.5$ & $2$ & $1$ & $0.5$ & $2$ & $1$ & $0.5$ \\\\\n"
+)
+
+tab = xtable::xtable(tab, caption = caption)
+print(tab,
+      sanitize.colnames.function = identity,
+      sanitize.names.function = identity,
+      sanitize.rownames.function = identity,
+      hline.after = NULL,
+      caption.placement = "top",
+      include.colnames = FALSE,
+      print.results = TRUE,
+      add.to.row = addtorow)
