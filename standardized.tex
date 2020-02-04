@@ -136,11 +136,11 @@ where $\lambda$ is a vector of loadings, $\alpha$ is a mean vector, and $\Psi^{1
 A modestly popular choice for $w$ are the optimal weights. That is, the weights maximizing \eqref{eq:linear composite reliabiltiy} above. Using them will lead to coefficient $H$ \citep{hancock2001rethinking}, also known as the maximal reliability \citep{Li1997-yh}, 
 \begin{equation}
 \label{eq:coefficient_H}
-\omega_H=\frac{\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}}{1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}}
+\omega_{H}=\frac{k\overline{\lambda^{2}\sigma^{-2}}}{k\overline{\lambda^{2}\sigma^{-2}}+1},
 \end{equation}
-But by far the most popular choice is give to same weight to each $X_i$, or $w = \mathbf{i}=\left(1,1,\ldots,1\right)$. This leads to the population congeneric reliability
+where $\overline{\lambda^{2}\sigma^{-2}} = k^{-1}\sum_{i=1}^{k}\lambda_{i}^2/\sigma_i^2$. But by far the most popular choice is give to same weight to each $X_i$, or $w = \mathbf{i}=\left(1,1,\ldots,1\right)$. This leads to the population congeneric reliability
 \begin{equation}
-\omega =\frac{(\mathbf{i}^T\lambda)^2}{(\mathbf{i}^T\lambda)^2 + \mathbf{i}^T\Psi\mathbf{i}} =\frac{k\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\label{eq:Congeneric reliability}
+\omega =\frac{(\mathbf{i}^T\lambda)^2}{(\mathbf{i}^T\lambda)^2 + \mathbf{i}^T\Psi\mathbf{i}} =\frac{k\overline{\lambda}^{2}/\overline{\sigma^{2}}}{k\overline{\lambda}^{2}/\overline{\sigma^{2} + 1}}\label{eq:Congeneric reliability}
 \end{equation}
 where $\overline{\lambda}=k^{-1}\sum_{i=1}^{k}\lambda_{i}$ and
 $\overline{\sigma^{2}}=k^{-1}\sum_{i=1}^{k}\sigma_{i}^{2}$.
@@ -148,7 +148,7 @@ $\overline{\sigma^{2}}=k^{-1}\sum_{i=1}^{k}\sigma_{i}^{2}$.
 The following propositions explores the relationship between coefficient alpha, the standardized alpha, and the congeneric reliability coefficient.
 
 \begin{prop}
-\label{prop:Reliabilities.}Assume the congeneric model \eqref{eq:one-factor model}. Let $\alpha$ be coefficient alpha \eqref{eq:Coefficient alpha}, $\alpha_{s}(X)$ be the standardized alpha \eqref{eq:standardized alpha}, and  $\omega(X)$ be the sum score reliability \eqref{eq:Congeneric reliability}. 
+\label{prop:Reliabilities.}Assume the congeneric model \eqref{eq:one-factor model}. Let $\alpha$ be coefficient alpha \eqref{eq:Coefficient alpha}, $\alpha_{s}(X)$ be the standardized alpha \eqref{eq:standardized alpha}, and  $\omega(X)$ be the congeneric reliability \eqref{eq:Congeneric reliability}. 
 \begin{enumerate}[label=(\roman*)]
 \item Coefficient alpha equals $$\alpha=\omega-\left(\frac{\overline{\lambda^{2}}-\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right),$$
 and $\alpha\leq\omega$ with equality
@@ -156,7 +156,7 @@ if and only if $\lambda_{i}=\lambda_{j}$ for all $i,j$.
 \item Assume $\lambda_{i}=\lambda_{j}$ and for all $i,j$. Then $\alpha_s \geq \alpha = \omega(X)$, with equality if and only if $\sigma_{i}^{2}=\sigma_{j}^{2}$ for all $i,j$ or $\lambda_i = 0$ for all $i$.
 \item If $k=2$, $\alpha_s\geq\alpha$, with equality if and only if $\lambda_{1}^{2}+\sigma_{1}^{2}=\lambda_{2}^{2}+\sigma_{2}^{2}$ or $\lambda_1 = 0$ or $\lambda_2 = 0$. But if $k>2$, both $\alpha_s>\alpha$
 and $\alpha_s<\alpha$ are possible.
-\item It is possible for $\alpha_s = \omega$ while $\lambda_i = \lambda_j$ for all $i,j$ is false.
+\item There are $\lambda$s such that $\lambda_i = \lambda_j$ for all $i,j$ is false but $\alpha_s = \omega$.
 \end{enumerate}
 \end{prop}
 \begin{proof}
@@ -165,7 +165,7 @@ Most of (i) -- (iii) have been known for a while. See page \pageref{proof:Reliab
 
 If $\lambda_{i}=\lambda_{j}$ for all $i,j$ and $\sigma_{i}=\sigma_{j}$
 model \eqref{eq:one-factor model} is called a parallel model \citep[][section 2.13]{Lord1968-ax}. If $\lambda_{i}=\lambda_{j}$
-for all $i,j$ it is a $\tau$-equivalent model \citep[][section 2.13]{Lord1968-ax}. The most important messages of Proposition \ref{prop:Reliabilities.} are:
+for all $i,j$ it is a $\tau$-equivalent model \citep[][section 2.13]{Lord1968-ax}. The take-messages of Proposition \ref{prop:Reliabilities.} are:
 
 \begin{enumerate}[label=(\alph*)]
 \item $\alpha = \omega$ under the $\tau$-equivalent model and,
@@ -174,24 +174,24 @@ for all $i,j$ it is a $\tau$-equivalent model \citep[][section 2.13]{Lord1968-ax
 \item $\alpha_s \geq \alpha = \omega(X)$ under the $\tau$-equivalent model.
 \end{enumerate}
 
-Of these, (a) and (b) are the most important, as they give use a way to estimate the congeneric reliability $\omega$ \eqref{eq:Congeneric reliability} without estimating $\lambda$ and $\Psi$ first. Just be aware this advantage of $\alpha_s$ and $\alpha$ are not decisive, as it is easy to estimate $\lambda$ and $\Psi$ these days using for instance the \texttt{R} \citep{Team2013-tt} package \texttt{lavaan} \citep{Rosseel2012-yg}. Estimating $\omega$ this way allows us to forego the unrealistic assumptions of $\tau$-equivalence and parallel test items altogether.
+Of these, (a) and (b) are the most important, as they give use a way to estimate the congeneric reliability $\omega$ \eqref{eq:Congeneric reliability} using only a simple function of $S$. The intuitive estimate of $\omega$ is the plug-in estimator, which requires us to estimate $\lambda$ and $\sigma$ first. This is usually a more complicated procedure involving Newton-Raphson and so on [[ref]]. Just be aware this advantage of $\alpha_s$ and $\alpha$ is not decisive, as it is easy to estimate $\lambda$ and $\Psi$ these days using for instance the \texttt{R} \citep{Team2013-tt} package \texttt{lavaan} \citep{Rosseel2012-yg}. And estimating $\omega$ this way allows us to forego the unrealistic assumptions of $\tau$-equivalence and parallel test items altogether.
 
-I must emphasize we do not have to assume normality or continuous $X$s to get Proposition \ref{prop:Reliabilities.}. In fact, none of the derivations in Proposition \ref{prop:Reliabilities.} involve the distributions of $Z$ and $\epsilon$. This is contrary to some claims about coefficient alpha in the literature, e.g. \citep[][p.415]{McNeish2018-vu} and \citep[][p.21]{Zumbo2007-ap}.
+I must emphasize we do not have to assume normality or continuous $X$s to get Proposition \ref{prop:Reliabilities.}. In fact, none of the derivations in Proposition \ref{prop:Reliabilities.} involve the distributions of $Z$ and $\epsilon$. This is contrary to some claims about coefficient alpha in the literature, e.g. \citep[][p.415]{McNeish2018-vu} and \citep[][p.21]{Zumbo2007-ap}. Tankov [[ref]] has lamented this widespread misunderstanding.
 
-While $\alpha_s$ is an upper bound for $\alpha$ when $k = 2$ and under the $\tau$-equivalent model, it does not bound $\alpha$ in either direction otherwise. Again, this is contrary to claims in the literature such as that of \citep[][p. 348]{Osburn2000-jd} \enquote{When the components of a composite measure are congeneric, standardized alpha will always exceed the true reliability}. See \citet[][p.450]{Falk2011-ae} for a clearly laid out example of $\alpha>\alpha_s$.
+While $\alpha_s$ is an upper bound for $\alpha$ when $k = 2$ and under the $\tau$-equivalent model, it does not bound $\alpha$ in either direction otherwise, see Proposition \ref{prop:Reliabilities.} (i - iii). Again, this is contrary to claims in the literature such as that of \citep[][p.348]{Osburn2000-jd} \enquote{When the components of a composite measure are congeneric, standardized alpha will always exceed the true reliability}. See \citet[][p.450]{Falk2011-ae} for a clearly laid out example of $\alpha>\alpha_s$.
 
-Coefficient alpha has a simple necessary condition for consistency, namely that all the factor loadings are equal, see Proposition \ref{prop:Reliabilities.} (i). But standardized alpha has no such simple necessary condition for consistency, the parallel model assumption is merely sufficient. See the proof of \ref{prop:Reliabilities.} (iv) for a method to generate cases when $\alpha_s = \omega$ but the model is not parallel. Still, these causes are most like conincidences. It would be preposterous to assume $\alpha_s = \omega$ for unknown parameter values without assuming the parallel model.
+Coefficient alpha equals the congeneric reliability if and only if all the factor loadings $\lambda$ are equal, see Proposition \ref{prop:Reliabilities.} (i). But there is no simple necessary and sufficient criterion for $\alpha_s = \omega$: the assumption that all fact merely sufficient. See the proof of Proposition \ref{prop:Reliabilities.} (iv) (page \pageref{proof:Reliabilities.} for a method to generate cases when $\alpha_s = \omega$ but the model is not parallel. Still, these causes are like lucky conincidences. It would be preposterous to assume $\alpha_s = \omega$ for unknown parameter values without assuming the parallel model.
 
-Let us proceed to sample variants of coefficient alpha and the standardized
-coefficient alpha. Let $S$ be a sample covariance matrix based on
+Let us proceed to the sample variants of coefficient alpha and standardized
+alpha. Let $S$ be a sample covariance matrix based on
 $n$ samples of $X$ and $R$ the corresponding correlation matrix.
 The sample coefficient alpha is 
 \begin{equation}
-\widehat{\alpha}\left(S\right)=\frac{k}{k-1}\left(1-\frac{\tr{S}}{\mathbf{i}^{T}S\mathbf{i}}\right)\label{eq:sample coefficient alpha}
+\widehat{\alpha}=\frac{k}{k-1}\left(1-\frac{\tr{S}}{\mathbf{i}^{T}S\mathbf{i}}\right)\label{eq:sample coefficient alpha}
 \end{equation}
 while the sample standardized alpha is
 \begin{equation}
-\widehat{\alpha_s}(R)=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}R\mathbf{i}}\right)\label{eq:sample standardized alpha}
+\widehat{\alpha_s}=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}R\mathbf{i}}\right)\label{eq:sample standardized alpha}
 \end{equation}
 The congeneric reliability \eqref{eq:Congeneric reliability} has no
 simple sample version, as it depends on estimates of $\lambda$ and
@@ -200,70 +200,45 @@ $\sigma^{2}$ which usually do not have closed forms.
 The sample coefficient alpha is by far the most popular method to
 measure reliability in psychology [[cite]], despite the stringent conditions
 that must be satisfied for its population value to be equal to the
-true reliabiltiy $\omega$ and the questionable choice of weights $w$. This has been lamented by
-many methodologist (see e.g. McNeish (2018); \citet{hancock2001rethinking}, McNeish sum-score), and will not be reiterated
-here.
-
-From Proposition \ref{prop:Reliabilities.} and the continuous mapping
-theorem we know the standardized alpha $\widehat{\alpha_s}(R)$
-is consistent for $\omega$ under the parallel model.
-But the unstandardized alpha $\widehat{\alpha}\left(S\right)$
-is also consistent for $\omega$ under the parallel
-model, as it is a submodel of the$\tau$-equivalent model. This raises
-the question of which estimator to prefer. The natural way to make
-the question precise is to ask which one of the estimators is most
-efficient. Provided the fourth moment of the latent variable and the
-error terms exist, the limiting distribution is normal. Using the
-delta method I derive the limiting distributions of $\widehat{\alpha}\left(S\right)$
-and $\widehat{\alpha_s}(R)$. The result for $\widehat{\alpha}\left(S\right)$
-extends the result of Zyl (2000) {[}{[}ref{]}{]} from multivariate
-normals to aribtrary distributions with finite fourth moment.
-
-While $\widehat{\alpha}$ and $\widehat{\alpha_s}$
-are estimators of $\omega(X)$ tailored to specific circumstances,
-they are not a priori the most efficient estimators under their
-respective circumstances. Indeed, it is easy to modify either for
-them and still obtain consistent and reasonable estimators, e.g. by
-using just a single covariance and variance in $\widehat{\alpha}\left(S\right)$
-or a single off-diagonal correlation in $\widehat{\alpha_s}(R)$.
-I derive the maximum likelihood estimators of $\omega$
-assuming multivariate normality and study their relative efficiency.
-
-I compare the finite sample performance of the four estimators in
-a simulation study.
+true reliability $\omega$ and the questionable choice of weights $w$. This has been lamented by
+many methodologist \citep[see e.g.][]{McNeish2018-vu,hancock2001rethinking, McNeish2019-ea}.
 
 \section{Argument 1. Standardized alpha as an estimator of the congeneric reliability}
 
-In this section, I will compare efficient alpha to the standardized alpha as estimators of the congeneric reliability. From Proposition \ref{prop:Reliabilities.} we know the parallel model is the natural setting to make comparisons. For this is the only case when coefficient alpha and the standardized alpha equals the congeneric reliability.
+In this section, I will compare sample coefficient alpha \eqref{eq:sample coefficient alpha} to sample standardized alpha \eqref{eq:sample standardized alpha} as estimators of the congeneric reliability \eqref{eq:Congeneric reliability}. From Proposition \ref{prop:Reliabilities.} we know the parallel model is the natural setting to make comparisons, as this is the only case when coefficient alpha and the standardized alpha equals the congeneric reliability.
 
-So the setting is as follows. Our model, the parallel model, is
+The parallel model is
+\eqref{eq:one-factor model},
 \begin{equation}
 \label{eq:parallel model}
 Y = \alpha + \lambda Z + \sigma\epsilon,
 \end{equation}
-where $\lambda$ and $\sigma$ are positive scalars. $\epsilon\in\mathbb{R}^k$ and $Z\in\mathbb{R}$ are uncorrelated random variables with unit variance and zero mean. Model \eqref{eq:parallel model} is clearly a special case of \eqref{eq:one-factor model}. Our goal is to estimate the congeneric reliability \eqref{eq:Congeneric reliability}, which in this case equals 
+where $\lambda$ and $\sigma$ are positive scalars and $\epsilon\in\mathbb{R}^k$ and $Z\in\mathbb{R}$ are uncorrelated random variables with unit variance and zero mean. Model \eqref{eq:parallel model} is clearly a special case of \eqref{eq:one-factor model}. Our goal is to estimate the congeneric reliability \eqref{eq:Congeneric reliability}, which for the parallel model equals
 \begin{equation}
 \label{eq:parallel_omega}
-\omega = \frac{\lambda^2}{\lambda^2 + \sigma^2/k}
+\omega = \frac{k\lambda^2/\sigma^2}{k\lambda^2/\sigma^2 + 1}
 \end{equation}
+Now we have a model, a parameter, and two competing estimators of that parameter, namely $\widehat{\alpha}$ and $\widehat{\alpha}_s$. But which should we choose? 
 
-Let $\rho = \lambda^2/\sqrt{\lambda^2 + \sigma^2}$ be the unique off-diagonal correlation of $\Cor(x)$. From \eqref{eq:parallel_omega} we see that $\omega$ equals the squared correlation from a parallel model \eqref{eq:parallel model} with error variances $\sigma^2/k$.
+Choosing between estimators is a classical statistical problem. Some well-established methods to attack such problems are:
 
-The description above follows the prototype of a statistical estimation statistical problem. We have a model, a parameter and two competing estimators of the parameter. Some well-established methods to attack such problems are:
+% Let $\rho = \lambda^2/\sqrt{\lambda^2 + \sigma^2}$ be the unique off-diagonal correlation of $\Cor(x)$. 
 
 \begin{enumerate}[label=(\Alph*)]
-\item Check the relative asymptotic efficiency of the estimators. 
+\item Check the relative asymptotic efficiency of the estimators.
 \item Is any of the competing estimators a maximum likelihood estimator, perhaps under some parametric restrictions?
-\item Compare finite-sample properties of the estimators under the model conditions.
+\item Compare finite-sample perfomance of the estimators in terms of for instance mean squared error.
 \item Investigate the robustness of the estimators.
 \end{enumerate}
 
-Coefficient alpha is more robust than the standardized alpha. For by Proposition \ref{prop:Reliabilities.}, coefficient alpha equals the congeneric reliability under the $\tau$-equivalent model and standardized alpha does not. Thus we can check (D) off our list as a victory for coefficient alpha.
+In the rest of this section I will argue that coefficient alpha wins (B) and clearly wins (D), standardized alpha might win (C), and (A) is a draw.  
+
+Point (D) about robustness is an easy one, for we have already established that coefficient alpha is more robust than the standardized alpha. For by Proposition \ref{prop:Reliabilities.}, coefficient alpha equals the congeneric reliability under the $\tau$-equivalent model and standardized alpha does not. Thus we can check (D) off our list as a victory for coefficient alpha.
 
 \subsection{Maximum likelihood}
-Coefficient alpha is usually the maximum likelihood estimator of $\omega$, as shown in Theorem \ref{thm:ML}. This matters for two reasons. Because maximum likelihood estimators are guaranteed to be efficient under quite weak conditions. But maximum likelihood estimation is justified for other reasons to. Maximizing likelihood is an intuitive procedure, and plenty of common estimators are maximum likelihood estimators. [[fill in]] better bla bla here.
+In this section we will assume the parallel model \ref{eq:parallel model} where $Z$ and $\epsilon$ are independent standard normals. Call this model the normal parallel model.
 
-This result lessens standardized claim to prominence in the parallel model.
+Coefficient alpha is "usually" the maximum likelihood estimator of $\omega$ in the normal parallel model, see Theorem \ref{thm:ML} for details. Why does this matter? For one thing, maximum likelihood estimators are guaranteed to be efficient under quite weak conditions [[ref]]. But maximum likelihood also has an heuristic justification; maximizing likelihood is an intuitive procedure, and most widely used estimators are maximum likelihood estimators. [[ref]]. 
 
 \begin{thm}\label{thm:ML}
 Assume the parallel model \eqref{eq:parallel model}, and assume $(Z,\epsilon)$ is multivariate normal. 
@@ -310,22 +285,20 @@ An estimator $\widehat{\theta}$ efficient if its asymptotic variance is smaller 
 
 \begin{thm}
 \label{thm:asymptotics}
-Assume the parallel model.
+Assume the parallel model \eqref{eq:parallel model}.
 \begin{enumerate}[label=(\roman*)]
     \item Both coefficient alpha and standardized alpha are strongly consistent and converge to a common $\alpha$. That is, $\widehat{\alpha}\to\alpha$ and $\widehat{\alpha_s}\to\alpha_s$ with probability $1$ and $\alpha = \alpha_s$.
-    \item \textbf{CONJECTURE!} Coefficient alpha and standardized alpha share limit distribution when $X$ has finite fourth moment, i.e. $\sqrt{n}(\widehat{\alpha} - \alpha) = \sqrt{n}(\widehat{\alpha_s} - \alpha_s)$. The limit distribution is normal with variance ???.
+    \item Coefficient alpha and standardized alpha share limit distribution when $Z$ and $\epsilon$ have finite fourth moments, i.e. $\sqrt{n}(\widehat{\alpha} - \alpha) = \sqrt{n}(\widehat{\alpha_s} - \alpha_s)$. The limit distribution is normal with variance ???.
     \item Under the normal parallel model, both $\alpha$ and $\alpha_s$ are efficient. Their common limit is normal with asymptotic variance 
     $$\sigma^{2}\left(\alpha\right)= \sigma^{2}\left(\alpha_{s}\right)=2\frac{k}{k-1}\left(1-\alpha_{s}\right)^{2},$$
     where $\rho$ is the unique correlation of the covariance matrix $\Phi$.
-    Moreover,  the limits of $$\sqrt{n}\left(\log\left(1-\widehat{\alpha}\right)-\log\left(1-\alpha\right)\right)$$
-    and $$\sqrt{n}\left(\log\left(1-\widehat{\alpha_{s}}\right)-\log\left(1-\alpha_{s}\right)\right)$$ are normal with asymptotic variance $2k/(k-1)$.
 \end{enumerate}
 \end{thm}    
 \begin{proof}
 See page \pageref{proof:asymptotics} of the appendix for a proof. The proofs of (ii) and (iii) rely heavily on \citep{Van_Zyl2000-si} and \citep{hayashi2005note}.
 \end{proof}
 
-Time for some remarks about Theorem \ref{thm:asymptotics}. (i) Just states that both $\widehat{\alpha_s}$ and $\widehat{\alpha}$ estimate what they should. A straightforward consequence of \ref{thm:ML} is that $\widehat{\alpha}$ is efficient, and in this sense (iii) is an extension of said theorem. The shared limit distribution is simple enough to be usable in practice for both estimators. 
+Time for some remarks about Theorem \ref{thm:asymptotics}. (i) Just states that both $\widehat{\alpha_s}$ and $\widehat{\alpha}$ estimate what they should. A straightforward consequence of Theorem \ref{thm:ML} is that $\widehat{\alpha}$ is efficient under the normal parallel model, and in this sense (iii) is an extension of said theorem. The shared limit distribution is simple enough to be usable in practice for both estimators. 
 
 \subsection{A small simulation}
 There is no reason to choose standardized alpha over coefficient alpha from an efficiency standpoint. But it might still be the case
@@ -355,7 +328,7 @@ has heavier tails than the normal distribution but is symmetric and nearly bell-
 
 I have chosen $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment. The parameters for the Beta and Gamma make them both extreme, as should be clear from Figure \ref{fig::distributions}. I have chosen these distributions since I believe they are likely to make t
 
-Table \ref{tab:simulation} contains $100 \times \textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$. Values higher than $100$ are in favor of $\widehat{\alpha}_s$ and values lower than $100$ in favor of $\widehat{\alpha}$. The table shows that $\alpha_s$ tends to outperform $\alpha$ when both $k$ and $n$ is large and and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\widehat{\alpha}_s$ does slightly better than $\widehat{\alpha}$, the geometry mean of $\textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$ is $1.08$, given an $8$\% advantage to $\widehat{\alpha}_s$. 
+Table \ref{tab:simulation} contains $100 \times \textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$. Values higher than $100$ are in favor of $\widehat{\alpha}_s$ and values lower than $100$ in favor of $\widehat{\alpha}$. The table shows that $\alpha_s$ tends to outperform $\alpha$ when both $k$ and $n$ is large and and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\widehat{\alpha}_s$ does slightly better than $\widehat{\alpha}$, the geometry mean of $\textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$ is $1.08$, given an $8$\% advantage to $\widehat{\alpha}_s$.
 
 
 %% <<<<< Example table start (\label{tab:reliabilites})
@@ -858,13 +831,10 @@ Taken together, the asymptotic variance is
 \[
 \sigma^{2}\left(\alpha_{s}\right)=2\frac{k}{k-1}\left(1-\alpha_{s}\right)^{2}
 \]
-
 Since $\widehat{\alpha}$ is the maximum likelihood estimator of $\omega$
 when $n$ is large it is efficient. And since the asymptotic variances
 of $\widehat{\alpha}$ and $\widehat{\alpha_{s}}$ coincides they
 are both efficient.
-
-The claim about $\log\left(1-\alpha\right)$ follows from \citep[eq. 14]{Van_Zyl2000-si}.
 \end{proof}
 
 This lemma relates weighted averages to ordinary averages, and is useful for showing inequalities involving the alpha and omega coefficients.
