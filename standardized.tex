@@ -70,10 +70,11 @@
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\argmin}{argmin}
 \DeclareMathOperator{\Cor}{Cor}
-\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\diag}{diag} 
+
 \DeclareMathOperator{\argmax}{argmax}
 
-\title{Keep clear of the standardized alpha, would you?}
+\title{Please avoid the standardized alpha}
 
 \author{
   Jonas Moss \\
@@ -100,7 +101,7 @@ I argue you should avoid standardized alpha in all circumstances. I make my case
 \begin{enumerate}[label=\arabic*.]
 \item First I compare standardized alpha to the coefficient alpha under the parallel model, and argue you should prefer coefficient alpha even if you have reason to believe in the parallel model. While the population values of standardized alpha and coefficient alpha both equal the congeneric reliability under the parallel model, coefficient alpha equals the congeneric reliability under the more general $\tau$-equivalent model. But standardized alpha will be greater than the congeneric reliability under the $\tau$-equivalent model. Moreover, sample coefficient alpha is the maximum likelihood estimator of the congeneric reliability under the normal parallel model, which provides a decent heuristic argument in favor of coefficient alpha. Moreover, provided the observed variables have finite fourth moments, sample coefficient alpha and sample standardized alpha have the same asymptotic variances. 
 
-\item A common stance on standardized coefficient is to use it only with standardized test scores. But even if you wish to standardize your test items, please avoid standardized alpha.  In this case, I argue in favour of coefficient $H$. If coefficient \it{H} is too hard to swallow, I propose to standardize with the the residual errors instead.
+\item A common stance on standardized coefficient is to use it only with standardized test scores. But even if you wish to standardize your test items, please avoid standardized alpha.  In this case, I argue in favour of coefficient $H$. If coefficient $H$ is too hard to swallow, I propose to standardize with the the residual errors instead and use the $\omega_\sigma$ reliability.
 \end{enumerate}
 
 In the first section, I introduce coefficient alpha and the standardized alpha. I make an effort to be mathematically precise here, and reiterate several known properties about the alphas in a Propositon \ref{prop:Reliabilities.}. I devote the second section to fleshing out argument (i) and the third section to argument (ii). I end with two brief remarks.
@@ -281,7 +282,7 @@ and
 \end{cases}
 \end{eqnarray*}
 \item The maximum likelihood estimator of the congeneric reliability
-(\ref{eq:Congeneric reliability}) equals the sample coefficient alpha
+\eqref{eq:Congeneric reliability} equals the sample coefficient alpha
 when $\mathbf{i}^{T}S\mathbf{i}\geq\tr{S}$ and $0$ otherwise,
 \begin{eqnarray*}
 \widehat{\omega} & = & \begin{cases}
@@ -326,7 +327,7 @@ Time for some remarks about Theorem \ref{thm:asymptotics}. (i) Just states that 
 There is no reason to choose standardized alpha over coefficient alpha from an efficiency standpoint. But it might still be the case
 that the standardized alpha outperforms coefficient alpha
 in small samples. I have devoted this section to a small simulation
-study comparing the scaled mean squared error of the estimators under
+study comparing the mean squared error of the estimators under
 the parallel model. Since the coefficient alpha is the maximum likelihood
 estimator for the normal parallel model there is some heuristic reason
 to believe it will perform better than the standardized estimator
@@ -334,14 +335,8 @@ in this context. Instead of normal errors I will use three non-normal
 errors distributions:
 
 \begin{enumerate}
-\item Scaled $t$-distribution with $3$ degrees of freedom. The $t$-distribution
+\item Scaled $t$-distribution with $5$ degrees of freedom. The $t$-distribution
 has heavier tails than the normal distribution but is symmetric and nearly bell-shaped. 
-\item Scaled and centered Beta distribution with $\alpha=\beta=1/10$. This is a bimodal distribution with a lot of weight placed on the modes. See the left of Figure \ref{fig::distributions}.
-\item Scaled and centered Gamma distribution with $\alpha=\beta=1/100$. This is asymmetric and with heavy tails. See the right of Figure \ref{fig::distributions}.
-\end{enumerate}
-
-I have chosen $3$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite variance. The parameters for the Beta and Gamma make them both extreme, as should be clear from Figure \ref{fig::distributions}.
-
 \begin{figure}
 	\centering     %%% not \center
 	\subfigure[Beta distribution]{\includegraphics[width=0.46\textwidth]{chunks/beta}}
@@ -349,6 +344,15 @@ I have chosen $3$ degrees of freedom for the $t$-distribution since it is the fi
 	\caption{Rescaled $\textrm{Beta}(1/10, 1/10)$ and $\textrm{Gamma}(1/100, 1/100)$ distributions with variance $1$ and mean $0$.}
 	\label{fig::distributions}
 \end{figure}
+
+\item Scaled and centered Beta distribution with $\alpha=\beta=1/10$. This is a bimodal distribution with a lot of weight placed on the modes. See the left of Figure \ref{fig::distributions}.
+\item Scaled and centered Gamma distribution with $\alpha=\beta=1/100$. This is asymmetric and with heavy tails. See the right of Figure \ref{fig::distributions}.
+\end{enumerate}
+
+I have chosen $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment. The parameters for the Beta and Gamma make them both extreme, as should be clear from Figure \ref{fig::distributions}.
+
+Table \ref{tab:reliabilites}
+
 
 %% <<<<< Example table start (\label{tab:reliabilites})
 \input{chunks/simulations_table.tex}
@@ -358,14 +362,104 @@ I have chosen $3$ degrees of freedom for the $t$-distribution since it is the fi
 \label{sec:argument 2}
 For instance, \citet[][p.451]{Falk2011-ae} states \enquote{If researchers intend to sum
 standardized scores, the correlation matrix is more appropriate for determining internal consistency.} Another example is \citet[][p.99]{Cortina1993-aq} \enquote{Standardized alpha is appropriate if item standard scores are summed to form scale scores.}
+I have two arguments against using standardized alpha for standardized
+test items. First, you should not standardize test items. Second,
+even if you decide to standardize test items, please avoid standardized
+alpha and use a suitably modified congeneric reliability instead.
 
+My point of departure is the following quote of Osburn (p. 348):
+
+\enquote{However, it is important to note that the true reliability of a measure is the same for both standardized and unstandardized observed scores.}
+
+I will argue against this. The purpose of a reliability coefficient is to measure how well some function $f(X)$ observes the observed variables predicts the latent variable $Z$. Classical reliability coefficients, e.g. coefficient $H$ and the congeneric reliability, to this by forming the $R^2$ between $f(X)$ and $Z$. For the congeneric reliability, $f(X) = \sum_{i=1}^k X_i$, or the sum score, while for coefficient $H$, $f(X) = \sum_{i=1}^k w_iX_i$, where $w_i$ are the $L_2$-optimal weights.
+
+An important use of reliability coefficients is correct correlations for attenuation [[ref]] between two variables $Z_1$ and $Z_2$. This method is based on two facts: First, we must know the $R^2$ between the latent $Z_i$ and whatever method we use to predict it, the function $f(X_i)$. Second, we must know the correlation between $Z_i$ and $Z_j$. This is not possible unless we acknowledge a connection between the method used to predict $Z$ and the reliability used. Moreover, in order for this to be possible, the reliability has to be the $R^{2}$ between the predicted value of $Z$ and the true $Z$. This $R^{2}$
+will change on the population level when you use standardized scores,
+as I will explain soon.
+
+How you interpret $\alpha_{s}$ changes when you stop viewing it as
+an approximation to the congeneric reliability $\omega$ to an approximation
+to the standardized reliability $\omega_{s}$. For instance, $\alpha_{s}=\omega_{s}$
+will be true in a more general setting now, not only for parallel
+models (as we will see, $\omega_{s}=\omega$ under the parallel model).
+
+So the question is not only if you believe in the parallel model,
+but if (a) if you actually want to standardize, and (b) if you can
+believe in the new assumptions about the model implied by your usage
+of the standardized congeneric reliability. 
+
+For question (a), I will argue against standardizing your variables,
+at least in the usual sense. For question (b), I will argue you should
+not use $\alpha_{s}$ even if you choose to standardize your variables,
+but rather the standardized congeneric reliability instead. Before
+I can start expanding on these arguments, I will have to explain the
+concept of reliability and why you do not want to approximate $\omega$
+when you standardize your scores.
+
+Let me explain what it means to standardize scores in this setting.
+Assume the congeneric model with $k$ items. Suppose you know the
+vector of loadings $\lambda$ and all the error variances $\sigma^{2}$.
+You observe the value of $X\in\mathbb{R}^{k}$ and want to use to
+the knowledge about $X,\lambda$ and $\sigma^{2}$ to predict the
+value of $Z$.
+
+The easiest to way is to predict $Z$ is the sum score, or $\widehat{Z}=\sum_{i=1}^{k}X_{i}$.
+The mean squared error of this prediction is
+\[
+E\left[\left(Z-\widehat{Z}\right)^{2}\right]=E\left[\left(Z-\sum\lambda Z+\Psi^{1/2}\epsilon\right)^{2}\right]
+\]
+Using standardized scores is different. Instead of using the sum score,
+you use a linear function of $X$, with weights equal to $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$
+\[
+\widehat{Z}_{(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}}=\sum_{i=1}^{k}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1}X_{i}
+\]
+I will now argue you are never justified to use $w=(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$.
+Using some $w\ne1$ seems reasonable, for you would not want items
+with large variance to overshadow all the other contributions to $\sum_{i=1}^{k}X_{i}$.
+But there is something strange about this particular $w$. Wouldn't
+it be just as sensible to use $w=\sigma_{i}^{-1}$? Dividing by $\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}$
+seems wrong, because you want items with large loadings to have a
+large influece on your prediction of $Z$. But while we are at it,
+why not just use the optimal weights, yielding coefficient $H$ and
+the Thurstone factor scores instead of the standardized alpha and
+standardized sum scores?
+
+What we need is a way to compare weights. Before we start on this,
+recall that $Z$ is forced to have variance $1$ in the congeneric
+model. In this cae, the sum score $\sum_{i=1}^{k}X_{i}$ does not
+make sense a predictor of $Z$, as it does not take the scale into
+account. The scale can be ignored when using only sum scores, but
+cannot be ignored when we compare sum scores to other kinds of scores.
+Instead of dealing with sum scores directly, we will deal with scores
+of the type
+\[
+w_{0}\sum_{i=1}^{k}X_{i},
+\]
 where
 \begin{eqnarray}
-w_{0} & = & \argmin_{w\in\mathbb{R}}E\left[\left(Z-w\sum_{i=1}^{k}X_{i}\right)^{2}\right], \\
- & = & \overline{\lambda^{2}}/\left(k\overline{\lambda}^{2}+\overline{\sigma^{2}}\right).\label{eq:w0}
+w_{0} & = & \argmin_{w\in\mathbb{R}}E\left[\left(Z-w\sum_{i=1}^{k}X_{i}\right)^{2}\right].\nonumber \\
+ & = & \overline{\lambda^{2}}/\left(k\overline{\lambda}^{2}+\overline{\sigma^{2}}\right)\label{eq:w0}
 \end{eqnarray}
+See the appendix page {[}{[}ref{]}{]} for a proof for the argmin.
 
-Ssee the appendix (page \pageref{proof:w0}) for a proof of the argmin.
+Coefficient $H$ has $L_2$-optimal weights, or $w$ is the solution
+to
+\[
+\argmin_{w}\textsc{MSE}\left(\widehat{Z}\right)=E\left[\left(Z-\sum_{i=1}^{k}w_{i}X_{i}\right)^{2}\right]
+\]
+
+Define the mean squared errors
+\[
+\textsc{MSE}=E\left[\left(Z-EZ\right)\right]=\Var Z=1,
+\]
+where $\Var Z=1$ by assumption, and the mean squared error of
+\[
+\textsc{MSE}\left(\widehat{Z}\right)=E\left[\left(Z-\widehat{Z}\right)^{2}\right]
+\]
+and the $\widehat{Z}$-reliability as
+\begin{eqnarray}
+\omega\left(\widehat{Z}\right) & =1-\frac{\textsc{MSE}\left(\widehat{Z}\right)}{\textsc{MSE}}= & 1-\textsc{MSE}\left(\widehat{Z}\right)\label{eq:Z-reliability}
+\end{eqnarray}
 
 By the law of total variance, $0\leq\textsc{MSE}\left(\widehat{Z}\right)\leq1$,
 so that $0\leq\omega\left(\widehat{Z}\right)\leq1$ too. The definition
@@ -373,34 +467,26 @@ of $\omega(\widehat{Z})$ is analagous to that of $R^{2}$, and it
 shares most of its properties. I will explore the connection between
 reliabiltiy coefficients and $R^{2}$ further in a future paper.
 \begin{prop}
-\label{prop:Z-reliabiltiy}Let $\widehat{Z}=\sum_{i=1}^{k}w_{i}X_{i}$
-be a linear predictor of $Z$.
+\label{prop:Z-reliabiltiy}Let $\widehat{Z}=\sum_{i=1}^{k}w_{i}X_{i}$ be a linear predictor of $Z$.
 
 \begin{enumerate}[label=(\roman*)]
-\item If $\widehat{Z}=w_{0}\sum_{i=1}^{k}X_{i}$ is the sum score, the $\widehat{Z}$-reliability
-$\omega\left(\widehat{Z}\right)$ equals the congeneric reliability,
+\item The congeneric reliability has weights $w = w_0$ and equals
 \begin{equation}
 \tag{\ref{eq:Congeneric reliability}}
 \omega=\frac{k\overline{\lambda}^{2}/\overline{\sigma^{2}}}{k\overline{\lambda}^{2}/\overline{\sigma^{2}}+1}.
 \end{equation}
-\item If $w$ are the $L_{2}$-optimal weights, that is, $w$ is the solution
-to
-\[
-\argmin_{w}\textsc{MSE}\left(\widehat{Z}\right)=E\left[\left(Z-\sum_{i=1}^{k}w_{i}X_{i}\right)^{2}\right]
-\]
-then the $\widehat{Z}$-reliability $\omega\left(\widehat{Z}\right)$
-equals coefficient $H$,
+\item Coefficient $H$ has weights $w_i = ??$ and equals
 \begin{equation}
 \tag{\ref{eq:coefficient_H}}
 \omega_{H}=\frac{k\overline{\lambda^{2}\sigma^{-2}}}{k\overline{\lambda^{2}\sigma^{-2}}+1}.
 \end{equation}
 \item The standardized reliability has weights $w=w_{0}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$ and equals
 \begin{equation}
-\omega_s=\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}+1}\label{eq:Standardized reliability}
+\omega_s=\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}+1}.\label{eq:Standardized reliability}
 \end{equation}
 \item The sigma reliability has weights $w=w_{0}\sigma_{i}^{-1}$ and equals
 \begin{equation}
-\omega_\sigma=\frac{k\overline{\lambda\sigma^{-1}}^{2}}{k\overline{\lambda\sigma^{-1}}^{2}+1}\label{eq:Sigma-standardized reliability}
+\omega_\sigma=\frac{k\overline{\lambda\sigma^{-1}}^{2}}{k\overline{\lambda\sigma^{-1}}^{2}+1}.\label{eq:Sigma-standardized reliability}
 \end{equation}
 \end{enumerate}
 \end{prop}
@@ -408,7 +494,7 @@ equals coefficient $H$,
 See the appendix, page \pageref{proof:Z-reliability}.
 \end{proof}
 
-No one would use the standardized reliability \ref{eq:Standardized reliability}
+No one would use the standardized reliability \eqref{eq:Standardized reliability}
 or the sigma reliability \eqref{eq:Sigma-standardized reliability}
 if $\sigma_{i}^{2}=\sigma^{2}$ for all $i$. The following Theorem
 exposes a basic fact about these three reliability coefficients:
@@ -428,10 +514,71 @@ $i$.
 \begin{proof}
 See the appendix, page \pageref{proof:Properties}.
 \end{proof}
+You can interpret Theorem 2 as a ranking factor scores too. It says
+regression scores are better than $\sigma$-standardized sum scores,
+which in turn are better than the standardized sum scores, which are
+better than the ordinary sum scores.
 
+We can use the expressions of Proposition \ref{prop:Z-reliabiltiy}
+to compare the effect of $\widehat{Z}$ on the reliability of our
+measurements.
+
+Since coefficient $H$ uses the optimal weights, it is guaranteed to
+be larger than the three other reliabilities mentioned above. The
+other three reliabilities can be in any order, but will usually follow
+$\omega_{\sigma}$ will usually be the largest, sometimes . In a short
+simulation ($10^{5}$ repetitions) of $k=5$ items with $\lambda_{i}\sim \textrm{Exp}(1)$
+and $\sigma_{i}\sim \textrm{Exp}(1)$ independently with $i=1,\ldots,5$, $\omega_{\sigma}$
+was the largest $0.98\%$ of the time, $\omega$ largest $0.02\%$
+of the time, but $\omega_{s}$ was never the largest ($\omega_{s}>\omega_{\sigma}$
+happened though). The congeneric $\omega$ dominated $\omega_{s}$
+in $6$ of $10$ iterations. You could argue this simulation study
+is somewhat unrealistic: In a slightly different simulation with $\lambda_{i}^{2}\sim N(0,1)$
+and $\sigma_{i}\sim \textrm{HalfNormal}(0,1)$, $\omega_{\sigma}$ was the
+largest $0.92\%$ of the time and $\omega_{s}>\omega$ a nice $70\%$
+of the time. Again, $\omega_{s}$ was never the largest, which suggest
+it cannot be larger than both $\omega$ and $\omega_{\sigma}$ at
+the same time. The take-away from these two simulation studies is
+that $\omega_{\sigma}$ generally does better than $\omega_{s}$ and
+$\omega$, while it is hard to predict the winner among $\omega$
+and $\omega_{s}$. 
+
+\begin{example}
 %% <<<<< Example table start (\label{tab:reliabilites})
 \input{chunks/example_table.tex}
 %% example table end >>>>>
+
+In this example we will take a look at the data set $\texttt{bfi}$ from he $\texttt{R}$ \citep{Team2013-tt} package $\texttt{psychTools}$ \citep{Revelle2019-te}. This data set contains the responses on $25$ personality self report items from the International Personality Item Pool \citep{Goldberg1999-iz} collected from the Synthetic Aperture Personality Assessment project \citep{Revelle2016-ez}. The $25$ items are evenly distributed across the big five traits: Agreeableness, conscientiousness, extraversion, neuroticism, and openness to experience. 
+
+For each trait I estimated the factor loadings $\lambda$ and residual standard deviations $\sigma$ in the congeneric measurement model \eqref{eq:one-factor model} using  $\texttt{lavaan}$ \citep{Rosseel2012-yg}. I plugged these estimates into the definitions of the reliability coefficients of Proposition \ref{prop:Z-reliabiltiy}. The results are in Table \ref{tab:reliabilites}. As expected, $\omega_\sigma$ is larger than both $\omega_s$ and $\omega$ for all five traits. Moreover, $\omega_s > \omega$ for all traits except extraversion, where the difference is marginal. 
+\end{example}
+
+My second argument against $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1}$
+follows \citep{Falk2011-ae}. The assumptions of a $\tau$-equivalent model are hard
+to justify to begin with, and unlikely to be true. The standardized
+coefficient alpha equals the congeneric reliability for standardized
+variable (i.e $\omega\left(\widehat{Z}\right)$ from \eqref{eq:Standardized reliability}
+Proposition \ref{prop:Z-reliabiltiy}) only when the modified model
+\[
+X_{i}^{\star}=\frac{\lambda_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}Z+\frac{\sigma_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}\epsilon_{i}\:i=1,\ldots,k
+\]
+is $\tau$-equivalent. This occurs if and only if each $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda^{\star}$
+for some $\lambda^{\star}$. Of course, this would be an exceptional
+conincidence. To avoid this crazy assumption, use structural equation
+modeling to estimate $\lambda_{i},\sigma_{i}$, and plug them into
+the formula for the congeneric reliability.
+
+This observation also counters a possible, but wrong, interpretation
+of Proposition \ref{prop:Properties of three}.
+
+First \ref{prop:Properties of three} states $\omega_{s}>\omega$
+under the $\tau$-equivalent model. Second, coefficient alpha equals
+$\omega$ under the $\tau$-equivalent model. Then it seems reasonable
+to use standardized alpha, doesn't it? After all, standardized alpha
+can be calculated from the covariance matrix alone, and does not require
+any estimation of $\lambda$ and $\sigma$. But this is wrong! For
+as mentionioned, $\alpha_{s}=\omega_{s}$ only when $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda$.
+Otherwise, $\alpha_{s}<\omega_{s}$ by Propositon 1.
 
 \subsection{The sigma alpha coefficient}
 Both coefficient alpha and standardized alpha are simple functions
@@ -443,7 +590,7 @@ over complex solutions. Arguments in favor of coefficient alpha along
 these lines are common, see e.g. {[}{[}ref; take 2 with page numbers.{]}{]}.
 
 Since $\omega$ has $\alpha$ and $\omega_{s}$ has $\alpha_{s}$,
-the sigma reliability (\ref{eq:Sigma-standardized reliability}) should
+the sigma reliability \eqref{eq:Sigma-standardized reliability} should
 its own alpha coefficient as well. Here I understand an alpha coefficient
 as a closed form function of the covariance matrix $\Sigma$ such
 that $\alpha\left(\Sigma\right)=\omega$ {[}{[}fill in{]}. Now it
@@ -548,7 +695,7 @@ Since $(\overline{\lambda^{2}}-\overline{\lambda}^{2})/(k\overline{\lambda}^{2}+
 and equals $0$ if and only if all $\lambda$s are equal by Jensen's inequality, $\alpha=\omega$
 iff all $\lambda$s are equal and is otherwise an underestimate.
 
-(ii) From (\ref{eq:Alpha-alpha_s inequality}) and $\lambda_{i}=\lambda$
+(ii) From \eqref{eq:Alpha-alpha_s inequality} and $\lambda_{i}=\lambda$
 for all $i$,
 \[
 \lambda^{2}\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}\geq\lambda^{2}\sum_{i\neq j}\frac{1}{\sum_{i=1}^{k}\left(\lambda^{2}+\sigma_{i}^{2}\right)/k}
@@ -567,7 +714,7 @@ and by Jensen's inequality
 \sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}\geq\sum_{i\neq j}\frac{1}{\sum_{i=1}^{k}\left(\lambda^{2}+\sigma_{i}^{2}\right)/k}
 \]
 with equality if and only if $\sigma_{i}^{2}=\sigma_{j}^{2}$ for
-all $i,j$. Since (\ref{eq:Alpha-alpha_s inequality}) is true when
+all $i,j$. Since \eqref{eq:Alpha-alpha_s inequality} is true when
 $\lambda=0$ too we are done.
 
 As for (iii), from the proof of (i) and (ii) observe that $\alpha_{s}\geq\alpha$
@@ -576,7 +723,7 @@ if and only if
 \label{eq:Alpha-alpha_s inequality}
 \frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\leq\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}
 \end{equation}
-Let $k=2$. Then (\ref{eq:Alpha-alpha_s inequality}) simplifies to
+Let $k=2$. Then \eqref{eq:Alpha-alpha_s inequality} simplifies to
 \[
 \frac{1}{\frac{\lambda_{1}\lambda_{2}}{\sqrt{\left(\sigma_{1}^{2}+\lambda_{1}^{2}\right)\left(\sigma_{2}^{2}+\lambda_{2}^{2}\right)}}+1}\leq\frac{\left(\lambda_{1}^{2}+\sigma_{1}^{2}\right)+\left(\lambda_{2}^{2}+\sigma_{2}^{2}\right)}{2\lambda_{1}\lambda_{2}+\left(\lambda_{1}^{2}+\sigma_{1}^{2}\right)+\left(\lambda_{2}^{2}+\sigma_{2}^{2}\right)}
 \]
