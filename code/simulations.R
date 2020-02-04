@@ -1,6 +1,8 @@
-Nreps = 10^5
+Nreps = 100
 set.seed(313)
+
 sims = simulation(Nreps)
+saveRDS(sims, file = "chunks/simulations.Rds")
 
 caption = "Simulations of $100 \\times \\textrm{MSE}_\\alpha/\\textrm{MSE}_{\\alpha_s}$ in the parallel model"
 
