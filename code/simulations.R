@@ -1,12 +1,23 @@
-Nreps = 100
-set.seed(313)
+##
+## Only run the simulation if you have to.
+##
 
-sims = simulation(Nreps)
-saveRDS(sims, file = "chunks/simulations.Rds")
+if(!file.exists("chunks/simulations.Rds")) {
+  Nreps = 100
+  set.seed(313)
+  simulations = simulation(Nreps)
+  save(simulations, file = "chunks/simulations.Rds")
+} else {
+  load(file = "chunks/simulations.Rds")
+}
+
+##
+## Make the table!
+##
 
 caption = "Simulations of $100 \\times \\textrm{MSE}_\\alpha/\\textrm{MSE}_{\\alpha_s}$ in the parallel model"
 
-tab = prettify(sims * 100, 3, 0)
+tab = prettify(simulations * 100, 3, 0)
 
 colnames(tab) = c("$t(3)$", "$t(3)$", "$t(3)$",
              "Beta", "Beta", "Beta",
@@ -21,7 +32,7 @@ addtorow <- list()
 addtorow$pos <- list(0, 0)
 addtorow$command <- c(
   " & $t(5)$ & $t(5)$ & $t(5)$ & Beta & Beta & Beta & Gamma & Gamma & Gamma \\\\\n",
-  " & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = 0.5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = 0.5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = 0.5$ \\\\\n"
+  " & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ \\\\\n"
 )
 
 tab = xtable::xtable(tab, caption = caption)
@@ -39,7 +50,9 @@ tab_str = print(tab,
       print.results = FALSE)
 
 cat(tab_str, file = "chunks/simulations_table.tex")
-cat(paste0("\\newcommand{\\geomean}{",round((prod(sims))^(1/length(sims)),2),"}"),
+cat(paste0("\\renewcommand{\\geomean}{$",
+           round((prod(simulations))^(1/length(simulations)),2),
+           "$}"),
     file = "chunks/simulations_table.tex",
     append = TRUE,
     sep = "\n"
