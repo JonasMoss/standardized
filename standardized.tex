@@ -20,6 +20,7 @@
 \usepackage{enumitem}
 \usepackage{csquotes}
 \usepackage{todonotes}
+\usepackage{xfrac}
 
 
 %%% ============================================================================
@@ -236,9 +237,9 @@ In the rest of this section I will argue that coefficient alpha wins (B) and cle
 Point (D) about robustness is an easy one, for we have already established that coefficient alpha is more robust than the standardized alpha. For by Proposition \ref{prop:Reliabilities.}, coefficient alpha equals the congeneric reliability under the $\tau$-equivalent model and standardized alpha does not. Thus we can check (D) off our list as a victory for coefficient alpha.
 
 \subsection{Maximum likelihood}
-In this section we will assume the parallel model \ref{eq:parallel model} where $Z$ and $\epsilon$ are independent standard normals. Call this model the normal parallel model.
+In this section we will work with the parallel model \eqref{eq:parallel model} where $Z$ and $\epsilon$ are independent standard normals. Call this model the normal parallel model.
 
-Coefficient alpha is "usually" the maximum likelihood estimator of $\omega$ in the normal parallel model, see Theorem \ref{thm:ML} for details. Why does this matter? For one thing, maximum likelihood estimators are guaranteed to be efficient under quite weak conditions [[ref]]. But maximum likelihood also has an heuristic justification; maximizing likelihood is an intuitive procedure, and most widely used estimators are maximum likelihood estimators. [[ref]]. 
+Coefficient alpha is "usually" the maximum likelihood estimator of $\omega$ in the normal parallel model, see Theorem \ref{thm:ML} for details. Why does this matter? For one thing, maximum likelihood estimators are guaranteed to be efficient under quite weak conditions \citep[][Section 7.3]{Lehmann2004-ke}. But maximum likelihood also has an heuristic justification; maximizing likelihood is an intuitive procedure and is the most popular recipe for making estimators.
 
 \begin{thm}\label{thm:ML}
 Assume the parallel model \eqref{eq:parallel model}, and assume $(Z,\epsilon)$ is multivariate normal. 
@@ -276,6 +277,8 @@ See page \pageref{proof:ML} of the appendix for a proof. \citet[][section 3 -- 5
 \subsection{Asymptotic efficiency}
 [[fill in: some words about efficiency for the uinitiated; Lehmann as a reference.]]
 
+Efficiency ref: \citep[][Section 4.3]{Lehmann2004-ke}
+
 An estimator $\widehat{\theta}$ efficient if its asymptotic variance is smaller than any other estimator. Maximum likelihood estimators are efficient under weak conditions, hence $\alpha$ is efficient under the normal parallel model by Theorem \ref{thm:ML}.
 
 Asymptotic relative efficiency is possibly the most popular method to compare estimators. Let $\widehat{\theta}_2$ and $\widehat{\theta}_2$ be two estimator converging to a normal distribution at with $n^{1/2}$-rate to the same parameter $\theta$, i.e. 
@@ -299,6 +302,8 @@ See page \pageref{proof:asymptotics} of the appendix for a proof. The proofs of 
 \end{proof}
 
 Time for some remarks about Theorem \ref{thm:asymptotics}. (i) Just states that both $\widehat{\alpha_s}$ and $\widehat{\alpha}$ estimate what they should. A straightforward consequence of Theorem \ref{thm:ML} is that $\widehat{\alpha}$ is efficient under the normal parallel model, and in this sense (iii) is an extension of said theorem. The shared limit distribution is simple enough to be usable in practice for both estimators. 
+
+Theorem \ref{thm:asymptotics} (ii) is the main argument result of this section. It shows $\alpha_{s}$ and $\widehat{\alpha}$ equally well in the limit no matter what $\lambda$, $\sigma$ and the distributions of $Z$, $\epsilon$ is. We only require that the models have finite fourth moments.
 
 \subsection{A small simulation}
 There is no reason to choose standardized alpha over coefficient alpha from an efficiency standpoint. But it might still be the case
@@ -326,10 +331,11 @@ has heavier tails than the normal distribution but is symmetric and nearly bell-
 \item Scaled and centered Gamma distribution with $\alpha=\beta=1/100$. This is asymmetric and with heavy tails. See the right of Figure \ref{fig::distributions}.
 \end{enumerate}
 
-I have chosen $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment. The parameters for the Beta and Gamma make them both extreme, as should be clear from Figure \ref{fig::distributions}. I have chosen these distributions since I believe they are likely to make t
+I have chosen $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment, recall Theorem \ref{thm:asymptotics} (ii). The parameters for the Beta and Gamma make them both extreme, as should be clear from Figure \ref{fig::distributions}. I have chosen these distributions since I believe they are likely to make t
 
-Table \ref{tab:simulation} contains $100 \times \textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$. Values higher than $100$ are in favor of $\widehat{\alpha}_s$ and values lower than $100$ in favor of $\widehat{\alpha}$. The table shows that $\alpha_s$ tends to outperform $\alpha$ when both $k$ and $n$ is large and and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\widehat{\alpha}_s$ does slightly better than $\widehat{\alpha}$, the geometry mean of $\textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$ is $1.08$, given an $8$\% advantage to $\widehat{\alpha}_s$.
+Table \ref{tab:simulation} contains $100 \times \textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$. Values higher than $100$ are in favor of $\widehat{\alpha}_s$ and values lower than $100$ in favor of $\widehat{\alpha}$. The table shows that $\alpha_s$ tends to outperform $\alpha$ when both $k$ and $n$ is large and and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\widehat{\alpha}_s$ does slightly better than $\widehat{\alpha}$, the geometry mean of $\textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$ is $1.08$, given an $8$\% advantage to $\widehat{\alpha}_s$. Of course, this is a small simulation study and it is hard to predict what would happen with other distributions. Still, I believe the result of these simulations should be counted in favor of sample standardized alpha.
 
+To sum up, sample alpha won the maximum likelihood and robustness competitions, drew the asymptotic efficiency competition, and lost the finite sample competition. The tally is sample alpha 2\sfrac{1}{2} - 1\sfrac{1}{2} standardized alpha. 
 
 %% <<<<< Example table start (\label{tab:reliabilites})
 \input{chunks/simulations_table.tex}
@@ -600,7 +606,7 @@ Sadly, condition \eqref{eq:sigma model} renders $\alpha_{\sigma}=\omega_{\sigma}
 trivial. By the definition of $\omega_{\sigma}$ \eqref{eq:Sigma-standardized reliability},
 $\omega_{k}=k/\left(k+1\right)$ when \eqref{eq:sigma model} holds, no matter what values of $\lambda$ and $\sigma$.
 Moreover, some elements of $\diag\Sigma-\lambda^{2}$ may be less
-than $0$ when $Sigma$ fails to correspond to a $\tau$-equivalent model, which makes the undefined. Since this happens with probability $1$ when $S$ is used in place of $\Sigma$ $\widehat{\alpha}_{\sigma}$
+than $0$ when $\Sigma$ fails to correspond to a $\tau$-equivalent model, which makes the undefined. Since this happens with probability $1$ when $S$ is used in place of $\Sigma$, $\widehat{\alpha}_{\sigma}$
 is a likely to be horrible estimator of $\omega_{s}$. Instead,
 estimate $\omega_{\sigma}$ using the plug-in principle estimator
 $\widehat{\omega}_{\sigma}$, where estimates of $\lambda$ and $\sigma$
