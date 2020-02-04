@@ -232,7 +232,7 @@ assuming multivariate normality and study their relative efficiency.
 I compare the finite sample performance of the four estimators in
 a simulation study.
 
-\section{Argument 1. Congeneric reliability}
+\section{Argument 1. Standardized alpha as an estimator of the congeneric reliability}
 
 In this section, I will compare efficient alpha to the standardized alpha as estimators of the congeneric reliability. From Proposition \ref{prop:Reliabilities.} we know the parallel model is the natural setting to make comparisons. For this is the only case when coefficient alpha and the standardized alpha equals the congeneric reliability.
 
@@ -260,6 +260,7 @@ The description above follows the prototype of a statistical estimation statisti
 
 Coefficient alpha is more robust than the standardized alpha. For by Proposition \ref{prop:Reliabilities.}, coefficient alpha equals the congeneric reliability under the $\tau$-equivalent model and standardized alpha does not. Thus we can check (D) off our list as a victory for coefficient alpha.
 
+\subsection{Maximum likelihood}
 Coefficient alpha is usually the maximum likelihood estimator of $\omega$, as shown in Theorem \ref{thm:ML}. This matters for two reasons. Because maximum likelihood estimators are guaranteed to be efficient under quite weak conditions. But maximum likelihood estimation is justified for other reasons to. Maximizing likelihood is an intuitive procedure, and plenty of common estimators are maximum likelihood estimators. [[fill in]] better bla bla here.
 
 This result lessens standardized claim to prominence in the parallel model.
@@ -297,6 +298,7 @@ when $\mathbf{i}^{T}S\mathbf{i}\geq\tr{S}$ and $0$ otherwise,
 See page \pageref{proof:ML} of the appendix for a proof. \citet[][section 3 -- 5]{Kristof1969-ou} worked out the maximum likelihood estimator under the $\tau$-equivalent model, but found no analytic form. \citep[][Exercise 3.9, p. 114]{Muirhead2009-kq} is about the same problem in a different parameterization.
 \end{proof}
 
+\subsection{Asymptotic efficiency}
 [[fill in: some words about efficiency for the uinitiated; Lehmann as a reference.]]
 
 An estimator $\widehat{\theta}$ efficient if its asymptotic variance is smaller than any other estimator. Maximum likelihood estimators are efficient under weak conditions, hence $\alpha$ is efficient under the normal parallel model by Theorem \ref{thm:ML}.
@@ -325,6 +327,7 @@ See page \pageref{proof:asymptotics} of the appendix for a proof. The proofs of 
 
 Time for some remarks about Theorem \ref{thm:asymptotics}. (i) Just states that both $\widehat{\alpha_s}$ and $\widehat{\alpha}$ estimate what they should. A straightforward consequence of \ref{thm:ML} is that $\widehat{\alpha}$ is efficient, and in this sense (iii) is an extension of said theorem. The shared limit distribution is simple enough to be usable in practice for both estimators. 
 
+\subsection{A small simulation}
 There is no reason to choose standardized alpha over coefficient alpha from an efficiency standpoint. But it might still be the case
 that the standardized alpha outperforms coefficient alpha
 in small samples. I have devoted this section to a small simulation
@@ -350,9 +353,9 @@ has heavier tails than the normal distribution but is symmetric and nearly bell-
 \item Scaled and centered Gamma distribution with $\alpha=\beta=1/100$. This is asymmetric and with heavy tails. See the right of Figure \ref{fig::distributions}.
 \end{enumerate}
 
-I have chosen $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment. The parameters for the Beta and Gamma make them both extreme, as should be clear from Figure \ref{fig::distributions}.
+I have chosen $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment. The parameters for the Beta and Gamma make them both extreme, as should be clear from Figure \ref{fig::distributions}. I have chosen these distributions since I believe they are likely to make t
 
-Table \ref{tab:simulation} contains $100 \times \textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$. Values higher than $1$ are in favor of $\widehat{\alpha}_s$ and values lower than $1$ in favor of $\widehat{\alpha}$. The table shows that $\alpha_s$ tends to outperform $\alpha$ when both $k$ and $n$ is large and and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\widehat{\alpha}_s$ does slightly better than $\widehat{\alpha}$, the geometry mean of $\times \textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$ is \geomean. 
+Table \ref{tab:simulation} contains $100 \times \textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$. Values higher than $100$ are in favor of $\widehat{\alpha}_s$ and values lower than $100$ in favor of $\widehat{\alpha}$. The table shows that $\alpha_s$ tends to outperform $\alpha$ when both $k$ and $n$ is large and and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\widehat{\alpha}_s$ does slightly better than $\widehat{\alpha}$, the geometry mean of $\textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$ is $1.08$, given an $8$\% advantage to $\widehat{\alpha}_s$. 
 
 
 %% <<<<< Example table start (\label{tab:reliabilites})
