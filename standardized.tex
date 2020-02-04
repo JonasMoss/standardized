@@ -73,6 +73,7 @@
 \DeclareMathOperator{\diag}{diag} 
 
 \DeclareMathOperator{\argmax}{argmax}
+\newcommand{\geomean}{NA}
 
 \title{Please avoid the standardized alpha}
 
@@ -351,7 +352,7 @@ has heavier tails than the normal distribution but is symmetric and nearly bell-
 
 I have chosen $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment. The parameters for the Beta and Gamma make them both extreme, as should be clear from Figure \ref{fig::distributions}.
 
-Table \ref{tab:reliabilites}
+Table \ref{tab:simulation} contains $100 \times \textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$. Values higher than $1$ are in favor of $\widehat{\alpha}_s$ and values lower than $1$ in favor of $\widehat{\alpha}$. The table shows that $\alpha_s$ tends to outperform $\alpha$ when both $k$ and $n$ is large and and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\widehat{\alpha}_s$ does slightly better than $\widehat{\alpha}$, the geometry mean of $\times \textrm{MSE}_\alpha/\textrm{MSE}_{\alpha_s}$ is \geomean. 
 
 
 %% <<<<< Example table start (\label{tab:reliabilites})
