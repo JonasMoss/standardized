@@ -459,7 +459,7 @@ reliabiltiy coefficients and $R^{2}$ further in a future paper.
 \tag{\ref{eq:Congeneric reliability}}
 \omega=\frac{k\overline{\lambda}^{2}/\overline{\sigma^{2}}}{k\overline{\lambda}^{2}/\overline{\sigma^{2}}+1}.
 \end{equation}
-\item Coefficient $H$ has weights $w_i = ??$ and equals
+\item Coefficient $H$ has weights $w_i =\lambda_{j}/[\sigma_{j}^{2}(1+k\overline{\lambda\sigma^{-2}})]$ and equals
 \begin{equation}
 \tag{\ref{eq:coefficient_H}}
 \omega_{H}=\frac{k\overline{\lambda^{2}\sigma^{-2}}}{k\overline{\lambda^{2}\sigma^{-2}}+1}.
@@ -578,7 +578,7 @@ any estimation of $\lambda$ and $\sigma$. But this is wrong! For
 as mentionioned, $\alpha_{s}=\omega_{s}$ only when $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda$.
 Otherwise, $\alpha_{s}<\omega_{s}$ by Propositon 1.
 
-\subsection{The sigma alpha coefficient}
+\subsection*{Digression: The sigma alpha coefficient}
 Both coefficient alpha and standardized alpha are simple functions
 of the covariance matrix $\Sigma$, but the reliability coefficients
 in Proposition \ref{prop:Z-reliabiltiy} are not simple functions
@@ -694,11 +694,11 @@ and equals $0$ if and only if all $\lambda$s are equal by Jensen's inequality, $
 iff all $\lambda$s are equal and is otherwise an underestimate.
 
 (ii) From \eqref{eq:Alpha-alpha_s inequality} and $\lambda_{i}=\lambda$
-for all $i$,
+for all $i$, we need to show
 \[
 \lambda^{2}\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}\geq\lambda^{2}\sum_{i\neq j}\frac{1}{\sum_{i=1}^{k}\left(\lambda^{2}+\sigma_{i}^{2}\right)/k}
 \]
-Recall Jensen's inequality: When $f$ is convex and $E\left[f\left(X\right)\right]\geq f\left[E\left(X\right)\right]$.
+Recall Jensen's inequality: When $f$ is convex, $E\left[f\left(X\right)\right]\geq f\left[E\left(X\right)\right]$ with equality if and only if $f$ is linear.
 The function $f\left(x,y\right)=\left(x+\lambda^{2}\right)^{-1/2}\left(y+\lambda^{2}\right)^{-1/2}$
 is convex for any $\lambda$. Let $E\left(X,Y\right)=\left[k\left(k-1\right)\right]^{-1}\left(\sum_{i\neq j}x_{i},\sum_{i\neq j}y_{i}\right)$
 and observe that
@@ -882,23 +882,70 @@ are both efficient.
 
 This lemma relates weighted averages to ordinary averages, and is useful for showing inequalities involving the alpha and omega coefficients.
 
-\begin{lem}
-\label{lem:weighted averages}Let $\left\{ x_{i}\right\} _{i=1}^{k},\left\{ w_{i}\right\} _{i=1}^{k}$
-be sequences of positive real numbers such that $x_{i}\leq x_{j}$ implies
-$w'_{i}\geq w'_{j}$ and $\sum_{i=1}^{k}w_{i}=1$. Then $k^{-1}\sum_{i=1}^{k}x_{i}\geq\sum_{i=1}^{k}w_{i}x_{i}.$
-\end{lem}
+% \begin{lem}
+% \label{lem:weighted averages}Let $\left\{ x_{i}\right\} _{i=1}^{k},\left\{ w_{i}\right\} _{i=1}^{k}$
+% be sequences of positive real numbers such that $x_{i}\leq x_{j}$ implies
+% $w'_{i}\geq w'_{j}$ and $\sum_{i=1}^{k}w_{i}=1$. Then $k^{-1}\sum_{i=1}^{k}x_{i}\geq\sum_{i=1}^{k}w_{i}x_{i}.$
+% \end{lem}
 
-\begin{proof}
-See Theorem 2 of \citep{Sbert2016-al}.
-\end{proof}
+% \begin{proof}
+% See Theorem 2 of \citep{Sbert2016-al}.
+% \end{proof}
 
-\begin{proof}[Proof of the claim $w_{0} = \overline{\lambda^{2}}/\left(k\overline{\lambda}^{2}+\overline{\sigma^{2}}\right)$ on page \pageref{eq:w0}]
-\label{proof:w0}
-\end{proof}
+% \begin{proof}[Proof of the claim $w_{0} = \overline{\lambda^{2}}/\left(k\overline{\lambda}^{2}+\overline{\sigma^{2}}\right)$ on page \pageref{eq:w0}]
+% \label{proof:w0}
+% \end{proof}
 
 \begin{proof}[Proof of Proposition \ref{prop:Z-reliabiltiy}]\label{proof:Z-reliability}
-[[fill in]] Need proof of of (i) and (ii).
 
+
+(i) The mean squared error is
+\begin{eqnarray*}
+E\left[\left(Z-w\sum_{i=1}^{k}\left(X_{i}-\mu_{i}\right)-\theta\right)^{2}\right] & = & E\left[\left(\left[1-w\sum_{i=1}^{k}\lambda_{i}\right]Z-w\sum_{i=1}^{k}\sigma_{i}\epsilon_{i}\right)^{2}\right],\\
+ & = & E\left[\left(\left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]Z\right)^{2}\right]+E\left[\left(w\sum_{i=1}^{k}\sigma_{i}\epsilon_{i}\right)^{2}\right],\\
+ & = & \left[1-w\sum_{i=1}^{k}\lambda_{i}\right]^{2}+w^{2}\sum_{i=1}^{k}\sigma_{i}^{2}.
+\end{eqnarray*}
+Differentatiate with respect to $\omega$,
+\[
+2\sum_{i=1}^{k}\lambda_{i}\left[w\sum_{i=1}^{k}\lambda_{i}-1\right]+2w\sum_{i=1}^{k}\sigma_{i}^{2}.
+\]
+Hence $w=\overline{\lambda}/\left(\overline{\sigma^{2}}+k\overline{\lambda}^{2}\right)$.
+The risk is
+\begin{eqnarray*}
+\left[1-wk\overline{\lambda}\right]^{2}+w^{2}k\overline{\sigma^{2}} & = & \left[1-\frac{k\overline{\lambda}^{2}}{\overline{\sigma^{2}}+k\overline{\lambda}^{2}}\right]^{2}+\frac{k\overline{\lambda}^{2}\overline{\sigma^{2}}}{\left(\overline{\sigma^{2}}+k\overline{\lambda}^{2}\right)^{2}}\\
+ & = & \frac{\overline{\sigma^{2}}}{\overline{\sigma^{2}}+k\overline{\lambda}^{2}}
+\end{eqnarray*}
+Hence
+\[
+\omega = 1-\frac{\overline{\sigma^{2}}}{\overline{\sigma^{2}}+k\overline{\lambda}^{2}}=\frac{k\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}/k}
+\]
+(ii) The formula for the mean squared error is
+\begin{eqnarray*}
+E\left[\left(Z-\sum_{i=1}^{k}w_{i}\left(X_{i}-\mu_{i}\right)\right)^{2}\right] & = & E\left[\left(\left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]Z-\sum_{i=1}^{k}w_{i}\sigma_{i}\epsilon_{i}\right)^{2}\right]\\
+ & = & E\left[\left(\left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]Z\right)^{2}\right]+E\left[\left(\sum_{i=1}^{k}w_{i}\sigma_{i}\epsilon_{i}\right)^{2}\right]\\
+ & = & \left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}
+\end{eqnarray*}
+By differentiation, the minimum satisfies $\lambda_{j}\sum_{i=1}^{k}\lambda_{i}w_{i}+w_{j}\sigma_{j}^{2}=\lambda_{j}$,
+thus 
+\[
+1-\sum_{i=1}^{k}\lambda_{i}w_{i}=\frac{w_{j}\sigma_{j}^{2}}{\lambda_{j}}
+\]
+This implies $w_{i}=w_{j}\frac{\sigma_{j}^{2}}{\sigma_{i}^{2}}\frac{\lambda_{i}}{\lambda_{j}}$
+for each $i,j$, hence $\sum_{i=1}^{k}w_{j}\lambda_{i}^{2}\frac{\sigma_{j}^{2}}{\sigma_{i}^{2}}+w_{j}\sigma_{j}^{2}=\lambda_{j}$
+for each $j$, and
+\[
+w_{j}=\lambda_{j}/[\sigma_{j}^{2}(1+k\overline{\lambda\sigma^{-2}})]
+\]
+The risk is
+\begin{eqnarray*}
+w_{j}^{2}\frac{\sigma_{j}^{4}}{\lambda_{j}^{2}}+\sum_{i=1}^{k}w_{j}^{2}\frac{\sigma_{j}^{4}}{\sigma_{i}^{2}}\frac{\lambda_{i}^{2}}{\lambda_{j}^{2}} & = & w_{j}^{2}\lambda_{j}^{-2}\sigma_{j}^{4}\left(1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}\right)\\
+ & = & \lambda_{j}^{-1}\sigma_{j}^{2}w_{j}\\
+ & = & \frac{1}{1+k\overline{\lambda\sigma^{-2}}}
+\end{eqnarray*}
+Hence
+\[
+\omega_H = 1 - \frac{1}{1+k\overline{\lambda\sigma^{-2}}} = \frac{k\overline{\lambda\sigma^{-2}}}{k\overline{\lambda\sigma^{-2}}+1}
+\]
 (iii) Consider the modified
 model $X^{\star}=X\lambda_{i}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}+\epsilon$,
 which is congeneric with $\lambda^{\star}=\lambda/(\lambda^{2}+\sigma^{2})^{-1/2}$
@@ -914,11 +961,24 @@ $\sigma^{\star}=1$. Again, by the formula for the congeneric reliability \eqref{
 \end{eqnarray*}
 \end{proof}
 
+Let $p$ be real and $x=\left\{ x_{i}\right\} _{i=1}^{k}$ be a sequence
+of positive reals. The *power mean* with exponent $p$ is
+\[
+M_{p}\left(x\right)=\begin{cases}
+\left(\frac{1}{k}\sum_{i=1}^{k}x_{i}^{p}\right)^{1/p} & p\neq0,\\
+\left(\prod_{i=1}^{k}x_{i}\right)^{1/k} & p=0.
+\end{cases}
+\]
+We will make use of the power mean inequality,
+\begin{equation}
+M_{p}\left(x\right)\leq M_{q}\left(x\right),\quad p<q\label{eq:generalized mean inequality}
+\end{equation}
+with equality if and only if $x_{1}=\ldots=x_{k}$. See for instance \citep[][Chapter III]{Bullen2013-os}.
+
 \begin{lem}
 \label{lem:power mean lemma}Let $\left\{ x_{i}\right\} _{i=1}^{k}$
 be some positive real numbers, $a>0$, and $M_{p}\left(x\right)$
-the power mean with exponent $p$. Then
-
+the power mean with exponent $p$. 
 \begin{equation}
 M_{p}\left(x+a\right)M_{q}\left(\frac{x}{x+a}\right)\leq\overline{x}\label{eq:power mean inequality}
 \end{equation}
@@ -931,8 +991,8 @@ holds too, again with equality if and only if $x_{1}=x_{2}=\cdots=x_{k}$.
 \end{lem}
 
 \begin{proof}
-Let's start with (\ref{eq:power mean inequality}). By the generalized
-mean inequality $M_{p}\left(x+a\right)\leq\overline{x}+a$, and $M_{q}\left(x+a\right)\leq\overline{\frac{x}{x+a}}$,
+Let's start with (\ref{eq:power mean inequality}). By the power
+mean inequality \ref{eq:generalized mean inequality}  $M_{p}\left(x+a\right)\leq\overline{x}+a$, and $M_{q}\left(x+a\right)\leq\overline{\frac{x}{x+a}}$,
 hence it suffices to show $\left(\overline{x}+a\right)\overline{\frac{x}{x+a}}\leq\overline{x}$,
 or $\overline{\frac{x}{x+a}}\leq\frac{\overline{x}}{\overline{x}+a}$.
 The function $x\mapsto x/(a+x)$ is concave, hence $E\left[f\left(X\right)\right]\leq f\left[E\left(X\right)\right]$
@@ -940,7 +1000,7 @@ by Jensen's inequality. But then $\overline{\frac{x}{x+a}}\leq\frac{\overline{x}
 follows.
 
 For equation (\ref{eq:power mean full inequality}), $M_{p}\left(\frac{x}{x+a}\right)\leq\overline{\frac{x}{x+a}}$
-by the generalized mean inequality, And since $f\left(x\right)\mapsto x/(x+a)$
+by the power mean inequality, And since $f\left(x\right)\mapsto x/(x+a)$
 is concave,
 \[
 \frac{M_{p}\left(x\right)}{M_{p}\left(x+a\right)}\leq M_{p}\left(\frac{x}{x+a}\right)
