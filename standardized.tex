@@ -29,7 +29,7 @@
 \theoremstyle{plain}
 \newtheorem{thm}{\protect\theoremname}
 \theoremstyle{plain}
-\newtheorem{lemma}{\protect\lemmaname}
+\newtheorem{lem}{\protect\lemmaname}
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{\protect\definitionname}
 \theoremstyle{remark}
@@ -157,7 +157,8 @@ if and only if $\lambda_{i}=\lambda_{j}$ for all $i,j$.
 \item Assume $\lambda_{i}=\lambda_{j}$ and for all $i,j$. Then $\alpha_s \geq \alpha = \omega(X)$, with equality if and only if $\sigma_{i}^{2}=\sigma_{j}^{2}$ for all $i,j$ or $\lambda_i = 0$ for all $i$.
 \item If $k=2$, $\alpha_s\geq\alpha$, with equality if and only if $\lambda_{1}^{2}+\sigma_{1}^{2}=\lambda_{2}^{2}+\sigma_{2}^{2}$ or $\lambda_1 = 0$ or $\lambda_2 = 0$. But if $k>2$, both $\alpha_s>\alpha$
 and $\alpha_s<\alpha$ are possible.
-\item There are $\lambda$s such that $\lambda_i = \lambda_j$ for all $i,j$ is false but $\alpha_s = \omega$.
+\item All of $\alpha_{s}=\omega$, $\alpha_{s}>\omega$ and $\alpha_{s}<\omega$
+are possible when $\lambda_{i}\neq\lambda_{j}$ for some $j$.
 \end{enumerate}
 \end{prop}
 \begin{proof}
@@ -479,20 +480,34 @@ See the appendix, page \pageref{proof:Z-reliability}.
 
 No one would use the standardized reliability \eqref{eq:Standardized reliability}
 or the sigma reliability \eqref{eq:Sigma-standardized reliability}
-if $\sigma_{i}^{2}=\sigma^{2}$ for all $i$. The following Theorem
+if $\sigma_{i}^{2}=\sigma^{2}$ for all $i$. The following Proposition
 exposes a basic fact about these three reliability coefficients:
 \begin{prop}
 \label{prop:Properties of three} Assume the $\tau$-equivalent model,
 i.e. the congeneric model with $\lambda_{i}=\lambda>0$ for all $i$
-but possibly different $\sigma_{i}$s. Let $\omega$ be the congeneric
+but possibly different residual errors $\sigma_{i}$. Let $\omega$ be the congeneric
 reliability \eqref{eq:Congeneric reliability}, $\omega_{s}$ the standardized reliability \eqref{eq:Standardized reliability},
 $\omega_{\sigma}$ the sigma reliability \eqref{eq:Sigma-standardized reliability},
-and $\omega_{H}$ coefficient $H$ \eqref{eq:coefficient_H}. Then
+and $\omega_{H}$ coefficient $H$ \eqref{eq:coefficient_H}. 
+
+\begin{enumerate}[label=(\roman*)]
+\item Assume the $\tau$-equivalent model,
+i.e. the congeneric model with $\lambda_{i}=\lambda>0$ for all $i$
+but possibly different residual errors $\sigma_{i}>0$. Then
 \[
 \omega_{h}\geq\omega_{\sigma}\geq\omega_{s}\geq\omega,
 \]
-with all inequalities strict unless $\sigma_{i}=\sigma\geq0$ or all
-$i$.
+with all inequalities strict unless $\sigma_{i}=\sigma$ or all
+$i$. In that case, $\omega_{h} = \omega_{\sigma} = \omega_{s} = \omega$.
+\item Assume the congeneric model with $\sigma_i = \sigma > 0$ for all $i$ but possibly different loadings $\lambda_i$. Then
+\[
+\omega_{H}\geq\omega_{\sigma}=\omega\geq\omega_{s},
+\]
+and the inequalities are strict unless $\lambda_{i}=\lambda$ for all
+$i$. In that case, $\omega_{h} = \omega_{\sigma} = \omega_{s} = \omega$.
+
+\end{enumerate}
+
 \end{prop}
 \begin{proof}
 See the appendix, page \pageref{proof:Properties}.
@@ -554,7 +569,7 @@ the formula for the congeneric reliability.
 This observation also counters a possible, but wrong, interpretation
 of Proposition \ref{prop:Properties of three}.
 
-First \ref{prop:Properties of three} states $\omega_{s}>\omega$
+First, Proposition \ref{prop:Properties of three} states $\omega_{s}>\omega$
 under the $\tau$-equivalent model. Second, coefficient alpha equals
 $\omega$ under the $\tau$-equivalent model. Then it seems reasonable
 to use standardized alpha, doesn't it? After all, standardized alpha
@@ -633,7 +648,7 @@ Acknowledgning this, \citet[][p.2]{Gadermann2012-jl} (and, indirectly, \citet{Zu
 
 This lemma comes in handy in the proof of Proposition \ref{prop:Reliabilities.} as it allows us to use Jensen's inequality.
 
-\begin{lemma}
+\begin{lem}
 Assume the congeneric model of \eqref{eq:one-factor model} and let $\alpha$ be as in \eqref{eq:Coefficient alpha} and $\alpha_s$ be as in \eqref{eq:standardized alpha}. Then $\alpha_{s}\geq\alpha$
 if and only if
 \begin{equation}
@@ -642,7 +657,7 @@ if and only if
 \geq
 \sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sum_{i=1}^{k}\left(\lambda_{i}^{2}+\sigma_{i}^{2}\right)/k}
 \end{equation}
-\end{lemma}
+\end{lem}
 
 \begin{proof}
 From definition \eqref{eq:Coefficient alpha}
@@ -730,6 +745,28 @@ or
 Now $k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}>\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)$
 can be made true by choosing $\sigma_{i}^{2}=0$ for $i>2$. For the
 other way around, just choose $\sigma_{i}^{2}$ large enough.
+
+(iv) First assume $\lambda_{i}=\sigma_{i}$ for each $i$. Then $\alpha_{s}=\frac{k}{k+1}$
+and $\omega=\frac{\left(\sum\lambda_{i}\right)^{2}}{\left(\sum\lambda_{i}\right)^{2}+\sum\lambda_{i}^{2}}$.
+But but then $\alpha_{s}\geq\omega$ with equality if and only if
+all $\lambda$s are equal, for $k\sum_{i=1}^{k}\lambda_{i}^{2}\geq\sum_{i=1}^{k}\lambda_{i}$
+by Chebyshev's inequality. Now assume $\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}=a$
+for each $i$. Then $\sum\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)=ak$
+and
+\[
+\frac{k}{k-1}\left(\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak}\right)\leq\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum\lambda_{i}^{2}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak}
+\]
+which is equivalent to
+\begin{eqnarray*}
+\left(\sum_{i=1}^{k}\lambda_{i}\right)^{2} & \leq & k\sum_{i=1}^{k}\lambda_{i}^{2}
+\end{eqnarray*}
+which is true by Chebyshev's inequality, once again with equality
+if and only if all $\lambda$s are equal. Let $A=\left\{ \left(\lambda,\omega\right)\mid\lambda_{i}\neq\lambda_{j}\text{\textrm{ for some }}j\right\} $.
+Then $A$ is connected, and by the intermediate value theorem there
+is a $\left(\lambda,\omega\right)$ where $\left[\alpha_{s}-\omega\right]\left(\lambda,\sigma\right)=0$,
+for there are elements in $A$ where $\alpha_{s}-\omega$ takes on
+negative values and elements where $\alpha_{s}-\omega$ takes on positive
+values.
 \end{proof}
 
 
@@ -845,11 +882,11 @@ are both efficient.
 
 This lemma relates weighted averages to ordinary averages, and is useful for showing inequalities involving the alpha and omega coefficients.
 
-\begin{lemma}
-\label{lemma:weighted averages}Let $\left\{ x_{i}\right\} _{i=1}^{k},\left\{ w_{i}\right\} _{i=1}^{k}$
+\begin{lem}
+\label{lem:weighted averages}Let $\left\{ x_{i}\right\} _{i=1}^{k},\left\{ w_{i}\right\} _{i=1}^{k}$
 be sequences of positive real numbers such that $x_{i}\leq x_{j}$ implies
 $w'_{i}\geq w'_{j}$ and $\sum_{i=1}^{k}w_{i}=1$. Then $k^{-1}\sum_{i=1}^{k}x_{i}\geq\sum_{i=1}^{k}w_{i}x_{i}.$
-\end{lemma}
+\end{lem}
 
 \begin{proof}
 See Theorem 2 of \citep{Sbert2016-al}.
@@ -877,31 +914,65 @@ $\sigma^{\star}=1$. Again, by the formula for the congeneric reliability \eqref{
 \end{eqnarray*}
 \end{proof}
 
+\begin{lem}
+\label{lem:power mean lemma}Let $\left\{ x_{i}\right\} _{i=1}^{k}$
+be some positive real numbers, $a>0$, and $M_{p}\left(x\right)$
+the power mean with exponent $p$. Then
+
+\begin{equation}
+M_{p}\left(x+a\right)M_{q}\left(\frac{x}{x+a}\right)\leq\overline{x}\label{eq:power mean inequality}
+\end{equation}
+when $p,q\leq1$, with equality if and only if $x_{1}=x_{2}=\cdots=x_{k}$.
+If $p<0$, 
+\begin{equation}
+M_{p}\left(x\right)\leq M_{p}\left(x+a\right)M_{q}\left(\frac{x}{x+a}\right)\leq\overline{x}\label{eq:power mean full inequality}
+\end{equation}
+holds too, again with equality if and only if $x_{1}=x_{2}=\cdots=x_{k}$.
+\end{lem}
+
+\begin{proof}
+Let's start with (\ref{eq:power mean inequality}). By the generalized
+mean inequality $M_{p}\left(x+a\right)\leq\overline{x}+a$, and $M_{q}\left(x+a\right)\leq\overline{\frac{x}{x+a}}$,
+hence it suffices to show $\left(\overline{x}+a\right)\overline{\frac{x}{x+a}}\leq\overline{x}$,
+or $\overline{\frac{x}{x+a}}\leq\frac{\overline{x}}{\overline{x}+a}$.
+The function $x\mapsto x/(a+x)$ is concave, hence $E\left[f\left(X\right)\right]\leq f\left[E\left(X\right)\right]$
+by Jensen's inequality. But then $\overline{\frac{x}{x+a}}\leq\frac{\overline{x}}{\overline{x}+a}$
+follows.
+
+For equation (\ref{eq:power mean full inequality}), $M_{p}\left(\frac{x}{x+a}\right)\leq\overline{\frac{x}{x+a}}$
+by the generalized mean inequality, And since $f\left(x\right)\mapsto x/(x+a)$
+is concave,
+\[
+\frac{M_{p}\left(x\right)}{M_{p}\left(x+a\right)}\leq M_{p}\left(\frac{x}{x+a}\right)
+\]
+by Jensen's inequality, with equality if and only if all $x$s are
+equal.
+\end{proof}
+
 \begin{proof}[Proof of Proposition \ref{prop:Properties of three}]\label{proof:Properties}
-Each reliability is on the form $a/(a+1)$ for some $a>0$, and $a/(a+1)\geq b(b+1)$
-iff $a>b$. Let's take on $\omega_{\sigma}>\omega_{s}$ first. That
-is
-\[
-k\lambda^{2}\overline{\sigma^{-1}}^{2}\geq k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}
-\]
-this is equivalent to WRONG WRONG WRONG!!!
-\[
-\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}\geq\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\overline{\sigma^{-1}}^{-2}
-\]
-Since $\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\leq\overline{(\lambda^{2}+\sigma^{2})^{-1}}$
-it suffices to show $\overline{\sigma^{-1}}^{2}\geq1/\overline{\sigma^{2}}$.
-This inequality follows from $\frac{1}{n}\sum x_{i}^{2}\geq\left(\frac{1}{n}\sum x_{i}\right)^{2}\geq\left(\frac{1}{n}\sum x_{i}^{-1}\right)^{2}$,
-$x_{i}>0$, with equality only when all $x_{i}$ are equal. (The first
-inequality is Chebyshev's inequality, the second is the harmonic mean
-inequality.) Next consider
+(i) The equality $\omega_H \geq \omega_\sigma$ trivially true, so we will focus on the rest. Each reliability is on the form $a/(a+1)$ for some $a>0$, and $a/(a+1)\geq b(b+1)$
+iff $a>b$. Let's take on $\omega_s > \omega$ first, or
 \[
 k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}\geq k\overline{\lambda}^{2}/\overline{\sigma^{2}}
 \]
 This is equivalent to 
 \[
-\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\overline{\sigma^{2}}\geq\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}
+\frac{\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}{\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}\leq\overline{\sigma^{2}}
 \]
-(this is
+which is true by Lemma \ref{lem:power mean lemma} using exponent $p = -1/2$.
+To prove $\omega_{\sigma}>\omega_{s}$ we need to show that
+\[
+\overline{\sigma^{-1}}^{-2}\leq\frac{\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}{\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}
+\]
+or equivalently,
+\[
+M_{-1/2}\left(\sigma^{2}\right)\leq M_{-1/2}\left(\lambda^{2}+\sigma^{2}\right)\overline{\frac{\sigma^{2}}{\lambda^{2}+\sigma^{2}}}.
+\]
+This is a case of Lemma \ref{lem:power mean lemma}, equation \eqref{eq:power mean full inequality}.
+
+I omit the proof of (ii) since it is similiar the proof of (i).
+
+
 \end{proof}
 
 \bibliographystyle{apalike}
