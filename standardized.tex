@@ -160,7 +160,7 @@ is the constant minimizing the mean squared error (\ref{eq:mean squared error}).
 See the appendix, page \pageref{proof:reliability motivation}.
 \end{proof}
 
-The role of $w_0$ is to make sure $\widehat{Z}$ predicts $Z$ on he right scale, and in this paper the scale of $Z$ is fixed by $\Var Z = 1$. Since $Z$ is latent we would usually not care about this scale, but it is handy to fix it to $1$ since it allows us to compare different predictors of $\widehat{Z}$ easily.
+The role of $w_0$ is to make sure $\widehat{Z}$ predicts $Z$ on he right scale, and in this paper the scale of $Z$ is fixed by $\Var Z = 1$. Since $Z$ is latent we would usually not care about this scale, but it is handy to fix it to $1$ since it allows us to compare different predictors of $\widehat{Z}$ easily. The formulation $1-\textsc{MSE}(w_{0}\widehat{Z})$ is more concrete than the correlation formulation, as it explicitly references the predictor $w_{0}\widehat{Z}$, while the correlation is scale-free and more abstract. The mean squared error definition more amenable to generalizations too, and I will explore one such explore generalization in future paper. 
 
 A modestly popular choice for $w$ are the weights minimizing the mean squared error, known as the Thurstone \citep{thurshronebook} weights. Using these weights lead to coefficient $H$ \citep{hancock2001rethinking}, also known as the maximal reliability \citep{Li1997-yh}, 
 \begin{equation}
@@ -436,7 +436,7 @@ But while we are at it, why not just use the optimal weights, yielding
 coefficient $H$ and the Thurstone factor scores instead of the standardized
 alpha and standardized sum scores? (Mchneish 2) argue in favour of
 adopting optimal weights when forming the predictor.
-\begin{defn}
+\begin{defn}\label{defn:new reliabilities}
 The standardized reliability is the reliability with weights $w_{i}\propto(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$
 and is denoted $\omega_{s}$. The sigma reliability is the reliability
 with weights $w_{i}\propto\sigma_{i}^{-1}$ and is denoted $\omega_{\sigma}$.
@@ -550,9 +550,7 @@ For each trait I estimated the factor loadings $\lambda$ and residual standard d
 My second argument against $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1}$
 follows \citep{Falk2011-ae}. The assumptions of a $\tau$-equivalent model are hard
 to justify to begin with, and unlikely to be true. The standardized
-coefficient alpha equals the congeneric reliability for standardized
-variable (i.e $\omega\left(\widehat{Z}\right)$ from \eqref{eq:Standardized reliability}
-Proposition \ref{prop:Z-reliabiltiy}) only when the modified model
+coefficient alpha equals the standardized reliability (see Definition \ref{defn:new reliabilities}) only when the modified model
 \[
 X_{i}^{\star}=\frac{\lambda_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}Z+\frac{\sigma_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}\epsilon_{i}\:i=1,\ldots,k
 \]
@@ -562,17 +560,15 @@ conincidence. To avoid this crazy assumption, use structural equation
 modeling to estimate $\lambda_{i},\sigma_{i}$, and plug them into
 the formula for the congeneric reliability.
 
-This observation also counters a possible, but wrong, interpretation
-of Proposition \ref{prop:Properties of three}.
+To recap, my arguments are: (i) You should neither avoid standardization altoghether nor standardizee with $(\lambda_{i}^{2}+\sigma_{i}^{2})^(-1/2)$ nor $1$. You should standardize with $\sigma_i^{-1}$ or use the optimal weights, as this yields better results in the most plausible scenarios. (ii) Even if you decide to standardize with $(\lambda_{i}^{2}+\sigma_{i}^{2})^(-1/2$, please avoid standardized alpha, as won't equal $\omega_s$ under any reasonable assumptions.
 
-First, Proposition \ref{prop:Properties of three} states $\omega_{s}>\omega$
-under the $\tau$-equivalent model. Second, coefficient alpha equals
-$\omega$ under the $\tau$-equivalent model. Then it seems reasonable
-to use standardized alpha, doesn't it? After all, standardized alpha
-can be calculated from the covariance matrix alone, and does not require
-any estimation of $\lambda$ and $\sigma$. But this is wrong! For
-as mentionioned, $\alpha_{s}=\omega_{s}$ only when $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda$.
-Otherwise, $\alpha_{s}<\omega_{s}$ by Propositon 1.
+% This observation also counters a possible, but wrong, interpretation
+% of Proposition \ref{prop:Properties of three}. For $\omega_{s}>\omega$
+% under the $\tau$-equivalent model by Proposition \ref{prop:Properties of three} and $\alpha = \omega$ under the $\tau$-equivalent model. Then it seems reasonable to use standardized alpha together with the sum scores. After all, standardized alpha
+% can be calculated from the covariance matrix alone, and does not require
+% any estimation of $\lambda$ and $\sigma$. But this is wrong! For
+% as mentionioned, $\alpha_{s}=\omega_{s}$ only when $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda$.
+% Otherwise, $\alpha_{s}<\omega_{s}$ by Propositon 1.
 
 \subsection*{Digression: The sigma alpha coefficient}
 Both coefficient alpha and standardized alpha are simple functions
