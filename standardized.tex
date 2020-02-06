@@ -71,6 +71,7 @@
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\argmin}{argmin}
 \DeclareMathOperator{\Cor}{Cor}
+\DeclareMathOperator{\Cov}{Cov}
 \DeclareMathOperator{\diag}{diag} 
 
 \DeclareMathOperator{\argmax}{argmax}
@@ -128,25 +129,52 @@ X=\alpha + \lambda Z+\Psi^{1/2}\epsilon\label{eq:one-factor model}
 \end{equation}
 where $\lambda$ is a vector of loadings, $\alpha$ is a mean vector, and $\Psi^{1/2}$ is a diagonal matrix with positive diagonal elements $\sigma_i$. That $\Psi^{1/2}$ is diagonal means the errors $\Psi^{1/2}\epsilon$ are uncorrelated. When $\Psi^{1/2}$ is allowed to be general positive definite matrix, the model \eqref{eq:one-factor model} is a a one-factor model. We made no parametric assumptions about either $Z$ or $\epsilon$, and right now they can have any distribution whatsoever. Since $\alpha,\lambda,\Psi$ are parameters of the model, we are dealing with a semi-parametric model.
 
-
-\citet[][p. 112]{Joreskog1971-nn} defined the composite reliability of $X$ under the congeneric model \eqref{eq:one-factor model} with weight vector $w$ as 
+Let $\widehat{Z}$ be a linear predictor of $Z$ based on $X$, that
+is there are some real weights $w_{i},i=1,\ldots,k$ such that
 \begin{equation}
-\label{eq:linear composite reliabiltiy}
-\omega(w) = \frac{(w^T\lambda)^2}{(w^T\lambda)^2 + w^T \Psi w}
+\label{eq:Linear predictor}
+\widehat{Z} =  \sum_{i=1}^{k}w_{i}X =  \sum_{i=1}^{k}w_{i}\left(\lambda Z+\sigma_{i}\epsilon\right).\nonumber 
 \end{equation}
-A modestly popular choice for $w$ are the optimal weights. That is, the weights maximizing \eqref{eq:linear composite reliabiltiy} above. Using them will lead to coefficient $H$ \citep{hancock2001rethinking}, also known as the maximal reliability \citep{Li1997-yh}, 
+When we talk about reliability, it will always be with reference to some linear predictor $\widehat{Z}$. \citet[][p. 112]{Joreskog1971-nn} defined the reliability of $X$ under the congeneric model \eqref{eq:one-factor model} with weight vector $w$ as 
+\begin{equation}
+\label{eq:linear reliabiltiy}
+\omega_w = \frac{(w^T\lambda)^2}{(w^T\lambda)^2 + w^T \Psi w}
+\end{equation}
+The purpose of the reliability coefficient is to tell us how well $\widehat{Z}$ predicts $Z$, and is analogous to the $R^2$ or the squared correlation. The following proposition makes this claim precise. In this proposition, and the rest of the paper, I will use the notation $\overline{x}$ to denote the mean of the vector $x$.
+
+\begin{prop}
+\label{prop:reliability motivation}Let $\widehat{Z}=\sum_{i=1}^{k}w_{i}X$
+for some weights $w_{i},i=1,\ldots,k$. Then the reliability equals
+\[
+\omega_w=\Cor^{2}(\widehat{Z},Z)=1-\textsc{MSE}(w_{0}\widehat{Z})
+\]
+where $\textsc{MSE}(w_{0}\widehat{Z})$ is the
+mean squared error 
+\begin{equation}
+\textsc{MSE}(w_{0}\widehat{Z})=E[(Z-w_{0}\widehat{Z})^{2}],\label{eq:mean squared error}
+\end{equation}
+and $w_{0}=\overline{w\lambda}/(k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}})$
+is the constant minimizing the mean squared error (\ref{eq:mean squared error}).
+\end{prop}
+\begin{proof}
+See the appendix, page \pageref{proof:reliability motivation}.
+\end{proof}
+
+The role of $w_0$ is to make sure $\widehat{Z}$ predicts $Z$ on he right scale, and in this paper the scale of $Z$ is fixed by $\Var Z = 1$. Since $Z$ is latent we would usually not care about this scale, but it is handy to fix it to $1$ since it allows us to compare different predictors of $\widehat{Z}$ easily.
+
+A modestly popular choice for $w$ are the weights minimizing the mean squared error, known as the Thurstone \citep{thurshronebook} weights. Using these weights lead to coefficient $H$ \citep{hancock2001rethinking}, also known as the maximal reliability \citep{Li1997-yh}, 
 \begin{equation}
 \label{eq:coefficient_H}
 \omega_{H}=\frac{k\overline{\lambda^{2}\sigma^{-2}}}{k\overline{\lambda^{2}\sigma^{-2}}+1},
 \end{equation}
-where $\overline{\lambda^{2}\sigma^{-2}} = k^{-1}\sum_{i=1}^{k}\lambda_{i}^2/\sigma_i^2$. But by far the most popular choice is give to same weight to each $X_i$, or $w = \mathbf{i}=\left(1,1,\ldots,1\right)$. This leads to the population congeneric reliability
+where $\overline{\lambda^{2}\sigma^{-2}} = k^{-1}\sum_{i=1}^{k}\lambda_{i}^2/\sigma_i^2$. But by far the most popular choice is give to same weight to each $X_i$, or $w = \mathbf{i}=\left(1,1,\ldots,1\right)$. This leads to the congeneric reliability
 \begin{equation}
 \omega =\frac{(\mathbf{i}^T\lambda)^2}{(\mathbf{i}^T\lambda)^2 + \mathbf{i}^T\Psi\mathbf{i}} =\frac{k\overline{\lambda}^{2}/\overline{\sigma^{2}}}{k\overline{\lambda}^{2}/\overline{\sigma^{2} + 1}}\label{eq:Congeneric reliability}
 \end{equation}
 where $\overline{\lambda}=k^{-1}\sum_{i=1}^{k}\lambda_{i}$ and
 $\overline{\sigma^{2}}=k^{-1}\sum_{i=1}^{k}\sigma_{i}^{2}$.
 
-The following propositions explores the relationship between coefficient alpha, the standardized alpha, and the congeneric reliability coefficient.
+The next propositions explores the relationship between coefficient alpha, the standardized alpha, and the congeneric reliability coefficient.
 
 \begin{prop}
 \label{prop:Reliabilities.}Assume the congeneric model \eqref{eq:one-factor model}. Let $\alpha$ be coefficient alpha \eqref{eq:Coefficient alpha}, $\alpha_{s}(X)$ be the standardized alpha \eqref{eq:standardized alpha}, and  $\omega(X)$ be the congeneric reliability \eqref{eq:Congeneric reliability}. 
@@ -162,7 +190,7 @@ are possible when $\lambda_{i}\neq\lambda_{j}$ for some $j$.
 \end{enumerate}
 \end{prop}
 \begin{proof}
-Most of (i) -- (iii) have been known for a while. See page \pageref{proof:Reliabilities.} of the appendix for a proof.
+Most of (i) -- (iv) have been known for a while. See page \pageref{proof:Reliabilities.} of the appendix for a proof.
 \end{proof}
 
 If $\lambda_{i}=\lambda_{j}$ for all $i,j$ and $\sigma_{i}=\sigma_{j}$
@@ -344,117 +372,85 @@ To sum up, sample alpha won the maximum likelihood and robustness competitions, 
 
 \section{Argument 2. The issue with standardized scores}
 \label{sec:argument 2}
-For instance, \citet[][p.451]{Falk2011-ae} states \enquote{If researchers intend to sum
-standardized scores, the correlation matrix is more appropriate for determining internal consistency.} Another example is \citet[][p.99]{Cortina1993-aq} \enquote{Standardized alpha is appropriate if item standard scores are summed to form scale scores.}
 I have two arguments against using standardized alpha for standardized
 test items. First, you should not standardize test items. Second,
 even if you decide to standardize test items, please avoid standardized
 alpha and use a suitably modified congeneric reliability instead.
 
-My point of departure is the following quote of Osburn (p. 348):
+My point of departure is a quote of \citet[][p.348]{Osburn2000-jd}:
 
 \enquote{However, it is important to note that the true reliability of a measure is the same for both standardized and unstandardized observed scores.}
 
-I will argue against this. The purpose of a reliability coefficient is to measure how well some function $f(X)$ observes the observed variables predicts the latent variable $Z$. Classical reliability coefficients, e.g. coefficient $H$ and the congeneric reliability, to this by forming the $R^2$ between $f(X)$ and $Z$. For the congeneric reliability, $f(X) = \sum_{i=1}^k X_i$, or the sum score, while for coefficient $H$, $f(X) = \sum_{i=1}^k w_iX_i$, where $w_i$ are the $L_2$-optimal weights.
+I will argue against this. Recall the definition of reliability from
+section $2$. Given a linear predictor $\widehat{Z}$ of $Z$, the
+reliability $\omega$ equals the square correlation between $\widehat{Z}$
+and $Z$, or $\omega=\Cor^{2}(\widehat{Z},Z)$. Assume
+we know the values of $\lambda$ and $\sigma$. When you use unstandardized
+scores, the the predictor of $Z$ is $\widehat{Z}=w_{0}\sum_{i=1}^{k}X_{i}$
+for some $w_{0}$ (recall Proposition X). When you use standardized
+scores, your predictor is $\widehat{Z}^{\star}=w_{0}\sum_{i=1}^{k}\sqrt{\lambda^{2}+\sigma^{2}}^{-1}X_{i}$.
+These predictors are not the same, and their reliabilites are not
+the same either.
 
-An important use of reliability coefficients is correct correlations for attenuation [[ref]] between two variables $Z_1$ and $Z_2$. This method is based on two facts: First, we must know the $R^2$ between the latent $Z_i$ and whatever method we use to predict it, the function $f(X_i)$. Second, we must know the correlation between $Z_i$ and $Z_j$. This is not possible unless we acknowledge a connection between the method used to predict $Z$ and the reliability used. Moreover, in order for this to be possible, the reliability has to be the $R^{2}$ between the predicted value of $Z$ and the true $Z$. This $R^{2}$
-will change on the population level when you use standardized scores,
-as I will explain soon.
+This difference matters. An important motivation for using the squared
+correlation between $Z$ and $\widehat{Z}$ as the definition of a
+reliability coefficient is that it allows us to do correction for
+attenuation. Let $\widehat{Z}_{1},\widehat{Z}_{2}$ be two linear
+predictors of two latent variables $Z_{1},Z_{2}$ defined in two different
+congeneric models. Assume the errors $\epsilon_{1}$ and $\epsilon_{2}$
+are uncorrelated. Our goal is to find the correlation $\Cor(Z_{1},Z_{2})$
+between the latent variables $Z_{1}$ and $Z_{2}$ using only the
+reliabilities $\omega(\widehat{Z}_{1})$, $\omega(\widehat{Z}_{2})$,
+and the observed correlation $\Cor(\widehat{Z}_{1},\widehat{Z}_{2})$.
+Then
+\begin{eqnarray*}
+\rho=\Cor(\widehat{Z}_{1},\widehat{Z}_{2}) & = & \frac{\Cov(Z_{1},\widehat{Z}_{1})\Cov(Z_{2},\widehat{Z}_{2})}{\sqrt{\Var(\widehat{Z}_{1})}\sqrt{\Var(\widehat{Z}_{2})}}\Cor(Z_{1},Z_{2})\\
+ & = & \omega(\widehat{Z}_{1})\omega(\widehat{Z}_{2})\Cor(Z_{1},Z_{2})
+\end{eqnarray*}
+and $\Cor(Z_{1},Z_{2})=\Cor(\widehat{Z}_{1},\widehat{Z}_{2})/\left[\omega(\widehat{Z}_{1})\omega(\widehat{Z}_{2})\right]$,
+the famous Spearman attenuation {[}{[}ref{]}{]} formula.
 
-How you interpret $\alpha_{s}$ changes when you stop viewing it as
-an approximation to the congeneric reliability $\omega$ to an approximation
-to the standardized reliability $\omega_{s}$. For instance, $\alpha_{s}=\omega_{s}$
-will be true in a more general setting now, not only for parallel
-models (as we will see, $\omega_{s}=\omega$ under the parallel model).
+If you use the standardized sum scores to form one of your scales,
+i.e. $\widehat{Z}^{\star}=w_{0}\sum_{i=1}^{k}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}X_{i}$,
+using the reliability $\omega$ based on the sum scores would be wrong,
+as you would wrongly calculate $\rho'=\omega(\widehat{Z}_{1})\omega(\widehat{Z}_{2})\Cor(Z_{1},Z_{2})$
+instead of the correct $\rho=\omega(\widehat{Z}_{1}^{\star})\omega(\widehat{Z}_{2})\Cor(Z_{1},Z_{2})$.
+You would be off by a factor of $\omega(\widehat{Z}_{1}^{\star})/\omega(\widehat{Z}_{1})$.
 
-So the question is not only if you believe in the parallel model,
-but if (a) if you actually want to standardize, and (b) if you can
-believe in the new assumptions about the model implied by your usage
-of the standardized congeneric reliability. 
+This connection between reliabilities and the choice of predictor
+weights is not new, see e.g. Jöreskog, Li. McNeish (1) repeatedly
+insists on taking this connection into account. Several authors recommends you use standardized alpha with standardized sum scores. For instance, \citet[][p.451]{Falk2011-ae} states \enquote{If researchers intend to sum
+standardized scores, the correlation matrix is more appropriate for determining internal consistency.} Another example is \citet[][p.99]{Cortina1993-aq} \enquote{Standardized alpha is appropriate if item standard scores are summed to form scale scores.}
 
-For question (a), I will argue against standardizing your variables,
-at least in the usual sense. For question (b), I will argue you should
-not use $\alpha_{s}$ even if you choose to standardize your variables,
-but rather the standardized congeneric reliability instead. Before
-I can start expanding on these arguments, I will have to explain the
-concept of reliability and why you do not want to approximate $\omega$
-when you standardize your scores.
-
-Let me explain what it means to standardize scores in this setting.
-Assume the congeneric model with $k$ items. Suppose you know the
-vector of loadings $\lambda$ and all the error variances $\sigma^{2}$.
-You observe the value of $X\in\mathbb{R}^{k}$ and want to use to
-the knowledge about $X,\lambda$ and $\sigma^{2}$ to predict the
-value of $Z$.
-
-The easiest to way is to predict $Z$ is the sum score, or $\widehat{Z}=\sum_{i=1}^{k}X_{i}$.
-The mean squared error of this prediction is
-\[
-E\left[\left(Z-\widehat{Z}\right)^{2}\right]=E\left[\left(Z-\sum\lambda Z+\Psi^{1/2}\epsilon\right)^{2}\right]
-\]
-Using standardized scores is different. Instead of using the sum score,
-you use a linear function of $X$, with weights equal to $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$
-\[
-\widehat{Z}_{(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}}=\sum_{i=1}^{k}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1}X_{i}
-\]
-I will now argue you are never justified to use $w=(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$.
+I will now argue you should never standardized your items. That is, you should avoid $w_{i}=(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$ when you form your predictor.
 Using some $w\ne1$ seems reasonable, for you would not want items
 with large variance to overshadow all the other contributions to $\sum_{i=1}^{k}X_{i}$.
 But there is something strange about this particular $w$. Wouldn't
-it be just as sensible to use $w=\sigma_{i}^{-1}$? Dividing by $\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}$
-seems wrong, because you want items with large loadings to have a
-large influece on your prediction of $Z$. But while we are at it,
-why not just use the optimal weights, yielding coefficient $H$ and
-the Thurstone factor scores instead of the standardized alpha and
-standardized sum scores?
+it be just as sensible to use $w=\sigma_{i}^{-1}$? Dividing by $\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)^{1/2}$
+seems wrong, as you want items with large loadings to have a large
+influence on your prediction of $Z$, but dividing by $\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)^{1/2}$
+makes the influence of large $\lambda_{i}$s smaller. Clearly $w=\sigma_{i}^{-1}$
+does not suffer from this problem.
 
-What we need is a way to compare weights. Before we start on this,
-recall that $Z$ is forced to have variance $1$ in the congeneric
-model. In this cae, the sum score $\sum_{i=1}^{k}X_{i}$ does not
-make sense a predictor of $Z$, as it does not take the scale into
-account. The scale can be ignored when using only sum scores, but
-cannot be ignored when we compare sum scores to other kinds of scores.
-Instead of dealing with sum scores directly, we will deal with scores
-of the type
-\[
-w_{0}\sum_{i=1}^{k}X_{i},
-\]
-where
-\begin{eqnarray}
-w_{0} & = & \argmin_{w\in\mathbb{R}}E\left[\left(Z-w\sum_{i=1}^{k}X_{i}\right)^{2}\right].\nonumber \\
- & = & \overline{\lambda^{2}}/\left(k\overline{\lambda}^{2}+\overline{\sigma^{2}}\right)\label{eq:w0}
-\end{eqnarray}
-See the appendix page {[}{[}ref{]}{]} for a proof for the argmin.
+But while we are at it, why not just use the optimal weights, yielding
+coefficient $H$ and the Thurstone factor scores instead of the standardized
+alpha and standardized sum scores? (Mchneish 2) argue in favour of
+adopting optimal weights when forming the predictor.
+\begin{defn}
+The standardized reliability is the reliability with weights $w_{i}\propto(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$
+and is denoted $\omega_{s}$. The sigma reliability is the reliability
+with weights $w_{i}\propto\sigma_{i}^{-1}$ and is denoted $\omega_{\sigma}$.
+\end{defn}
 
-Coefficient $H$ has $L_2$-optimal weights, or $w$ is the solution
-to
-\[
-\argmin_{w}\textsc{MSE}\left(\widehat{Z}\right)=E\left[\left(Z-\sum_{i=1}^{k}w_{i}X_{i}\right)^{2}\right]
-\]
+The next proposition gives the formulas and optimal weights for the
+four reliability coefficients introduced in this paper. The optimal
+weights satisify $\omega=1-\textsc{MSE}\left(\widehat{Z}\right)$.
 
-Define the mean squared errors
-\[
-\textsc{MSE}=E\left[\left(Z-EZ\right)\right]=\Var Z=1,
-\]
-where $\Var Z=1$ by assumption, and the mean squared error of
-\[
-\textsc{MSE}\left(\widehat{Z}\right)=E\left[\left(Z-\widehat{Z}\right)^{2}\right]
-\]
-and the $\widehat{Z}$-reliability as
-\begin{eqnarray}
-\omega\left(\widehat{Z}\right) & =1-\frac{\textsc{MSE}\left(\widehat{Z}\right)}{\textsc{MSE}}= & 1-\textsc{MSE}\left(\widehat{Z}\right)\label{eq:Z-reliability}
-\end{eqnarray}
-
-By the law of total variance, $0\leq\textsc{MSE}\left(\widehat{Z}\right)\leq1$,
-so that $0\leq\omega\left(\widehat{Z}\right)\leq1$ too. The definition
-of $\omega(\widehat{Z})$ is analagous to that of $R^{2}$, and it
-shares most of its properties. I will explore the connection between
-reliabiltiy coefficients and $R^{2}$ further in a future paper.
 \begin{prop}
 \label{prop:Z-reliabiltiy}Let $\widehat{Z}=\sum_{i=1}^{k}w_{i}X_{i}$ be a linear predictor of $Z$.
 
 \begin{enumerate}[label=(\roman*)]
-\item The congeneric reliability has weights $w = w_0$ and equals
+\item The congeneric reliability has weights $w_0 =  \overline{\lambda^{2}}/(k\overline{\lambda}^{2}+\overline{\sigma^{2}})$ and equals
 \begin{equation}
 \tag{\ref{eq:Congeneric reliability}}
 \omega=\frac{k\overline{\lambda}^{2}/\overline{\sigma^{2}}}{k\overline{\lambda}^{2}/\overline{\sigma^{2}}+1}.
@@ -644,7 +640,52 @@ This argument is fallacious since the polychoric correlation does not estimate t
 
 Acknowledgning this, \citet[][p.2]{Gadermann2012-jl} (and, indirectly, \citet{Zumbo2007-ap}) claim we are truly interested in the covariance matrix of the latent variables $Y$ that generate the observed $X$s using a discretization procedure. Recall from section \ref{sec:argument 2} that each reliability coefficient has an associated factor score $\widehat{Z}$ that predicts $Z$. This factor score can only be based on the reliable data, namely $X$. Since factor scores based on $Y$ cannot be computed as $Y$ is unknown, the predictive performance of this method has no practical importance. For instance, correction for attenuation is impossible in using the coefficient alpha based on the polychoric correlation. For you would not be able to calculate the correlation between any prediction of $Z$ based on $Y$ and some other variable $U$ when $Y$ is unknown.
 
+When we estimate $\rho^{2}(\widehat{Z},Z)$, the weights
+$w$ are already known, as we use them to form the predictor $\widehat{Z}$.
+The parameters $\lambda_{i}$ and $\sigma_{i}$ are not known though.
+This means we should not be interested in estimating and doing inference
+on a theoretical $\rho^{2}$ when $\widehat{Z}$ has some optimal
+weights, but rather $\rho^{2}$ when $\widehat{Z}$ has some fixed
+but estimated weights. In the correction for attenutation problem
+above, $\Cor(\widehat{Z}_{1},\widehat{Z}_{2})$ cannot
+be estimated without forming the predictors $\widehat{z}_{1}$ and
+$\widehat{z}_{2}$. In this case we also want to estimate the correlation
+between $\Cor(\widehat{z}_{1},\widehat{z}_{2})$ for fixed
+$w_{1},w_{2}$, not the correlation for the optimal $w_{1}$ and $w_{2}$.
+
 \section{Appendix}
+
+\begin{proof}[Proof of Proposition \ref{prop:reliability motivation}]\label{proof:reliability motivation}
+Since $\Var Z=1$, the covariance between $\widehat{Z}$ and $Z$
+is
+\begin{eqnarray*}
+\Cov\left(Z,\widehat{Z}\right)=\Cov\left[Z,\sum_{i=1}^{k}w_{i}\left(Z\lambda_{i}+\sigma_{i}\epsilon\right)\right] & = & \sum_{i=1}^{k}w_{i}\lambda_{i}.
+\end{eqnarray*}
+and the variance of $\widehat{Z}$ is
+\[
+\Var\left(\widehat{Z}\right)=\Var\left[\sum_{i=1}^{k}w_{i}\left(Z\lambda_{i}+\sigma_{i}\epsilon\right)\right]=\left(\sum_{i=1}^{k}w_{i}\lambda_{i}\right)^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}.
+\]
+Combining these two formulas gives us the squared correlation between
+$Z$ and $\widehat{Z}$,
+\begin{eqnarray*}
+\omega=\Cor^{2}\left(\widehat{Z},Z\right) & = & \frac{\left(\sum_{i=1}^{k}w_{i}\lambda_{i}\right)^{2}}{\left(\sum_{i=1}^{k}w_{i}\lambda_{i}\right)^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}}.
+\end{eqnarray*}
+
+For the second claim,
+\begin{eqnarray*}
+E\left\{ \left[Z-\sum_{i=1}^{k}w_{i}\left(\lambda_{i}Z+\sigma_{i}\epsilon_{i}\right)\right]^{2}\right\}  & = & E\left\{ \left[Z-\sum_{i=1}^{k}w_{0}w_{i}\left(\lambda_{i}Z+\sigma_{i}\epsilon_{i}\right)\right]^{2}\right\} ,\\
+ &  & w_{0}^{2}\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}+\left(w_{0}\sum_{i=1}^{k}w_{i}\lambda_{i}-1\right)^{2}.
+\end{eqnarray*}
+Differentiate with respect to $w_{0}$ to find the minimizer
+\[
+w_{0}=\frac{\sum_{i=1}^{k}w_{i}\lambda_{i}}{\left(\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}+\left(\sum_{i=1}^{k}w_{i}\lambda_{i}\right)^{2}\right)}
+\]
+And then
+\[
+E\left\{ \left[Z-\sum_{i=1}^{k}w_{i}\left(\lambda_{i}Z+\sigma_{i}\epsilon_{i}\right)\right]^{2}\right\} =\frac{\left(\sum_{i=1}^{k}w_{i}\lambda_{i}\right)^{2}}{\left(\sum_{i=1}^{k}w_{i}\lambda_{i}\right)^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}}
+\]
+as claimed.
+\end{proof}
 
 This lemma comes in handy in the proof of Proposition \ref{prop:Reliabilities.} as it allows us to use Jensen's inequality.
 
