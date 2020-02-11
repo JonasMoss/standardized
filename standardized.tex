@@ -157,7 +157,7 @@ and $w_{0}=\overline{w\lambda}/(k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{
 is the constant minimizing the mean squared error (\ref{eq:mean squared error}).
 \end{prop}
 \begin{proof}
-See the appendix, page \pageref{proof:reliability motivation}.
+The relationship between the squared correlation and the reliability is classical. The equality involving the $\textsc{MSE}$ is a new observation as far as I know. See the appendix, page \pageref{proof:reliability motivation}.
 \end{proof}
 
 The role of $w_0$ is to make sure $\widehat{Z}$ predicts $Z$ on he right scale, and in this paper the scale of $Z$ is fixed by $\Var Z = 1$. Since $Z$ is latent we would usually not care about this scale, but it is handy to fix it to $1$ since it allows us to compare different predictors of $\widehat{Z}$ easily. The formulation $1-\textsc{MSE}(w_{0}\widehat{Z})$ is more concrete than the correlation formulation, as it explicitly references the predictor $w_{0}\widehat{Z}$, while the correlation is scale-free and more abstract. The mean squared error definition more amenable to generalizations too, and I will explore one such explore generalization in future paper. 
@@ -873,7 +873,18 @@ and the maximum likelihood estimator of the reliability is $0.$
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{thm:asymptotics}]\label{proof:asymptotics}
-(i) [[fill in]] The idea is to use that $S$ and $R$ are strongly consistent in some matrix norm, I suppose. 
+(i) Let $R_{n}$, $S_{n}$ be the sample correlation and covariance matrices
+and $\Phi$, $\Sigma$ be their population counterparts. By the law
+of large numbers and Slutsky's theorom \citep[][Lemma 2.8, p. 11]{Van_der_Vaart2000-qc}, $R_{n}\to\Phi$ and $S_{n}\to\Sigma$
+with probability $1$ in the entry-wise matrix norm $\left\Vert A\right\Vert _{1}=\sum_{j=1}^{k}\sum_{i=1}^{k}\left|a_{ij}\right|$.
+The mapping
+\[
+f\left(A\right)=\frac{k}{k-1}\left(1-\frac{\mathbf{i}^{T}(\diag A)\mathbf{i}}{\mathbf{i}^{T}A\mathbf{i}}\right)
+\]
+is continuous with respect to the norm $\left\Vert \cdot\right\Vert _{1}$,
+and by the continuous mapping theorem \citep[][Theorem 2.3, p. 7]{Van_der_Vaart2000-qc}
+$f\left(S_{n}\right)\to f\left(\Sigma\right)$ and $f\left(R_{n}\right)\to f\left(\Phi\right)$
+with probability 1.
 
 (iii) \citet[eq. 22]{Van_Zyl2000-si} showed that the asymptotic variance
 is
