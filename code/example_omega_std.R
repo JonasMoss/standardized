@@ -6,15 +6,16 @@ model <- ' y  =~ A1 + A2 + A3 + A4 + A5 '
 fit <- lavaan::cfa(model, data = psychTools::bfi)
 coefs <- lavaan::lavInspect(fit, what = "x")
 
-lambda <- c(coefs$lambda * sqrt(as.numeric(coefs$psi)))
+lambda <- abs(c(coefs$lambda * sqrt(as.numeric(coefs$psi))))
 sigma <- sqrt(diag(lavaan::lavInspect(fit, what = "x")$theta))
 omega_std_true <- omega_std(lambda, sigma)
+psych::alpha(psychTools::bfi[, 1:5])
 alpha_std_true <- alpha_std(lambda %*% t(lambda) + diag(sigma^2))
 
 ## Simulation starts here.
 set.seed(313)
 n <- c(50, 200, 1000, 5000)
-nreps = 1000
+nreps = 100
 
 sims = sapply(n, function(n) {
   replicate(nreps, {
@@ -24,7 +25,8 @@ sims = sapply(n, function(n) {
     coefs <- lavaan::lavInspect(fit, what = "x")
     lambda <- c(coefs$lambda * sqrt(as.numeric(coefs$psi)))
     sigma <- sqrt(diag(lavaan::lavInspect(fit, what = "x")$theta))
-    c(omega_std = omega_std(lambda, sigma), alpha_std = alpha_std(cov(sim)))
+    c(omega_std = omega_std(lambda, sigma),
+      alpha_std = alpha_std(cov(sim)))
   })
 })
 

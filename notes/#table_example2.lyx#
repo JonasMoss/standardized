@@ -530,5 +530,57 @@ Mean squared error
 
 \end_layout
 
+\begin_layout Standard
+Notes about the bias term: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\overline{\lambda^{2}}-\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+i.) By Chebyshev's inequality, 
+\begin_inset Formula $k\overline{w\lambda}^{2}\geq\overline{(w\lambda)^{2}}$
+\end_inset
+
+ with equality if and only if 
+\begin_inset Formula $w_{i}\lambda_{i}=w_{j}\lambda_{j}$
+\end_inset
+
+, i.e.
+ the weighted model is 
+\begin_inset Formula $\tau$
+\end_inset
+
+-equivalent.
+ Thus the discprepancy will usually be less serious the larger 
+\begin_inset Formula $k$
+\end_inset
+
+ is.
+\end_layout
+
+\begin_layout Standard
+ii.) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha_{w}=\omega-\frac{\overline{(w\lambda)^{2}}-\overline{w\lambda}^{2}}{k\overline{w\lambda}^{2}+\overline{(w\sigma)^{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
