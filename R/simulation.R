@@ -33,11 +33,14 @@ error_gamma <- function(n) {
 #' @param error Distribution of the error variable.
 #' @return Covariance matrix.
 #' @export
-simulate_tau <- function(n, k, lambda = 1, sigma = rep(1, k), latent = stats::rnorm, error = stats::rnorm) {
+simulate_tau <- function(n, k, lambda = 1, sigma = 1,
+                         latent = stats::rnorm, error = stats::rnorm) {
+  lambda <- rep(lambda, length.out = k)
+  sigma <- rep(sigma, length.out = k)
   z <- latent(n, mean = 0, sd = 1)
   eps <- matrix(error(k * n), nrow = n)
-  y <- lambda * z + sweep(eps, 2, sigma, "*")
-  y
+  sweep(matrix(rep(z, k), nrow = n), 2, lambda, "*") +
+   sweep(eps, 2, sigma, "*")
 }
 
 #' Simulate MSE for alpha and standardized alpha for a parallel model.
