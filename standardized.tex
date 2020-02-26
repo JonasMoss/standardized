@@ -584,7 +584,9 @@ is $\tau$-equivalent. This occurs if and only if each $\lambda_{i}/(\lambda_{i}^
 for some $\lambda^{\star}$, that is, when all standardized factor loadings are equal. Of course, this would be an exceptional coincidence. To avoid this unwarranted assumption, use structural equation modeling to estimate $\lambda_{i},\sigma_{i}$, and plug them into
 the formula for the standardized reliability $\omega_s$ \eqref{eq:Standardized reliability}. 
 
-(Have a short simulation here?)
+%% <<<<< Example table start (\label{tab:reliabilites})
+\input{chunks/example_table_omega_alpha}
+%% example table end >>>>>
 
 To recap, my arguments are: (i) You should neither avoid standardization altoghether nor standardizee with $(\lambda_{i}^{2}+\sigma_{i}^{2})^(-1/2)$ nor $1$. You should standardize with $\sigma_i^{-1}$ or use the optimal weights, as this yields better results in the most plausible scenarios. (ii) Even if you decide to standardize with $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$, please avoid standardized alpha, as won't equal $\omega_s$ under any reasonable assumptions.
 
