@@ -187,15 +187,22 @@ the notion of a \emph{$\tau$-equivalent model} \citep[][section 2.13]{Lord1968-a
 factor loadings are equal.
 \begin{prop}
 \label{prop:weighted alpha}. Let $w$ be a vector of weights and
-assume $X$ follows the congeneric model \eqref{eq:congeneric model}. Then $\alpha_{w}\leq\omega_{w}$
-with equality if and only if $wX$ is $\tau$-equivalent, i.e. $\lambda_{i}=\lambda_{j}$
+assume $X$ follows the congeneric model \eqref{eq:congeneric model}. Then 
+\[
+\alpha_{w}=\omega_w-\frac{\overline{(w\lambda)^{2}}-\overline{w\lambda}^{2}}{k\overline{w\lambda}^{2}+\overline{(w\sigma)^{2}}}
+\]
+and $\alpha_w \leq \omega_w$ with equality if and only if $wX$ is $\tau$-equivalent, i.e. $w_i\lambda_{i}=w_j\lambda_{j}$
 for all $i,j$.
 \end{prop}
-
 \begin{proof}
-The result for coefficient alpha is classical, see \citep[][pp. 87 -- 89]{Lord1968-ax}. See the appendix page \pageref{proof:weighted alpha}
+That  $\alpha \leq \omega$ is classical \citep[][pp. 87 -- 89]{Lord1968-ax}. The bias term for coefficient alpha is discussed by \citet{Raykov1997-bu}. See the appendix page \pageref{proof:weighted alpha}
 for a proof.
 \end{proof}
+
+By Chebyshev's inequality, $k\overline{w\lambda}^{2}\geq\overline{(w\lambda)^{2}}$
+with equality if and only if $w_{i}\lambda_{i}=w_{j}\lambda_{j}$,
+i.e. the weighted model is $\tau$-equivalent. Thus the discrepancy
+will usually be less serious the larger $k$ is.
 
 When $w_{i}=\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$, $wX$ is $\tau$-equivalent if only if the standardized factor loadings are equal, and Proposition \ref{prop:weighted alpha} tells us $\alpha_s = \omega_s$ in this case. But $\alpha =\alpha_s$ are equal when both $X$ and $wX$ are $\tau$-equivalent, which happens if and only if both $\lambda_{i}=\lambda_{j}$
 and $\sigma_{i}=\sigma_{j}$. A congeneric model satisfying this strong property is a \emph{parallel model} \citep[][section 2.13]{Lord1968-ax}. 
@@ -205,9 +212,6 @@ The next propositions explores the relationship between coefficient alpha, the s
 \begin{prop}
 \label{prop:Reliabilities.}Assume the congeneric model \eqref{eq:congeneric model}. Let $\alpha$ be coefficient alpha \eqref{eq:Coefficient alpha}, $\alpha_{s}$ be the standardized alpha \eqref{eq:standardized alpha}, and  $\omega$ be the congeneric reliability \eqref{eq:Congeneric reliability}. 
 \begin{enumerate}[label=(\roman*)]
-\item Coefficient alpha equals $$\alpha=\omega-\left(\frac{\overline{\lambda^{2}}-\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right),$$
-and $\alpha\leq\omega$ with equality
-if and only if $\lambda_{i}=\lambda_{j}$ for all $i,j$.
 \item Assume $\lambda_{i}=\lambda_{j}$ and for all $i,j$. Then $\alpha_s \geq \alpha = \omega(X)$, with equality if and only if $\sigma_{i}^{2}=\sigma_{j}^{2}$ for all $i,j$ or $\lambda_i = 0$ for all $i$.
 \item If $k=2$, $\alpha_s\geq\alpha$, with equality if and only if $\lambda_{1}^{2}+\sigma_{1}^{2}=\lambda_{2}^{2}+\sigma_{2}^{2}$ or $\lambda_1 = 0$ or $\lambda_2 = 0$. But if $k>2$, both $\alpha_s>\alpha$
 and $\alpha_s<\alpha$ are possible.
@@ -565,6 +569,7 @@ $\omega$, while it is hard to predict the winner among $\omega$
 and $\omega_{s}$. 
 
 \begin{example}
+\label{exa:reliabilities}
 %% <<<<< Example table start (\label{tab:reliabilites})
 \input{chunks/example_table.tex}
 %% example table end >>>>>
@@ -584,9 +589,12 @@ is $\tau$-equivalent. This occurs if and only if each $\lambda_{i}/(\lambda_{i}^
 for some $\lambda^{\star}$, that is, when all standardized factor loadings are equal. Of course, this would be an exceptional coincidence. To avoid this unwarranted assumption, use structural equation modeling to estimate $\lambda_{i},\sigma_{i}$, and plug them into
 the formula for the standardized reliability $\omega_s$ \eqref{eq:Standardized reliability}. 
 
-%% <<<<< Example table start (\label{tab:reliabilites})
+\begin{example}
+%% <<<<< Example table start (\label{tab:omega_std_alpha_std})
 \input{chunks/example_table_omega_alpha}
 %% example table end >>>>>
+When use $\mathtt{lavaan}$ to estimate $\lambda$ and $\sigma$ for the agreeableness factor on the the $\texttt{bfi}$ data from $\texttt{psychTools}$ \citep{Revelle2019-te}, the data used in Example \ref{exa:reliabilities}. The estimates are $\hat{\lambda} = (0.53, -0.77, -0.99, -0.72, -0.79)$ and $\hat{\sigma} = (1.3, 0.89, 0.85, 1.3, 0.98)$. Using formula \eqref{eq:standardized alpha} and \eqref{eq:Standardized reliability} and flipping the sign of reverse-scored items \eqref{eq:Standardized reliability}, we find $\hat{\omega}_s = 0.72$ and $\hat{\alpha}_s = 0.71$. The bias $\hat{\alpha}_s - \hat{\omega}_s = -0.011$ is not alarmingly high, but the estimator is inconsistent. 
+\end{example}
 
 To recap, my arguments are: (i) You should neither avoid standardization altoghether nor standardizee with $(\lambda_{i}^{2}+\sigma_{i}^{2})^(-1/2)$ nor $1$. You should standardize with $\sigma_i^{-1}$ or use the optimal weights, as this yields better results in the most plausible scenarios. (ii) Even if you decide to standardize with $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$, please avoid standardized alpha, as won't equal $\omega_s$ under any reasonable assumptions.
 
@@ -721,6 +729,20 @@ which implies $w^{T}\lambda=k\lambda_{i}w_{i}$. Then
  & = & \frac{(w^{T}\lambda)^{2}}{(w^{T}\lambda)^{2}+w^{T}\Psi w}
 \end{eqnarray*}
 as claimed.
+
+The bias term for $\alpha$ can be derived as follows:
+\begin{eqnarray*}
+\alpha & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
+ & = & \frac{k}{k-1}\left(1-\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}\right)\\
+ & = & \frac{k}{k-1}\left(\frac{k\overline{\lambda}^{2}-\overline{\lambda^{2}}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right)\\
+ & = & \frac{k\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}-\left(\frac{\overline{\lambda^{2}}-\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right)\\
+ & = & \omega-\left(\frac{\overline{\lambda^{2}}-\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right)
+\end{eqnarray*}
+Since $(\overline{\lambda^{2}}-\overline{\lambda}^{2})/(k\overline{\lambda}^{2}+\overline{\sigma^{2}})\geq0$
+and equals $0$ if and only if all $\lambda$s are equal by Jensen's inequality, $\alpha=\omega$
+iff all $\lambda$s are equal and is otherwise an underestimate.
+
+
 \end{proof}
 
 
@@ -759,19 +781,7 @@ which happens if and only if
 \end{proof}
 
 \begin{proof}[Proof of Proposition \ref{prop:Reliabilities.}]\label{proof:Reliabilities.}
-We start with (i), where
-\begin{eqnarray*}
-\alpha & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
- & = & \frac{k}{k-1}\left(1-\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}\right)\\
- & = & \frac{k}{k-1}\left(\frac{k\overline{\lambda}^{2}-\overline{\lambda^{2}}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right)\\
- & = & \frac{k\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}-\left(\frac{\overline{\lambda^{2}}-\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right)\\
- & = & \omega-\left(\frac{\overline{\lambda^{2}}-\overline{\lambda}^{2}}{k\overline{\lambda}^{2}+\overline{\sigma^{2}}}\right)
-\end{eqnarray*}
-Since $(\overline{\lambda^{2}}-\overline{\lambda}^{2})/(k\overline{\lambda}^{2}+\overline{\sigma^{2}})\geq0$
-and equals $0$ if and only if all $\lambda$s are equal by Jensen's inequality, $\alpha=\omega$
-iff all $\lambda$s are equal and is otherwise an underestimate.
-
-(ii) From \eqref{eq:Alpha-alpha_s inequality} and $\lambda_{i}=\lambda$
+(i) From \eqref{eq:Alpha-alpha_s inequality} and $\lambda_{i}=\lambda$
 for all $i$, we need to show
 \[
 \lambda^{2}\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}\geq\lambda^{2}\sum_{i\neq j}\frac{1}{\sum_{i=1}^{k}\left(\lambda^{2}+\sigma_{i}^{2}\right)/k}
@@ -793,7 +803,7 @@ with equality if and only if $\sigma_{i}^{2}=\sigma_{j}^{2}$ for
 all $i,j$. Since \eqref{eq:Alpha-alpha_s inequality} is true when
 $\lambda=0$ too we are done.
 
-As for (iii), from the proof of (i) and (ii) observe that $\alpha_{s}\geq\alpha$
+As for (ii). Observe that $\alpha_{s}\geq\alpha$
 if and only if
 \begin{equation}
 \label{eq:Alpha-alpha_s inequality}
