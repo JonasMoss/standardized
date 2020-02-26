@@ -75,6 +75,8 @@
 \DeclareMathOperator{\diag}{diag} 
 \DeclareMathOperator{\MSE}{\textsc{MSE}} 
 
+\renewcommand{\sqrt}[1]{{(#1)^{1/2}}}
+
 \DeclareMathOperator{\argmax}{argmax}
 \newcommand{\geomean}{NA}
 
@@ -225,22 +227,22 @@ Most of (i) -- (iv) have been known for a while. See page \pageref{proof:Reliabi
 
 If $\lambda_{i}=\lambda_{j}$ for all $i,j$ and $\sigma_{i}=\sigma_{j}$
 model \eqref{eq:congeneric model} is called a parallel model \citep[][section 2.13]{Lord1968-ax}. If $\lambda_{i}=\lambda_{j}$
-for all $i,j$ it is a $\tau$-equivalent model \citep[][section 2.13]{Lord1968-ax}. The take-messages of Proposition \ref{prop:Reliabilities.} are:
+for all $i,j$ it is a $\tau$-equivalent model \citep[][section 2.13]{Lord1968-ax}. Proposition \ref{prop:weighted alpha} and \ref{prop:Reliabilities.} have a number of well-established ake-home messages:
 
 \begin{enumerate}[label=(\alph*)]
 \item $\alpha = \omega$ under the $\tau$-equivalent model and,
 \item $\alpha_s = \omega$ under the parallel model and,
-\item $\alpha \leq \omega(X)$, hence coefficient alpha is a lower bound for the congeneric reliability and,
-\item $\alpha_s \geq \alpha = \omega(X)$ under the $\tau$-equivalent model.
+\item $\alpha \leq \omega$, hence the weighted coefficient alpha is a lower bound for the weighted congeneric reliability and,
+\item $\alpha_s \geq \alpha = \omega$ under the $\tau$-equivalent model.
 \end{enumerate}
 
-Of these, (a) and (b) are the most important, as they give use a way to estimate the congeneric reliability $\omega$ \eqref{eq:Congeneric reliability} using only a simple function of $S$. The intuitive estimate of $\omega$ is the plug-in estimator, which requires us to estimate $\lambda$ and $\sigma$ first. This is usually a more complicated procedure involving Newton-Raphson and so on [[ref]]. Just be aware this advantage of $\alpha_s$ and $\alpha$ is not decisive, as it is easy to estimate $\lambda$ and $\Psi$ these days using for instance the \texttt{R} \citep{Team2013-tt} package \texttt{lavaan} \citep{Rosseel2012-yg}. And estimating $\omega$ this way allows us to forego the unrealistic assumptions of $\tau$-equivalence and parallel test items altogether.
+Of these, (a) and (b) are the most important, as they give use a way to estimate the congeneric reliability $\omega$ \eqref{eq:Congeneric reliability} using only a simple function of $S$. The intuitive estimate of $\omega$ is the plug-in estimator, which requires us to estimate $\lambda$ and $\sigma$ first. This is usually a complicated procedure involving iterative algorithms and complex software. Just be aware this advantage of $\alpha_s$ and $\alpha$ is not decisive, as it is easy to estimate $\lambda$ and $\sigma$ these days using for instance the \texttt{R} \citep{Team2013-tt} package \texttt{lavaan} \citep{Rosseel2012-yg}. Estimating $\omega$ using the plug-in estimator allows us to forego the unrealistic assumptions of $\tau$-equivalence and parallel test items altogether.
 
-I emphasize we do not have to assume normality or continuous $X$s to get Proposition \ref{prop:Reliabilities.}. In fact, none of the derivations in Proposition \ref{prop:Reliabilities.} involve the distributions of $Z$ and $\epsilon$. This is contrary to some claims about coefficient alpha in the literature, e.g. \citep[][p.415]{McNeish2018-vu} and \citep[][p.21]{Zumbo2007-ap}. \citet{Raykov2019-yr} lamented this widespread misunderstanding, while \citet[][p. 1060]{Chalmers2018-fj} investigates its source. That said, while continuous data is no assumption for the coefficient alpha or the congeneric reliability, the implicitly assumed congeneric model \eqref{eq:congeneric model} is unrealistic for discrete data. 
+I emphasize we do not have to assume normality or continuous $X$s to get Proposition \ref{prop:weighted alpha}. In fact, none of the derivations in Proposition \ref{prop:weighted alpha} involve the distributions of $Z$ and $\epsilon$. This is contrary to some claims about coefficient alpha in the literature, e.g. \citep[][p.415]{McNeish2018-vu} and \citep[][p.21]{Zumbo2007-ap}. \citet{Raykov2019-yr} lamented this widespread misunderstanding, while \citet[][p. 1060]{Chalmers2018-fj} investigates its source. That said, while continuous data is no assumption for the coefficient alpha or the congeneric reliability, the implicitly assumed congeneric model \eqref{eq:congeneric model} is unrealistic for discrete data. 
 
-While $\alpha_s$ is an upper bound for $\alpha$ when $k = 2$ and under the $\tau$-equivalent model, it does not bound $\alpha$ in either direction otherwise, see Proposition \ref{prop:Reliabilities.} (i - iii). Again, this is contrary to claims in the literature such as that of \citep[][p.348]{Osburn2000-jd} \enquote{When the components of a composite measure are congeneric, standardized alpha will always exceed the true reliability}. See \citet[][p.450]{Falk2011-ae} for a clearly laid out example of $\alpha>\alpha_s$.
+While $\alpha_s$ is an upper bound for $\alpha$ when $k = 2$ and under the $\tau$-equivalent model, it does not bound $\alpha$ in either direction otherwise, see Proposition \ref{prop:Reliabilities.}. Again, this is contrary to claims in the literature such as that of \citep[][p.348]{Osburn2000-jd} \enquote{When the components of a composite measure are congeneric, standardized alpha will always exceed the true reliability}. See \citet[][p.450]{Falk2011-ae} for a clearly laid out example of $\alpha>\alpha_s$.
 
-Coefficient alpha equals the congeneric reliability if and only if all the factor loadings $\lambda$ are equal, see Proposition \ref{prop:Reliabilities.} (i). But there is no simple necessary and sufficient criterion for $\alpha_s = \omega$: the parallel model is merely sufficient.  the proof of Proposition \ref{prop:Reliabilities.} (iv) (page \pageref{proof:Reliabilities.} for a method to generate cases when $\alpha_s = \omega$ but the model is not parallel. Still, these causes are like lucky conincidences. It would be preposterous to assume $\alpha_s = \omega$ for unknown parameter values without assuming the parallel model.
+By Proposition \ref{prop:weighted alpha}, coefficient alpha equals the congeneric reliability if and only if all the factor loadings $\lambda$ are equal. But there is no simple necessary and sufficient criterion for $\alpha_s = \omega$: the parallel model is merely sufficient.  the proof of Proposition \ref{prop:Reliabilities.} (iv) (page \pageref{proof:Reliabilities.} for a method to generate cases when $\alpha_s = \omega$ but the model is not parallel. Still, these causes are like lucky conincidences. It would be preposterous to assume $\alpha_s = \omega$ for unknown parameter values without assuming the parallel model.
 
 Let us proceed to the sample variants of coefficient alpha and standardized
 alpha. Let $S$ be a sample covariance matrix based on
