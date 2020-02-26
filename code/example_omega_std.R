@@ -9,13 +9,13 @@ coefs <- lavaan::lavInspect(fit, what = "x")
 lambda <- abs(c(coefs$lambda * sqrt(as.numeric(coefs$psi))))
 sigma <- sqrt(diag(lavaan::lavInspect(fit, what = "x")$theta))
 omega_std_true <- omega_std(lambda, sigma)
-psych::alpha(psychTools::bfi[, 1:5])
-alpha_std_true <- alpha_std(lambda %*% t(lambda) + diag(sigma^2))
+alpha_std_true <- psych::alpha(psychTools::bfi[, 1:5], check.keys=TRUE)$total$std.alpha
+alpha_std_true - omega_std_true
 
 ## Simulation starts here.
 set.seed(313)
 n <- c(50, 200, 1000, 5000)
-nreps = 100
+nreps = 1000
 
 sims = sapply(n, function(n) {
   replicate(nreps, {

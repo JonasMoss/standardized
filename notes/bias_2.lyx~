@@ -1,0 +1,105 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha_{w} & = & \frac{k}{k-1}\left(1-\frac{w^{T}(\diag\Sigma)w}{w^{T}\Sigma w}\right)\\
+ & = & \frac{k}{k-1}\frac{(w^{T}\lambda)^{2}-(w^{2})^{T}\lambda^{2}}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})}\\
+ & = & \frac{k}{k-1}\left(\frac{(w^{T}\lambda)^{2}-(w^{T}\lambda)^{2}/k+(w^{T}\lambda)^{2}/k-(w^{2})^{T}\lambda^{2}}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})}\right)\\
+ & = & \omega_{w}-\frac{k}{k-1}\left(\frac{(w^{2})^{T}\lambda^{2}-(w^{T}\lambda)^{2}/k}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})}\right)\\
+ & = & \omega_{w}-\frac{k}{k-1}\left(\frac{\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2}}{k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2})/(k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

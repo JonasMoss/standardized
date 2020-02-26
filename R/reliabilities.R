@@ -73,3 +73,18 @@ omega_std <- function(lambda, sigma) {
     mean(sigma^2 / (lambda^2 + sigma^2))
   a / (a + 1)
 }
+
+#' The bias term for the weighted alpha.
+#'
+#' The bias term is described in the paper.
+#'
+#' @param lambda Vector of loadings.
+#' @param sigma Vector of standard deviations.
+#' @param w Vector of weights.
+#' @return The bias term, i.e. B such that omega = alpha + B.
+
+bias = function(lambda, sigma, w = rep(1, length(lambda))) {
+  k = length(lambda)
+  k / (k - 1) * (- crossprod(w, lambda)^2/k + crossprod(w^2, lambda^2)) /
+    (crossprod(w, lambda)^2 + crossprod(w^2, sigma^2))
+}
