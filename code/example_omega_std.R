@@ -47,12 +47,13 @@ tab = print(xtable::xtable(tab), include.colnames = FALSE, hline.after = NULL,
       sanitize.text.function = identity,
       add.to.row = list(pos = list(0, 0, 2, 2),
       command = c("\\multicolumn{5}{c}{Mean squared error times $n$}\\tabularnewline \n",
-                  "& $n = 50$ & $n = 200$ & $n = 1000$ & $n = 5000$ \n ",
-                  "\\multicolumn{5}{c}{Bias}\\tabularnewline \n",
+                  "& $n = 50$ & $n = 200$ & $n = 1000$ & $n = 5000$ \\\\ \n ",
+                  "\\multicolumn{5}{c}{Bias}\\tabularnewline \\\\ \n",
                   "& $n = 50$ & $n = 200\ & $n = 1000$ & $n = 5000$ \n ")))
 
-tab = gsub("alpha_s", "$\\alpha_s$", tab, fixed = TRUE)
-tab = gsub("omega_s", "$\\omega_s$", tab, fixed = TRUE)
-tab = gsub("alpha_s.1", "$\\alpha_s$", tab, fixed = TRUE)
-tab = gsub("omega_s.1", "$\\omega_s$", tab, fixed = TRUE)
+tab = gsub("alpha.1", "$\\alpha_s$", tab, fixed = TRUE)
+tab = gsub("omega.1", "$\\omega_s$", tab, fixed = TRUE)
+tab = gsub("alpha", "$\\alpha_s$", tab, fixed = TRUE)
+tab = gsub("omega", "$\\omega_s$", tab, fixed = TRUE)
+
 cat(tab, file = "chunks/example_table_omega_alpha.tex")
