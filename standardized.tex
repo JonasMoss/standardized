@@ -231,7 +231,7 @@ A congeneric model satisfying the conditions of Proposition \ref{prop:Reliabilit
 
 The facts (i) $\alpha = \omega$ under the $\tau$-equivalent model and (ii) $\alpha_s = \omega$ under the parallel model are important since they show us a way to estimate the congeneric reliability $\omega$ \eqref{eq:Congeneric reliability} using a simple function of the sample covariance $S$. The intuitive estimate of $\omega$ is the plug-in estimator, which requires us to estimate $\lambda$ and $\sigma$ first. This is usually a complicated procedure involving iterative algorithms and complex software. This advantage of $\alpha_s$ and $\alpha$ is not decisive these days, as it is easy to estimate $\lambda$ and $\sigma$ using for instance the \texttt{R} \citep{Team2013-tt} package \texttt{lavaan} \citep{Rosseel2012-yg}. Estimating $\omega$ using the plug-in estimator allows us to forego the unrealistic assumptions of $\tau$-equivalence and parallel test items altogether.
 
-I emphasize we do not have to assume normality or continuous $X$s to get Proposition \ref{prop:weighted alpha}. In fact, none of the derivations in Proposition \ref{prop:weighted alpha} involve the distributions of $Z$ and $\epsilon$. This is contrary to some claims about coefficient alpha in the literature, e.g. \citep[][p.415]{McNeish2018-vu} and \citep[][p.21]{Zumbo2007-ap}. \citet{Raykov2019-yr} lamented this widespread misunderstanding, while \citet[][p. 1060]{Chalmers2018-fj} investigates its source. That said, while continuous data is no assumption for the coefficient alpha or the congeneric reliability, the implicitly assumed congeneric model \eqref{eq:congeneric model} is unrealistic for discrete data. 
+I emphasize we do not have to assume normality or continuous $X$s to get Proposition \ref{prop:weighted alpha}. In fact, none of the derivations in Proposition \ref{prop:weighted alpha} involve the distributions of $Z$ and $\epsilon$. This is contrary to some claims about coefficient alpha in the literature, e.g. \citep[][p.415]{McNeish2018-vu}, \citep[][p.21]{Zumbo2007-ap} and \citep[][p. 1185]{Zumbo2019-lm}. \citet{Raykov2019-yr} lamented this widespread misunderstanding, while \citet[][p. 1060]{Chalmers2018-fj} investigated its source. That said, while continuous data is no assumption for the coefficient alpha or the congeneric reliability, the implicitly assumed congeneric model \eqref{eq:congeneric model} is unrealistic for discrete data. 
 
 While $\alpha_s$ is an upper bound for $\alpha$ when $k = 2$ and under the $\tau$-equivalent model, it does not bound $\alpha$ in either direction otherwise, see Proposition \ref{prop:Reliabilities.}. Again, this is contrary to claims in the literature such as that of \citep[][p.348]{Osburn2000-jd} \enquote{When the components of a composite measure are congeneric, standardized alpha will always exceed the true reliability}. See \citep[][p.450]{Falk2011-ae} for a clearly laid out example of $\alpha>\alpha_s$.
 
@@ -415,7 +415,7 @@ and $Z$, or $\omega=\Cor^{2}(\hat{Z},Z)$. Assume
 we know the values of $\lambda$ and $\sigma$. When you use unstandardized
 scores, the the predictor of $Z$ is $\hat{Z}=w_{0}\sum_{i=1}^{k}X_{i}$
 for some $w_{0}$ (recall Proposition X). When you use standardized
-scores, your predictor is $\hat{Z}^{\star}=w_{0}\sum_{i=1}^{k}\sqrt{\lambda^{2}+\sigma^{2}}^{-1}X_{i}$.
+scores, your predictor is $\hat{Z}^{\star}=w_{0}\sum_{i=1}^{k}(\lambda^{2}+\sigma^{2})^{-1/2}X_{i}$.
 These predictors are not the same, and their reliabilites are not
 the same either.
 
