@@ -191,21 +191,21 @@ factor loadings are equal.
 \begin{prop}
 \label{prop:weighted alpha}. Let $w$ be a vector of weights and
 assume $X$ follows the congeneric model \eqref{eq:congeneric model}. Then 
-\[
-\alpha_{w}=\omega_{w}-\frac{k}{k-1}\left(\frac{\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2}}{k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}}}\right)
-\]
+\begin{equation}
+\alpha_{w}=\omega_{w}-\frac{k}{k-1}\left(\frac{\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2}}{k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}}}\right)\label{eq:alpha-omega discrepancy}
+\end{equation}
 and $\alpha_w \leq \omega_w$ with equality if and only if $wX$ is $\tau$-equivalent, i.e. $w_i\lambda_{i}=w_j\lambda_{j}$
 for all $i,j$.
 \end{prop}
 \begin{proof}
-That  $\alpha \leq \omega$ is classical \citep[][pp. 87 -- 89]{Lord1968-ax}. The bias term for coefficient alpha is discussed by \citet{Raykov1997-bu}. See the appendix page \pageref{proof:weighted alpha}
+That  $\alpha \leq \omega$ is classical \citep[][pp. 87 -- 89]{Lord1968-ax}. See the appendix page \pageref{proof:weighted alpha}
 for a proof.
 \end{proof}
 
 By Chebyshev's inequality, $k\overline{w\lambda}^{2}\geq\overline{(w\lambda)^{2}}$
 with equality if and only if $w_{i}\lambda_{i}=w_{j}\lambda_{j}$,
 i.e. the weighted model is $\tau$-equivalent. Thus the discrepancy
-will usually be less serious the larger $k$ is.
+will usually be less serious the larger $k$ is. The discrepancy term in \eqref{eq:alpha-omega discrepancy} for the special case of coefficient alpha is extensively discussed by \citet{Raykov1997-bu}. 
 
 Proposition \ref{prop:weighted alpha} is a minor generalization of the two most frequently mentioned fact about coefficient alpha and its main motivations. For $\alpha = \omega$ under the $\tau$-equivalent model and
 $\alpha \leq \omega$, hence the coefficient alpha is a lower bound for the congeneric reliability.
@@ -684,6 +684,7 @@ $\hat{Z}_{2}$. In this case we also want to estimate the correlation
 between $\Cor(\hat{Z}_{1},\hat{Z}_{2})$ for fixed
 $w_{1},w_{2}$, not the correlation for the optimal $w_{1}$ and $w_{2}$. \citet{Chalmers2018-fj} made similar points and 
 
+Estimation of the polychoric matrix is itself a complicated affair that requires the estimation of a  
 \section{Appendix}
 
 \begin{proof}[Proof of Proposition \ref{prop:reliability motivation}]\label{proof:reliability motivation}
