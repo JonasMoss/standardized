@@ -1,0 +1,715 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+(Structure: Introduce the problem.
+\end_layout
+
+\begin_layout Standard
+Subsection: Arguments against ordinal alpha
+\end_layout
+
+\begin_layout Standard
+Subsection: A reliability coefficient for the discretized model
+\end_layout
+
+\begin_layout Section
+Ordinal alpha
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Ordinal alpha"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Recall the congeneric model (ref)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X=\lambda Z+\Psi^{1/2}\epsilon
+\]
+
+\end_inset
+
+Consider the scenario when we do not observe the 
+\begin_inset Formula $X$
+\end_inset
+
+s directly, but rather the discretized 
+\begin_inset Formula $X$
+\end_inset
+
+s according to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Y_{i}=k1[\tau_{i(k-1)}\leq X_{i}\leq\tau_{ik}]\label{eq:discretization model}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $-\infty=\tau_{i0}<\tau_{i1}<\ldots<\tau_{im_{i}}=\infty$
+\end_inset
+
+ a thresholds for each 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ This is a common model for Likert scales with 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+ levels for the 
+\begin_inset Formula $i$
+\end_inset
+
+th item.
+ If 
+\begin_inset Formula $X$
+\end_inset
+
+ is multivariate normal, the correlation matrix 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ is point-indentified from the distribution of 
+\begin_inset Formula $Y$
+\end_inset
+
+, and is called the 
+\emph on
+polychoric correlation
+\emph default
+ [[cite]].
+ It can be estimated using maximum likelihood directly 
+\emph on
+[[cite Olsson.]] 
+\emph default
+or a two-step procedure.
+\end_layout
+
+\begin_layout Standard
+Ganderman and Zumbo propose the 
+\emph on
+ordinal alpha
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\alpha_{o}=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\label{eq:ordinal alpha}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\Phi=\Cor X$
+\end_inset
+
+ is polychoric correlation coefficient.
+ Ordinal alpha is a standardized alpha, but it is based on the latent correlatio
+n matrix between the unobserved 
+\begin_inset Formula $X$
+\end_inset
+
+ instead of the observed correlation matrix between the 
+\begin_inset Formula $Y$
+\end_inset
+
+s.
+ The population values of the ordinal alpha and the standardized alpha are
+ not the same in general.
+\end_layout
+
+\begin_layout Standard
+A related notion is the 
+\emph on
+ordinal reliability [[is it ever discussed?]], 
+\emph default
+the standardized reliability (ref) based on the polychoric correlation coefficie
+nt.
+ Its definition is that 
+\begin_inset Formula 
+\begin{equation}
+\omega_{o}=\frac{k\lambda_{i}^{\star}}{k\lambda_{i}^{\star}+\sigma_{i}^{\star}}\label{eq:ordinal omega}
+\end{equation}
+
+\end_inset
+
+were 
+\begin_inset Formula $\lambda_{i}^{\star}=\lambda_{i}/\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{i}^{\star}=\sigma_{i}/\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The motivation for ordinal alpha is: Zumbo et al.
+ (2007).
+ ‘‘coefficient alpha (and KR-20) are correlation-based statistics and hence
+ assume continuous data’’ (p.
+ 27).
+ (Similar quote from McNeish)
+\end_layout
+
+\begin_layout Standard
+Chalmers persuasively argues against the use of ordinal alpha 
+\end_layout
+
+\begin_layout Standard
+I have three arguments against ordinal alpha:
+\end_layout
+
+\begin_layout Enumerate
+Ordinal alpha is practically useless.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+It does not estimate coefficient alpha, even under the parallel model.
+ (Connect to McNeish.)
+\end_layout
+
+\begin_layout Enumerate
+It does not estimate the standardized coefficient alpha, even under the
+ appropriate model.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The quantity it estimates has not practical use, as it is the correlation
+ between to unobserved quantities:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+It is not meaningfully connected to any 
+\begin_inset Formula $\sum w_{i}X_{i}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+It cannot be used to correct for attenuation.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+If you believe in the model discretization model 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:discretization model"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ In this any reliabiltiy based on the congeneric model for 
+\begin_inset Formula $Y$
+\end_inset
+
+ is inapprioriate.
+ The proper way would be to form a prediction 
+\begin_inset Formula $\hat{X}$
+\end_inset
+
+ from 
+\begin_inset Formula $Y$
+\end_inset
+
+, form the weighted score 
+\begin_inset Formula $Z=\sum w_{i}\hat{X}_{i}$
+\end_inset
+
+ from it, and calculate the correlation 
+\begin_inset Formula $\Cor^{2}(\widehat{Z},Z)$
+\end_inset
+
+.
+ This reliability coefficient is concrete and useful.
+ Moreover, it counters the fourth misconception of Chalmers, as it will
+ increase in 
+\begin_inset Formula $m$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+If you want the standardized reliability of the unobserved 
+\begin_inset Formula $X$
+\end_inset
+
+, the ordinal 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is a better choice.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The conditions required for standardized alpha to equal the standardized
+ reliability are still needed.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Can be estimated using e.g.
+ 
+\begin_inset Formula $\mathtt{lavaan}$
+\end_inset
+
+ with not much added complexity.
+\end_layout
+
+\begin_layout Enumerate
+If you want the congeneric reliability of the unobserved 
+\begin_inset Formula $X$
+\end_inset
+
+, you need the assumption of a parallel model, as the congeneric reliability
+ cannot be recovered from 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ without it.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Ordinal alpha depends on unverifiable assumptions about the multivariate
+ normality of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The polychoric correlation matrix is extremely sensitive to the normality
+ assumption.
+ For instance, with no assumptions except continuity, the tetrachoric correlatio
+ns can take any value in 
+\begin_inset Formula $(-1,1)$
+\end_inset
+
+.
+ With the stronger assumption of normal marginals, the bounds for the correlatio
+ns barely improve.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Estimator
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Cor^{2}(f(Y),Z)
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $\widehat{X}_{i}\mid Y_{i}=k$
+\end_inset
+
+ be the mean of a standard normal distribution truncated to 
+\begin_inset Formula $[\tau_{i(k-1)},\tau_{ik}]$
+\end_inset
+
+, or equivalently:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\widehat{X}_{i}=-\frac{\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})}{\Phi(\tau_{iY_{i}})-\Phi(\tau_{i(Y_{i}-1)})}\label{eq:Predictor of X}
+\end{equation}
+
+\end_inset
+
+The correlation 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Cov(\sum\widehat{X}_{i},Z) & = & E[\Cov(\sum\widehat{X}_{i},Z\mid\{Y_{i}\})]+\Cov(E\left[\sum\widehat{X}_{i}\mid\{Y_{i}\}\right],E\left[Z\mid\{Y_{i}\}\right])\\
+ & = & -\Cov\left(\sum\frac{\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})}{\Phi(\tau_{iY_{i}})-\Phi(\tau_{i(Y_{i}-1)})},E\left[Z\mid\{Y_{i}\}\right]\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The expectation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+E\left[Z\mid\{Y_{i}=k_{i}\}\right] & = & E\left[Z\mid\{Y_{i}\}\right]\\
+ & = & E\left[E\left[Z\mid X\right]\mid\{Y_{i}\}\right]
+\end{eqnarray*}
+
+\end_inset
+
+The expectation of 
+\begin_inset Formula $E(Z\mid X)$
+\end_inset
+
+, under normality, is merely the Thurstone regression scores (cite):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(Z\mid X)=\sum_{i=1}^{k}v_{i}X_{i}
+\]
+
+\end_inset
+
+While the mean of this one is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E[E(Z\mid X)\mid\{Y_{i}\}]=-\sum_{i=1}^{k}v_{i}\frac{\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})}{\Phi(\tau_{iY_{i}})-\Phi(\tau_{i(Y_{i}-1)})}
+\]
+
+\end_inset
+
+And 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Cov(\sum w_{i}\widehat{X}_{i},Z) & = & \Cov\left(\sum_{i=1}^{k}\widehat{X}_{i},\sum_{i=1}^{k}v_{i}\widehat{X}_{i}\right)\\
+ & = & w^{T}\Xi v
+\end{eqnarray*}
+
+\end_inset
+
+Where 
+\begin_inset Formula $\Xi$
+\end_inset
+
+ is the covariance matrix of 
+\begin_inset Formula $\widehat{X}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The correlation is 
+\begin_inset Formula 
+\[
+\frac{w^{T}\Xi v}{\sqrt{w^{T}\Xi w}}
+\]
+
+\end_inset
+
+and the squared correlation is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{(w^{T}\Xi v)^{2}}{w^{T}\Xi w}
+\]
+
+\end_inset
+
+Where 
+\begin_inset Formula 
+\[
+w_{i}=\frac{\lambda_{i}}{\sigma_{j}^{2}(1+k\overline{\lambda\sigma^{-2}})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Under the parallel model, 
+\begin_inset Formula $w=w_{0}\mathbf{i}$
+\end_inset
+
+ and the squared correlation is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{0}^{2}\mathbf{i}^{T}\Xi\mathbf{i}=\frac{\lambda^{2}\mathbf{i}^{T}\Xi\mathbf{i}}{\left(k\lambda^{2}+\sigma^{2}\right)^{2}}
+\]
+
+\end_inset
+
+and since 
+\begin_inset Formula $\mathbf{i}^{T}\Xi\mathbf{i}=k\left(k\lambda^{2}+\sigma^{2}\right)$
+\end_inset
+
+ in the limit, for this to work.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{0}^{2}\mathbf{i}^{T}\Xi\mathbf{i}=\frac{k\lambda^{2}}{k\lambda^{2}+\sigma^{2}}
+\]
+
+\end_inset
+
+in the limit, as we wanted.
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $Z=\sum_{i=1}^{k}w_{i}\hat{X}_{i}$
+\end_inset
+
+ with 
+\begin_inset Formula $\hat{X}$
+\end_inset
+
+ defined as in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Predictor of X"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Theorem
+(i) Then the reliability of 
+\begin_inset Formula $\hat{Z}$
+\end_inset
+
+ as a predictor of 
+\begin_inset Formula $Z$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{equation}
+\omega'=\frac{(w^{T}\Xi v)^{2}}{w^{T}\Xi w}\label{eq:Omega prim}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $v_{i}=\lambda_{i}/\sigma_{j}^{2}(1+k\overline{\lambda\sigma^{-2}}),\:i=1,\ldots,k$
+\end_inset
+
+ are the Thurstone weights for 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Theorem
+(ii) The optimal weights make
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\[
+\omega_{H}'=\lambda_{\max}(\Xi^{1/2}vv^{T}\Xi^{1/2})
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda_{\max}(V)$
+\end_inset
+
+ is the maximal eigenvalue of them matrix 
+\begin_inset Formula $V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+(iii) When the model is parallel and 
+\begin_inset Formula $w=\mathbf{i}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{equation}
+\omega'=\frac{\lambda^{2}}{\left(k\lambda^{2}+\sigma^{2}\right)^{2}}\mathbf{i}^{T}\Xi\mathbf{i}.\label{eq:Alpha}
+\end{equation}
+
+\end_inset
+
+In this case, 
+\begin_inset Formula $\omega'=\alpha\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\left(k\lambda^{2}+\sigma^{2}\right)k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Comparison of 
+\begin_inset Formula $\omega'$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega_{s}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Short simulation showing how it converges when 
+\begin_inset Formula $k\to\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $w^{T}(Xvv^{T}X)w=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "C:/GitHub/standardized/standardized"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
