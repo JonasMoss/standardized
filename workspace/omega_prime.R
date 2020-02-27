@@ -33,6 +33,9 @@ omega_prime_hat = function(y) {
   # This one find alpha prime.
   w0 = mean(lambda)/(k*mean(lambda)^2 + mean(sigma^2))
   sum(Xi) * w0^2
+
+  w = lambda / (sigma^2 * (1 + sum(lambda * 1/sigma^2)))
+  crossprod(rep(1, k), Xi %*% w)^2 / sum(Xi)
 }
 
 omega_prime(lambda, sigma, tau) {

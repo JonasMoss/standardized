@@ -48,9 +48,9 @@ figs-within-sections
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine basic
-\cite_engine_type default
-\biblio_style plain
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -214,11 +214,10 @@ s.
 \begin_layout Standard
 A related notion is the 
 \emph on
-ordinal reliability [[is it ever discussed?]], 
+ordinal reliability, 
 \emph default
-the standardized reliability (ref) based on the polychoric correlation coefficie
-nt.
- Its definition is that 
+the standardized reliability based on the polychoric correlation coefficient.
+ Its definition is 
 \begin_inset Formula 
 \begin{equation}
 \omega_{o}=\frac{k\lambda_{i}^{\star}}{k\lambda_{i}^{\star}+\sigma_{i}^{\star}}\label{eq:ordinal omega}
@@ -404,176 +403,108 @@ Estimator
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\Cor^{2}(f(Y),Z)
-\]
-
-\end_inset
-
 Let 
-\begin_inset Formula $\widehat{X}_{i}\mid Y_{i}=k$
+\begin_inset Formula $\widehat{X}_{i}$
 \end_inset
 
  be the mean of a standard normal distribution truncated to 
-\begin_inset Formula $[\tau_{i(k-1)},\tau_{ik}]$
+\begin_inset Formula $(\tau_{i(Y_{i}-1)},\tau_{iY_{i}}]$
 \end_inset
 
-, or equivalently:
+, or equivalently
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\widehat{X}_{i}=-\frac{\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})}{\Phi(\tau_{iY_{i}})-\Phi(\tau_{i(Y_{i}-1)})}\label{eq:Predictor of X}
+\widehat{X}_{i}=-\frac{\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})}{\Phi(\tau_{iY_{i}})-\Phi(\tau_{i(Y_{i}-1)})},\label{eq:Predictor of X}
 \end{equation}
 
 \end_inset
 
-The correlation 
-\begin_inset Formula 
-\begin{eqnarray*}
-\Cov(\sum\widehat{X}_{i},Z) & = & E[\Cov(\sum\widehat{X}_{i},Z\mid\{Y_{i}\})]+\Cov(E\left[\sum\widehat{X}_{i}\mid\{Y_{i}\}\right],E\left[Z\mid\{Y_{i}\}\right])\\
- & = & -\Cov\left(\sum\frac{\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})}{\Phi(\tau_{iY_{i}})-\Phi(\tau_{i(Y_{i}-1)})},E\left[Z\mid\{Y_{i}\}\right]\right)
-\end{eqnarray*}
+see 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "Section 10.1"
+key "Johnson1994-ag"
+literal "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-The expectation
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-E\left[Z\mid\{Y_{i}=k_{i}\}\right] & = & E\left[Z\mid\{Y_{i}\}\right]\\
- & = & E\left[E\left[Z\mid X\right]\mid\{Y_{i}\}\right]
-\end{eqnarray*}
-
+ for the formula for the expectation of a truncated normal.
+ This is the natural predictor of 
+\begin_inset Formula $X_{i}$
 \end_inset
 
-The expectation of 
-\begin_inset Formula $E(Z\mid X)$
+ given 
+\begin_inset Formula $Y_{i}$
 \end_inset
 
-, under normality, is merely the Thurstone regression scores:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-E(Z\mid X)=\sum_{i=1}^{k}w_{i}X_{i}
-\]
-
+, as it minimizes the mean squared error.
+ A natural predictor of 
+\begin_inset Formula $Z$
 \end_inset
 
-While the mean of this one is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-E[E(Z\mid X)\mid\{Y_{i}\}]=-\sum_{i=1}^{k}w_{i}\frac{\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})}{\Phi(\tau_{iY_{i}})-\Phi(\tau_{i(Y_{i}-1)})}
-\]
-
+ given 
+\begin_inset Formula $Y$
 \end_inset
 
-And 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\Cov(\sum w_{i}\widehat{X}_{i},Z) & = & \Cov\left(\sum_{i=1}^{k}\widehat{X}_{i},\sum_{i=1}^{k}v_{i}\widehat{X}_{i}\right)\\
- & = & w^{T}\Xi v
-\end{eqnarray*}
-
+ is a linear function of 
+\begin_inset Formula $\hat{X}_{i}$
 \end_inset
 
-Where 
-\begin_inset Formula $\Xi$
-\end_inset
-
- is the covariance matrix of 
-\begin_inset Formula $\widehat{X}$
-\end_inset
-
-.
+, i.e.
  
-\end_layout
+\begin_inset Formula $\sum_{i=1}^{k}w_{i}\hat{X}_{i}$
+\end_inset
 
-\begin_layout Standard
-The correlation is 
-\begin_inset Formula 
-\[
-\frac{w^{T}\Xi v}{\sqrt{w^{T}\Xi w}}
-\]
+ for some weights 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+, which gives rise to the analogue of the weighted reliability (ref) in
+ the context of the discretization model 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:discretization model"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-and the squared correlation is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{(w^{T}\Xi v)^{2}}{w^{T}\Xi w}
-\]
-
+ when 
+\begin_inset Formula $X$
 \end_inset
 
-Where 
-\begin_inset Formula 
-\[
-w_{i}=\frac{\lambda_{i}}{\sigma_{j}^{2}(1+k\overline{\lambda\sigma^{-2}})}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Under the parallel model, 
-\begin_inset Formula $w=w_{0}\mathbf{i}$
-\end_inset
-
- and the squared correlation is 
+ is multivariate normal with standard normal marginals.
+ Define the weighted ordinal reliability as
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-w_{0}^{2}\mathbf{i}^{T}\Xi\mathbf{i}=\frac{\lambda^{2}\mathbf{i}^{T}\Xi\mathbf{i}}{\left(k\lambda^{2}+\sigma^{2}\right)^{2}}
-\]
+\begin{equation}
+\omega_{w}'=\Cor^{2}(\sum_{i=1}^{k}w_{i}\hat{X}_{i},Z).\label{eq:Weighted ordinal reliability}
+\end{equation}
 
 \end_inset
 
-and since 
-\begin_inset Formula $\mathbf{i}^{T}\Xi\mathbf{i}=k\left(k\lambda^{2}+\sigma^{2}\right)$
+The following theorem shows how to calculate 
+\begin_inset Formula $\omega_{w}^{'}$
 \end_inset
 
- in the limit, for this to work.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-w_{0}^{2}\mathbf{i}^{T}\Xi\mathbf{i}=\frac{k\lambda^{2}}{k\lambda^{2}+\sigma^{2}}
-\]
-
-\end_inset
-
-in the limit, as we wanted.
+ and some of its properties.
 \end_layout
 
 \begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:omega-prime"
+
+\end_inset
+
 Let 
-\begin_inset Formula $Z=\sum_{i=1}^{k}w_{i}\hat{X}_{i}$
+\begin_inset Formula $\hat{Z}=\sum_{i=1}^{k}w_{i}\hat{X}_{i}$
 \end_inset
 
  with 
@@ -590,32 +521,39 @@ noprefix "false"
 
 \end_inset
 
+ and 
+\begin_inset Formula $\Xi=\Cov\hat{X}$
+\end_inset
+
 .
- 
-\end_layout
-
-\begin_layout Theorem
-(i) Then the reliability of 
-\begin_inset Formula $\hat{Z}$
+ Assume 
+\begin_inset Formula $X$
 \end_inset
 
- as a predictor of 
-\begin_inset Formula $Z$
+ is multivariate normal with standard normal marginals, such that 
+\begin_inset Formula $\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}=1$
 \end_inset
 
- is
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+.
 \end_layout
 
-\begin_layout Theorem
+\begin_deeper
+\begin_layout Enumerate
+The weighted ordinal reliability is
 \begin_inset Formula 
-\begin{equation}
-\omega'=\frac{(w^{T}\Xi v)^{2}}{w^{T}\Xi w}\label{eq:Omega prim}
-\end{equation}
+\begin{eqnarray}
+\omega_{w}' & = & \frac{(w^{T}\Xi v)^{2}}{w^{T}\Xi w}\label{eq:Omega prime}\\
+ & = & 1-\MSE(v_{0}\hat{Z})\nonumber 
+\end{eqnarray}
 
 \end_inset
 
 where 
-\begin_inset Formula $v_{i}=\lambda_{i}/\sigma_{j}^{2}(1+k\overline{\lambda\sigma^{-2}}),\:i=1,\ldots,k$
+\begin_inset Formula $v_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})],\:i=1,\ldots,k$
 \end_inset
 
  are the Thurstone weights for 
@@ -626,52 +564,66 @@ where
  
 \end_layout
 
-\begin_layout Theorem
-(ii) The optimal weights make
-\end_layout
+\begin_layout Enumerate
+The 
+\begin_inset Formula $w$
+\end_inset
 
-\begin_layout Theorem
-\begin_inset Formula 
-\[
-\omega_{H}'=\lambda_{\max}(\Xi^{1/2}vv^{T}\Xi^{1/2})
-\]
+ maximizing 
+\begin_inset Formula $\omega_{w}'$
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Omega prime"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-where 
-\begin_inset Formula $\lambda_{\max}(V)$
+ is the eigenvector corresponding to 
+\begin_inset Formula $\lambda_{1}$
 \end_inset
 
- is the maximal eigenvalue of them matrix 
-\begin_inset Formula $V$
+, the maximal eigenvalue of 
+\begin_inset Formula $\Xi^{1/2}vv^{T}\Xi^{1/2}$
+\end_inset
+
+.
+ Moreover, the reliability under these optimal weights is 
+\begin_inset Formula $\omega_{H}'=\lambda_{1}$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Theorem
-(iii) When the model is parallel and 
+\begin_layout Enumerate
+When the model is parallel and 
 \begin_inset Formula $w=\mathbf{i}$
 \end_inset
 
 ,
-\end_layout
-
-\begin_layout Theorem
 \begin_inset Formula 
 \begin{equation}
-\omega'=\frac{\lambda^{2}}{\left(k\lambda^{2}+\sigma^{2}\right)^{2}}\mathbf{i}^{T}\Xi\mathbf{i}.\label{eq:Alpha}
+\omega'=\frac{\lambda^{2}}{\left(k\lambda^{2}+\sigma^{2}\right)^{2}}\mathbf{i}^{T}\Xi\mathbf{i}.\label{eq:Alpha prime}
 \end{equation}
 
 \end_inset
 
 In this case, 
-\begin_inset Formula $\omega'=\alpha\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\left(k\lambda^{2}+\sigma^{2}\right)k}$
+\begin_inset Formula $\omega'=\alpha_{o}\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\left(k\lambda^{2}+\sigma^{2}\right)k}$
 \end_inset
 
+, where 
+\begin_inset Formula $\alpha_{o}$
+\end_inset
 
+ is the ordinal alpha.
 \end_layout
 
+\end_deeper
 \begin_layout Subsubsection
 Comparison of 
 \begin_inset Formula $\omega'$
@@ -689,14 +641,216 @@ Short simulation showing how it converges when
 \begin_inset Formula $k\to\infty$
 \end_inset
 
+.
+\end_layout
 
+\begin_layout Itemize
+use one of Zumbo's examples.
+ 
+\end_layout
+
+\begin_layout Section*
+Appendix
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $w^{T}(Xvv^{T}X)w=$
+The following lemma is well-known.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:eigenvector"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be symmetric and 
+\begin_inset Formula $B$
+\end_inset
+
+ be positive definite.
+ Then 
+\begin_inset Formula $\max_{w}\left[w^{T}Aw/(w^{T}Bw)\right]$
+\end_inset
+
+ is attained at the eigenvector 
+\begin_inset Formula $w$
+\end_inset
+
+ corresponding the the largest eigenvalue of 
+\begin_inset Formula $B^{1/2}AB^{1/2}$
+\end_inset
+
+, and 
+\begin_inset Formula $\max_{w}\left[w^{T}Aw/(w^{T}Bw)\right]$
+\end_inset
+
+ equals this largest eigenvalue.
+\end_layout
+
+\begin_layout Proof
+Make the substitution 
+\begin_inset Formula $v=B^{1/2}w$
+\end_inset
+
+.
+ By differentiation, 
+\begin_inset Formula $g(w)=v^{T}B^{-1/2}AB^{-1/2}v/v^{T}v$
+\end_inset
+
+ attains its maximum when 
+\begin_inset Formula $\left(B^{-1/2}AB^{-1/2}-v^{T}B^{-1/2}AB^{-1/2}v/v^{T}v\right)v=0.$
+\end_inset
+
+ This equation is true only if 
+\begin_inset Formula $v$
+\end_inset
+
+ is an eigenvector of 
+\begin_inset Formula $B^{-1/2}AB^{-1/2}$
+\end_inset
+
+, and the global maximum is attained for the eigenvector 
+\begin_inset Formula $v$
+\end_inset
+
+ corresponding to the largest eigenvalue of 
+\begin_inset Formula $B^{-1/2}AB^{-1/2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Proof of Theorem 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "thm:omega-prime"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+(i) The covariance between 
+\begin_inset Formula $\sum_{i=1}^{k}w_{i}\widehat{X}_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $Z$
+\end_inset
+
+ is
+\begin_inset Formula 
+\begin{eqnarray*}
+\Cov(\sum_{i=1}^{k}w_{i}\widehat{X}_{i},Z) & = & E[\Cov(\sum_{i=1}^{k}w_{i}\widehat{X}_{i},Z\mid\{Y_{i}\})]+\Cov(E\left[\sum_{i=1}^{k}w_{i}\widehat{X}_{i}\mid\{Y_{i}\}\right],E\left[Z\mid\{Y_{i}\}\right]),\\
+ & = & -\Cov\left(\sum_{i=1}^{k}w_{i}\widehat{X}_{i},E\left[Z\mid\{Y_{i}\}\right]\right).
+\end{eqnarray*}
+
+\end_inset
+
+The expectation 
+\begin_inset Formula $E\left[Z\mid\{Y_{i}=k_{i}\}\right]$
+\end_inset
+
+ equals 
+\begin_inset Formula $E\left[E\left[Z\mid X\right]\mid\{Y_{i}\}\right]$
+\end_inset
+
+.
+ The conditional expectation 
+\begin_inset Formula $E(Z\mid X)=\sum_{i=1}^{k}v_{i}X_{i}$
+\end_inset
+
+ under multivariate normality, where 
+\begin_inset Formula $v_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})]$
+\end_inset
+
+ are the Thurstone weights, see 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "Theorem 3.3.4"
+key "Tong1990-lm"
+literal "false"
+
+\end_inset
+
+.
+ Consequently, 
+\begin_inset Formula $E[E(Z\mid X)\mid\{Y_{i}\}]=-\sum_{i=1}^{k}v_{i}\hat{X_{i}}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Cov(\sum_{i=1}^{k}w_{i}\widehat{X}_{i},Z) & = & \Cov\left(\sum_{i=1}^{k}\widehat{X}_{i},\sum_{i=1}^{k}v_{i}\widehat{X}_{i}\right)=w^{T}\Xi v.
+\end{eqnarray*}
+
+\end_inset
+
+Standardize to find the correlation 
+\begin_inset Formula $w^{T}\Xi v/\sqrt{w^{T}\Xi w}$
+\end_inset
+
+, and the squared correlation is 
+\begin_inset Formula $\omega'=(w^{T}\Xi v)^{2}/w^{T}\Xi w$
+\end_inset
+
+.
+ This completes point (i).
+ 
+\end_layout
+
+\begin_layout Proof
+Point (ii) follows directly from Lemma 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "lem:eigenvector"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+As for (iii), under the parallel model, 
+\begin_inset Formula $v=w_{0}\mathbf{i}$
+\end_inset
+
+, where 
+\begin_inset Formula $w_{0}=\lambda/[\sigma^{2}+k\lambda^{2}]$
+\end_inset
+
+ and the squared correlation is 
+\begin_inset Formula $w_{0}^{2}\mathbf{i}^{T}\Xi\mathbf{i}=\lambda^{2}\mathbf{i}^{T}\Xi\mathbf{i}/\left(k\lambda^{2}+\sigma^{2}\right)^{2}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
