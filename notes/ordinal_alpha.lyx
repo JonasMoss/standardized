@@ -276,11 +276,17 @@ The quantity it estimates has not practical use, as it is the correlation
 
 \begin_deeper
 \begin_layout Enumerate
-It is not meaningfully connected to any 
-\begin_inset Formula $\sum w_{i}X_{i}$
+It is apparently not connected to any predictor of 
+\begin_inset Formula $Z$
 \end_inset
 
-;
+ that depends on the data 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ This breaks the bond between the reliability coefficient and the predicted
+ scores that the relibability coefficient should 
 \end_layout
 
 \begin_layout Enumerate
@@ -398,8 +404,76 @@ ns barely improve.
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 1068"
+key "Chalmers2018-fj"
+literal "false"
+
+\end_inset
+
+ discusses one possible use of the ordinal alpha.
+ Namely as the theoretical reliability when the number of thresholds 
+\begin_inset Formula $\tau$
+\end_inset
+
+ goes towards infinity.
+ In this case we know 
+\begin_inset Formula $Y$
+\end_inset
+
+ exactly except for its scale, so we can only form reliability coefficients
+ based on the standardized 
+\begin_inset Formula $\lambda,\sigma$
+\end_inset
+
+.
+ The practical use of this quanitity remain illusive to me, however.
+\end_layout
+
 \begin_layout Subsection
-Estimator
+A concrete ordinal reliability
+\end_layout
+
+\begin_layout Standard
+The main argument of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Zumbo2019-lm"
+literal "false"
+
+\end_inset
+
+'s rebuttal of 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Chalmers2018-fj"
+literal "false"
+
+\end_inset
+
+ is that the discretized model 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:discretization model"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is better approximation to reality than the congeneric model (ref).
+ So assume we believe in the discretized model and can be reasonably sure
+ that 
+\begin_inset Formula $X$
+\end_inset
+
+ is multivariate normal.
+ Then ordinal alpha would still not be appropriate as it is theoretical
+ and not concrete.
+ However, it is possible to create a class of reliability coefficients for
+ the multivariate normal discretized model.
 \end_layout
 
 \begin_layout Standard
