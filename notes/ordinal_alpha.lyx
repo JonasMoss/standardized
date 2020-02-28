@@ -617,6 +617,28 @@ noprefix "false"
 
 \begin_deeper
 \begin_layout Enumerate
+Let 
+\begin_inset Formula $v_{i}=$
+\end_inset
+
+ be the Thurstone weights.
+ Then 
+\begin_inset Formula $\sum_{i=1}^{k}w_{i}\hat{X}_{i}$
+\end_inset
+
+ is the optimal predictor of 
+\begin_inset Formula $Z$
+\end_inset
+
+, i.e.
+ it minimizes the mean squared error 
+\begin_inset Formula $\MSE(\hat{Z})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
 The weighted ordinal reliability is
 \begin_inset Formula 
 \begin{eqnarray}
@@ -634,93 +656,295 @@ where
 \begin_inset Formula $X$
 \end_inset
 
+ and 
+\begin_inset Formula $v_{0}=w^{T}\Xi v$
+\end_inset
+
+ is the minimizer of 
+\begin_inset Formula $\MSE(v_{0}\hat{Z})$
+\end_inset
+
+.
+ Moreover, 
+\begin_inset Formula $\omega_{v}'=v^{T}\Xi v$
+\end_inset
+
+ for the Thurstone weights.
+\end_layout
+
+\begin_layout Enumerate
+When the underlying congeneric model is parallel and 
+\begin_inset Formula $w=\mathbf{i}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{eqnarray}
+\omega_{w}' & = & \frac{\lambda^{2}}{\left(k\lambda^{2}+\sigma^{2}\right)^{2}}\mathbf{i}^{T}\Xi\mathbf{i},\label{eq:Alpha prime}\\
+ & = & \alpha_{s}\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\mathbf{i}^{T}\Psi\mathbf{i}},\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+ equals the ordinal alpha.
+\end_layout
+
+\begin_layout Enumerate
+For any weight 
+\begin_inset Formula $w$
+\end_inset
+
+, 
+\begin_inset Formula $\omega'_{w}\to\omega_{w}$
+\end_inset
+
+ when 
+\begin_inset Formula $\Xi\to\Phi$
+\end_inset
+
 .
  
 \end_layout
 
-\begin_layout Enumerate
-The 
-\begin_inset Formula $w$
-\end_inset
-
- maximizing 
-\begin_inset Formula $\omega_{w}'$
-\end_inset
-
- 
+\end_deeper
+\begin_layout Proof
+See the appendix, page 
 \begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Omega prime"
+LatexCommand pageref
+reference "proof:omega-prime"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
- is the eigenvector corresponding to 
-\begin_inset Formula $\lambda_{1}$
-\end_inset
-
-, the maximal eigenvalue of 
-\begin_inset Formula $\Xi^{1/2}vv^{T}\Xi^{1/2}$
-\end_inset
-
-.
- Moreover, the reliability under these optimal weights is 
-\begin_inset Formula $\omega_{H}'=\lambda_{1}$
-\end_inset
-
 .
 \end_layout
 
-\begin_layout Enumerate
-When the model is parallel and 
-\begin_inset Formula $w=\mathbf{i}$
-\end_inset
-
-,
-\begin_inset Formula 
-\begin{equation}
-\omega'=\frac{\lambda^{2}}{\left(k\lambda^{2}+\sigma^{2}\right)^{2}}\mathbf{i}^{T}\Xi\mathbf{i}.\label{eq:Alpha prime}
-\end{equation}
-
-\end_inset
-
-In this case, 
-\begin_inset Formula $\omega'=\alpha_{o}\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\left(k\lambda^{2}+\sigma^{2}\right)k}$
+\begin_layout Standard
+Point (i) is a strong justification for using 
+\begin_inset Formula $\hat{Z}=\sum_{i=1}^{k}v_{i}\hat{X}_{i}$
 \end_inset
 
 , where 
-\begin_inset Formula $\alpha_{o}$
+\begin_inset Formula $v_{i}$
 \end_inset
 
- is the ordinal alpha.
-\end_layout
-
-\end_deeper
-\begin_layout Subsubsection
-Comparison of 
-\begin_inset Formula $\omega'$
+ are the Thurstone weights.
+ This is not only the optimal linear predictor of 
+\begin_inset Formula $Z$
 \end_inset
 
- and 
-\begin_inset Formula $\omega_{s}$
+ given the data 
+\begin_inset Formula $Y$
 \end_inset
 
+, it is the optimal predictor of 
+\begin_inset Formula $Z$
+\end_inset
+
+ period.
+ The analogous result for the congeneric model with multivariate normal
+ 
+\begin_inset Formula $X$
+\end_inset
+
+ is also true, that is, 
+\begin_inset Formula $Z=\sum_{i=1}^{k}v_{i}X_{i}$
+\end_inset
+
+ is the optimal predictor of 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ (This follows from the proof of Theorem 
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "thm:omega-prime"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.) The representation of the ordinal reliability in (ii) is similar to the
+ representation of the weighted reliability in Proposition (ref), but the
+ covariance 
+\begin_inset Formula $\Xi$
+\end_inset
+
+ is used instead of 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+.
+ Moreover, the 
+\begin_inset Formula $v^{T}\Xi v$
+\end_inset
+
+ is easy to estimate provided we are able to estimate the Thurstone weights
+ 
+\begin_inset Formula $v$
+\end_inset
+
+.
  
 \end_layout
 
-\begin_layout Itemize
-Short simulation showing how it converges when 
-\begin_inset Formula $k\to\infty$
+\begin_layout Standard
+Point (iii) demonstrates that 
+\begin_inset Formula $\omega'$
+\end_inset
+
+ with unit weigths can be calculated without running a factor analysis,
+ since the average correlation 
+\begin_inset Formula $\mathbf{i}^{T}\Xi\mathbf{i}/\mathbf{i}^{T}\Psi\mathbf{i}$
+\end_inset
+
+ is a simple function of the polychoric correlation matrix and the covariance
+ matrix of 
+\begin_inset Formula $\hat{X}.$
+\end_inset
+
+ Moreover, 
+\begin_inset Formula $\alpha_{s}(\mathbf{i}^{T}\Xi\mathbf{i}/\mathbf{i}^{T}\Psi\mathbf{i})$
+\end_inset
+
+ is the natural variant of the standardized alpha in the ordinal setting,
+ as it is defined in terms of the matrices 
+\begin_inset Formula $\Xi$
+\end_inset
+
+ and 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ only, it is designed to equal the ordinal reliability under the parallel
+ model.
+ The factor 
+\begin_inset Formula $(\mathbf{i}^{T}\Xi\mathbf{i}/\mathbf{i}^{T}\Psi\mathbf{i})$
+\end_inset
+
+ shows 
+\end_layout
+
+\begin_layout Example
+We will yet again have a look at the personaliy data from 
+\begin_inset Formula $\mathtt{psych}$
+\end_inset
+
+.
+ I used the 
+\begin_inset Formula $\mathtt{psych}$
+\end_inset
+
+ package to estimate the discretized model 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:discretization model"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, where I assume multivariate normality of 
+\begin_inset Formula $X$
+\end_inset
+
+ and that 
+\begin_inset Formula $\lambda,\sigma$
+\end_inset
+
+ are standardized.
+ The resulting estimates are 
+\begin_inset Formula $\hat{\lambda}=..$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\sigma}=..$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Itemize
-use one of Zumbo's examples.
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename C:/GitHub/standardized/chunks/ordinals.pdf
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ordinal reliability (
+\begin_inset Formula $\fullmoon$
+\end_inset
+
+) and ordinal 
+\begin_inset Formula $H$
+\end_inset
+
+ (
+\begin_inset Formula $\newmoon$
+\end_inset
+
+) for a selection of Likert levels.
+ The theoretical coefficient 
+\begin_inset Formula $H$
+\end_inset
+
+ is 
+\begin_inset Formula $0.77$
+\end_inset
+
+ (solid line), and the theoretical composite reliability is 
+\begin_inset Formula $0.72$
+\end_inset
+
+ (dashed line).
+ All cutoffs are uniform, and every reliabilities has been calculated with
  
+\begin_inset Formula $\lambda=...$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma=...$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
@@ -804,79 +1028,6 @@ Differentiate with respect to
 \end_layout
 
 \begin_layout Standard
-The following lemma is well-known.
-\end_layout
-
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:eigenvector"
-
-\end_inset
-
-Let 
-\begin_inset Formula $A$
-\end_inset
-
- be symmetric and 
-\begin_inset Formula $B$
-\end_inset
-
- be positive definite.
- Then 
-\begin_inset Formula $\max_{w}\left[w^{T}Aw/(w^{T}Bw)\right]$
-\end_inset
-
- is attained at the eigenvector 
-\begin_inset Formula $w$
-\end_inset
-
- corresponding the the largest eigenvalue of 
-\begin_inset Formula $B^{1/2}AB^{1/2}$
-\end_inset
-
-, and 
-\begin_inset Formula $\max_{w}\left[w^{T}Aw/(w^{T}Bw)\right]$
-\end_inset
-
- equals this largest eigenvalue.
-\end_layout
-
-\begin_layout Proof
-Make the substitution 
-\begin_inset Formula $v=B^{1/2}w$
-\end_inset
-
-.
- By differentiation, 
-\begin_inset Formula $g(w)=v^{T}B^{-1/2}AB^{-1/2}v/v^{T}v$
-\end_inset
-
- attains its maximum when 
-\begin_inset Formula $\left(B^{-1/2}AB^{-1/2}-v^{T}B^{-1/2}AB^{-1/2}v/v^{T}v\right)v=0.$
-\end_inset
-
- This equation is true only if 
-\begin_inset Formula $v$
-\end_inset
-
- is an eigenvector of 
-\begin_inset Formula $B^{-1/2}AB^{-1/2}$
-\end_inset
-
-, and the global maximum is attained for the eigenvector 
-\begin_inset Formula $v$
-\end_inset
-
- corresponding to the largest eigenvalue of 
-\begin_inset Formula $B^{-1/2}AB^{-1/2}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Separator plain
 \end_inset
 
@@ -903,7 +1054,29 @@ noprefix "false"
 
 \end_inset
 
-(i) The covariance between 
+
+\begin_inset CommandInset label
+LatexCommand label
+name "proof:omega-prime"
+
+\end_inset
+
+(ii) That 
+\begin_inset Formula $\omega'=1-\MSE(v_{0}\hat{Z})$
+\end_inset
+
+ follows from Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:r^2 and correlation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the formula for the covariance, which we now show.
+ The covariance between 
 \begin_inset Formula $\sum_{i=1}^{k}w_{i}\widehat{X}_{i}$
 \end_inset
 
@@ -954,7 +1127,7 @@ literal "false"
  and 
 \begin_inset Formula 
 \begin{eqnarray*}
-\Cov(\sum_{i=1}^{k}w_{i}\widehat{X}_{i},Z) & = & \Cov\left(\sum_{i=1}^{k}\widehat{X}_{i},\sum_{i=1}^{k}v_{i}\widehat{X}_{i}\right)=w^{T}\Xi v.
+\Cov(\sum_{i=1}^{k}w_{i}\widehat{X}_{i},Z) & = & \Cov\left(\sum_{i=1}^{k}w_{i}\widehat{X}_{i},\sum_{i=1}^{k}v_{i}\widehat{X}_{i}\right)=w^{T}\Xi v.
 \end{eqnarray*}
 
 \end_inset
@@ -973,21 +1146,6 @@ Standardize to find the correlation
 \end_layout
 
 \begin_layout Proof
-Point (ii) follows directly from Lemma 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "lem:eigenvector"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Proof
 As for (iii), under the parallel model, 
 \begin_inset Formula $v=w_{0}\mathbf{i}$
 \end_inset
@@ -998,6 +1156,40 @@ As for (iii), under the parallel model,
 
  and the squared correlation is 
 \begin_inset Formula $w_{0}^{2}\mathbf{i}^{T}\Xi\mathbf{i}=\lambda^{2}\mathbf{i}^{T}\Xi\mathbf{i}/\left(k\lambda^{2}+\sigma^{2}\right)^{2}$
+\end_inset
+
+.
+ For the second equation, first notice that
+\begin_inset Formula 
+\[
+\alpha_{s}=\frac{k}{k-1}\left(\frac{i^{T}\Phi i-k}{i^{T}\Phi i}\right)=k^{2}\left(\frac{\overline{\rho}}{i^{T}\Phi i}\right).
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $(k\lambda^{2}+\sigma^{2})^{2}=((i^{T}\Phi i)/k)^{2}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\lambda^{2}}{\left(k\lambda^{2}+\sigma^{2}\right)^{2}}\mathbf{i}^{T}\Xi\mathbf{i} & = & k^{2}\frac{\overline{\rho}}{(i^{T}\Phi i)^{2}}\mathbf{i}^{T}\Xi\mathbf{i},\\
+ & = & \alpha_{s}\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\mathbf{i}^{T}\Psi\mathbf{i}},
+\end{eqnarray*}
+
+\end_inset
+
+as claimed.
+\end_layout
+
+\begin_layout Proof
+(i) Follows from the proof (ii); the Thurstone weights optimize 
+\begin_inset Formula $(w^{T}\Xi v)^{2}/w^{T}\Xi w$
+\end_inset
+
+ since 
+\begin_inset Formula $E[E(Z\mid X)\mid\{Y_{i}\}]=-\sum_{i=1}^{k}v_{i}\hat{X_{i}}$
 \end_inset
 
 .

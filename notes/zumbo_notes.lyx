@@ -1,0 +1,325 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p(z\mid x)=\phi(z;\sum_{i=1}^{k}w_{i}x_{i},\omega_{H})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\omega_{H}=(\sum_{i=1}^{k}\sigma_{i}^{-2}\lambda^{2})/(1+\sum_{i=1}^{k}\sigma_{i}^{-2}\lambda^{2})$
+\end_inset
+
+ is coefficient 
+\begin_inset Formula $H$
+\end_inset
+
+ (ref) and 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ are Thurstone weights.
+\end_layout
+
+\begin_layout Standard
+Moreover,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p(z\mid y)=Ep(z\mid x)p(x\mid y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi(x\mid y)=\frac{\exp(-\frac{1}{2}x^{t}\Phi^{-1}x)}{\int_{B}\exp(-\frac{1}{2}x^{t}\Phi^{-1}x)dx}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $B$
+\end_inset
+
+ is the region bounded by 
+\begin_inset Formula $y$
+\end_inset
+
+ in the appropriate way.
+ The density of 
+\begin_inset Formula $\theta=\sum_{i=1}^{k}w_{i}x_{i}$
+\end_inset
+
+ is (use the affine transformation property on wikiepedia)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi(w^{T}x\mid y)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi(z;\sum_{i=1}^{k}v_{i}x_{i},\omega_{H})\phi(x\mid y)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p(z\mid y)=Ep(z\mid x)p(x\mid y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi(z;\mu,\psi)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\lambda^{T}(\lambda\lambda^{T}+\Psi)^{-1}\lambda=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+(\lambda\lambda^{T}+\Psi)^{-1} & = & \Psi^{-1}-\frac{\Psi^{-1}\lambda\lambda^{T}\Psi^{-1}}{1+\lambda^{T}\Psi^{-1}\lambda}\\
+ & = & (I-\frac{\Psi^{-1}\lambda\lambda^{T}}{1+\sum_{i=1}^{k}\sigma_{i}^{-2}\lambda^{2}})\Psi^{-1}\\
+ & = & (I-v\lambda^{T})\Psi^{-1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\lambda^{T}(\lambda\lambda^{T}+\Psi)^{-1}\lambda & = & \lambda^{T}(I-\frac{\Psi^{-1}\lambda\lambda^{T}}{1+\sum_{i=1}^{k}\sigma_{i}^{-2}\lambda^{2}})\Psi^{-1}\lambda\\
+ & = & \sum_{i=1}^{k}\sigma_{i}^{-2}\lambda^{2}-\frac{(\sum_{i=1}^{k}\sigma_{i}^{-2}\lambda^{2})^{2}}{1+\sum_{i=1}^{k}\sigma_{i}^{-2}\lambda^{2}}\\
+ & = & \frac{\sum_{i=1}^{k}\sigma_{i}^{-2}\lambda^{2}}{1+\sum_{i=1}^{k}\sigma_{i}^{-2}\lambda^{2}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Cov(\Xi)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+E\hat{X}_{i} & = & \sum\nu_{k}^{i}p_{ij}(k,l)=-\sum\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})=0\\
+E\hat{X}_{i}\hat{X}_{j} & = & E\sum\nu_{k}^{i}1[Y_{i}=k]\sum v_{l}^{j}1[Y_{i}=l]\\
+ & = & \sum_{i=1}^{k}\sum_{j=1}^{j}\nu_{k}^{i}v_{l}^{j}p_{ij}(k,l)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha_{s} & = & \frac{k}{k-1}\left(\frac{i^{T}\Phi i-k}{i^{T}\Phi i}\right)\\
+ & = & k^{2}\left(\frac{\overline{\rho}}{i^{T}\Phi i}\right)
+\end{eqnarray*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\overline{\rho}=\lambda^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\lambda^{2}}{\left(k\lambda^{2}+\sigma^{2}\right)^{2}}=\alpha_{s}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(k\lambda^{2}+\sigma^{2}\right)^{2} & = & ((i^{T}\Phi i)/k)^{2}\\
+1/\left(k\lambda^{2}+\sigma^{2}\right)^{2} & = & k^{2}/(i^{T}\Phi i)^{2}\\
+\\
+\frac{\lambda^{2}}{\left(k\lambda^{2}+\sigma^{2}\right)^{2}}\mathbf{i}^{T}\Xi\mathbf{i} & = & k^{2}\frac{\overline{\rho}}{(i^{T}\Phi i)^{2}}\mathbf{i}^{T}\Xi\mathbf{i}\\
+ & = & \alpha_{s}\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\mathbf{i}^{T}\Psi\mathbf{i}}
+\end{eqnarray*}
+
+\end_inset
+
+Here 
+\begin_inset Formula $\alpha_{s}$
+\end_inset
+
+ is the standardized alpha based on the polychoric correlation coefficient.
+\end_layout
+
+\end_body
+\end_document

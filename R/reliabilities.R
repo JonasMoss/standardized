@@ -88,3 +88,13 @@ bias = function(lambda, sigma, w = rep(1, length(lambda))) {
   k / (k - 1) * (- crossprod(w, lambda)^2/k + crossprod(w^2, lambda^2)) /
     (crossprod(w, lambda)^2 + crossprod(w^2, sigma^2))
 }
+
+#' Thurstone weights
+#'
+#' @param lambda Vector of loadings.
+#' @param sigma Vector of standard deviations.
+#' @return The Thurstone weights.
+
+thurstone = function(lambda, sigma) {
+  c(lambda/(sigma^2 * (1 + sum (lambda^2 / sigma^2))))
+}
