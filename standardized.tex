@@ -151,10 +151,11 @@ The purpose of the reliability coefficient is to tell us how well a linear predi
 for some weights $w_{i},i=1,\ldots,k$. Then the reliability equals
 \begin{eqnarray}
 \omega & = & \frac{(w^{T}\lambda)^{2}}{(w^{T}\lambda)^{2}+w^{T}\Psi w}\label{eq:linear reliabiltiy}\\
+ & = & \frac{(w^{T}\Sigma v)^{2}}{w^{T}\Sigma w} \nonumber \\
  & = & 1- \MSE (w_{0}\hat{Z})\nonumber 
 \end{eqnarray}
 where $\MSE (w_{0}\hat{Z})=E[(Z-w_{0}\hat{Z})^{2}]$ is the
-mean squared error and $w_{0}=\overline{w\lambda}/(k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}})$ is the constant minimizing the mean squared error.
+mean squared error, $w_{0}=\overline{w\lambda}/(k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}})$ is the constant minimizing the mean squared error, and $v$ are Thurstone weights.
 \end{prop}
 \begin{proof}
 See the appendix, page \pageref{proof:reliability motivation} for a proof.
