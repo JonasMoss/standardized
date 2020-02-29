@@ -3,14 +3,11 @@
 \name{alpha}
 \alias{alpha}
 \alias{alpha_std}
-\alias{alpha_sigma}
 \title{Variants of coefficient alpha}
 \usage{
 alpha(S)
 
 alpha_std(S)
-
-alpha_sigma(S)
 }
 \arguments{
 \item{S}{A positive definite covariance matrix.}

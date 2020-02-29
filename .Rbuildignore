@@ -12,3 +12,5 @@
 ^standardized\.bib$
 ^standardized\.tex$
 ^workspace$
+^\.travis\.yml$
+^codecov\.yml$

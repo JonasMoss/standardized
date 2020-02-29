@@ -76,60 +76,6 @@ Xi_theoretical = function(cuts, Sigma) {
 
 }
 
-#' Theoretical omega prime H
-#'
-#' @param lambda Vector of loadings.
-#' @param sigma Vector of standard deviations.
-#' @param cuts List of cuts, matrix of cuts, or vector of cuts that will be
-#'    repeated.
-#' @return The population ordinal H.
-
-ordinal_H = function(lambda, sigma, cuts) {
-
-  checkmate::assertNumeric(lambda)
-  k = length(lambda)
-  checkmate::assertNumeric(sigma, len = k)
-  cuts = massage_cuts(cuts, k)
-  checkmate::assertList(cuts, len = k)
-
-  lambda = standardize_lambda(lambda, sigma)
-  sigma = standardize_sigma(lambda, sigma)
-  Sigma = tcrossprod(lambda, lambda) + diag(sigma^2)
-  v = thurstone(lambda, sigma)
-
-  Xi = Xi_theoretical(cuts, Sigma)
-
-  c(crossprod(v, Xi %*% v))
-
-}
-
-#' Theoretical ordinal reliability
-#'
-#' @param lambda Vector of loadings.
-#' @param sigma Vector of standard deviations.
-#' @param cuts List of cuts, matrix of cuts, or vector of cuts that will be
-#'    repeated.
-#' @return The population ordinal reliabiltiy
-
-ordinal_omega = function(lambda, sigma, cuts) {
-
-  checkmate::assertNumeric(lambda)
-  k = length(lambda)
-  checkmate::assertNumeric(sigma, len = k)
-  cuts = massage_cuts(cuts, k)
-  checkmate::assertList(cuts, len = k)
-
-  lambda = standardize_lambda(lambda, sigma)
-  sigma = standardize_sigma(lambda, sigma)
-  Sigma = tcrossprod(lambda, lambda) + diag(sigma^2)
-  v = thurstone(lambda, sigma)
-
-  Xi = Xi_theoretical(cuts, Sigma)
-
-  i = rep(1, k)
-  c(crossprod(i, Xi %*% v))^2/sum(Xi)
-
-}
 
 
 
@@ -146,18 +92,7 @@ ordinal_omega = function(lambda, sigma, cuts) {
 
 
 
-x_hat = function(y, cuts) {
 
-  stopifnot(is.null(dim(y)))
-
-  f = function(i) {
-    -(dnorm(cuts[i + 1]) - dnorm(cuts[i]))/
-      (pnorm(cuts[i + 1]) - pnorm(cuts[i]))
-  }
-
-  sapply(y, f)
-
-}
 
 x_hats = function(y, cuts) {
   apply(y, 2, x_hat, cuts)
@@ -235,8 +170,6 @@ for(i in 1:length(grid)) {
   print(i)
 }
 
-standardize_lambda = function(lambda, sigma) lambda/sqrt(lambda^2 + sigma^2)
-standardize_sigma = function(lambda, sigma) sigma/sqrt(lambda^2 + sigma^2)
 
 omega_prime_hat = function(y) {
   poly = psych::polychoric(y)
