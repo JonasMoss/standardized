@@ -24,8 +24,9 @@ coverage](https://codecov.io/gh/JonasMoss/standardized/branch/master/graph/badge
 Joint repository for the unfinished paper “Please avoid the standardized
 alpha” and its companion `R` package.
 
-**N.B.** This repository will be split in two in the future; one package
-for the paper and one for the `R` package.
+**N.B.** This repository will be split in two in the *near* future; one
+package for the paper and one for the `R` package. The paper itself is
+unfinished but should be preprint-ready soon, as by 15 March 2020.
 
 ## Overview
 
@@ -62,3 +63,8 @@ The package needs to installed if you intend intend to run files in the
 ## Usage Example
 
 Run `run.R` from inside of `R` to repopulate the `chunks` directory.
+
+## How to Contribute
+
+I’m planning on being the lone author on this paper. Right now I don’t
+welcome contributions.
