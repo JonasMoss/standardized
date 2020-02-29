@@ -873,29 +873,78 @@ noprefix "false"
 .
 \end_layout
 
-\begin_layout Subsubsection
-Comparison of 
-\begin_inset Formula $\omega'$
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename C:/GitHub/standardized/chunks/ordinals.pdf
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ordinal reliability (
+\begin_inset Formula $\fullmoon$
+\end_inset
+
+) and ordinal 
+\begin_inset Formula $H$
+\end_inset
+
+ (
+\begin_inset Formula $\newmoon$
+\end_inset
+
+) for a selection of Likert levels.
+ The theoretical coefficient 
+\begin_inset Formula $H$
+\end_inset
+
+ is 
+\begin_inset Formula $0.77$
+\end_inset
+
+ (solid line), and the theoretical composite reliability is 
+\begin_inset Formula $0.72$
+\end_inset
+
+ (dashed line).
+ All cutoffs are uniform, and every reliabilities has been calculated with
+ 
+\begin_inset Formula $\lambda=...$
 \end_inset
 
  and 
-\begin_inset Formula $\omega_{s}$
+\begin_inset Formula $\sigma=...$
 \end_inset
 
  
 \end_layout
 
-\begin_layout Itemize
-Short simulation showing how it converges when 
-\begin_inset Formula $k\to\infty$
 \end_inset
 
-.
+
 \end_layout
 
-\begin_layout Itemize
-use one of Zumbo's examples.
- 
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*

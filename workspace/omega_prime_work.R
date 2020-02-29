@@ -31,15 +31,7 @@ Sigma = tcrossprod(lambda, lambda) + diag(sigma^2)
 
 ordinal_H(lambda, sigma, cuts = qnorm(seq(0, 1, length.out = 100)))
 
-outs = c(2:10, 15, 20, 25, 30, 40, 50)
-ordinal_Hs = sapply(outs, function(out) {
-  ordinal_H(lambda, sigma, cuts = qnorm(seq(0, 1, length.out = out + 1)))
-})
 
-outs = c(2:10, 15, 20, 25, 30, 40, 50)
-ordinal_omegas = sapply(outs, function(out) {
-  ordinal_omega(lambda, sigma, cuts = qnorm(seq(0, 1, length.out = out + 1)))
-})
 
 par(las = 1, mar = c(5.1, 4.1, 4.1, 4.1))
 plot(outs, ordinal_Hs, ylim = c(0.3, 0.8), pch = 20, log = "x",

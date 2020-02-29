@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{massage_cuts}
 \alias{massage_cuts}
-\title{Massage cuts to the desired shape}
+\title{Massage Cuts to the Desired Shape}
 \usage{
 massage_cuts(cuts, k)
 }
@@ -13,5 +13,5 @@ massage_cuts(cuts, k)
 repeated. Only matters when \code{cuts} is a vector.}
 }
 \description{
-Massage cuts to the desired shape
+Massage Cuts to the Desired Shape
 }

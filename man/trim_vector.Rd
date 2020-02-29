@@ -2,16 +2,16 @@
 % Please edit documentation in R/helpers.R
 \name{trim_vector}
 \alias{trim_vector}
-\title{Remove infinities from vector and append and prepend -Inf and Inf.}
+\title{Remove Infinities from Vector, Append and Prepend \code{-Inf} and \code{Inf}, and Sort}
 \usage{
 trim_vector(x)
 }
 \arguments{
-\item{x}{Numeric vector.}
+\item{x}{Numeric vector with no \code{NA} values.}
 }
 \value{
-Fixed vector.
+Vector with \verb{-Inf`` prepended and }Inf` appended
 }
 \description{
-Remove infinities from vector and append and prepend -Inf and Inf.
+Remove Infinities from Vector, Append and Prepend \code{-Inf} and \code{Inf}, and Sort
 }

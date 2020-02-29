@@ -5,12 +5,12 @@
 \alias{alpha_std}
 \title{Variants of coefficient alpha}
 \usage{
-alpha(S)
+alpha(sigma)
 
-alpha_std(S)
+alpha_std(sigma)
 }
 \arguments{
-\item{S}{A positive definite covariance matrix.}
+\item{sigma}{A positive definite covariance matrix.}
 }
 \value{
 Cofficient alpha, standardized, orsigma coefficient alpha.
