@@ -4,7 +4,7 @@
 # Please avoid the standardized alpha <img src="man/figures/logo.png" align="right" width="140" height="70" />
 
 [![Build
-Status](https://travis-ci.org/JonasMoss/standardized.svg?branch=master)](https://travis-ci.org/JonasMoss/standardized)
+Status](https://travis-ci.com/JonasMoss/standardized.svg?branch=master)](https://travis-ci.org/JonasMoss/standardized)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/JonasMoss/standardized?branch=master&svg=true)](https://ci.appveyor.com/project/JonasMoss/standardized)
 [![CircleCI build
