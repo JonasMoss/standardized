@@ -1,21 +1,24 @@
-#' Remove infinities from vector and append and prepend -Inf and Inf.
+#' Remove Infinities from Vector, Append and Prepend `-Inf` and `Inf`, and Sort
 #'
-#' @param x Numeric vector.
-#' @return Fixed vector.
+#' @param x Numeric vector with no `NA` values.
+#' @return Vector with `-Inf`` prepended and `Inf` appended
 
 trim_vector = function(x) {
-  checkmate::assertNumeric(x)
+  checkmate::assert_atomic_vector(x, any.missing = FALSE)
+  checkmate::assert_numeric(x)
   x = x[x != Inf & x != -Inf]
-  c(-Inf, x, Inf)
+  c(-Inf, sort(x), Inf)
 }
 
-#' Massage cuts to the desired shape
+#' Massage Cuts to the Desired Shape
 #'
 #' @param cuts A matrix, list, or vector of cuts
 #' @param k Optional `k` saying how many times the vector of cuts should be
 #'    repeated. Only matters when `cuts` is a vector.
 
 massage_cuts = function(cuts, k)  {
+
+  if(!missing(k)) checkmate::assert_count(k)
 
   if (checkmate::testAtomicVector(cuts)) {
     if(missing(k)) k = 1
@@ -26,19 +29,24 @@ massage_cuts = function(cuts, k)  {
     cuts = lapply(seq.int(nrow(cuts)), function(i) trim_vector(cuts[i, ]))
   }
 
+  checkmate::assert_list(cuts)
+
   cuts
 
 }
 
-#' Calculate the theoretical Xi
+#' Calculate the Theoretical Xi
 #'
-#' @param cuts A matrix, list, or vector of cuts
-#' @param Sigma The polychoric correlation matrix.
-#' @return Theoretical Xi matrix.
+#' @param cuts A matrix, list, or vector of cuts.
+#' @param rho The polychoric correlation matrix; a numeric matrix with no
+#'    missing entries.
+#' @return Theoretical xi matrix.
 
-Xi_theoretical = function(cuts, Sigma) {
+xi_theoretical = function(cuts, rho) {
 
-  items_k = nrow(Sigma)
+  checkmate::assert_matrix(rho, mode = "numeric", any.missing = FALSE)
+
+  items_k = nrow(rho)
   cuts = massage_cuts(cuts, items_k)
   probs = lapply(cuts, function(x) diff(stats::pnorm(x)))
   ms = sapply(probs, length)
@@ -53,7 +61,7 @@ Xi_theoretical = function(cuts, Sigma) {
     upper = rep(Inf, items_k)
     lower[c(i, j)] = c(cuts[[i]][k], cuts[[j]][l])
     upper[c(i, j)] = c(cuts[[i]][k + 1], cuts[[j]][l + 1])
-    mvtnorm::pmvnorm(lower = lower, upper = upper, corr = Sigma)
+    mvtnorm::pmvnorm(lower = lower, upper = upper, corr = rho)
   }
 
   FUN <- Vectorize(function(i, j) {
@@ -74,18 +82,32 @@ Xi_theoretical = function(cuts, Sigma) {
 
 }
 
-#' Calculate sample XI
+#' Calculate Sample Xi
 #'
-#' @param y Array of observations.
-#' @param cuts A matrix, list, or vector of cuts
-#' @return Sample Xi matrix.
+#' @param y An array or data frame of observations.
+#' @param cuts A matrix, list, or vector of cuts.
+#' @param use Passed to `stats::cov`.
+#' @return Sample xi matrix.
 
-Xi_sample = function(y, cuts) {
+xi_sample = function(y, cuts, use = "everything") {
   k = ncol(y)
+
+  ## Transform y into a form where each category is an integer.
+  y = data.frame(apply(data.frame(y), 2, as.factor))
+  for(i in seq.int(k)) levels(y[, i]) = seq.int(length(levels(y[, i])))
+  y = matrix(as.numeric(as.matrix(y)),ncol = k)
+
+  n_categories = apply(y, 2, max, na.rm = TRUE)
   cuts = massage_cuts(cuts, k)
+  lengths = sapply(cuts, length) - 1
+
+  assertthat::assert_that(sum(lengths - n_categories) >= 0,
+   msg = "Smaller number of categories than length of cuts.")
+
   args = lapply(seq.int(k), function(i) x_hat(y[, i], cuts[[i]]))
   xhats = do.call(what = cbind, args = args)
-  stats::cov(xhats)
+  stats::cov(xhats, use = use)
+
 }
 
 #' Transform Likert data to X_hats.
@@ -95,14 +117,15 @@ Xi_sample = function(y, cuts) {
 #' @return The X_hats associated with `y` and `cuts`.
 x_hat = function(y, cuts) {
 
-  stopifnot(is.null(dim(y)))
+  checkmate::assert_atomic_vector(y, any.missing = FALSE)
+  checkmate::assert_numeric(y)
 
   f = function(i) {
     -(stats::dnorm(cuts[i + 1]) - stats::dnorm(cuts[i]))/
       (stats::pnorm(cuts[i + 1]) - stats::pnorm(cuts[i]))
   }
 
-  sapply(y, f)
+  sapply(X = y, FUN = f)
 
 }
 
@@ -114,8 +137,19 @@ x_hat = function(y, cuts) {
 #' @param sigma Vector of standard deviations.
 #' @return Standardized vector.
 #' @name standardize
-standardize_lambda = function(lambda, sigma) lambda/sqrt(lambda^2 + sigma^2)
+standardize_lambda = function(lambda, sigma) {
+  checkmate::assert_atomic_vector(lambda, any.missing = FALSE)
+  checkmate::assert_atomic_vector(sigma, any.missing = FALSE)
+  checkmate::assert_numeric(lambda)
+  checkmate::assert_numeric(sigma)
+  lambda/sqrt(lambda^2 + sigma^2)
+}
 
 #' @rdname standardize
-standardize_sigma = function(lambda, sigma) sigma/sqrt(lambda^2 + sigma^2)
-
+standardize_sigma = function(lambda, sigma) {
+  checkmate::assert_atomic_vector(lambda, any.missing = FALSE)
+  checkmate::assert_atomic_vector(sigma, any.missing = FALSE)
+  checkmate::assert_numeric(lambda)
+  checkmate::assert_numeric(sigma)
+  sigma/sqrt(lambda^2 + sigma^2)
+}

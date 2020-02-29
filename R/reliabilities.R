@@ -2,22 +2,22 @@
 #'
 #' The ordinary, standardized and sigma coefficient alpha.
 #'
-#' @param S A positive definite covariance matrix.
+#' @param sigma A positive definite covariance matrix.
 #' @return Cofficient alpha, standardized, orsigma coefficient alpha.
 #' @name alpha
 #' @export
 
-alpha <- function(S) {
-  k <- nrow(S)
-  k / (k - 1) * (1 - tr(S) / sum(S))
+alpha <- function(sigma) {
+  k <- nrow(sigma)
+  k / (k - 1) * (1 - tr(sigma) / sum(sigma))
 }
 
 #' @rdname alpha
 #' @export
-alpha_std <- function(S) {
-  R <- stats::cov2cor(S)
-  k <- nrow(S)
-  k / (k - 1) * (1 - k / sum(R))
+alpha_std <- function(sigma) {
+  rho <- stats::cov2cor(sigma)
+  k <- nrow(sigma)
+  k / (k - 1) * (1 - k / sum(rho))
 }
 
 #' Variants of the omega coefficient

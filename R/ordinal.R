@@ -20,16 +20,16 @@ ordinal_omega = function(lambda, sigma, cuts, type = c("H", "std")) {
 
   lambda = standardize_lambda(lambda, sigma)
   sigma = standardize_sigma(lambda, sigma)
-  Sigma = tcrossprod(lambda, lambda) + diag(sigma^2)
+  rho = tcrossprod(lambda, lambda) + diag(sigma^2)
   v = thurstone(lambda, sigma)
 
-  Xi = Xi_theoretical(cuts, Sigma)
+  xi = xi_theoretical(cuts, rho)
 
   if(type == "H") {
-    c(crossprod(v, Xi %*% v))
+    c(crossprod(v, xi %*% v))
   } else {
     i = rep(1, k)
-    c(crossprod(i, Xi %*% v))^2/sum(Xi)
+    c(crossprod(i, xi %*% v))^2/sum(xi)
   }
 
 }
@@ -59,22 +59,22 @@ ordinal_poly = function(poly, y, xi_type = c("theoretical", "sample"),
   type = match.arg(type)
   xi_type = match.arg(xi_type)
   cuts = poly$tau
-  Sigma = poly$rho
-  k = nrow(Sigma)
+  rho = poly$rho
+  k = nrow(rho)
   fa = psych::fa(poly$rho, ...)
   v = thurstone(fa$loadings, sqrt(fa$uniquenesses))
 
   if(xi_type  == "sample") {
-    Xi = Xi_sample(y, cuts)
+    xi = xi_sample(y, cuts)
   } else if (xi_type  == "theoretical") {
-    Xi = Xi_theoretical(cuts, Sigma)
+    xi = xi_theoretical(cuts, rho)
   }
 
   if(type == "H") {
-    c(crossprod(v, Xi %*% v))
+    c(crossprod(v, xi %*% v))
   } else {
     i = rep(1, k)
-    c(crossprod(i, Xi %*% v))^2/sum(Xi)
+    c(crossprod(i, xi %*% v))^2/sum(xi)
   }
 
 }
@@ -105,6 +105,6 @@ ordinal_alpha = function(poly) {
 
   cuts = poly$tau
   rho = poly$rho
-  alpha_std(rho) * sum(Xi_theoretical(cuts, rho)) / sum(rho)
+  alpha_std(rho) * sum(xi_theoretical(cuts, rho)) / sum(rho)
 
 }
