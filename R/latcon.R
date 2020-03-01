@@ -17,34 +17,40 @@
 #' fit = latcon(extraversion)
 latcon = function(data, use = "complete.obs", ...) {
 
-  if(length(data) == 2) {
+  if(length(data) == 3) {
 
-    checkmate::assertNumeric(lambda)
-    k = length(lambda)
-    checkmate::assertNumeric(sigma, len = k)
-    cuts = massage_cuts(cuts, k)
+    checkmate::assertNumeric(data$lambda)
+    k = length(data$lambda)
+    checkmate::assertNumeric(data$sigma, len = k)
+    cuts = massage_cuts(data$cuts, k)
     checkmate::assertList(cuts, len = k)
-    type = match.arg(type)
 
-    lambda = standardize_lambda(lambda, sigma)
-    sigma = standardize_sigma(lambda, sigma)
+    lambda = standardize_lambda(data$lambda, data$sigma)
+    sigma = standardize_sigma(data$lambda, data$sigma)
     rho = tcrossprod(lambda, lambda) + diag(sigma^2)
-    v = thurstone(lambda, sigma)
-    xi = xi_theoretical(cuts, rho)
+
+    object = list(rho = rho,
+                  cuts = cuts,
+                  lambda = lambda,
+                  sigma = sigma,
+                  xi_sample = xi_theoretical(cuts, rho),
+                  n = Inf)
+
+  } else {
+
+    args = list(...)
+    if(is.null(args$fm)) args$fm = "ml"
+
+    poly = psych::polychoric(data)
+    fa = do.call(what = psych::fa, args = c(list(r = poly$rho), args))
+    lambda = stats::setNames(c(fa$loadings), colnames(data))
+    sigma = c(sqrt(fa$uniquenesses))
+    xi = xi_sample(y = ordered_y(data), cuts = poly$tau, use = use)
+
+    object = list(rho = poly$rho, cuts = poly$tau, lambda = lambda, sigma = sigma,
+                  xi_sample = xi, n = nrow(data))
 
   }
-
-  args = list(...)
-  if(is.null(args$fm)) args$fm = "ml"
-
-  poly = psych::polychoric(data)
-  fa = do.call(what = psych::fa, args = c(list(r = poly$rho), args))
-  lambda = stats::setNames(c(fa$loadings), colnames(data))
-  sigma = c(sqrt(fa$uniquenesses))
-  xi = xi_sample(y = ordered_y(data), cuts = poly$tau, use = use)
-
-  object = list(rho = poly$rho, cuts = poly$tau, lambda = lambda, sigma = sigma,
-                xi_sample = xi, n = nrow(data))
 
   class(object) = "latcon"
   object

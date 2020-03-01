@@ -158,7 +158,22 @@ th item.
 \begin_inset Formula $X$
 \end_inset
 
- is multivariate normal, the correlation matrix 
+ is multivariate normal, model 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:discretization model"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is called the 
+\emph on
+ogive model
+\emph default
+.
+ [[cite]] In this case, the correlation matrix 
 \begin_inset Formula $\Phi$
 \end_inset
 
@@ -498,7 +513,7 @@ Let
 
 see 
 \begin_inset CommandInset citation
-LatexCommand citet
+LatexCommand citep
 after "Section 10.1"
 key "Johnson1994-ag"
 literal "false"
@@ -506,7 +521,11 @@ literal "false"
 \end_inset
 
  for the formula for the expectation of a truncated normal.
- This is the natural predictor of 
+ Since 
+\begin_inset Formula $\widehat{X}_{i}$
+\end_inset
+
+ is the conditional expectation of 
 \begin_inset Formula $X_{i}$
 \end_inset
 
@@ -514,7 +533,15 @@ literal "false"
 \begin_inset Formula $Y_{i}$
 \end_inset
 
-, as it minimizes the mean squared error.
+ it is the optimal predictor of 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ given 
+\begin_inset Formula $Y_{i}$
+\end_inset
+
+ in the sense of minimizing the mean squared error.
  A natural predictor of 
 \begin_inset Formula $Z$
 \end_inset
@@ -921,7 +948,7 @@ Ordinal reliability (
 \end_inset
 
  (dashed line).
- All cutoffs are uniform, and every reliabilities has been calculated with
+ All cutoffs are uniform, and every reliability has been calculated with
  
 \begin_inset Formula $\lambda=...$
 \end_inset
