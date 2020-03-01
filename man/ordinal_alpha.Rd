@@ -4,19 +4,17 @@
 \alias{ordinal_alpha}
 \title{Calculating the Empirical Ordinal Alpha}
 \usage{
-ordinal_alpha(poly)
+ordinal_alpha(object)
 }
 \arguments{
-\item{poly}{A an object of class \code{poly}.}
+\item{object}{A an object of class \code{latcon}.}
 }
 \value{
 The empirical ordinal alpha.
 }
 \description{
-Use \code{ordinal_alpha} to calculate the empricial ordinal alpha from a \code{poly}
-object. The \code{poly} object must contain a named element \code{rho}, the
-polychoric correlation matrix, and a matrix \code{tau} with the associated
-cut points. See \verb{[pscyh::polychoric]}.
+Use \code{ordinal_alpha} to calculate the empricial ordinal alpha from a \code{latcon}
+object.
 }
 \details{
 The population value of ordinal alpha equals the ordinal reliability when
@@ -25,9 +23,9 @@ is the sqaured correlation between the true latent variable and the
 best linear predictor of the observed Likert-type data.
 }
 \examples{
- agreeableness = psychTools::bfi[c("A1", "A2", "A3", "A4", "A5")]
- agreeableness[, "A1"] = 7 - agreeableness[, "A1"] # Reverse-coded item.
- poly = psych::polychoric(agreeableness)
- ordinal_alpha(poly) # 0.6267724
- ordinal_poly(poly, type = "std") # 0.6394087
+agreeableness = psychTools::bfi[c("A1", "A2", "A3", "A4", "A5")]
+agreeableness[, "A1"] = 7 - agreeableness[, "A1"] # Reverse-coded item.
+object = latcon(agreeableness)
+ordinal_alpha(object) # 0.6267724
+ordinal_omega(object, weights = "equal") # 0.6394087
 }

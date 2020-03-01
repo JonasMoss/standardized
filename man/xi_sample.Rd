@@ -4,14 +4,14 @@
 \alias{xi_sample}
 \title{Calculate Sample Xi}
 \usage{
-xi_sample(y, cuts, use = "everything")
+xi_sample(y, cuts, use = "complete.obs")
 }
 \arguments{
 \item{y}{An array or data frame of observations.}
 
 \item{cuts}{A matrix, list, or vector of cuts.}
 
-\item{use}{Passed to \code{stats::cov}.}
+\item{use}{Passed to \code{stats::cov}; defaults to \code{"complete.obs"}.}
 }
 \value{
 Sample xi matrix.

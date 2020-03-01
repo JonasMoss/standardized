@@ -1,3 +1,15 @@
+#' Transform y Into a Form Where Each Category is An Integer
+#'
+#' @param y An array or data frame of observations.
+#' @return A matrix.
+
+ordered_y = function(y) {
+  k = ncol(y)
+  y = data.frame(apply(data.frame(y), 2, as.factor))
+  for(i in seq.int(k)) levels(y[, i]) = seq.int(length(levels(y[, i])))
+  matrix(as.numeric(as.matrix(y)),ncol = k)
+}
+
 #' Remove Infinities from Vector, Append and Prepend `-Inf` and `Inf`, and Sort
 #'
 #' @param x Numeric vector with no `NA` values.
@@ -86,16 +98,11 @@ xi_theoretical = function(cuts, rho) {
 #'
 #' @param y An array or data frame of observations.
 #' @param cuts A matrix, list, or vector of cuts.
-#' @param use Passed to `stats::cov`.
+#' @param use Passed to `stats::cov`; defaults to `"complete.obs"`.
 #' @return Sample xi matrix.
 
-xi_sample = function(y, cuts, use = "everything") {
+xi_sample = function(y, cuts, use = "complete.obs") {
   k = ncol(y)
-
-  ## Transform y into a form where each category is an integer.
-  y = data.frame(apply(data.frame(y), 2, as.factor))
-  for(i in seq.int(k)) levels(y[, i]) = seq.int(length(levels(y[, i])))
-  y = matrix(as.numeric(as.matrix(y)),ncol = k)
 
   n_categories = apply(y, 2, max, na.rm = TRUE)
   cuts = massage_cuts(cuts, k)
@@ -117,7 +124,7 @@ xi_sample = function(y, cuts, use = "everything") {
 #' @return The X_hats associated with `y` and `cuts`.
 x_hat = function(y, cuts) {
 
-  checkmate::assert_atomic_vector(y, any.missing = FALSE)
+  checkmate::assert_atomic_vector(y)
   checkmate::assert_numeric(y)
 
   f = function(i) {

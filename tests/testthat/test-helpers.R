@@ -42,12 +42,11 @@ test_that("xi_theoretical works", {
 test_that("xi_sample works", {
   msg = "Smaller number of categories than length of cuts."
   expect_error(xi_sample(y, cuts[[1]]), regexp = msg)
-  expect_equal(dim(xi_sample(y, cuts)), c(k, k))
+  expect_equal(dim(xi_sample(ordered_y(y), cuts)), c(k, k))
 })
 
 test_that("x_hat throws errors and returns the correct type", {
-  expect_error(x_hat(c(NA ,1, 2), cuts[[1]]))
-  expect_error(x_hat(c(NA ,1, 2), cuts[[1]]))
+  expect_error(x_hat(c("NA" ,1, 2), cuts[[1]]))
   expect_type(x_hat(c(2 ,1, 2), cuts[[1]]), "double")
 })
 
