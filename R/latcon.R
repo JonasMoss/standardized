@@ -17,40 +17,43 @@
 #' fit = latcon(extraversion)
 latcon = function(data, use = "complete.obs", ...) {
 
-  if(length(data) == 3) {
+  if(is.list(data)) {
 
-    checkmate::assertNumeric(data$lambda)
-    k = length(data$lambda)
-    checkmate::assertNumeric(data$sigma, len = k)
-    cuts = massage_cuts(data$cuts, k)
-    checkmate::assertList(cuts, len = k)
+    if(all(c("lambda", "sigma", "cuts") %in% names(data))) {
+      checkmate::assertNumeric(data$lambda)
+      k = length(data$lambda)
+      checkmate::assertNumeric(data$sigma, len = k)
+      cuts = massage_cuts(data$cuts, k)
+      checkmate::assertList(cuts, len = k)
 
-    lambda = standardize_lambda(data$lambda, data$sigma)
-    sigma = standardize_sigma(data$lambda, data$sigma)
-    rho = tcrossprod(lambda, lambda) + diag(sigma^2)
+      lambda = standardize_lambda(data$lambda, data$sigma)
+      sigma = standardize_sigma(data$lambda, data$sigma)
+      rho = tcrossprod(lambda, lambda) + diag(sigma^2)
 
-    object = list(rho = rho,
-                  cuts = cuts,
-                  lambda = lambda,
-                  sigma = sigma,
-                  xi_sample = xi_theoretical(cuts, rho),
-                  n = Inf)
+      object = list(rho = rho,
+                    cuts = cuts,
+                    lambda = lambda,
+                    sigma = sigma,
+                    xi_sample = xi_theoretical(cuts, rho),
+                    n = Inf)
 
-  } else {
-
-    args = list(...)
-    if(is.null(args$fm)) args$fm = "ml"
-
-    poly = psych::polychoric(data)
-    fa = do.call(what = psych::fa, args = c(list(r = poly$rho), args))
-    lambda = stats::setNames(c(fa$loadings), colnames(data))
-    sigma = c(sqrt(fa$uniquenesses))
-    xi = xi_sample(y = ordered_y(data), cuts = poly$tau, use = use)
-
-    object = list(rho = poly$rho, cuts = poly$tau, lambda = lambda, sigma = sigma,
-                  xi_sample = xi, n = nrow(data))
+      class(object) = "latcon"
+      return(object)
+    }
 
   }
+
+  args = list(...)
+  if(is.null(args$fm)) args$fm = "ml"
+
+  poly = psych::polychoric(data)
+  fa = do.call(what = psych::fa, args = c(list(r = poly$rho), args))
+  lambda = stats::setNames(c(fa$loadings), colnames(data))
+  sigma = c(sqrt(fa$uniquenesses))
+  xi = xi_sample(y = ordered_y(data), cuts = poly$tau, use = use)
+
+  object = list(rho = poly$rho, cuts = poly$tau, lambda = lambda, sigma = sigma,
+                xi_sample = xi, n = nrow(data))
 
   class(object) = "latcon"
   object
@@ -117,4 +120,18 @@ ordinal_omega = function(object, xi = c("sample", "theoretical"),
     c(crossprod(i, xi %*% v))^2/sum(xi)
   }
 
+}
+
+
+reliability = function(object, weights = c("optimal", "equal", "std", "sigma")) {
+  lambda = object$lambda
+  sigma = object$sigma
+  weights = match.arg(weights)
+  k <- length(lambda)
+  if(weights == "optimal") a <- sum(lambda^2 / sigma^2)
+  if(weights == "equal") a <- k * mean(abs(lambda))^2 / mean(sigma^2)
+  if(weights == "std") a <- k * mean(abs(lambda) / sigma)^2
+  if(weights == "sigma") a <- k * mean(abs(lambda) / sqrt(lambda^2 + sigma^2))^2 / mean(sigma^2 / (lambda^2 + sigma^2))
+
+  a / (a + 1)
 }

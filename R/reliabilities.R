@@ -85,3 +85,4 @@ bias = function(lambda, sigma, w = rep(1, length(lambda))) {
 thurstone = function(lambda, sigma) {
   c(lambda/(sigma^2 * (1 + sum (lambda^2 / sigma^2))))
 }
+
