@@ -348,8 +348,7 @@ were
 \end_layout
 
 \begin_layout Standard
-There are two reasons to avoid the theoretical ordinal alpha.
- First, it is practially useless.
+There several reasons to avoid the theoretical ordinal alpha.
  If your goal is to estimate the congeneric reliability or the standardized
  reliability, the theoretical ordinal alpha is inappropriate since it does
  not equal the congeneric reliability, even under the parallel model 
@@ -374,8 +373,11 @@ literal "false"
  For even if you are interested in estimating the congeneric reliability
  for the multivariate normal ogive model, you should avoid the theoretical
  alpha.
- Theoretical ordinal alpha is apparently not connected to any predictor
- of 
+\end_layout
+
+\begin_layout Standard
+Theoretical ordinal alpha is apparently not connected to any predictor of
+ 
 \begin_inset Formula $Z$
 \end_inset
 
@@ -383,7 +385,7 @@ literal "false"
 \begin_inset Formula $Y$
 \end_inset
 
-, it is merely connected to the correlation 
+, only the correlation 
 \begin_inset Formula $\Cor^{2}(\sum_{i=1}^{k}w_{i}X_{i},Z)$
 \end_inset
 
@@ -399,12 +401,16 @@ s.
 \begin_inset Quotes eld
 \end_inset
 
-How much more do I know about 
+how good can I expected my prediction of 
 \begin_inset Formula $Z$
 \end_inset
 
- when I know 
+ based on 
 \begin_inset Formula $X$
+\end_inset
+
+ compared to guessing the mean of 
+\begin_inset Formula $Z$
 \end_inset
 
 ?
@@ -416,7 +422,12 @@ How much more do I know about
 \end_inset
 
  is unknown.
- This lack of knowledge about 
+ A consequence is that 
+\begin_inset Formula $\Cor^{2}(\sum_{i=1}^{k}w_{i}X_{i},Z)$
+\end_inset
+
+ does not tell you much about how good you can expect a This lack of knowledge
+ about 
 \begin_inset Formula $X$
 \end_inset
 
@@ -474,50 +485,25 @@ Moreover, if you want the standardized reliability of the unobserved
 \end_layout
 
 \begin_layout Standard
-Finally, ordinal alpha depends on unverifiable assumptions about the multivariat
-e normality of 
+Theoretical ordinal alpha only makes sense in relation to the congeneric
+ multivariate ogive model.
+ But this model depends on the fundamentally unverifiable assumption of
+ multivariate normality of 
 \begin_inset Formula $X$
 \end_inset
 
 .
- The polychoric correlation matrix is extremely sensitive to the normality
- assumption.
- For instance, with no assumptions except continuity, the tetrachoric correlatio
-ns can take any value in 
-\begin_inset Formula $(-1,1)$
-\end_inset
-
-.
- With the stronger assumption of normal marginals, the bounds for the correlatio
-ns barely improve.
-\end_layout
-
-\begin_layout Standard
+ The polychoric correlation coefficient is not robust against normality
+ in general 
 \begin_inset CommandInset citation
-LatexCommand citet
-after "p. 1068"
-key "Chalmers2018-fj"
+LatexCommand citep
+key "Foldnes2019-yd"
 literal "false"
 
 \end_inset
 
- discusses one possible use of the ordinal alpha.
- Namely as the theoretical reliability when the number of thresholds 
-\begin_inset Formula $\tau$
-\end_inset
-
- goes towards infinity.
- In this case we know 
-\begin_inset Formula $Y$
-\end_inset
-
- exactly except for its scale, so we can only form reliability coefficients
- based on the standardized 
-\begin_inset Formula $\lambda,\sigma$
-\end_inset
-
 .
- The practical use of this quanitity remain illusive to me, however.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -883,7 +869,7 @@ noprefix "false"
 \end_inset
 
 .
- Moreover, the 
+ Moreover, 
 \begin_inset Formula $v^{T}\Xi v$
 \end_inset
 
@@ -927,6 +913,34 @@ Point (iii) demonstrates that
  only, and is designed to equal the ordinal reliability under the parallel
  model.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 1068"
+key "Chalmers2018-fj"
+literal "false"
+
+\end_inset
+
+ discusses one possible use of the ordinal alpha, namely as the theoretical
+ reliability when the number of thresholds 
+\begin_inset Formula $\tau$
+\end_inset
+
+ goes towards infinity.
+ Point (iv) makes this claim concrete In this case we know 
+\begin_inset Formula $Y$
+\end_inset
+
+ exactly except for its scale, so we can only form reliability coefficients
+ based on the standardized 
+\begin_inset Formula $\lambda,\sigma$
+\end_inset
+
+.
+ The practical use of this quanitity remain illusive to me, however.
 \end_layout
 
 \begin_layout Example

@@ -1,5 +1,3 @@
-source("functions.R")
-
 plot_errors = function() {
   pdf("chunks/beta.pdf", height = 8, width = 8)
 
@@ -46,31 +44,35 @@ plot_ordinals = function() {
 
   agreeableness = psychTools::bfi[c("A1", "A2", "A3", "A4", "A5")]
   agreeableness[, "A1"] = 7 - agreeableness[, "A1"] # Reverse-coded item.
-  poly = psych::polychoric(agreeableness)
-  fa = psych::fa(poly$rho,)
-  lambda = c(fa$loadings)
-  sigma = c(sqrt(fa$uniquenesses))
+  object = latcon(agreeableness)
 
   outs = c(2:10, 15, 20, 25, 30, 40, 50)
   ordinal_Hs = sapply(outs, function(out) {
-    ordinal_H(lambda, sigma, cuts = qnorm(seq(0, 1, length.out = out + 1)))
+    object$cuts = qnorm(seq(0, 1, length.out = out + 1))
+    ordinal_omega(latcon(object), weights = "optimal")
   })
 
   ordinal_omegas = sapply(outs, function(out) {
-    ordinal_std(lambda, sigma, cuts = qnorm(seq(0, 1, length.out = out + 1)))
+    object$cuts = qnorm(seq(0, 1, length.out = out + 1))
+    ordinal_omega(latcon(object), weights = "equal")
   })
 
+
+  omega = ordinal_omega(object, weights = "equal", limit = TRUE)
+  omega_w = ordinal_omega(object, limit = TRUE)
   par(las = 1, mar = c(5.1, 4.1, 4.1, 4.1))
   plot(outs, ordinal_Hs, ylim = c(0.3, 0.8), pch = 19, log = "x",
        xlab = "Levels", ylab = "Reliability")
   points(outs, ordinal_omegas, pch = 1)
-  abline(h = omega(lambda, sigma), lty = 2)
-  abline(h = omega_h(lambda, sigma))
-  labs = formatC(c(omega(lambda, sigma),
-                   omega_h(lambda, sigma)), digits = 2)
-
-  axis(side = 4, at = c(omega(lambda, sigma), omega_h(lambda, sigma)),
+  abline(h = omega, lty = 2)
+  abline(h = omega_w)
+  labs = formatC(c(omega, omega_w, ordinal_Hs[5], ordinal_omegas[5]),
+                 digits = 2)
+  abline(v = 6, lty = 3, col = "grey")
+  abline(h = c(ordinal_Hs[5], ordinal_omegas[5]), lty = 3, col = "grey")
+  axis(side = 4, at = c(omega, omega_w,ordinal_Hs[5], ordinal_omegas[5]),
        labels = labs)
+  axis(side = 1, 6)
 
   dev.off()
 }

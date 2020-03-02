@@ -82,18 +82,6 @@ figs-within-sections
 
 \begin_body
 
-\begin_layout Standard
-(Structure: Introduce the problem.
-\end_layout
-
-\begin_layout Standard
-Subsection: Arguments against ordinal alpha
-\end_layout
-
-\begin_layout Standard
-Subsection: A reliability coefficient for the discretized model
-\end_layout
-
 \begin_layout Section
 Ordinal alpha
 \begin_inset CommandInset label
@@ -106,7 +94,7 @@ name "sec:Ordinal alpha"
 \end_layout
 
 \begin_layout Standard
-Recall the congeneric model (ref)
+Recall the congeneric model ((cite))
 \end_layout
 
 \begin_layout Standard
@@ -118,33 +106,41 @@ X=\lambda Z+\Psi^{1/2}\epsilon
 \end_inset
 
 Consider the scenario when we do not observe the 
-\begin_inset Formula $X$
+\begin_inset Formula $X_{i}$
 \end_inset
 
-s directly, but rather the discretized 
-\begin_inset Formula $X$
+s directly, but rather 
+\begin_inset Formula $X_{i}$
 \end_inset
 
-s according to
+s discretized into 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+ categories according to
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Y_{i}=k1[\tau_{i(k-1)}\leq X_{i}\leq\tau_{ik}]\label{eq:discretization model}
+Y_{i}=k1[\tau_{i(k-1)}\leq X_{i}\leq\tau_{ik}],\label{eq:discretization model}
 \end{equation}
 
 \end_inset
 
 where 
-\begin_inset Formula $-\infty=\tau_{i0}<\tau_{i1}<\ldots<\tau_{im_{i}}=\infty$
+\begin_inset Formula $-\infty=\tau_{i0}<\tau_{i1}<\ldots<\tau_{i(m_{i}+1)}=\infty$
 \end_inset
 
- a thresholds for each 
+ are thresholds for each 
 \begin_inset Formula $i$
 \end_inset
 
-.
+ and 
+\begin_inset Formula $1[A]$
+\end_inset
+
+ is the indicator function.
  This is a common model for Likert scales with 
 \begin_inset Formula $m_{i}$
 \end_inset
@@ -168,12 +164,20 @@ noprefix "false"
 
 \end_inset
 
- is called the 
+ is a congeneric 
 \emph on
-ogive model
+multivariate ogive model
 \emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Swaminathan2016-rg"
+literal "false"
+
+\end_inset
+
 .
- [[cite]] In this case, the correlation matrix 
+ Under multivariate normality the correlation matrix 
 \begin_inset Formula $\Phi$
 \end_inset
 
@@ -185,24 +189,42 @@ ogive model
 \emph on
 polychoric correlation
 \emph default
- [[cite]].
- It can be estimated using maximum likelihood directly 
-\emph on
-[[cite Olsson.]] 
-\emph default
-or a two-step procedure.
+.
+ It can be estimated using maximum likelihood directly or a two-step procedure
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Olsson1979-ti"
+literal "false"
+
+\end_inset
+
+.
+ To make the model identified, usual practice is assume 
+\begin_inset Formula $\Psi^{1/2}$
+\end_inset
+
+ to be a correlation matrix.
+ 
 \end_layout
 
 \begin_layout Standard
-Ganderman and Zumbo propose the 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Zumbo2007-ap"
+literal "false"
+
+\end_inset
+
+ propose what I call the 
 \emph on
-ordinal alpha
+theoretical ordinal alpha
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\alpha_{o}=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\label{eq:ordinal alpha}
+\alpha=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\label{eq:ordinal alpha}
 \end{equation}
 
 \end_inset
@@ -211,9 +233,13 @@ where
 \begin_inset Formula $\Phi=\Cor X$
 \end_inset
 
- is polychoric correlation coefficient.
- Ordinal alpha is a standardized alpha, but it is based on the latent correlatio
-n matrix between the unobserved 
+ is polychoric correlation coefficient of 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ Theoretical ordinal alpha is a standardized alpha, but it is based on the
+ latent correlation matrix between the unobserved 
 \begin_inset Formula $X$
 \end_inset
 
@@ -222,20 +248,90 @@ n matrix between the unobserved
 \end_inset
 
 s.
- The population values of the ordinal alpha and the standardized alpha are
- not the same in general.
+ The population values of the theoretical ordinal alpha and the standardized
+ alpha are not the same in general.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Zumbo2007-ap"
+literal "false"
+
+\end_inset
+
+'s main argument in favor of the ordinal alpha is 
+\begin_inset Quotes eld
+\end_inset
+
+coefficient alpha (and KR-20) are correlation-based statistics and hence
+ assume continuous data’’ 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 27"
+key "Zumbo2007-ap"
+literal "false"
+
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 1060, \"Misconcetion 1\""
+key "Chalmers2018-fj"
+literal "false"
+
+\end_inset
+
+ persuasively argues against this idea, see also 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Raykov2019-yr"
+literal "false"
+
+\end_inset
+
+ and the section ((cite)) of this paper.
+ The argument is reiterated by 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Gadermann2012-jl"
+literal "false"
+
+\end_inset
+
+.
+ However, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Zumbo2019-lm"
+literal "false"
+
+\end_inset
+
+ argue the the benefit of sample ordinal alpha is that we are truly interested
+ in the reliability of 
+\begin_inset Formula $X$
+\end_inset
+
+ as a predictor of 
+\begin_inset Formula $Y$
+\end_inset
+
+ (in the parlance of this paper).
+ 
 \end_layout
 
 \begin_layout Standard
 A related notion is the 
 \emph on
-ordinal reliability, 
+theoretical ordinal reliability, 
 \emph default
-the standardized reliability based on the polychoric correlation coefficient.
+the analogue of the weighted reliability ((ref)) based on the polychoric
+ correlation coefficient.
  Its definition is 
 \begin_inset Formula 
 \begin{equation}
-\omega_{o}=\frac{k\lambda_{i}^{\star}}{k\lambda_{i}^{\star}+\sigma_{i}^{\star}}\label{eq:ordinal omega}
+\omega_{w}=\frac{w\lambda_{i}^{\star}}{w\lambda_{i}^{\star}+\sigma_{i}^{\star}}\label{eq:ordinal omega}
 \end{equation}
 
 \end_inset
@@ -252,46 +348,36 @@ were
 \end_layout
 
 \begin_layout Standard
-The motivation for ordinal alpha is: Zumbo et al.
- (2007).
- ‘‘coefficient alpha (and KR-20) are correlation-based statistics and hence
- assume continuous data’’ (p.
- 27).
- (Similar quote from McNeish)
+There several reasons to avoid the theoretical ordinal alpha.
+ If your goal is to estimate the congeneric reliability or the standardized
+ reliability, the theoretical ordinal alpha is inappropriate since it does
+ not equal the congeneric reliability, even under the parallel model 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 1062, \"Misconception 2\""
+key "Chalmers2018-fj"
+literal "false"
+
+\end_inset
+
+, a point conceded by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Zumbo2019-lm"
+literal "false"
+
+\end_inset
+
+.
+ But this is not the worst problem.
+ For even if you are interested in estimating the congeneric reliability
+ for the multivariate normal ogive model, you should avoid the theoretical
+ alpha.
 \end_layout
 
 \begin_layout Standard
-Chalmers persuasively argues against the use of ordinal alpha 
-\end_layout
-
-\begin_layout Standard
-I have three arguments against ordinal alpha:
-\end_layout
-
-\begin_layout Enumerate
-Ordinal alpha is practically useless.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-It does not estimate coefficient alpha, even under the parallel model.
- (Connect to McNeish.)
-\end_layout
-
-\begin_layout Enumerate
-It does not estimate the standardized coefficient alpha, even under the
- appropriate model.
+Theoretical ordinal alpha is apparently not connected to any predictor of
  
-\end_layout
-
-\begin_layout Enumerate
-The quantity it estimates has not practical use, as it is the correlation
- between to unobserved quantities:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-It is apparently not connected to any predictor of 
 \begin_inset Formula $Z$
 \end_inset
 
@@ -299,152 +385,124 @@ It is apparently not connected to any predictor of
 \begin_inset Formula $Y$
 \end_inset
 
-.
- This breaks the bond between the reliability coefficient and the predicted
- scores that the relibability coefficient should 
-\end_layout
-
-\begin_layout Enumerate
-It cannot be used to correct for attenuation.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-If you believe in the model discretization model 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:discretization model"
-plural "false"
-caps "false"
-noprefix "false"
-
+, only the correlation 
+\begin_inset Formula $\Cor^{2}(\sum_{i=1}^{k}w_{i}X_{i},Z)$
 \end_inset
 
 .
- In this any reliabiltiy based on the congeneric model for 
-\begin_inset Formula $Y$
+ This correlation is barely interesting though, since we do not observe
+ the latent 
+\begin_inset Formula $X_{i}$
 \end_inset
 
- is inapprioriate.
- The proper way would be to form a prediction 
-\begin_inset Formula $\hat{X}$
+s.
+ The theoretical alpha does not have the concrete interpretation of the
+ congeneric alpha mentioned in section 2, namely 
+\begin_inset Quotes eld
 \end_inset
 
- from 
-\begin_inset Formula $Y$
+how good can I expected my prediction of 
+\begin_inset Formula $Z$
 \end_inset
 
-, form the weighted score 
-\begin_inset Formula $Z=\sum w_{i}\hat{X}_{i}$
-\end_inset
-
- from it, and calculate the correlation 
-\begin_inset Formula $\Cor^{2}(\widehat{Z},Z)$
-\end_inset
-
-.
- This reliability coefficient is concrete and useful.
- Moreover, it counters the fourth misconception of Chalmers, as it will
- increase in 
-\begin_inset Formula $m$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-If you want the standardized reliability of the unobserved 
+ based on 
 \begin_inset Formula $X$
 \end_inset
 
-, the ordinal 
-\begin_inset Formula $\omega$
+ to be?
+\begin_inset Quotes erd
 \end_inset
 
- is a better choice.
-\end_layout
+, as 
+\begin_inset Formula $X$
+\end_inset
 
-\begin_deeper
-\begin_layout Enumerate
-The conditions required for standardized alpha to equal the standardized
- reliability are still needed.
+ is unknown and you cannot for your prediction.
+ This lack of knowledge about 
+\begin_inset Formula $X$
+\end_inset
+
+ also makes correction for attenuation impossible.
+ Since 
+\begin_inset Formula $X$
+\end_inset
+
+ is unknown, it is impossible to directly calculate the correlation between
+ a function of 
+\begin_inset Formula $X$
+\end_inset
+
+ and a function of some other quantity 
+\begin_inset Formula $X'$
+\end_inset
+
+.
+ Due to this, the correction for attuation formula will not work.
+ What you can calculate is the correlation between some function of the
+ observed variables 
+\begin_inset Formula $Y$
+\end_inset
+
+ and a function of 
+\begin_inset Formula $X'$
+\end_inset
+
+.
  
 \end_layout
 
-\begin_layout Enumerate
-Can be estimated using e.g.
+\begin_layout Standard
+Moreover, if you want the standardized reliability of the unobserved 
+\begin_inset Formula $X$
+\end_inset
+
+, the ordinal reliability is a better choice.
+ For the conditions required for standardized alpha to equal the standardized
+ reliability are still needed, i.e.
+ the weighted 
+\begin_inset Formula $\tau$
+\end_inset
+
+-equivalent model ().
+ The theoretical ordinal reliability can be estimated using e.g.
  
 \begin_inset Formula $\mathtt{lavaan}$
 \end_inset
 
- with not much added complexity.
-\end_layout
-
-\begin_layout Enumerate
-If you want the congeneric reliability of the unobserved 
-\begin_inset Formula $X$
+ without much added complexity.
+ Using the same arguments as in the previous section, the theoretical ordinal
+ reliability with optimal weights (corresponding to coefficient 
+\emph on
+H
+\emph default
+) or weights 
+\begin_inset Formula $w_{i}=\sigma_{i}$
 \end_inset
 
-, you need the assumption of a parallel model, as the congeneric reliability
- cannot be recovered from 
-\begin_inset Formula $\Phi$
-\end_inset
-
- without it.
+ (corresponding to the sigma reliabiltiy) should be prefered to the standardized
+ reliability too.
 \end_layout
 
-\end_deeper
-\begin_layout Enumerate
-Ordinal alpha depends on unverifiable assumptions about the multivariate
- normality of 
-\begin_inset Formula $X$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-The polychoric correlation matrix is extremely sensitive to the normality
- assumption.
- For instance, with no assumptions except continuity, the tetrachoric correlatio
-ns can take any value in 
-\begin_inset Formula $(-1,1)$
-\end_inset
-
-.
- With the stronger assumption of normal marginals, the bounds for the correlatio
-ns barely improve.
-\end_layout
-
-\end_deeper
 \begin_layout Standard
+Finally, theoretical ordinal alpha only makes sense in relation to the congeneri
+c multivariate ogive model.
+ But this model depends on the fundamentally unverifiable assumption of
+ multivariate normality of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ The polychoric correlation coefficient is not robust against normality
+ in general 
 \begin_inset CommandInset citation
-LatexCommand citet
-after "p. 1068"
-key "Chalmers2018-fj"
+LatexCommand citep
+key "Foldnes2019-yd"
 literal "false"
 
 \end_inset
 
- discusses one possible use of the ordinal alpha.
- Namely as the theoretical reliability when the number of thresholds 
-\begin_inset Formula $\tau$
-\end_inset
-
- goes towards infinity.
- In this case we know 
-\begin_inset Formula $Y$
-\end_inset
-
- exactly except for its scale, so we can only form reliability coefficients
- based on the standardized 
-\begin_inset Formula $\lambda,\sigma$
-\end_inset
-
 .
- The practical use of this quanitity remain illusive to me, however.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -468,7 +526,7 @@ literal "false"
 
 \end_inset
 
- is that the discretized model 
+ is that the congeneric multivariate normal ogive model 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:discretization model"
@@ -478,7 +536,7 @@ noprefix "false"
 
 \end_inset
 
- is better approximation to reality than the congeneric model (ref).
+ is a better approximation to reality than the congeneric model (ref).
  So assume we believe in the discretized model and can be reasonably sure
  that 
 \begin_inset Formula $X$
@@ -810,7 +868,7 @@ noprefix "false"
 \end_inset
 
 .
- Moreover, the 
+ Moreover, 
 \begin_inset Formula $v^{T}\Xi v$
 \end_inset
 
@@ -851,18 +909,50 @@ Point (iii) demonstrates that
 \begin_inset Formula $\Psi$
 \end_inset
 
- only, it is designed to equal the ordinal reliability under the parallel
+ only, and is designed to equal the ordinal reliability under the parallel
  model.
- The factor 
-\begin_inset Formula $(\mathbf{i}^{T}\Xi\mathbf{i}/\mathbf{i}^{T}\Psi\mathbf{i})$
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 1068"
+key "Chalmers2018-fj"
+literal "false"
+
 \end_inset
 
- shows 
+ discusses one possible use of the ordinal alpha, namely as the theoretical
+ reliability when the number of thresholds 
+\begin_inset Formula $\tau$
+\end_inset
+
+ goes towards infinity.
+ Point (iv) makes this claim concrete In this case we know 
+\begin_inset Formula $Y$
+\end_inset
+
+ exactly except for its scale, so we can only form reliability coefficients
+ based on the standardized 
+\begin_inset Formula $\lambda,\sigma$
+\end_inset
+
+.
+ The practical use of this quanitity remain illusive to me, however.
 \end_layout
 
 \begin_layout Example
-We will yet again have a look at the personaliy data from 
-\begin_inset Formula $\mathtt{psych}$
+We will yet again have a look at 
+\begin_inset Formula $6$
+\end_inset
+
+-level agreeableness factor the personaliy data 
+\begin_inset Formula $\mathtt{bfi}$
+\end_inset
+
+ from 
+\begin_inset Formula $\mathtt{psychTools}$
 \end_inset
 
 .
@@ -870,7 +960,7 @@ We will yet again have a look at the personaliy data from
 \begin_inset Formula $\mathtt{psych}$
 \end_inset
 
- package to estimate the discretized model 
+ package to fit the congeneric multivariate ogive model 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:discretization model"
@@ -880,7 +970,8 @@ noprefix "false"
 
 \end_inset
 
-, where I assume multivariate normality of 
+ using the two-step procedure to estimate the polychoric correlation matrix.
+ Recall the assumptions of multivariate normality of 
 \begin_inset Formula $X$
 \end_inset
 
@@ -890,14 +981,91 @@ noprefix "false"
 
  are standardized.
  The resulting estimates are 
-\begin_inset Formula $\hat{\lambda}=..$
+\begin_inset Formula $\hat{\lambda}=(0.43,0.71,0.80,0.52,0.67)$
 \end_inset
 
  and 
-\begin_inset Formula $\hat{\sigma}=..$
+\begin_inset Formula $\hat{\sigma}=(0.90,0.70,0.59,0.86,0.74)$
 \end_inset
 
 .
+ The ordinal relability with optimal weights is 
+\begin_inset Formula $\omega'_{H}=0.68$
+\end_inset
+
+, and with equal weights and 
+\begin_inset Formula $\omega'=0.64$
+\end_inset
+
+.
+ But the theoretical variants are 
+\begin_inset Formula $\omega'_{H}=0.81$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega'=0.77$
+\end_inset
+
+, both missed by large magin.
+ In comparison, the reliabilities calculated under the congeneric model
+ with 
+\begin_inset Formula $\mathtt{lavaan}$
+\end_inset
+
+ equals 
+\begin_inset Formula $\omega'_{H}=0.77$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega'=0.74$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+I calculated 
+\begin_inset Formula $\omega'_{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega'$
+\end_inset
+
+ for selection of Likert scales with 
+\begin_inset Formula $\lambda=\hat{\lambda}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\sigma}=\sigma$
+\end_inset
+
+ and the thresholds 
+\begin_inset Formula $\tau$
+\end_inset
+
+ at 
+\begin_inset Formula $\{\Phi^{-1}[i/(k+1)]\}_{i=1}^{k+1}$
+\end_inset
+
+, which approximates the reliabilities we would have obtained had we used
+ 
+\begin_inset Formula $k+1$
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ordinal reliability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ contains the results.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -922,6 +1090,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ordinal reliability"
+
+\end_inset
+
 Ordinal reliability (
 \begin_inset Formula $\fullmoon$
 \end_inset
@@ -944,28 +1118,33 @@ Ordinal reliability (
 \end_inset
 
  (solid line), and the theoretical composite reliability is 
-\begin_inset Formula $0.74$
+\begin_inset Formula $0.77$
 \end_inset
 
  (dashed line).
  All cutoffs are uniform, and every reliability has been calculated with
  
-\begin_inset Formula $\lambda=...$
+\begin_inset Formula $\lambda=(0.43,0.71,0.80,0.52,0.67)$
 \end_inset
 
  and 
-\begin_inset Formula $\sigma=...$
+\begin_inset Formula $\sigma=(0.90,0.70,0.59,0.86,0.74)$
 \end_inset
 
- 
+.
+ The original number of levels (
+\begin_inset Formula $6$
+\end_inset
+
+) and the ordinal reliabilities 
+\begin_inset Formula $(\omega'_{H}=0.71,\omega'=0.67)$
+\end_inset
+
+ are marked for reference.
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
