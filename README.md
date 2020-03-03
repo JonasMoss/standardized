@@ -7,13 +7,10 @@
 Status](https://travis-ci.com/JonasMoss/standardized.svg?branch=master)](https://travis-ci.org/JonasMoss/standardized)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/JonasMoss/standardized?branch=master&svg=true)](https://ci.appveyor.com/project/JonasMoss/standardized)
-[![CircleCI build
-status](https://circleci.com/gh/JonasMoss/standardized.svg?style=svg)](https://circleci.com/gh/JonasMoss/standardized)
 [![Project Status: WIP – Initial development is in progress, but there
 has not yet been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-[![Codecov test
-coverage](https://codecov.io/gh/JonasMoss/standardized/branch/master/graph/badge.svg)](https://codecov.io/gh/JonasMoss/standardized?branch=master)
+<!--[![Codecov test coverage](https://codecov.io/gh/JonasMoss/standardized/branch/master/graph/badge.svg)](https://codecov.io/gh/JonasMoss/standardized?branch=master)-->
 
 <!--[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)-->
 
@@ -22,20 +19,17 @@ coverage](https://codecov.io/gh/JonasMoss/standardized/branch/master/graph/badge
 <!--[![DOI](https://zenodo.org/badge/120678148.svg)](https://zenodo.org/badge/latestdoi/120678148) -->
 
 Joint repository for the unfinished paper “Please avoid the standardized
-alpha” and its companion `R` package.
-
-**N.B.** This repository will be split in two in the *near* future; one
-package for the paper and one for the `R` package. The paper itself is
-unfinished but should be preprint-ready soon, as by 15 March 2020.
+alpha” and its companion `R` package. The paper itself is unfinished but
+should be preprint-ready soon, as by 15 March 2020.
 
 ## Overview
 
 ### Package
 
 The package contains functions to estimate many different sorts of
-reliabiltiy coefficients. The new ordinal reliability is in implemented
-in the functions `ordinal_poly` (for estimation), `ordinal_omega`
-(population value) and `ordinal_alpha` (the coefficient alpha variant.)
+reliabiltiy coefficients. The new ordinal reliabilities are implemented
+in a separate package,
+[conogive](https://github.com/JonasMoss/conogive).
 
 ### Paper
 
@@ -51,18 +45,19 @@ the code here for your own projects.
 
 ## Installation
 
-From inside `R`, use one of the following commands:
+From inside `R`, use the following commands:
 
 ``` r
 devtools::install_github("JonasMoss/standardized")
+devtools::install_github("JonasMoss/conogive")
 ```
 
-The package needs to installed if you intend intend to run files in the
-`code` directory.
+These packages needs to installed if you intend intend to run files in
+the `code` directory.
 
 ## Usage Example
 
-Run `run.R` from inside of `R` to repopulate the `chunks` directory.
+Run `run.R` from inside of `code` to repopulate the `chunks` directory.
 
 ## How to Contribute
 
