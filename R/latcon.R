@@ -132,6 +132,5 @@ reliability = function(object, weights = c("optimal", "equal", "std", "sigma")) 
   if(weights == "equal") a <- k * mean(abs(lambda))^2 / mean(sigma^2)
   if(weights == "std") a <- k * mean(abs(lambda) / sigma)^2
   if(weights == "sigma") a <- k * mean(abs(lambda) / sqrt(lambda^2 + sigma^2))^2 / mean(sigma^2 / (lambda^2 + sigma^2))
-
   a / (a + 1)
 }

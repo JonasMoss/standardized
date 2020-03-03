@@ -75,3 +75,8 @@ agreeableness[, "A1"] = 7 - agreeableness[, "A1"] # Reverse-coded item.
 object = latcon(agreeableness)
 ordinal_alpha(object) # 0.6267724
 ordinal_omega(object, weights = "equal") # 0.6394087
+
+
+agreeableness = psychTools::bfi[c("A1", "A2", "A3", "A4", "A5")]
+agreeableness[, "A1"] = 7 - agreeableness[, "A1"] # Reverse-coded item.
+object = con
