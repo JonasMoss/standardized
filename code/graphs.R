@@ -41,7 +41,7 @@ plot_errors()
 
 plot_ordinals = function() {
   if("conogive" %in% rownames(installed.packages()) == FALSE) {
-    stop("You need the package 'congive to run plot_ordinals()")
+    stop("You need the package 'conogive to run plot_ordinals()")
   }
 
   pdf("chunks/ordinals.pdf", height = 8, width = 8)
@@ -56,11 +56,10 @@ plot_ordinals = function() {
     conogive::ordinal_omega(conogive::conogive(object), weights = "optimal")
   })
 
-  conogive::ordinal_omegas = sapply(outs, function(out) {
+  ordinal_omegas = sapply(outs, function(out) {
     object$cuts = qnorm(seq(0, 1, length.out = out + 1))
     conogive::ordinal_omega(conogive::conogive(object), weights = "equal")
   })
-
 
   omega = conogive::omega(object, weights = "equal")
   omega_w = conogive::omega(object)
@@ -70,11 +69,11 @@ plot_ordinals = function() {
   points(outs, conogive::ordinal_omegas, pch = 1)
   abline(h = omega, lty = 2)
   abline(h = omega_w)
-  labs = formatC(c(omega, omega_w, ordinal_Hs[5], conogive::ordinal_omegas[5]),
+  labs = formatC(c(omega, omega_w, ordinal_Hs[5], ordinal_omegas[5]),
                  digits = 2)
   abline(v = 6, lty = 3, col = "grey")
-  abline(h = c(ordinal_Hs[5], conogive::ordinal_omegas[5]), lty = 3, col = "grey")
-  axis(side = 4, at = c(omega, omega_w,ordinal_Hs[5], conogive::ordinal_omegas[5]),
+  abline(h = c(ordinal_Hs[5], ordinal_omegas[5]), lty = 3, col = "grey")
+  axis(side = 4, at = c(omega, omega_w,ordinal_Hs[5], ordinal_omegas[5]),
        labels = labs)
   axis(side = 1, 6)
 
