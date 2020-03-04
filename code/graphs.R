@@ -66,7 +66,7 @@ plot_ordinals = function() {
   par(las = 1, mar = c(5.1, 4.1, 4.1, 4.1))
   plot(outs, ordinal_Hs, ylim = c(0.3, 0.8), pch = 19, log = "x",
        xlab = "Levels", ylab = "Reliability")
-  points(outs, conogive::ordinal_omegas, pch = 1)
+  points(outs, ordinal_omegas, pch = 1)
   abline(h = omega, lty = 2)
   abline(h = omega_w)
   labs = formatC(c(omega, omega_w, ordinal_Hs[5], ordinal_omegas[5]),
