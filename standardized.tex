@@ -1,8 +1,9 @@
 \documentclass{article}
 
 
+\usepackage[natbibapa,nodoi]{apacite}
+%\usepackage{natbib}
 \usepackage{arxiv}
-\usepackage{natbib}
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
 \usepackage[colorlinks=true, citecolor = blue]{hyperref}      % hyperlinks
@@ -22,7 +23,6 @@
 \usepackage{todonotes}
 \usepackage{xfrac}
 \usepackage{wasysym}
-
 
 %%% ============================================================================
 %%% Theorems.
@@ -102,7 +102,7 @@ I argue coefficient alpha should always be preferred over the standardized alpha
 \keywords{reliability \and coefficient alpha \and cronbach's alpha}
 
 \section{Introduction}
-The reliability coefficient is the squared correlation between a latent variable $Z$ and its predictor $\hat{Z}$ \citep[][p. 61]{Lord1968-ax}. Just as the squared correlation between two variables $X$ and $Y$ quantifies the degree of linear relationship between them, with $0$ being no linear relationship and $1$ a perfect linear relationship, the reliability coefficient quantifies how well the noise $\hat{Z}$ works as a predictor of $Z$.
+The reliability coefficient is the squared correlation between a latent variable $Z$ and its predictor $\hat{Z}$ \citep[][p. 61]{Lord1968-ax}. Just as the squared correlation between two variables $X$ and $Y$ quantifies the degree of linear relationship between them, with $0$ being no linear relationship and $1$ a perfect linear relationship, the reliability coefficient quantifies how well the noisy $\hat{Z}$ works as a predictor of $Z$.
 
 In unidimensional psychometric scales with $k$ test items the most popular predictor $\hat{Z}$ is the sum of the test items, $\hat{Z}=X_1 + \cdots + X_k$. This predictor is often called the sum score \citep{McNeish2019-ea}, and the associated reliability is the congeneric reliability \citep{Cho2016-bs}. The sample coefficient alpha is the most popular estimator of the congeneric reliability, and so it has been for a long time \citep{McNeish2018-vu}. A close cousin of coefficient alpha is the standardized coefficient alpha, or standardized alpha for short. The difference between these two alphas is simple to state: To calculate coefficient alpha you use the sample covariance matrix, to calculate the standardized alpha you use the sample correlation matrix.
 
@@ -114,7 +114,9 @@ I argue you should avoid standardized alpha in all circumstances. I make my case
 \item A common stance on sample standardized alpha is to use it only with standardized test scores. In this case, sample standardized alpha is best understood as an estimator of the standardized reliability, i.e. the squared correlation between $Z$ and $\hat{Z}$ when $\hat{Z}$ is the sum of standardized test items. However, the standardized alpha equals the standardized reliability only under restrictive and unrealistic conditions. If you are willing to go for another kind reliability than the congeneric reliability, I would suggest you consider coefficient $H$ instead, which corresponds to the optimal linear predictor $\hat{Z}$. If coefficient $H$ is too hard to swallow, I propose to standardize with the the residual errors and use the new $\omega_\sigma$ reliability.
 \end{enumerate}
 
-In the section \ref{sec:coefficienta alpha} I introduce coefficient alpha, the standardized alpha, and the notion of reliability. I make an effort to be mathematically precise here, and reiterate several known properties about the alphas in a Proposition \ref{prop:Reliabilities.}. I devote section \ref{sec:arument 1} to fleshing out argument 1 and section \ref{sec:argument 2} to argument 2. In section \ref{sec:Ordinal alpha} I argue against the use of the ordinal alpha \citep{Zumbo2007-ap} and propose an alternative. I end with some brief remarks in section \ref{sec:remarks}.
+In the section \ref{sec:coefficienta alpha} I introduce coefficient alpha, the standardized alpha, and the notion of reliability. I make an effort to be mathematically precise here, and reiterate several known properties about the alphas in a Proposition \ref{prop:Reliabilities.}. I devote section \ref{sec:arument 1} to fleshing out argument 1 and section \ref{sec:argument 2} to argument 2. In section \ref{sec:Ordinal alpha} I argue against the use of the ordinal alpha \citep{Zumbo2007-ap} and propose an alternative.
+
+% I end with some brief remarks in section \ref{sec:remarks}.
 \section{Coefficient alpha and standardized alpha}
 \label{sec:coefficienta alpha}
 
@@ -136,7 +138,7 @@ X=\alpha + \lambda Z+\Psi^{1/2}\epsilon\label{eq:congeneric model}
 \end{equation}
 where $\lambda$ is a vector of loadings, $\alpha$ is a mean vector, and $\Psi^{1/2}$ is a diagonal matrix with positive diagonal elements $\sigma_i$. Since $\Psi^{1/2}$ is diagonal the errors $\Psi^{1/2}\epsilon$ are uncorrelated. When $\Psi^{1/2}$ is allowed to be any positive definite matrix, the model \eqref{eq:congeneric model} is a one-factor model, and if the dimension of $Z$ is larger than one it is a linear factor model. I made no parametric assumptions about either $Z$ or $\epsilon$, and right now they can have any distribution whatsoever. Since $\alpha,\lambda,\Psi$ are parameters of the model, we are dealing with a semi-parametric model. 
 
-The congeneric model is not necessarily a realistic model. Both the assumption of one latent factor $Z$ and uncorrelated errors are unrealistic in most psychometri settings \citep[][section 1.2 -- 1.3]{Green2009-le}. I have restricted this paper to the congeneric model since it is a commonly used, standardized alpha only makes sense on submodels of the congeneric models, and it makes the presentation smoother. Nevertheless, if I were to used the linear factor model, the case against standardized alpha as a reliability coefficient would be even stronger. See \citep[][section 2]{Green2009-le} for an assessment of how coefficient alpha fares when the congeneric model assumption is loosened up.
+The congeneric model is not necessarily a realistic model. Both the assumption of one latent factor $Z$ and uncorrelated errors are unrealistic in most psychometric settings \citep[][section 1.2 -- 1.3]{Green2009-le}. I have restricted this paper to the congeneric model since it is a commonly used, standardized alpha only makes sense on submodels of the congeneric models, and it makes the presentation smoother. Nevertheless, if I were to used the linear factor model, the case against standardized alpha as a reliability coefficient would be even stronger. See \citep[][section 2]{Green2009-le} for an assessment of how coefficient alpha fares when the congeneric model assumption is loosened up.
 
 Let $\hat{Z}$ be a linear predictor of $Z$ based on $X$, that
 is there are some real weights $w_{i},i=1,\ldots,k$ such that
@@ -146,7 +148,7 @@ is there are some real weights $w_{i},i=1,\ldots,k$ such that
 \end{equation}
 The reliability of $\hat{Z}$ as a predictor of $Z$ is $\omega =\Cor^{2}(\hat{Z},Z)$. Since $\hat{Z}$ is determined by its weights $w_i$, I will sometimes talk about the reliability with weights $w_i$.
 
-The purpose of the reliability coefficient is to tell us how well a linear predictor $\hat{Z}$ predicts $Z$. In this sense it is analogous to $R^2$ from linear regression. The following proposition makes this claim precise. In this proposition, and the rest of the paper, I will use the notation $\overline{x}$ to denote the mean of the vector $x$.
+The purpose of the reliability coefficient is to tell us how well a linear predictor $\hat{Z}$ predicts $Z$. In this sense it is analogous to $R^2$ from linear regression. The following proposition makes this claim precise. In this proposition, and the rest of the paper, I will use the notation $\overline{x}$ to denote the mean of the vector $x$. Moreover, when $x$ and $y$ are vectors of the same length, $xy$ is the pointwise product of $x$ and $y$.
 
 \begin{prop}
 \label{prop:reliability motivation}Assume the congeneric model \eqref{eq:congeneric model}. Let $\hat{Z}=\sum_{i=1}^{k}w_{i}X$
@@ -207,8 +209,7 @@ for a proof.
 
 By Chebyshev's inequality, $k\overline{w\lambda}^{2}\geq\overline{(w\lambda)^{2}}$
 with equality if and only if $w_{i}\lambda_{i}=w_{j}\lambda_{j}$,
-i.e. the weighted model is $\tau$-equivalent. Thus the discrepancy
-will usually be less serious the larger $k$ is. The discrepancy term in \eqref{eq:alpha-omega discrepancy} for the special case of coefficient alpha is extensively discussed by \citet{Raykov1997-bu}. 
+i.e. the weighted model is $\tau$-equivalent. The discrepancy term in \eqref{eq:alpha-omega discrepancy} for the special case of coefficient alpha is extensively discussed by \citet{Raykov1997-bu}. 
 
 Proposition \ref{prop:weighted alpha} is a minor generalization of the two most frequently mentioned fact about coefficient alpha and its main motivations. For $\alpha = \omega$ under the $\tau$-equivalent model and
 $\alpha \leq \omega$, hence the coefficient alpha is a lower bound for the congeneric reliability.
@@ -230,7 +231,7 @@ are possible when $\lambda_{i}\neq\lambda_{j}$ for some $j$.
 Most of (i) -- (iii) have been known for a while. See page \pageref{proof:Reliabilities.} of the appendix for a proof.
 \end{proof}
 
-A congeneric model satisfying the conditions of Proposition \ref{prop:Reliabilities.} (i), $\lambda_{i}=\lambda_{j}$ and $\sigma_{i}=\sigma_{j}$ is called \emph{parallel model} \citep[][section 2.13]{Lord1968-ax}. 
+A congeneric model satisfying the conditions of Proposition \ref{prop:Reliabilities.} (i) is called \emph{parallel model} \citep[][section 2.13]{Lord1968-ax}. 
 
 The facts (i) $\alpha = \omega$ under the $\tau$-equivalent model and (ii) $\alpha_s = \omega$ under the parallel model are important since they show us a way to estimate the congeneric reliability $\omega$ \eqref{eq:Congeneric reliability} using a simple function of the sample covariance $S$. The intuitive estimate of $\omega$ is the plug-in estimator, which requires us to estimate $\lambda$ and $\sigma$ first. This is usually a complicated procedure involving iterative algorithms and complex software. This advantage of $\alpha_s$ and $\alpha$ is not decisive these days, as it is easy to estimate $\lambda$ and $\sigma$ using for instance the \texttt{R} \citep{Team2013-tt} package \texttt{lavaan} \citep{Rosseel2012-yg}. Estimating $\omega$ using the plug-in estimator allows us to forego the unrealistic assumptions of $\tau$-equivalence and parallel test items altogether.
 
@@ -256,22 +257,23 @@ simple sample version, as it depends on estimates of $\lambda$ and
 $\sigma^{2}$ which usually do not have closed forms.
 
 The sample coefficient alpha is by far the most popular method to
-measure reliability in psychology [[cite]], despite the stringent conditions
+measure reliability in psychology, despite the stringent conditions
 that must be satisfied for its population value to be equal to the
-true reliability $\omega$ and the questionable choice of weights $w$ \citep{McNeish2019-ea}. This has been lamented by psychometricians such as \citet{McNeish2018-vu} and \citet{Sijtsma2009-hj}. For a spirited defense of sample coefficient alpha see \citep{Raykov2019-yr}.
+true reliability $\omega$ and the questionable choice of weights $w$ \citep{McNeish2019-ea}. This has been lamented by psychometricians such as \citet{McNeish2018-vu} and \citet{Sijtsma2009-hj}. 
+
+But coefficient alpha has something going for it. Arguments in favor of coefficient alpha is that is easy to compute and understand \citep{Socan2000-aa}, that it is well known \citep{Falk2011-ae}, and works reasonably well even when $X$ fails to be $\tau$-equivalent \citep{Raykov1997-bu}. For a recent spirited defense of coefficient alpha see \citep{Raykov2019-yr}.
 
 \section{Argument 1. Standardized alpha as an estimator of the congeneric reliability}
 \label{sec:arument 1}
 
-In this section, I will compare sample coefficient alpha \eqref{eq:sample coefficient alpha} to sample standardized alpha \eqref{eq:sample standardized alpha} as estimators of the congeneric reliability \eqref{eq:Congeneric reliability}. From Proposition \ref{prop:Reliabilities.} we know the parallel model is the natural setting to make comparisons, as this is the only case when coefficient alpha and the standardized alpha equals the congeneric reliability with certainty.
+In this section I compare sample coefficient alpha \eqref{eq:sample coefficient alpha} to sample standardized alpha \eqref{eq:sample standardized alpha} as estimators of the congeneric reliability \eqref{eq:Congeneric reliability}. From Proposition \ref{prop:Reliabilities.} we know the parallel model is the natural setting to make comparisons, as this is the only case when coefficient alpha and the standardized alpha equals the congeneric reliability with certainty.
 
 The parallel model is
-\eqref{eq:congeneric model},
 \begin{equation}
 \label{eq:parallel model}
-Y = \alpha + \lambda Z + \sigma\epsilon,
+X = \lambda Z + \sigma\epsilon,
 \end{equation}
-where $\lambda$ and $\sigma$ are positive scalars and $\epsilon\in\mathbb{R}^k$ and $Z\in\mathbb{R}$ are uncorrelated random variables with unit variance and zero mean. Model \eqref{eq:parallel model} is clearly a special case of \eqref{eq:congeneric model}. Our goal is to estimate the congeneric reliability \eqref{eq:Congeneric reliability}, which for the parallel model equals
+where $\lambda$ and $\sigma$ are positive scalars and $\epsilon\in\mathbb{R}^k$ and $Z\in\mathbb{R}$ are uncorrelated random variables with unit variance and zero mean. Model \eqref{eq:parallel model} is clearly a special case of the congeneric model \eqref{eq:congeneric model}. Our goal is to estimate the congeneric reliability \eqref{eq:Congeneric reliability}, which for the parallel model equals
 \begin{equation}
 \label{eq:parallel_omega}
 \omega = \frac{k\lambda^2/\sigma^2}{k\lambda^2/\sigma^2 + 1}
@@ -285,18 +287,18 @@ Choosing between estimators is a classical statistical problem. Some well-establ
 \begin{enumerate}[label=(\Alph*)]
 \item Check the relative asymptotic efficiency of the estimators.
 \item Is any of the competing estimators a maximum likelihood estimator, perhaps under some parametric restrictions?
-\item Compare finite-sample perfomance of the estimators in terms of for instance mean squared error.
+\item Compare finite-sample performance of the estimators in terms of for instance mean squared error.
 \item Investigate the robustness of the estimators.
 \end{enumerate}
 
 In the rest of this section I will argue that coefficient alpha wins (B) and clearly wins (D), standardized alpha might win (C), and (A) is a draw.  
 
-Point (D) about robustness is an easy one, for we have already established that coefficient alpha is more robust than the standardized alpha. For by Proposition \ref{prop:Reliabilities.}, coefficient alpha equals the congeneric reliability under the $\tau$-equivalent model and standardized alpha does not. Thus we can check (D) off our list as a victory for coefficient alpha.
+Point (D) about robustness is an easy one, for we have already established that coefficient alpha is more robust than the standardized alpha. For by Proposition \ref{prop:Reliabilities.}, coefficient alpha equals the congeneric reliability under the $\tau$-equivalent model and standardized alpha does not. Thus we can check (D) off our list as an easy win for coefficient alpha.
 
 \subsection{Maximum likelihood}
 In this section we will work with the parallel model \eqref{eq:parallel model} where $Z$ and $\epsilon$ are independent standard normals. Call this model the normal parallel model.
 
-Coefficient alpha is "usually" the maximum likelihood estimator of $\omega$ in the normal parallel model, see Theorem \ref{thm:ML} for details. Why does this matter? For one thing, maximum likelihood estimators are guaranteed to be efficient under quite weak conditions \citep[][Section 7.3]{Lehmann2004-ke}. But maximum likelihood also has an heuristic justification; maximizing likelihood is an intuitive procedure and is the most popular recipe for making estimators.
+Coefficient alpha is "usually" the maximum likelihood estimator of $\omega$ in the normal parallel model, see Theorem \ref{thm:ML} below for details. Why does this matter? For one thing, maximum likelihood estimators are guaranteed to be efficient under quite weak conditions \citep[][Section 7.3]{Lehmann2004-ke}. But maximum likelihood also has an heuristic justification; maximizing likelihood is an intuitive procedure and is the most popular recipe for making estimators.
 
 \begin{thm}\label{thm:ML}
 Assume the parallel model \eqref{eq:parallel model} and that $(Z,\epsilon)$ is multivariate normal. 
@@ -304,65 +306,56 @@ Assume the parallel model \eqref{eq:parallel model} and that $(Z,\epsilon)$ is m
 \item The maximum likelihood estimates of $\lambda^{2}$
 and $\sigma^{2}$ are 
 \begin{eqnarray*}
-\hat{\lambda^{2}} & = & \begin{cases}
+\hat{\lambda}^2_\textrm{ML} & = & \begin{cases}
 \frac{1}{k-1}\left(\frac{\mathbf{i}^{T}S\mathbf{i}}{k}-\frac{\tr{S}}{k}\right) & \mathbf{i}^{T}S\mathbf{i}\geq\tr{S},\\
 0 & \text{\textrm{otherwise}},
 \end{cases}\\
 \end{eqnarray*}
 and
 \begin{eqnarray*}
-\hat{\sigma^{2}} & = & \begin{cases}
+\hat{\sigma}^2_\textrm{ML} & = & \begin{cases}
 \frac{1}{k-1}\left(\tr{S}-\frac{\mathbf{i}^{T}S\mathbf{i}}{k}\right) & \mathbf{i}^{T}S\mathbf{i}\geq\tr{S},\\
 \frac{\tr{S}}{k} & \textrm{otherwise}.
 \end{cases}
 \end{eqnarray*}
 \item The maximum likelihood estimator of the congeneric reliability
 \eqref{eq:Congeneric reliability} equals the sample coefficient alpha
-when $\mathbf{i}^{T}S\mathbf{i}\geq\tr{S}$ and $0$ otherwise,
+when $\mathbf{i}^{T}S\mathbf{i}\geq\tr{S}$ and $0$ otherwise, that is,
 \begin{eqnarray*}
-\hat{\omega} & = & \begin{cases}
-\hat{\alpha}(S) & \mathbf{i}^{T}S\mathbf{i}\geq\tr{S},\\
+\hat{\omega}_\textrm{ML} & = & \begin{cases}
+\hat{\alpha} & \mathbf{i}^{T}S\mathbf{i}\geq\tr{S},\\
 0 & \text{\textrm{otherwise}}.
 \end{cases}
 \end{eqnarray*}
 \end{enumerate}
 \end{thm}
 \begin{proof}
-See page \pageref{proof:ML} of the appendix for a proof. \citet[][section 3 -- 5]{Kristof1969-ou} worked out the maximum likelihood estimator under the $\tau$-equivalent model, but found no analytic form. \citep[][Exercise 3.9, p. 114]{Muirhead2009-kq} is about the same problem in a different parameterization.
+See page \pageref{proof:ML} of the appendix for a proof. \citet[][section B]{Kristof1963-tb} worked out the maximum likelihood estimator of the unique correlation $\rho$. \citep[][Exercise 3.9, p. 114]{Muirhead2009-kq} is about the same problem in a different parameterization.
 \end{proof}
 
 \subsection{Asymptotic efficiency}
-[[fill in: some words about efficiency for the uinitiated; Lehmann as a reference.]]
+Comparing the efficiency is possibly the most popular method to compare estimators. Let $\hat{\theta}_1$ and $\hat{\theta}_2$ be two estimator converging to a normal distribution at $n^{1/2}$-rate to the same parameter $\theta$,  where the asymptotic variance of the first distribution is $\phi_1^2$ and the asymptotic variance of the second distribution is $\phi_2^2$. Then $\theta_1$ is more efficient than $\theta_2$ if $\phi_1<\phi_2$. 
 
-Efficiency ref: \citep[][Section 4.3]{Lehmann2004-ke}
+An estimator $\hat{\theta}$ is \textit{efficient} \citep[][Section 4.3]{Lehmann2004-ke} if its asymptotic variance is smaller than any other estimator. Maximum likelihood estimators are efficient under weak conditions, hence $\alpha$ is efficient under the normal parallel model by Theorem \ref{thm:ML}.  
 
-An estimator $\hat{\theta}$ efficient if its asymptotic variance is smaller than any other estimator. Maximum likelihood estimators are efficient under weak conditions, hence $\alpha$ is efficient under the normal parallel model by Theorem \ref{thm:ML}.
-
-Asymptotic relative efficiency is possibly the most popular method to compare estimators. Let $\hat{\theta}_2$ and $\hat{\theta}_2$ be two estimator converging to a normal distribution at with $n^{1/2}$-rate to the same parameter $\theta$, i.e. 
-$n^{1/2}{(\hat{\theta}_1 - \theta)}$ and $n^{1/2}{(\hat{\theta}_2 - \theta)}$ both converge to mean-zero normal distributions. The variances of these two distributions do not have to be the same though. Denote the variance of the first distribution $\phi_1^2$ and the variance of the second distribution $\phi_2^2$. Then the asymptotic relative efficiency of $\hat{\theta_1}$ vs $\hat{\theta_2}$ is $\phi_2^2/\phi_1^2$.
-
-An estimator $\hat{\theta}$ efficient if its asymptotic variance is smaller than any other estimator. Maximum likelihood estimators are efficient under weak conditions, hence $\alpha$ is efficient under the normal parallel model by Theorem \ref{thm:ML}.
+The following theorem shows that $\hat{\alpha}_s$ and $\hat{\alpha}$ are equally efficient.
 
 \begin{thm}
 \label{thm:asymptotics}
 Assume $X$ has finite variance. 
 \begin{enumerate}[label=(\roman*)]
     \item Both sample coefficient alpha and sample standardized alpha converge to their population counterparts with probability $1$. Under the parallel model they are strongly consistent and converge to the congeneric reliability. That is, $\hat{\alpha}\to\alpha$ and $\hat{\alpha}_s\to\alpha_s$ with probability $1$ and $\alpha = \alpha_s = \omega$.
-    \item Under the parallel model \eqref{eq:parallel model} coefficient alpha and standardized alpha share a normal limit distribution when $Z$ and $\epsilon$ have finite fourth moments, i.e. $\sqrt{n}(\hat{\alpha} - \alpha) = \sqrt{n}(\hat{\alpha}_s - \alpha_s)$ both converges to the same normal variable $Z$.
+    \item Under the parallel model \eqref{eq:parallel model} coefficient alpha and standardized alpha share a normal limit distribution when $Z$ and $\epsilon$ have finite fourth moments, i.e. $n^{1/2}(\hat{\alpha} - \alpha)$ and  $n^{1/2}(\hat{\alpha}_s - \alpha_s)$ both converge to the same normal variable $Z$.
     \item Under the normal parallel model, both $\alpha$ and $\alpha_s$ are efficient. Their common limit is normal with asymptotic variance 
     $$\sigma^{2}\left(\alpha\right)= \sigma^{2}\left(\alpha_{s}\right)=2\frac{k}{k-1}\left(1-\alpha_{s}\right)^{2},$$
     where $\rho$ is the unique correlation of the covariance matrix $\Phi$.
 \end{enumerate}
 \end{thm}    
 \begin{proof}
-See page \pageref{proof:asymptotics} of the appendix. The proofs of (ii) and (iii) rely heavily on \citep{Van_Zyl2000-si} and \citep{hayashi2005note}. \citep{Raykov2019-tv} has a proof of (i) and is an introduction to convergence with probability $1$ in the psychometry context.
+See page \pageref{proof:asymptotics} of the appendix. The proofs of (ii) and (iii) rely heavily on \citep{Van_Zyl2000-si} and \citep{hayashi2005note}. \citep{Raykov2019-tv} has a proof of (i) and is an introduction to convergence with probability $1$ in the psychometry context. The limit distribution of coefficient alpha in (iii) was derived by \citet[][eq. 13]{Van_Zyl2000-si} and \citet[][eq. 58]{Kristof1963-tb}.
 \end{proof}
 
-Time for some remarks about Theorem \ref{thm:asymptotics}. (i) States that both $\hat{\alpha}_s$ and $\hat{\alpha}$ estimate what they should. 
-
-A straightforward consequence of Theorem \ref{thm:ML} is that $\hat{\alpha}$ is efficient under the normal parallel model, and in this sense (iii) is an extension of said theorem. The shared limit distribution is simple enough to be usable in practice for both estimators. 
-
-Theorem \ref{thm:asymptotics} (ii) is the main argument result of this section. It shows $\alpha_{s}$ and $\hat{\alpha}$ equally well in the limit no matter what $\lambda$, $\sigma$ and the distributions of $Z$, $\epsilon$ is. We only require that the models have finite fourth moments.
+Time for some remarks about Theorem \ref{thm:asymptotics}. Item (i) states that both $\hat{\alpha}_s$ and $\hat{\alpha}$ estimate what they should. Item (ii) is the main argument of this section. It shows that $\hat{\alpha}_{s}$ and $\hat{\alpha}$ perform equally well in the limit no matter what $\lambda$, $\sigma$ and the distributions of $Z$, $\epsilon$ is. We only require that the models have finite fourth moments. Regarding item (iii), a straightforward consequence of Theorem \ref{thm:ML} is that $\hat{\alpha}$ is efficient under the normal parallel model, and in this sense (iii) is an extension of said theorem. The shared limit distribution is simple enough to be usable in practice for both estimators. 
 
 \subsection{A small simulation}
 There is no reason to choose standardized alpha over coefficient alpha from an efficiency standpoint. But it might still be the case
@@ -370,7 +363,7 @@ that the standardized alpha outperforms coefficient alpha
 in small samples. I have devoted this section to a small simulation
 study comparing the mean squared error of the estimators under
 the parallel model. Since the coefficient alpha is the maximum likelihood
-estimator for the normal parallel model there is some heuristic reason
+estimator for the normal parallel model there is a heuristic reason
 to believe it will perform better than the standardized estimator
 in this context. Instead of normal errors I will use three non-normal
 errors distributions:
@@ -390,9 +383,9 @@ has heavier tails than the normal distribution but is symmetric and nearly bell-
 \item Scaled and centered Gamma distribution with $\alpha=\beta=1/100$. This is asymmetric and with heavy tails. See the right of Figure \ref{fig::distributions}.
 \end{enumerate}
 
-I have chosen $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment, recall Theorem \ref{thm:asymptotics} (ii). The parameters for the Beta and Gamma make them both extreme, as should be clear from Figure \ref{fig::distributions}. I have chosen these distributions since they are extreme and should be able to force out some difference between the estimators. The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains the code I used to run the simulations.
+I have chosen $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment. The parameters for the Beta and Gamma make them both extreme, as should be clear from Figure \ref{fig::distributions}. I have chosen these distributions since they are extreme and should be able to force out some difference between the estimators. The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains the code I used to run the simulations.
 
-Table \ref{tab:simulation} contains $100 \times \MSE_\alpha/\MSE_{\alpha_s}$. Values higher than $100$ are in favor of $\hat{\alpha}_s$ and values lower than $100$ in favor of $\hat{\alpha}$. The table shows that $\alpha_s$ tends to outperform $\alpha$ when both $k$ and $n$ is large and and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\hat{\alpha}_s$ does slightly better than $\hat{\alpha}$, the geometry mean of $\MSE_\alpha/\MSE_{\alpha_s}$ is $1.08$, given an $8$\% advantage to $\hat{\alpha}_s$. Of course, this is a small simulation study and it is hard to predict what would happen with other distributions. Still, I believe the result of these simulations should be counted in favor of sample standardized alpha.
+Table \ref{tab:simulation} contains $100 \times \MSE_\alpha/\MSE_{\alpha_s}$, where $\MSE$ denotes the mean squared error. Values higher than $100$ are in favor of $\hat{\alpha}_s$ and values lower than $100$ in favor of $\hat{\alpha}$. The table shows that $\alpha_s$ tends to outperform $\alpha$ when both $k$ and $n$ is large and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\hat{\alpha}_s$ does slightly better than $\hat{\alpha}$ -- the geometric mean of $\MSE_\alpha/\MSE_{\alpha_s}$ is $1.08$, giving an $8$\% advantage to $\hat{\alpha}_s$. Of course, this is a small simulation study and it is hard to predict what would happen with other distributions. Still, I believe the result of these simulations should be counted in favor of sample standardized alpha.
 
 To sum up, sample alpha won the maximum likelihood and robustness competitions, drew the asymptotic efficiency competition, and lost the finite sample competition. The tally is sample alpha 2\sfrac{1}{2} - 1\sfrac{1}{2} standardized alpha. 
 
@@ -509,18 +502,12 @@ $\omega_{\sigma}$ will usually be the largest. In a short
 simulation ($10^{5}$ repetitions) of $k=5$ items with $\lambda_{i}\sim \textrm{Exp}(1)$
 and $\sigma_{i}\sim \textrm{Exp}(1)$ independently with $i=1,\ldots,5$, $\omega_{\sigma}$
 was the largest $98\%$ of the time, $\omega$ largest $2\%$
-of the time, but $\omega_{s}$ was never the largest ($\omega_{s}>\omega_{\sigma}$
-happened though). The congeneric reliability $\omega$ dominated $\omega_{s}$
-in $6$ of $10$ iterations. You could argue this simulation study
-is somewhat unrealistic: In a slightly different simulation with $\lambda_{i}^{2}\sim N(0,1)$
-and $\sigma_{i}\sim \textrm{HalfNormal}(0,1)$, $\omega_{\sigma}$ was the
-largest $0.92\%$ of the time and $\omega_{s}>\omega$ a nice $70\%$
-of the time. Again, $\omega_{s}$ was never the largest, which suggest
-it cannot be larger than both $\omega$ and $\omega_{\sigma}$ at
-the same time. The take-away from these two simulation studies is
-that $\omega_{\sigma}$ generally does better than $\omega_{s}$ and
+of the time, but $\omega_{s}$ was never the largest. The average reliabilities where $\overline{\omega}_\sigma = 0.91$, $\overline{\omega}_s= 0.76$, and $\overline{\omega} = 0.70$.
+The congeneric reliability $\omega$ dominated the standardized $\omega_{s}$ in $4/10$ iterations. You could argue this simulation study
+is somewhat unrealistic, but the slightly different simulation with $\lambda_{i}$ and $\sigma_{i}\sim \textrm{HalfNormal}(0,1)$, yielded virtually the same results. In a simulation where $\lambda$ and $\sigma$ where uniform on $[0,1]$, yet again $\omega_{\sigma}$
+was the largest $98\%$ of the time and $\omega$ the largest the remaining $2\%$. Moreover, in every iteration of every simulations $\omega_\sigma > \omega_s$. The take-away from these simulations is that $\omega_{\sigma}$ generally does better than $\omega_{s}$ and
 $\omega$, while it is hard to predict the winner among $\omega$
-and $\omega_{s}$. 
+and $\omega_{s}$. See the Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) for the code to run these informal simulations.
 
 \begin{example}
 \label{exa:reliabilities}
@@ -609,10 +596,10 @@ To recap, my arguments are: (i) You should neither avoid standardization altoghe
 
 \section{Ordinal alpha\label{sec:Ordinal alpha}}
 
-Recall the congeneric model \eqref{eq:congeneric model}
-\[
-X=\lambda Z+\Psi^{1/2}\epsilon
-\]
+Recall the congeneric model
+\begin{equation}
+X=\lambda Z+\Psi^{1/2}\epsilon    \tag{\ref{eq:congeneric model}}
+\end{equation}
 Consider the scenario when we do not observe the $X_{i}$s directly,
 but rather $X_{i}$s discretized into $m_{i}$ categories according
 to
@@ -620,20 +607,19 @@ to
 Y_{i}=k1[\tau_{i(k-1)}\leq X_{i}\leq\tau_{ik}],\label{eq:discretization model}
 \end{equation}
 where $-\infty=\tau_{i0}<\tau_{i1}<\ldots<\tau_{i(m_{i}+1)}=\infty$
-are thresholds for each $i$ and $1[A]$ is the indicator function.
+are thresholds for each $i$ and $1[A]$ is the indicator function of $A$.
 This is a common model for Likert scales with $m_{i}$ levels for
 the $i$th item. If $X$ is multivariate normal, model (\ref{eq:discretization model})
-is a congeneric \emph{multivariate ogive model} \citep{Swaminathan2016-rg}.
+is a congeneric \emph{ogive model} \citep{Swaminathan2016-rg}.
 Under multivariate normality the correlation matrix $\Phi$ is point-identified
 from the distribution of $Y$, and is called the \emph{polychoric
-correlation}. It can be estimated using maximum likelihood directly
-or a two-step procedure \citep{Olsson1979-ti}. To make the model
-identified, usual practice is assume $\Psi^{1/2}$ to be a correlation
+correlation}. It can be estimated by maximum likelihood directly
+or by a two-step procedure \citep{Olsson1979-ti}. To make the model
+identified, usual practice is to assume that $\Psi^{1/2}$ is correlation
 matrix. 
 
-\citet{Zumbo2007-ap} propose what I call the \emph{theoretical ordinal
+\citet{Zumbo2007-ap} proposed what I call the \emph{theoretical ordinal
 alpha}
-
 \begin{equation}
 \alpha=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\label{eq:ordinal alpha}
 \end{equation}
@@ -645,16 +631,15 @@ values of the theoretical ordinal alpha and the standardized alpha
 are not the same in general. \citet{Zumbo2007-ap}'s main argument
 in favor of the ordinal alpha is ``coefficient alpha (and KR-20)
 are correlation-based statistics and hence assume continuous data\textquoteright \textquoteright{}
-\citep[p. 27]{Zumbo2007-ap}. \citet[p. 1060, "Misconcetion 1"]{Chalmers2018-fj}
-persuasively argues against this idea, see also \citep{Raykov2019-yr}
-and the section ((cite)) of this paper. The argument is reiterated
-by \citep{Gadermann2012-jl}. However, \citet{Zumbo2019-lm} argue
+\citep[p. 27]{Zumbo2007-ap}. In section \ref{sec:coefficienta alpha} I argued against the notion that coefficient alpha only makes sense for continuous data. \citet[p. 1060, "Misconcetion 1"]{Chalmers2018-fj}
+persuasively argues against this idea, see also \citep{Raykov2019-yr}. The argument is reiterated
+by \citep{Gadermann2012-jl}, but \citet{Zumbo2019-lm} argue
 the the benefit of sample ordinal alpha is that we are truly interested
 in the reliability of $X$ as a predictor of $Y$ (in the parlance
 of this paper). 
 
-A related notion is the \emph{theoretical ordinal reliability, }the
-analogue of the weighted reliability ((ref)) based on the polychoric
+A related notion is the \emph{theoretical ordinal reliability}, the
+analogue of the weighted reliability \eqref{eq:linear reliabiltiy} based on the polychoric
 correlation coefficient. Its definition is 
 \begin{equation}
 \omega_{w}=\frac{w\lambda_{i}^{\star}}{w\lambda_{i}^{\star}+\sigma_{i}^{\star}}\label{eq:ordinal omega}
@@ -673,23 +658,22 @@ for the multivariate normal ogive model, you should avoid the theoretical
 alpha.
 
 Theoretical ordinal alpha is apparently not connected to any predictor
-of $Z$ that depends on the data $Y$, only the correlation $\Cor^{2}(\sum_{i=1}^{k}w_{i}X_{i},Z)$.
+of $Z$ that depends on the data $Y$, only the squared correlation $$\Cor^{2}(\sum_{i=1}^{k}w_{i}X_{i},Z).$$
 This correlation is barely interesting though, since we do not observe
 the latent $X_{i}$s. The theoretical alpha does not have the concrete
-interpretation of the congeneric alpha mentioned in section 2, namely
+interpretation of the congeneric alpha mentioned in section 2. The question
 ``how good can I expected my prediction of $Z$ based on $X$ to
-be?'', as $X$ is unknown and you cannot for your prediction. This
+be?'' does not make practical sense to ask, as $X$ is unknown and you cannot use it for your prediction. This
 lack of knowledge about $X$ also makes correction for attenuation
 impossible. Since $X$ is unknown, it is impossible to directly calculate
 the correlation between a function of $X$ and a function of some
 other quantity $X'$. Due to this, the correction for attenuation formula
-will not work. What you can calculate is the correlation between some
-function of the observed variables $Y$ and a function of $X'$. 
+will not work. 
 
 Moreover, if you want the standardized reliability of the unobserved
 $X$, the ordinal reliability is a better choice. For the conditions
 required for standardized alpha to equal the standardized reliability
-are still needed, i.e. the weighted $\tau$-equivalent model (). The
+are still needed, i.e. the weighted $\tau$-equivalent model \eqref{eq:std-modified model}. The
 theoretical ordinal reliability can be estimated using e.g. $\mathtt{lavaan}$
 without much added complexity. Using the same arguments as in the
 previous section, the theoretical ordinal reliability with optimal
@@ -706,13 +690,13 @@ normality in general \citep{Foldnes2019-yd}.
 \subsection{A concrete ordinal reliability}
 
 The main argument of \citet{Zumbo2019-lm}'s rebuttal of \citep{Chalmers2018-fj}
-is that the congeneric multivariate normal ogive model \eqref{eq:discretization model} 
-is a better approximation to reality than the congeneric model \eqref{eq:congeneric model}. (See also \citet[][p.2]{Gadermann2012-jl})
+is that the congeneric ogive model \eqref{eq:discretization model} 
+is a better approximation to reality than the congeneric model \eqref{eq:congeneric model}. (See also \citet[][p.2]{Gadermann2012-jl}.)
 So assume we believe in the discretized model and can be reasonably
 sure that $X$ is multivariate normal. Then ordinal alpha would still
 not be appropriate as it is theoretical and not concrete. However,
 it is possible to create a class of reliability coefficients for the
-multivariate normal discretized model.
+congeneric ogive model.
 
 Let $\hat{X}_{i}$ be the mean of a standard normal distribution
 truncated to $(\tau_{i(Y_{i}-1)},\tau_{iY_{i}}]$, or equivalently
@@ -721,27 +705,27 @@ truncated to $(\tau_{i(Y_{i}-1)},\tau_{iY_{i}}]$, or equivalently
 \end{equation}
 see \citep[Section 10.1]{Johnson1994-ag} for the formula for the
 expectation of a truncated normal. Since $\hat{X}_{i}$ is the
-conditional expectation of $X_{i}$ given $Y_{i}$ it is the optimal
+conditional expectation of $X_{i}$ given $Y_{i}$, it is the optimal
 predictor of $X_{i}$ given $Y_{i}$ in the sense of minimizing the
 mean squared error. A natural predictor of $Z$ given $Y$ is a linear
 function of $\hat{X}_{i}$, i.e. $\sum_{i=1}^{k}w_{i}\hat{X}_{i}$
 for some weights $w_{i}$, which gives rise to the analogue of the
-weighted reliability (ref) in the context of the discretization model
+weighted reliability \eqref{eq:linear reliabiltiy} in the context of the congeneric ogive
 (\ref{eq:discretization model}) when $X$ is multivariate normal
 with standard normal marginals. Define the weighted ordinal reliability
 as
 \begin{equation}
 \omega_{w}'=\Cor^{2}(\sum_{i=1}^{k}w_{i}\hat{X}_{i},Z).\label{eq:Weighted ordinal reliability}
 \end{equation}
-The following theorem shows how to calculate $\omega_{w}^{'}$ and
+The following theorem shows how to calculate $\omega_{w}'$ and
 some of its properties.
 \begin{thm}
 \label{thm:omega-prime}Let $\hat{Z}=\sum_{i=1}^{k}w_{i}\hat{X}_{i}$
-with $\hat{X}$ defined as in \ref{eq:Predictor of X} and $\Xi=\Cov\hat{X}$.
+with $\hat{X}$ defined as in \eqref{eq:Predictor of X} and $\Xi=\Cov\hat{X}$.
 Assume $X$ is multivariate normal with standard normal marginals,
 such that $\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}=1$ for all $i$.
 \begin{enumerate}
-\item Let $v_{i}=$ be the Thurstone weights. Then $\sum_{i=1}^{k}w_{i}\hat{X}_{i}$
+\item Let  $v_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})],\:i=1,\ldots,k$ be the Thurstone weights. Then $\sum_{i=1}^{k}v_{i}\hat{X}_{i}$
 is the optimal predictor of $Z$, i.e. it minimizes the mean squared
 error $\MSE(\hat{Z})$.
 \item The weighted ordinal reliability is
@@ -751,8 +735,8 @@ error $\MSE(\hat{Z})$.
 \end{eqnarray}
 where $v_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})],\:i=1,\ldots,k$
 are the Thurstone weights for $X$ and $v_{0}=w^{T}\Xi v$ is the
-minimizer of $\MSE(v_{0}\hat{Z})$. Moreover, $\omega_{v}'=v^{T}\Xi v$
-for the Thurstone weights.
+minimizer of $\MSE(v_{0}\hat{Z})$. Moreover, $\omega_{v}'=v^{T}\Xi v$ when $v$
+are the Thurstone weights.
 \item When the underlying congeneric model is parallel and $w=\mathbf{i}$,
 \begin{eqnarray}
 \omega_{w}' & = & \frac{\lambda^{2}}{\left(k\lambda^{2}+\sigma^{2}\right)^{2}}\mathbf{i}^{T}\Xi\mathbf{i},\label{eq:Alpha prime}\\
@@ -774,11 +758,11 @@ multivariate normal $X$ is also true, that is, $Z=\sum_{i=1}^{k}v_{i}X_{i}$
 is the optimal predictor of $Z$. (This follows from the proof of
 Theorem \pageref{thm:omega-prime}.) The representation of the ordinal
 reliability in (ii) is similar to the representation of the weighted
-reliability in Proposition (ref), but the covariance $\Xi$ is used
+reliability in Proposition \ref{prop:reliability motivation}, but the covariance $\Xi$ is used
 instead of $\Sigma$. Moreover, $v^{T}\Xi v$ is easy to estimate
 provided we are able to estimate the Thurstone weights $v$. 
 
-Point (iii) demonstrates that $\omega'$ with unit weigths can be
+Point (iii) demonstrates that $\omega'$ with unit weights can be
 calculated without running a factor analysis, since the average correlation
 $\mathbf{i}^{T}\Xi\mathbf{i}/\mathbf{i}^{T}\Psi\mathbf{i}$ is a simple
 function of the polychoric correlation matrix and the covariance matrix
@@ -791,30 +775,29 @@ model.
 \citet[p. 1068]{Chalmers2018-fj} discusses one possible use of the
 ordinal alpha, namely as the theoretical reliability when the number
 of thresholds $\tau$ goes towards infinity. Point (iv) makes this
-claim concrete In this case we know $Y$ exactly except for its scale,
-so we can only form reliability coefficients based on the standardized
-$\lambda,\sigma$. The practical use of this quanitity remain illusive
-to me, however.
+claim concrete.
+
 \begin{example}
 We will yet again have a look at $6$-level agreeableness factor the
-personaliy data $\mathtt{bfi}$ from $\mathtt{psychTools}$. I used
-the $\mathtt{psych}$ package to fit the congeneric multivariate ogive
-model \ref{eq:discretization model} using the two-step procedure
-to estimate the polychoric correlation matrix. Recall the assumptions
-of multivariate normality of $X$ and that $\lambda,\sigma$ are standardized.
-The resulting estimates are $\hat{\lambda}=(0.43,0.71,0.80,0.52,0.67)$
-and $\hat{\sigma}=(0.90,0.70,0.59,0.86,0.74)$. The ordinal relability
+personally data $\mathtt{bfi}$ from $\mathtt{psychTools}$. I did the calculations in this example with the $\mathtt{conogive}$ package \citep{conogive}. This package employs the $\mathtt{psych}$ \citep{psych} package to fit the congeneric ogive
+model \eqref{eq:discretization model} using the two-step procedure
+to estimate the polychoric correlation matrix, and then calls the $\mathtt{fa}$ function to run a factor analysis on the said matrix.
+The resulting estimates are 
+\begin{eqnarray*}
+\hat{\lambda} & = & (0.43,0.71,0.80,0.52,0.67),\\
+\hat{\sigma} & = & (0.90,0.70,0.59,0.86,0.74).
+\end{eqnarray*} The ordinal reliability
 with optimal weights is $\omega'_{H}=0.68$, and with equal weights
 and $\omega'=0.64$. But the theoretical variants are $\omega'_{H}=0.81$
-and $\omega'=0.77$, both missed by large magin. In comparison, the
-reliabilities calculated under the congeneric model with $\mathtt{lavaan}$
+and $\omega'=0.77$, both missed by large margin. In comparison, the
+reliabilities calculated under the congeneric model with $\mathtt{lavaan}$ \citep{Rosseel2012-yg}
 equals $\omega'_{H}=0.77$ and $\omega'=0.74$.
 
 I calculated $\omega'_{H}$ and $\omega'$ for selection of Likert
 scales with $\lambda=\hat{\lambda}$ and $\hat{\sigma}=\sigma$ and
 the thresholds $\tau$ at $\{\Phi^{-1}[i/(k+1)]\}_{i=1}^{k+1}$, which
 approximates the reliabilities we would have obtained had we used
-$k+1$. Figure \ref{fig:Ordinal reliability} contains the results. 
+$k+1$ Likert levels. Figure \ref{fig:Ordinal reliability} contains the results. The difference between ordinal alpha and the true ordinal reliability is uniformly at approximately $0.04$. The distance from theoretical ordinal reliability to actual ordinal reliability is larger than $0.04$ when the number of Likert levels is less than $10$, and unacceptably large when the number of Likert levels is less than $6$. 
 \end{example}
 
 \begin{figure}
@@ -828,44 +811,46 @@ composite reliability is $0.77$ (dashed line). All cutoffs are uniform,
 and every reliability has been calculated with $\lambda=(0.43,0.71,0.80,0.52,0.67)$
 and $\sigma=(0.90,0.70,0.59,0.86,0.74)$. The original number of levels
 ($6$) and the ordinal reliabilities $(\omega'_{H}=0.71,\omega'=0.67)$
-are marked for reference.}
+are marked for convenience.}
 \end{figure}
 
+% \section{Conclusion}
+% \label{sec:conclusion}
 
-\section{Remarks}
-\label{sec:remarks}
-In some cases you cannot access the sample covariance matrix $S$. Then coefficient alpha is unavailable. If you can get hold of the correlation matrix $R$ the standardized alpha might be the best you can do. An example of this scenario is $R$ is a polychoric correlation matrix.
 
-There remains an argument in favor using correlation matrices when calculating the congeneric reliability coefficient. Consider the case when the sample correlation matrix $R$ is not the correlation matrix derived from the sample covariance matrix $S$, but rather the polychoric correlation matrix $\Theta$ \citep{Olsson1979-ti}. Assume the observed $X$ are scored on a discrete and ordinal scale, for instance on a Likert scale. In this case, some authors argue we should use the polychoric correlation matrix $\Theta$ instead of the sample covariance matrix $S$. 
+% \section{Remarks}
+% \label{sec:remarks}
+% In some cases you cannot access the sample covariance matrix $S$. Then coefficient alpha is unavailable. If you can get hold of the correlation matrix $R$ the standardized alpha might be the best you can do. An example of this scenario is $R$ is a polychoric correlation matrix.
 
-\citet[][p. 415]{McNeish2018-vu} argues the sample covariance matrix is biased towards $0$ in these circumstances, and presumably that the sample alphas will have a large mean squared error. He proposes to overcome this problem by using the polychoric correlation as an estimator of the correlation of $X$:
-\begin{displayquote}To accommodate items that are not on a continuous scale, the
-covariances between items can instead be estimated with a polychoric covariance (or correlation) matrix rather than with a Pearson covariance matrix.
-\end{displayquote}
-This argument is fallacious since the polychoric correlation does not estimate the correlation matrix of $X$, but the correlation matrix of some hypothetical unobserved $Y$ that generate the observed $X$ using a discretization procedure. These correlation matrices are not the same in general. 
+% There remains an argument in favor using correlation matrices when calculating the congeneric reliability coefficient. Consider the case when the sample correlation matrix $R$ is not the correlation matrix derived from the sample covariance matrix $S$, but rather the polychoric correlation matrix $\Theta$ \citep{Olsson1979-ti}. Assume the observed $X$ are scored on a discrete and ordinal scale, for instance on a Likert scale. In this case, some authors argue we should use the polychoric correlation matrix $\Theta$ instead of the sample covariance matrix $S$. 
 
-Acknowledging this, \citet[][p.2]{Gadermann2012-jl} (and, indirectly, \citet{Zumbo2007-ap}) claim we are truly interested in the covariance matrix of the latent variables $Y$ that generate the observed $X$s using a discretization procedure. Recall from section \ref{sec:coefficienta alpha} that each reliability coefficient has an associated predictor $\hat{Z}$ of $Z$. This predictor can only be based on the available data, namely $X$. Since predictors based on $Y$ cannot be computed as $Y$ is unknown, the predictive performance of this method has no practical importance. For instance, correction for attenuation is impossible to use when coefficient alpha is based on the polychoric correlation. For you would not be able to calculate the correlation between any prediction of $Z$ based on $Y$ and some other variable $U$ when $Y$ is unknown.
+% \citet[][p. 415]{McNeish2018-vu} argues the sample covariance matrix is biased towards $0$ in these circumstances, and presumably that the sample alphas will have a large mean squared error. He proposes to overcome this problem by using the polychoric correlation as an estimator of the correlation of $X$:
+% \begin{displayquote}To accommodate items that are not on a continuous scale, the
+% covariances between items can instead be estimated with a polychoric covariance (or correlation) matrix rather than with a Pearson covariance matrix.
+% \end{displayquote}
+% This argument is fallacious since the polychoric correlation does not estimate the correlation matrix of $X$, but the correlation matrix of some hypothetical unobserved $Y$ that generate the observed $X$ using a discretization procedure. These correlation matrices are not the same in general. 
 
-When we estimate $\rho^{2}(\hat{Z},Z)$, the weights
-$w$ are already known, as we use them to form the predictor $\hat{Z}$.
-The parameters $\lambda_{i}$ and $\sigma_{i}$ are not known though.
-This means we should not be interested in estimating and doing inference
-on a theoretical $\rho^{2}$ when $\hat{Z}$ has some optimal
-weights, but rather $\rho^{2}$ when $\hat{Z}$ has some fixed
-but estimated weights. In the correction for attenuation problem
-above, $\Cor(\hat{Z}_{1},\hat{Z}_{2})$ cannot
-be estimated without forming the predictors $\hat{Z}_{1}$ and
-$\hat{Z}_{2}$. In this case we also want to estimate the correlation
-between $\Cor(\hat{Z}_{1},\hat{Z}_{2})$ for fixed
-$w_{1},w_{2}$, not the correlation for the optimal $w_{1}$ and $w_{2}$. \citet{Chalmers2018-fj} made similar points and 
+% Acknowledging this, \citet[][p.2]{Gadermann2012-jl} (and, indirectly, \citet{Zumbo2007-ap}) claim we are truly interested in the covariance matrix of the latent variables $Y$ that generate the observed $X$s using a discretization procedure. Recall from section \ref{sec:coefficienta alpha} that each reliability coefficient has an associated predictor $\hat{Z}$ of $Z$. This predictor can only be based on the available data, namely $X$. Since predictors based on $Y$ cannot be computed as $Y$ is unknown, the predictive performance of this method has no practical importance. For instance, correction for attenuation is impossible to use when coefficient alpha is based on the polychoric correlation. For you would not be able to calculate the correlation between any prediction of $Z$ based on $Y$ and some other variable $U$ when $Y$ is unknown.
 
-Estimation of the polychoric matrix is itself a complicated affair that requires the estimation of a  
-\section{Appendix}
+% When we estimate $\rho^{2}(\hat{Z},Z)$, the weights
+% $w$ are already known, as we use them to form the predictor $\hat{Z}$.
+% The parameters $\lambda_{i}$ and $\sigma_{i}$ are not known though.
+% This means we should not be interested in estimating and doing inference
+% on a theoretical $\rho^{2}$ when $\hat{Z}$ has some optimal
+% weights, but rather $\rho^{2}$ when $\hat{Z}$ has some fixed
+% but estimated weights. In the correction for attenuation problem
+% above, $\Cor(\hat{Z}_{1},\hat{Z}_{2})$ cannot
+% be estimated without forming the predictors $\hat{Z}_{1}$ and
+% $\hat{Z}_{2}$. In this case we also want to estimate the correlation
+% between $\Cor(\hat{Z}_{1},\hat{Z}_{2})$ for fixed
+% $w_{1},w_{2}$, not the correlation for the optimal $w_{1}$ and $w_{2}$. \citet{Chalmers2018-fj} made similar points and 
+
+% Estimation of the polychoric matrix is itself a complicated affair that requires the estimation of a  
+\section*{Appendix}
 
 \begin{lem}
 \label{lem:r^2 and correlation}Assume $Y$ and $\hat{Y}$ have finite
 variance. Then 
-
 \begin{equation}
 \Cor^{2}(\hat{Y},Y)=1-\frac{\MSE(\alpha+\beta\hat{Y})}{\Var(Y)},\label{eq:rsq and correlation}
 \end{equation}
@@ -873,10 +858,7 @@ where $\alpha=E(Y)-E(\hat{Y})$ and $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$.
 \end{lem}
 
 \begin{proof}
-Recenter $Y$ and $\hat{Y}$ so that $E(Y)=E(\hat{Y})=0$. Then 
-\begin{eqnarray*}
-\MSE(\alpha+\beta\hat{Y}) & = & \beta^{2}\Var(\hat{Y})-2\beta\Cov(\hat{Y},Y)+\Var Y^{2}
-\end{eqnarray*}
+Recenter $Y$ and $\hat{Y}$ so that $E(Y)=E(\hat{Y})=0$. Then $\MSE(\alpha+\beta\hat{Y})$ equals $\beta^{2}\Var(\hat{Y})-2\beta\Cov(\hat{Y},Y)+\Var Y^{2}$
 Differentiate with respect to $\beta$ and set equal to zero, so that
 $2\beta\Var(\hat{Y})-2\Cov(\hat{Y},Y)=0$. Then $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$
 \end{proof}
@@ -1363,7 +1345,8 @@ as claimed.
 since $E[E(Z\mid X)\mid\{Y_{i}\}]=-\sum_{i=1}^{k}v_{i}\hat{X_{i}}$.
 \end{proof}
 
-\bibliographystyle{apalike}
+\bibliographystyle{apacite}
+%\bibliographystyle{apalike}
 \bibliography{standardized}
 
 \end{document}
