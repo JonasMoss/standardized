@@ -1,68 +1,72 @@
-\documentclass{article}
+% \documentclass{article}
 
 
-\usepackage[natbibapa,nodoi]{apacite}
-%\usepackage{natbib}
-\usepackage{arxiv}
-\usepackage[utf8]{inputenc} % allow utf-8 input
-\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
-\usepackage[colorlinks=true, citecolor = blue]{hyperref}      % hyperlinks
-\usepackage{url}            % simple URL typesetting
-\usepackage{booktabs}       % professional-quality tables
-\usepackage{amsfonts}       % blackboard math symbols
-\usepackage{nicefrac}       % compact symbols for 1/2, etc.
-\usepackage{microtype}      % microtypography
-\usepackage{graphicx, subfigure}
-\usepackage{lipsum}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage{import}
-\usepackage{enumitem}
-\usepackage{csquotes}
-\usepackage{todonotes}
-\usepackage{xfrac}
-\usepackage{wasysym}
+% \usepackage[natbibapa,nodoi]{apacite}
+% %\usepackage{natbib}
+% \usepackage{arxiv}
+% \usepackage[utf8]{inputenc} % allow utf-8 input
+% \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+% \usepackage[colorlinks=true, citecolor = blue]{hyperref}      % hyperlinks
+% \usepackage{url}            % simple URL typesetting
+% \usepackage{booktabs}       % professional-quality tables
+% \usepackage{amsfonts}       % blackboard math symbols
+% \usepackage{nicefrac}       % compact symbols for 1/2, etc.
+% \usepackage{microtype}      % microtypography
+% \usepackage{graphicx, subfigure}
+% \usepackage{lipsum}
+% \usepackage{amsmath}
+% \usepackage{amsthm}
+% \usepackage{amssymb}
+% \usepackage{import}
+% \usepackage{enumitem}
+% \usepackage{csquotes}
+% \usepackage{todonotes}
+% \usepackage{xfrac}
+% \usepackage{wasysym}
 
-%%% ============================================================================
-%%% Theorems.
-%%% ============================================================================
-\theoremstyle{plain}
-\newtheorem{thm}{\protect\theoremname}
-\theoremstyle{plain}
-\newtheorem{lem}{\protect\lemmaname}
-\theoremstyle{definition}
-\newtheorem{defn}[thm]{\protect\definitionname}
-\theoremstyle{remark}
-\newtheorem{rem}[thm]{\protect\remarkname}
-\theoremstyle{definition}
-\newtheorem{example}[thm]{\protect\examplename}
-\theoremstyle{plain}
-\newtheorem{cor}[thm]{\protect\corollaryname}
-\theoremstyle{plain}
-\newtheorem{prop}[thm]{\protect\propositionname}
-\theoremstyle{definition}
-\newtheorem{xca}[thm]{\protect\exercisename}
-\ifx\proof\undefined
-\newenvironment{proof}[1][\protect\proofname]{\par
-	\normalfont\topsep6\p@\@plus6\p@\relax
-	\trivlist
-	\itemindent\parindent
-	\item[\hskip\labelsep\scshape #1]\ignorespaces
-}{%
-	\endtrivlist\@endpefalse
-}
-\providecommand{\proofname}{Proof}
-\fi
+% %%% ============================================================================
+% %%% Theorems.
+% %%% ============================================================================
+% \theoremstyle{plain}
+% \newtheorem{thm}{\protect\theoremname}
+% \theoremstyle{plain}
+% \newtheorem{lem}{\protect\lemmaname}
+% \theoremstyle{definition}
+% \newtheorem{defn}[thm]{\protect\definitionname}
+% \theoremstyle{remark}
+% \newtheorem{rem}[thm]{\protect\remarkname}
+% \theoremstyle{definition}
+% \newtheorem{example}[thm]{\protect\examplename}
+% \theoremstyle{plain}
+% \newtheorem{cor}[thm]{\protect\corollaryname}
+% \theoremstyle{plain}
+% \newtheorem{prop}[thm]{\protect\propositionname}
+% \theoremstyle{definition}
+% \newtheorem{xca}[thm]{\protect\exercisename}
+% \ifx\proof\undefined
+% \newenvironment{proof}[1][\protect\proofname]{\par
+% 	\normalfont\topsep6\p@\@plus6\p@\relax
+% 	\trivlist
+% 	\itemindent\parindent
+% 	\item[\hskip\labelsep\scshape #1]\ignorespaces
+% }{%
+% 	\endtrivlist\@endpefalse
+% }
+% \providecommand{\proofname}{Proof}
+% \fi
 
-\providecommand{\corollaryname}{Corollary}
-\providecommand{\definitionname}{Definition}
-\providecommand{\propositionname}{Proposition}
-\providecommand{\examplename}{Example}
-\providecommand{\exercisename}{Exercise}
-\providecommand{\remarkname}{Remark}
-\providecommand{\theoremname}{Theorem}
-\providecommand{\lemmaname}{Lemma}
+% \providecommand{\corollaryname}{Corollary}
+% \providecommand{\definitionname}{Definition}
+% \providecommand{\propositionname}{Proposition}
+% \providecommand{\examplename}{Example}
+% \providecommand{\exercisename}{Exercise}
+% \providecommand{\remarkname}{Remark}
+% \providecommand{\theoremname}{Theorem}
+% \providecommand{\lemmaname}{Lemma}
+
+\documentclass[twoside]{article}
+\usepackage{moss} % contains layout and most imported packages.
+
 
 %%% ============================================================================
 %%% Macros.
@@ -80,26 +84,31 @@
 \renewcommand{\sqrt}[1]{{(#1)^{1/2}}}
 
 \DeclareMathOperator{\argmax}{argmax}
-\newcommand{\geomean}{NA}
 
 \title{Please avoid the standardized alpha}
 
 \author{
-  Jonas Moss \\
+  Jonas Moss \orcid{0000-0002-6876-6964} \\
   Department of Mathematics, University of Oslo\\
   PB 1053, Blindern, NO-0316, Oslo, Norway \\
   \it{jonasmgj@math.uio.no}
 }
 
+\titletag{An arXiv preprint, v1.0}
+\makeatletter
+\titlerunning{\@title}
+\makeatother
+\authorrunning{Jonas Moss}
+
 \begin{document}
 \maketitle
 
 \begin{abstract}
-I argue coefficient alpha should always be preferred over the standardized alpha. For the coefficient alpha is often consistent when the standardized alpha fails to be, but the opposite is rarely the case. Moreover, assuming normality, coefficient alpha and the standardized alpha have the same asymptotic efficiency under the parallel model, the only case when both are consistent. Since coefficient alpha is the maximum likelihood estimator under the normal parallel model, the only reason to prefer the standardized coefficient would be if it had superior small-sample performance. But a small simulation study shows the two alphas perform equally well under small samples. I argue against the ordinal alpha, a cousin of standardized alpha based on the polychoric correlation matrix, and propse an alternative.
+I argue coefficient alpha should always be preferred over the standardized alpha. For the coefficient alpha is often consistent when the standardized alpha fails to be, but the opposite is rarely the case. Moreover, assuming normality, coefficient alpha and the standardized alpha have the same asymptotic efficiency under the parallel model, the only case when both are consistent. Since coefficient alpha is the maximum likelihood estimator under the normal parallel model, the only reason to prefer the standardized coefficient would be if it had superior small-sample performance. But a small simulation study shows the two alphas perform equally well under small samples. I argue against the ordinal alpha, a cousin of standardized alpha based on the polychoric correlation matrix, and proposse an alternative.
 \end{abstract}
 
 % keywords can be removed
-\keywords{reliability \and coefficient alpha \and cronbach's alpha}
+\keywords{reliability \and coefficient alpha \and Cronbach's alpha}
 
 \section{Introduction}
 The reliability coefficient is the squared correlation between a latent variable $Z$ and its predictor $\hat{Z}$ \citep[][p. 61]{Lord1968-ax}. Just as the squared correlation between two variables $X$ and $Y$ quantifies the degree of linear relationship between them, with $0$ being no linear relationship and $1$ a perfect linear relationship, the reliability coefficient quantifies how well the noisy $\hat{Z}$ works as a predictor of $Z$.
@@ -134,7 +143,7 @@ and the population standardized alpha \citep[][eq. 2]{Falk2011-ae} is
 We care about these alphas since they sometimes coincide with the reliability coefficient under the congeneric model, a special case of the linear one-factor model. Let $Z$ be a mean zero latent variable with unit variance and $\epsilon=\left(\epsilon_{1},\epsilon_{2},\ldots,\epsilon_{k}\right)$
 be a mean zero vector of uncorrelated errors with unit variance. In addition, assume $Z$ and $\epsilon$ are uncorrelated. Define the congeneric model
 \begin{equation}
-X=\alpha + \lambda Z+\Psi^{1/2}\epsilon\label{eq:congeneric model}
+X=\lambda Z+\Psi^{1/2}\epsilon\label{eq:congeneric model}
 \end{equation}
 where $\lambda$ is a vector of loadings, $\alpha$ is a mean vector, and $\Psi^{1/2}$ is a diagonal matrix with positive diagonal elements $\sigma_i$. Since $\Psi^{1/2}$ is diagonal the errors $\Psi^{1/2}\epsilon$ are uncorrelated. When $\Psi^{1/2}$ is allowed to be any positive definite matrix, the model \eqref{eq:congeneric model} is a one-factor model, and if the dimension of $Z$ is larger than one it is a linear factor model. I made no parametric assumptions about either $Z$ or $\epsilon$, and right now they can have any distribution whatsoever. Since $\alpha,\lambda,\Psi$ are parameters of the model, we are dealing with a semi-parametric model. 
 
@@ -411,7 +420,7 @@ we know the values of $\lambda$ and $\sigma$. When you use unstandardized
 scores, your predictor is $$\hat{Z}=w_{0}\sum_{i=1}^{k}X_{i}$$
 where $w_{0}=\overline{\lambda}/(k\overline{\lambda}^{2}+\overline{\sigma^{2}})$ scales the predictions to match $\Var Z=1$, recall Proposition \ref{prop:reliability motivation}. When you use standardized
 scores, your predictor is $$
-\hat{Z}^{\star}=w_{0}\sum_{i=1}^{k}(\lambda^{2}+\sigma^{2})^{-1/2}X_{i}.$$
+\hat{Z}^{*}=w_{0}\sum_{i=1}^{k}(\lambda^{2}+\sigma^{2})^{-1/2}X_{i}.$$
 These predictors are not the same in general, and their reliabilities are not
 the same either.
 
@@ -436,8 +445,8 @@ and $\Cor(Z_{1},Z_{2})=\Cor(\hat{Z}_{1},\hat{Z}_{2})/[\omega(\hat{Z}_{1})\omega(
 the famous Spearman attenuation formula \citep{spearman1904proof}.
 
 But correction for attenuation cannot be used unless both $\omega(\hat{Z}_i)$s are the squared correlation between $\hat{Z}_i$ and $Z_i$. For example, if you used the standardized sum scores to make predictions for the first model, it would be wrong to use the reliability based on the sum scores (i.e., the congeneric reliability). If you used the congeneric reliability, the correlation between $Z_1$ and $Z_2$ would incorrectly be calculated according to $$\rho'=\omega(\hat{Z}_{1})\omega(\hat{Z}_{2})\Cor(Z_{1},Z_{2})$$
-instead of the correct $\rho=\omega(\hat{Z}_{1}^{\star})\omega(\hat{Z}_{2})\Cor(Z_{1},Z_{2})$.
-You would be off by a factor of $\omega(\hat{Z}_{1}^{\star})/\omega(\hat{Z}_{1})$.
+instead of the correct $\rho=\omega(\hat{Z}_{1}^{*})\omega(\hat{Z}_{2})\Cor(Z_{1},Z_{2})$.
+You would be off by a factor of $\omega(\hat{Z}_{1}^{*})/\omega(\hat{Z}_{1})$.
 
 This connection between reliabilities and the choice of predictor
 weights is not new, see e.g. \citep[][p. 112]{Joreskog1971-nn}. \citet{McNeish2018-vu} repeatedly insists on taking this connection into account. And several authors recommends you use standardized alpha with standardized sum scores. For instance, \citet[][p. 451]{Falk2011-ae} states \enquote{If researchers intend to sum
@@ -522,9 +531,9 @@ For each trait I estimated the factor loadings $\lambda$ and residual standard d
 
 Suppose you want to use the standardized weights despite the counterarguments above. By Proposition \ref{prop:weighted alpha}, the standardized coefficient alpha equals the standardized reliability only when the modified model
 \begin{equation}\label{eq:std-modified model}
-X_{i}^{\star}=\frac{\lambda_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}Z+\frac{\sigma_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}\epsilon_{i}\:i=1,\ldots,k    \end{equation}
-is $\tau$-equivalent. This occurs if and only if each $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda^{\star}$
-for some $\lambda^{\star}$. Of course, this would be an exceptional coincidence, but the standardized alpha is just a lower bound for the true standardized reliability when this condition fails. The natural way to estimate $\omega_w$ consistently without making this unwarranted assumption, use the plug-in estimator for $\omega_s$ \eqref{eq:Standardized reliability}. This is not hard, as estimation of $\lambda_{i},\sigma_{i}$ with structural equation modeling programs is routine.
+X_{i}^{*}=\frac{\lambda_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}Z+\frac{\sigma_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}\epsilon_{i}\:i=1,\ldots,k    \end{equation}
+is $\tau$-equivalent. This occurs if and only if each $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda^{*}$
+for some $\lambda^{*}$. Of course, this would be an exceptional coincidence, but the standardized alpha is just a lower bound for the true standardized reliability when this condition fails. The natural way to estimate $\omega_w$ consistently without making this unwarranted assumption, use the plug-in estimator for $\omega_s$ \eqref{eq:Standardized reliability}. This is not hard, as estimation of $\lambda_{i},\sigma_{i}$ with structural equation modeling programs is routine.
 
 \begin{example}
 %% <<<<< Example table start (\label{tab:omega_std_alpha_std})
@@ -574,11 +583,11 @@ To recap, my arguments are: (i) You should neither avoid standardization altoghe
 % By the reasoning of Proposition 1, $\alpha_{\sigma}=\omega_{\sigma}$
 % under the congeneric model only when 
 % \begin{equation}
-% X_{i}^{\star}=\frac{\lambda_{i}}{\sigma_{i}}Z+\epsilon_{i}\:i=1,\ldots,k\label{eq:sigma model}
+% X_{i}^{*}=\frac{\lambda_{i}}{\sigma_{i}}Z+\epsilon_{i}\:i=1,\ldots,k\label{eq:sigma model}
 % \end{equation}
 % is $\tau$-equivalent. In other words, $\alpha_{\sigma}=\omega_{\sigma}$
-% only when every standardized factor loading is the same, or $\lambda_{i}/\sigma_{i}=\lambda^{\star}$
-% for some $\lambda^{\star}$. From Proposition \ref{prop:Z-reliabiltiy}
+% only when every standardized factor loading is the same, or $\lambda_{i}/\sigma_{i}=\lambda^{*}$
+% for some $\lambda^{*}$. From Proposition \ref{prop:Z-reliabiltiy}
 % (iii) and (ii) $\alpha_{\sigma}=\omega_{\sigma}=\omega_{H}$ in this
 % case.
 
@@ -642,10 +651,10 @@ A related notion is the \emph{theoretical ordinal reliability}, the
 analogue of the weighted reliability \eqref{eq:linear reliabiltiy} based on the polychoric
 correlation coefficient. Its definition is 
 \begin{equation}
-\omega_{w}=\frac{w\lambda_{i}^{\star}}{w\lambda_{i}^{\star}+\sigma_{i}^{\star}}\label{eq:ordinal omega}
+\omega_{w}=\frac{w\lambda_{i}^{*}}{w\lambda_{i}^{*}+\sigma_{i}^{*}}\label{eq:ordinal omega}
 \end{equation}
-were $\lambda_{i}^{\star}=\lambda_{i}/\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$
-and $\sigma_{i}^{\star}=\sigma_{i}/\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$.
+were $\lambda_{i}^{*}=\lambda_{i}/\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$
+and $\sigma_{i}^{*}=\sigma_{i}/\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$.
 
 There several reasons to avoid the theoretical ordinal alpha. If your
 goal is to estimate the congeneric reliability or the standardized
@@ -715,7 +724,7 @@ weighted reliability \eqref{eq:linear reliabiltiy} in the context of the congene
 with standard normal marginals. Define the weighted ordinal reliability
 as
 \begin{equation}
-\omega_{w}'=\Cor^{2}(\sum_{i=1}^{k}w_{i}\hat{X}_{i},Z).\label{eq:Weighted ordinal reliability}
+\omega_{w}'=\Cor^{2}\left(\sum_{i=1}^{k}w_{i}\hat{X}_{i},Z\right).\label{eq:Weighted ordinal reliability}
 \end{equation}
 The following theorem shows how to calculate $\omega_{w}'$ and
 some of its properties.
@@ -724,7 +733,7 @@ some of its properties.
 with $\hat{X}$ defined as in \eqref{eq:Predictor of X} and $\Xi=\Cov\hat{X}$.
 Assume $X$ is multivariate normal with standard normal marginals,
 such that $\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}=1$ for all $i$.
-\begin{enumerate}
+\begin{enumerate}[label=(\roman*)]
 \item Let  $v_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})],\:i=1,\ldots,k$ be the Thurstone weights. Then $\sum_{i=1}^{k}v_{i}\hat{X}_{i}$
 is the optimal predictor of $Z$, i.e. it minimizes the mean squared
 error $\MSE(\hat{Z})$.
@@ -858,7 +867,7 @@ where $\alpha=E(Y)-E(\hat{Y})$ and $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$.
 \end{lem}
 
 \begin{proof}
-Recenter $Y$ and $\hat{Y}$ so that $E(Y)=E(\hat{Y})=0$. Then $\MSE(\alpha+\beta\hat{Y})$ equals $\beta^{2}\Var(\hat{Y})-2\beta\Cov(\hat{Y},Y)+\Var Y^{2}$
+Recenter $Y$ and $\hat{Y}$ so that $E(Y)=E(\hat{Y})=0$. Then $\MSE(\alpha+\beta\hat{Y})$ equals $\beta^{2}\Var(\hat{Y})-2\beta\Cov(\hat{Y},Y)+\Var Y^{2}$.
 Differentiate with respect to $\beta$ and set equal to zero, so that
 $2\beta\Var(\hat{Y})-2\Cov(\hat{Y},Y)=0$. Then $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$
 \end{proof}
@@ -1219,15 +1228,15 @@ are both efficient.
 % \omega_H = 1 - \frac{1}{1+k\overline{\lambda\sigma^{-2}}} = \frac{k\overline{\lambda\sigma^{-2}}}{k\overline{\lambda\sigma^{-2}}+1}
 % \]
 % (iii) Consider the modified
-% model $X^{\star}=X\lambda_{i}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}+\epsilon$,
-% which is congeneric with $\lambda^{\star}=\lambda/(\lambda^{2}+\sigma^{2})^{-1/2}$
-% and $\sigma^{\star}=\sigma/(\lambda^{2}+\sigma^{2})^{-1/2}$. By the formula for the congeneric reliability \eqref{eq:Congeneric reliability}:
+% model $X^{*}=X\lambda_{i}(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}+\epsilon$,
+% which is congeneric with $\lambda^{*}=\lambda/(\lambda^{2}+\sigma^{2})^{-1/2}$
+% and $\sigma^{*}=\sigma/(\lambda^{2}+\sigma^{2})^{-1/2}$. By the formula for the congeneric reliability \eqref{eq:Congeneric reliability}:
 % \begin{eqnarray*}
-% \omega_s & = & \frac{k\overline{\lambda^{\star}}^{2}}{k\overline{\lambda^{\star}}^{2}+\overline{\sigma^{\star2}}} = \frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}+\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}
+% \omega_s & = & \frac{k\overline{\lambda^{*}}^{2}}{k\overline{\lambda^{*}}^{2}+\overline{\sigma^{\star2}}} = \frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}+\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}
 % \end{eqnarray*}
-% (iv) This one is similar to (ii). Just use the modified model $X^{\star}=X\lambda\sigma^{-1}+\epsilon$,
-% which is congeneric with $\lambda^{\star}=\lambda/\sigma^{-1}$ and
-% $\sigma^{\star}=1$. Again, by the formula for the congeneric reliability \eqref{eq:Congeneric reliability}:
+% (iv) This one is similar to (ii). Just use the modified model $X^{*}=X\lambda\sigma^{-1}+\epsilon$,
+% which is congeneric with $\lambda^{*}=\lambda/\sigma^{-1}$ and
+% $\sigma^{*}=1$. Again, by the formula for the congeneric reliability \eqref{eq:Congeneric reliability}:
 % \begin{eqnarray*}
 % \omega_\sigma & = & \frac{k\overline{\lambda\sigma^{-1}}^{2}}{k\overline{\lambda\sigma^{-1}}^{2}+1}
 % \end{eqnarray*}
@@ -1345,7 +1354,7 @@ as claimed.
 since $E[E(Z\mid X)\mid\{Y_{i}\}]=-\sum_{i=1}^{k}v_{i}\hat{X_{i}}$.
 \end{proof}
 
-\bibliographystyle{apacite}
+%\bibliographystyle{apacite}
 %\bibliographystyle{apalike}
 \bibliography{standardized}
 
