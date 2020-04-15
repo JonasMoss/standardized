@@ -304,7 +304,7 @@ where $\lambda$ and $\sigma$ are positive scalars and $\varepsilon\in\mathbb{R}^
 \label{eq:parallel_omega}
 \omega = \frac{k\lambda^2/\sigma^2}{k\lambda^2/\sigma^2 + 1}
 \end{equation}
-Now we have a model, a parameter, and two competing estimators of that parameter, namely $\hat{\alpha}$ and $\hat{\alpha}_s$. But which should we choose? 
+Now we have a model, a parameter, and two competing estimators of that parameter, namely $\hat{\alpha}$ and $\hat{\alpha}_s$. Which should we choose? 
 
 Choosing between estimators is a classical statistical problem. Some well-established methods to attack such problems are:
 
@@ -314,12 +314,12 @@ Choosing between estimators is a classical statistical problem. Some well-establ
 \item Check the relative asymptotic efficiency of the estimators.
 \item Is any of the competing estimators a maximum likelihood estimator, perhaps under some parametric restrictions?
 \item Compare finite-sample performance of the estimators in terms of for instance mean squared error.
-\item Investigate the robustness of the estimators.
+\item Investigate the robustness of the estimators against misspecification of the model.
 \end{enumerate}
 
 In the rest of this section I will argue that coefficient alpha wins (B) and clearly wins (D), standardized alpha might win (C), and (A) is a draw.  
 
-Point (D) about robustness is an easy one, for we have already established that coefficient alpha is more robust than the standardized alpha. For by Proposition \ref{prop:Reliabilities.}, coefficient alpha equals the congeneric reliability under the $\tau$-equivalent model and standardized alpha does not. Thus we can check (D) off our list as an easy win for coefficient alpha.
+Point (D) about robustness is an easy one, as we have already established that coefficient alpha is more robust than the standardized alpha. By Proposition \ref{prop:Reliabilities.}, coefficient alpha equals the congeneric reliability under the $\tau$-equivalent model and standardized alpha does not. Thus we can check (D) off our list as an easy win for coefficient alpha.
 
 \subsection{Maximum likelihood}
 In this section we will work with the parallel model \eqref{eq:parallel model} where $Z$ and $\varepsilon$ are independent standard normals. Call this model the normal parallel model.
@@ -346,7 +346,7 @@ and
 \end{eqnarray*}
 \item The maximum likelihood estimator of the congeneric reliability
 \eqref{eq:Congeneric reliability} equals the sample coefficient alpha
-when $\mathbf{i}^{T}S\mathbf{i}\geq\tr{S}$ and $0$ otherwise, that is,
+when $\mathbf{i}^{T}S\mathbf{i}\geq\tr{S}$ and $0$ otherwise. That is,
 \begin{eqnarray*}
 \hat{\omega}_\textrm{ML} & = & \begin{cases}
 \hat{\alpha} & \mathbf{i}^{T}S\mathbf{i}\geq\tr{S},\\
@@ -360,7 +360,7 @@ See page \pageref{proof:ML} of the appendix for a proof. \citet[][section B]{Kri
 \end{proof}
 
 \subsection{Asymptotic efficiency}
-Comparing the efficiency is possibly the most popular method to compare estimators. Let $\hat{\theta}_1$ and $\hat{\theta}_2$ be two estimator converging to a normal distribution at $n^{1/2}$-rate to the same parameter $\theta$,  where the asymptotic variance of the first distribution is $\phi_1^2$ and the asymptotic variance of the second distribution is $\phi_2^2$. Then $\theta_1$ is more efficient than $\theta_2$ if $\phi_1<\phi_2$. 
+Comparing efficiencies is the most popular method to compare estimators. Let $\hat{\theta}_1$ and $\hat{\theta}_2$ be two estimators converging to the $n^{1/2}$-rate to a normal distribution centered on the same parameter $\theta$. The asymptotic variance of the first distribution is $\phi_1^2$ and the asymptotic variance of the second distribution is $\phi_2^2$. Then $\theta_1$ is more efficient than $\theta_2$ if $\phi_1<\phi_2$. 
 
 An estimator $\hat{\theta}$ is \textit{efficient} \citep[][Section 4.3]{Lehmann2004-ke} if its asymptotic variance is smaller than any other estimator. Maximum likelihood estimators are efficient under weak conditions, hence $\alpha$ is efficient under the normal parallel model by Theorem \ref{thm:ML}.  
 
@@ -373,15 +373,14 @@ Assume $X$ has finite variance.
     \item Both sample coefficient alpha and sample standardized alpha converge to their population counterparts with probability $1$. Under the parallel model they are strongly consistent and converge to the congeneric reliability. That is, $\hat{\alpha}\to\alpha$ and $\hat{\alpha}_s\to\alpha_S$ with probability $1$ and $\alpha = \alpha_S = \omega$.
     \item Under the parallel model \eqref{eq:parallel model} coefficient alpha and standardized alpha share a normal limit distribution when $Z$ and $\varepsilon$ have finite fourth moments, i.e. $n^{1/2}(\hat{\alpha} - \alpha)$ and  $n^{1/2}(\hat{\alpha}_s - \alpha_S)$ both converge to the same normal variable $Z$.
     \item Under the normal parallel model, both $\alpha$ and $\alpha_S$ are efficient. Their common limit is normal with asymptotic variance 
-    $$\sigma^{2}(\alpha)= \sigma^{2}(\alpha_S)=2\frac{k}{k-1}(1-\alpha_S)^{2},$$
-    where $\rho$ is the unique correlation of the covariance matrix $\Phi$.
+    $$\sigma^{2}(\alpha)= \sigma^{2}(\alpha_S)=2\frac{k}{k-1}(1-\alpha_S)^{2}.$$
 \end{enumerate}
 \end{thm}    
 \begin{proof}
 See page \pageref{proof:asymptotics} of the appendix. The proofs of (ii) and (iii) rely heavily on \citep{Van_Zyl2000-si} and \citep{hayashi2005note}. \citep{Raykov2019-tv} has a proof of (i) and is an introduction to convergence with probability $1$ in the psychometry context. The limit distribution of coefficient alpha in (iii) was derived by \citet[][eq. 13]{Van_Zyl2000-si} and \citet[][eq. 58]{Kristof1963-tb}.
 \end{proof}
 
-Time for some remarks about Theorem \ref{thm:asymptotics}. Item (i) states that both $\hat{\alpha}_s$ and $\hat{\alpha}$ estimate what they should. Item (ii) is the main argument of this section. It shows that $\hat{\alpha}_{s}$ and $\hat{\alpha}$ perform equally well in the limit no matter what $\lambda$, $\sigma$ and the distributions of $Z$, $\varepsilon$ is. We only require that the models have finite fourth moments. Regarding item (iii), a straightforward consequence of Theorem \ref{thm:ML} is that $\hat{\alpha}$ is efficient under the normal parallel model, and in this sense (iii) is an extension of said theorem. The shared limit distribution is simple enough to be usable in practice for both estimators. 
+Time for some remarks about Theorem \ref{thm:asymptotics}. Item (i) states that both $\hat{\alpha}_s$ and $\hat{\alpha}$ estimate what they should. Item (ii) is the main argument of this section. It shows that $\hat{\alpha}_{s}$ and $\hat{\alpha}$ perform equally well in the limit no matter what $\lambda$, $\sigma$ and the distributions of $Z$, $\varepsilon$ are. We only require that the models have finite fourth moments. Regarding item (iii), a straightforward consequence of Theorem \ref{thm:ML} is that $\hat{\alpha}$ is efficient under the normal parallel model, and in this sense (iii) is an extension of said theorem. The shared limit distribution is simple enough to be usable in practice for both estimators. 
 
 \subsection{A small simulation}
 There is no reason to choose standardized alpha over coefficient alpha from an efficiency standpoint. But it might still be the case
