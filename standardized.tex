@@ -79,7 +79,7 @@
 \DeclareMathOperator{\Cor}{Cor}
 \DeclareMathOperator{\Cov}{Cov}
 \DeclareMathOperator{\diag}{diag} 
-\DeclareMathOperator{\MSE}{\textsc{MSE}} 
+\DeclareMathOperator{\MSE}{MSE} 
 \DeclareMathOperator{\tsum}{\textstyle \sum}
 
 \renewcommand{\sqrt}[1]{{(#1)^{1/2}}}
@@ -140,7 +140,7 @@ The population coefficient alpha \citep[][eq. 2]{cronbach1951coefficient} is
 \end{equation}
 and the population standardized alpha \citep[][eq. 2]{Falk2011-ae} is
 \begin{equation}
-\alpha_s=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\label{eq:standardized alpha}
+\alpha_S=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\label{eq:standardized alpha}
 \end{equation}
 We care about these alphas since they sometimes coincide with the reliability coefficient under the congeneric model, a special case of the linear one-factor model. Let $Z$ be a mean zero latent variable with unit variance and $\varepsilon=(\varepsilon_{1},\varepsilon_{2},\ldots,\varepsilon_{k})$
 be a mean zero vector of uncorrelated errors with unit variance. In addition, assume $Z$ and $\varepsilon$ are uncorrelated. Define the congeneric model
@@ -203,10 +203,14 @@ $\overline{\sigma^{2}}=k^{-1}\sum_{i=1}^{k}\sigma_{i}^{2}$. Finally, the weights
 It is time to relate the reliabilities to the alpha coefficients.
 Define the generalization of the coefficient alpha and the standardized
 alpha, the \emph{weighted alpha},
+
+\begin{defn}
+Let $w$ be a vector of weights and $\Sigma$ a covariance matrix. The \textit{weighted alpha} is
 \begin{equation}
 \alpha_{w}=\frac{k}{k-1}\left(1-\frac{w^{T}(\diag\Sigma)w}{w^{T}\Sigma w}\right)\label{eq:weighted alpha}
 \end{equation}
-where $\diag\Sigma$ is the diagonal matrix .
+where $\diag\Sigma$ is the diagonal matrix with diagonal equal to the diagonal of $\Sigma$.
+\end{defn}
 The ordinary coefficient alpha \eqref{eq:Coefficient alpha} has weights $w=\mathbf{i}$
 while the standardized alpha \eqref{eq:standardized alpha} has weights $w_{i}=\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$. Coefficient alpha and standardized alpha are the most interesting cases of the weighted alpha as you can calculate them using only the covariance matrix $\Sigma = \Cov X$, but the definition makes sense for any weight $w$. The following Proposition summarizes the basic relationship
 between the reliability $\omega_{w}$ and the weighted $\alpha_{w}$. To state it, we will need
@@ -222,27 +226,27 @@ and $\alpha_w \leq \omega_w$ with equality if and only if $wX$ is $\tau$-equival
 for all $i,j$.
 \end{prop}
 \begin{proof}
-That  $\alpha \leq \omega$ is classical \citep[][pp. 87 -- 89]{Lord1968-ax}. See the appendix page \pageref{proof:weighted alpha}
-for a proof.
+This proposition is classical for the special case unit weights $w = \mathbf{i}$ \citep[][pp. 87 -- 89]{Lord1968-ax}. See the appendix page \pageref{proof:weighted alpha}
+for a proof. The discrepancy term in \eqref{eq:alpha-omega discrepancy} for the special case of coefficient alpha is extensively discussed by \citet{Raykov1997-bu}. 
 \end{proof}
 
-By Chebyshev's inequality, $k\overline{w\lambda}^{2}\geq\overline{(w\lambda)^{2}}$
-with equality if and only if $w_{i}\lambda_{i}=w_{j}\lambda_{j}$,
-i.e. the weighted model is $\tau$-equivalent. The discrepancy term in \eqref{eq:alpha-omega discrepancy} for the special case of coefficient alpha is extensively discussed by \citet{Raykov1997-bu}. 
+% By Chebyshev's inequality, $k\overline{w\lambda}^{2}\geq\overline{(w\lambda)^{2}}$,
+% with equality if and only if $w_{i}\lambda_{i}=w_{j}\lambda_{j}$,
+% that is, the weighted model is $\tau$-equivalent. The discrepancy term in \eqref{eq:alpha-omega discrepancy} for the special case of coefficient alpha is extensively discussed by \citet{Raykov1997-bu}. 
 
-Proposition \ref{prop:weighted alpha} is a minor generalization of the two most frequently mentioned fact about coefficient alpha and its main motivations. For $\alpha = \omega$ under the $\tau$-equivalent model and
-$\alpha \leq \omega$, hence the coefficient alpha is a lower bound for the congeneric reliability.
+Proposition \ref{prop:weighted alpha} is a minor generalization of the two most frequently mentioned fact about coefficient alpha: (i) That $\alpha = \omega$ under the $\tau$-equivalent model. (ii) Coefficient alpha is a lower bound for the congeneric reliability, $\alpha \leq \omega$ under the congeneric model.
  
-When $w_{i}=\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$, $wX$ is $\tau$-equivalent if only if the standardized factor loadings are equal, and Proposition \ref{prop:weighted alpha} tells us $\alpha_s = \omega_s$ in this case. 
-The next propositions explores the relationship between coefficient alpha, the standardized alpha, and the congeneric reliability coefficient.
+When $w_{i}=\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$, $wX$ is $\tau$-equivalent if and only if the standardized factor loadings are equal, and Proposition \ref{prop:weighted alpha} tells us $\alpha_S = \omega_S$ in this case. 
+
+The next proposition explores the relationship between coefficient alpha, the standardized alpha, and the congeneric reliability coefficient.
 
 \begin{prop}
-\label{prop:Reliabilities.}Assume the congeneric model \eqref{eq:congeneric model}. Let $\alpha$ be coefficient alpha \eqref{eq:Coefficient alpha}, $\alpha_{s}$ be the standardized alpha \eqref{eq:standardized alpha}, and  $\omega$ be the congeneric reliability \eqref{eq:Congeneric reliability}. 
+\label{prop:Reliabilities.}Assume the congeneric model \eqref{eq:congeneric model}. Let $\alpha$ be coefficient alpha \eqref{eq:Coefficient alpha}, $\alpha_S$ be the standardized alpha \eqref{eq:standardized alpha}, and  $\omega$ be the congeneric reliability \eqref{eq:Congeneric reliability}. 
 \begin{enumerate}[label=(\roman*)]
-\item Assume $\lambda_{i}=\lambda_{j}$ and for all $i,j$, i.e. the $\tau$-equivalent model. Then $\alpha_s \geq \alpha = \omega$, with equality if and only if $\sigma_{i}=\sigma_{j}$ for all $i,j$ or $\lambda_i = 0$ for all $i$.
-\item If $k=2$, $\alpha_s\geq\alpha$, with equality if and only if $\lambda_{1}^{2}+\sigma_{1}^{2}=\lambda_{2}^{2}+\sigma_{2}^{2}$ or $\lambda_1 = 0$ or $\lambda_2 = 0$. But if $k>2$, both $\alpha_s>\alpha$
-and $\alpha_s<\alpha$ are possible.
-\item All of $\alpha_{s}=\omega$, $\alpha_{s}>\omega$ and $\alpha_{s}<\omega$
+\item Assume $\lambda_{i}=\lambda_{j}$ for all $i,j$, i.e. the $\tau$-equivalent model. Then $\alpha_S \geq \alpha = \omega$, with equality if and only if $\sigma_{i}=\sigma_{j}$ for all $i,j$ or $\lambda_i = 0$ for all $i$.
+\item If $k=2$, $\alpha_S\geq\alpha$, with equality if and only if $\lambda_{1}^{2}+\sigma_{1}^{2}=\lambda_{2}^{2}+\sigma_{2}^{2}$ or $\lambda_1 = 0$ or $\lambda_2 = 0$. But if $k>2$, both $\alpha_S>\alpha$
+and $\alpha_S<\alpha$ are possible.
+\item All of $\alpha_S=\omega$, $\alpha_S>\omega$ and $\alpha_S<\omega$
 are possible when $\lambda_{i}\neq\lambda_{j}$ for some $j$.
 \end{enumerate}
 \end{prop}
@@ -250,15 +254,18 @@ are possible when $\lambda_{i}\neq\lambda_{j}$ for some $j$.
 Most of (i) -- (iii) have been known for a while. See page \pageref{proof:Reliabilities.} of the appendix for a proof.
 \end{proof}
 
-A congeneric model satisfying the conditions of Proposition \ref{prop:Reliabilities.} (i) is called \emph{parallel model} \citep[][section 2.13]{Lord1968-ax}. 
+A congeneric model satisfying $\sigma_{i}=\sigma_{j}$ for all $i,j$ is called a \emph{parallel model} \citep[][section 2.13]{Lord1968-ax}. 
 
-The facts (i) $\alpha = \omega$ under the $\tau$-equivalent model and (ii) $\alpha_s = \omega$ under the parallel model are important since they show us a way to estimate the congeneric reliability $\omega$ \eqref{eq:Congeneric reliability} using a simple function of the sample covariance $S$. The intuitive estimate of $\omega$ is the plug-in estimator, which requires us to estimate $\lambda$ and $\sigma$ first. This is usually a complicated procedure involving iterative algorithms and complex software. This advantage of $\alpha_s$ and $\alpha$ is not decisive these days, as it is easy to estimate $\lambda$ and $\sigma$ using for instance the \texttt{R} \citep{Team2013-tt} package \texttt{lavaan} \citep{Rosseel2012-yg}. Estimating $\omega$ using the plug-in estimator allows us to forego the unrealistic assumptions of $\tau$-equivalence and parallel test items altogether.
+That $\alpha = \omega$ under the $\tau$-equivalent model and $\alpha_S = \omega$ under the parallel model show us a way to estimate the congeneric reliability $\omega$ using a simple function of the sample covariance $S$. The intuitive estimate of $\omega$ is the plug-in estimator, which needs estimates of $\lambda$ and $\sigma$. This is usually a complicated procedure involving iterative algorithms and complex software. This advantage of $\alpha_S$ and $\alpha$ is not decisive these days, as it is easy to estimate $\lambda$ and $\sigma$ using for instance the \texttt{R} \citep{Team2013-tt} package \texttt{lavaan} \citep{Rosseel2012-yg}. Estimating $\omega$ using the plug-in estimator allows us to forego the unrealistic assumptions of $\tau$-equivalence and parallel test items altogether.
 
-I emphasize we do not have to assume normality or continuous $X$s to get Proposition \ref{prop:weighted alpha}. In fact, none of the derivations in Proposition \ref{prop:weighted alpha} involve the distributions of $Z$ and $\varepsilon$. This is contrary to some claims about coefficient alpha in the literature, e.g. \citep[][p.415]{McNeish2018-vu}, \citep[][p.21]{Zumbo2007-ap} and \citep[][p. 1185]{Zumbo2019-lm}. \citet{Raykov2019-yr} lamented this widespread misunderstanding, while \citet[][p. 1060]{Chalmers2018-fj} investigated its source. That said, while continuous data is no assumption for the coefficient alpha or the congeneric reliability, the implicitly assumed congeneric model \eqref{eq:congeneric model} is unrealistic for discrete data. 
+\begin{rem}
+We do not have to assume normality or continuous $X$s to get Proposition \ref{prop:weighted alpha}. The derivations in Proposition \ref{prop:weighted alpha} uses no assumptions about the distributions of $Z$ and $\varepsilon$ except that they have finite second moments. This is contrary to some claims about coefficient alpha made by, e.g. \citet[][p.415]{McNeish2018-vu}, \citet[][p.21]{Zumbo2007-ap} and \citet[][p. 1185]{Zumbo2019-lm}. \citet{Raykov2019-yr} lamented this widespread misunderstanding, while \citet[][p. 1060]{Chalmers2018-fj} investigated the source of the misunderstanding. That said, while continuous data is no assumption for the coefficient alpha or the congeneric reliability, the implicitly assumed congeneric model \eqref{eq:congeneric model} is unrealistic for discrete data. 
+\end{rem}
+\begin{rem}
+While $\alpha_S$ is an upper bound for $\alpha$ when $k = 2$ and under the $\tau$-equivalent model, it does not bound $\alpha$ in either direction otherwise, see Proposition \ref{prop:Reliabilities.}. Again, this is contrary to claims in the literature such as that of \citet[][p.348]{Osburn2000-jd} \enquote{When the components of a composite measure are congeneric, standardized alpha will always exceed the true reliability}. See \citep[][p.450]{Falk2011-ae} for a clearly laid out example of $\alpha>\alpha_S$.
+\end{rem}
 
-While $\alpha_s$ is an upper bound for $\alpha$ when $k = 2$ and under the $\tau$-equivalent model, it does not bound $\alpha$ in either direction otherwise, see Proposition \ref{prop:Reliabilities.}. Again, this is contrary to claims in the literature such as that of \citep[][p.348]{Osburn2000-jd} \enquote{When the components of a composite measure are congeneric, standardized alpha will always exceed the true reliability}. See \citep[][p.450]{Falk2011-ae} for a clearly laid out example of $\alpha>\alpha_s$.
-
-By Proposition \ref{prop:weighted alpha}, coefficient alpha equals the congeneric reliability if and only if all the factor loadings $\lambda$ are equal. But there is no simple necessary and sufficient criterion for $\alpha_s = \omega$: the parallel model is merely sufficient. The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains code to generate parameter value $\lambda,\sigma$ such that $\alpha_s = \omega$. Still, these causes are like lucky coincidences, and it would be preposterous to assume $\alpha_s = \omega$ for unknown parameter values without assuming the parallel model.
+By Proposition \ref{prop:weighted alpha}, coefficient alpha equals the congeneric reliability if and only if all the factor loadings $\lambda$ are equal. But there is no simple necessary and sufficient criterion for $\alpha_S = \omega$: the parallel model is merely sufficient. The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains code to generate parameter value $\lambda,\sigma$ such that $\alpha_S = \omega$. Still, these causes are like lucky coincidences, and it would be preposterous to assume $\alpha_S = \omega$ for unknown parameter values without assuming the parallel model.
 
 Let us proceed to the sample variants of coefficient alpha and standardized
 alpha. Let $S$ be a sample covariance matrix based on
@@ -273,14 +280,14 @@ while the sample standardized alpha is
 \end{equation}
 The congeneric reliability \eqref{eq:Congeneric reliability} has no
 simple sample version, as it depends on estimates of $\lambda$ and
-$\sigma^{2}$ which usually do not have closed forms.
+$\sigma^2$, which usually do not have closed forms.
 
 The sample coefficient alpha is by far the most popular method to
-measure reliability in psychology, despite the stringent conditions
+measure reliability in psychology. Despite the stringent conditions
 that must be satisfied for its population value to be equal to the
 true reliability $\omega$ and the questionable choice of weights $w$ \citep{McNeish2019-ea}. This has been lamented by psychometricians such as \citet{McNeish2018-vu} and \citet{Sijtsma2009-hj}. 
 
-But coefficient alpha has something going for it. Arguments in favor of coefficient alpha is that is easy to compute and understand \citep{Socan2000-aa}, that it is well known \citep{Falk2011-ae}, and works reasonably well even when $X$ fails to be $\tau$-equivalent \citep{Raykov1997-bu}. For a recent spirited defense of coefficient alpha see \citep{Raykov2019-yr}.
+But coefficient alpha is not without merits. It is easy to compute and understand \citep{Socan2000-aa}. It is well known \citep{Falk2011-ae}. It works reasonably well even when $X$ fails to be $\tau$-equivalent \citep{Raykov1997-bu}. For a recent spirited defense of coefficient alpha see \citep{Raykov2019-yr}.
 
 \section{Argument A. Standardized alpha as an estimator of the congeneric reliability}
 \label{sec:argument A}
@@ -363,10 +370,10 @@ The following theorem shows that $\hat{\alpha}_s$ and $\hat{\alpha}$ are equally
 \label{thm:asymptotics}
 Assume $X$ has finite variance. 
 \begin{enumerate}[label=(\roman*)]
-    \item Both sample coefficient alpha and sample standardized alpha converge to their population counterparts with probability $1$. Under the parallel model they are strongly consistent and converge to the congeneric reliability. That is, $\hat{\alpha}\to\alpha$ and $\hat{\alpha}_s\to\alpha_s$ with probability $1$ and $\alpha = \alpha_s = \omega$.
-    \item Under the parallel model \eqref{eq:parallel model} coefficient alpha and standardized alpha share a normal limit distribution when $Z$ and $\varepsilon$ have finite fourth moments, i.e. $n^{1/2}(\hat{\alpha} - \alpha)$ and  $n^{1/2}(\hat{\alpha}_s - \alpha_s)$ both converge to the same normal variable $Z$.
-    \item Under the normal parallel model, both $\alpha$ and $\alpha_s$ are efficient. Their common limit is normal with asymptotic variance 
-    $$\sigma^{2}(\alpha)= \sigma^{2}(\alpha_{s})=2\frac{k}{k-1}(1-\alpha_{s})^{2},$$
+    \item Both sample coefficient alpha and sample standardized alpha converge to their population counterparts with probability $1$. Under the parallel model they are strongly consistent and converge to the congeneric reliability. That is, $\hat{\alpha}\to\alpha$ and $\hat{\alpha}_s\to\alpha_S$ with probability $1$ and $\alpha = \alpha_S = \omega$.
+    \item Under the parallel model \eqref{eq:parallel model} coefficient alpha and standardized alpha share a normal limit distribution when $Z$ and $\varepsilon$ have finite fourth moments, i.e. $n^{1/2}(\hat{\alpha} - \alpha)$ and  $n^{1/2}(\hat{\alpha}_s - \alpha_S)$ both converge to the same normal variable $Z$.
+    \item Under the normal parallel model, both $\alpha$ and $\alpha_S$ are efficient. Their common limit is normal with asymptotic variance 
+    $$\sigma^{2}(\alpha)= \sigma^{2}(\alpha_S)=2\frac{k}{k-1}(1-\alpha_S)^{2},$$
     where $\rho$ is the unique correlation of the covariance matrix $\Phi$.
 \end{enumerate}
 \end{thm}    
@@ -404,7 +411,7 @@ has heavier tails than the normal distribution but is symmetric and nearly bell-
 
 I have chosen $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment. The parameters for the Beta and Gamma make them both extreme, as should be clear from Figure \ref{fig::distributions}. I have chosen these distributions since they are extreme and should be able to force out some difference between the estimators. The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains the code I used to run the simulations.
 
-Table \ref{tab:simulation} contains $100 \times \MSE_\alpha/\MSE_{\alpha_s}$, where $\MSE$ denotes the mean squared error. Values higher than $100$ are in favor of $\hat{\alpha}_s$ and values lower than $100$ in favor of $\hat{\alpha}$. The table shows that $\alpha_s$ tends to outperform $\alpha$ when both $k$ and $n$ is large and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\hat{\alpha}_s$ does slightly better than $\hat{\alpha}$ -- the geometric mean of $\MSE_\alpha/\MSE_{\alpha_s}$ is $1.08$, giving an $8$\% advantage to $\hat{\alpha}_s$. Of course, this is a small simulation study and it is hard to predict what would happen with other distributions. Still, I believe the result of these simulations should be counted in favor of sample standardized alpha.
+Table \ref{tab:simulation} contains $100 \times \MSE_\alpha/\MSE_{\alpha_S}$, where $\MSE$ denotes the mean squared error. Values higher than $100$ are in favor of $\hat{\alpha}_s$ and values lower than $100$ in favor of $\hat{\alpha}$. The table shows that $\alpha_S$ tends to outperform $\alpha$ when both $k$ and $n$ is large and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\hat{\alpha}_s$ does slightly better than $\hat{\alpha}$ -- the geometric mean of $\MSE_\alpha/\MSE_{\alpha_S}$ is $1.08$, giving an $8$\% advantage to $\hat{\alpha}_s$. Of course, this is a small simulation study and it is hard to predict what would happen with other distributions. Still, I believe the result of these simulations should be counted in favor of sample standardized alpha.
 
 To sum up, sample alpha won the maximum likelihood and robustness competitions, drew the asymptotic efficiency competition, and lost the finite sample competition. The tally is sample alpha 2\sfrac{1}{2} - 1\sfrac{1}{2} standardized alpha. 
 
@@ -448,27 +455,27 @@ reliabilities $\omega(\hat{Z}_{1})$, $\omega(\hat{Z}_{2})$,
 and the observed correlation $\Cor(\hat{Z}_{1},\hat{Z}_{2})$.
 Then
 \begin{eqnarray*}
-\rho=\Cor(\hat{Z}_{1},\hat{Z}_{2}) & = & \frac{\Cov(Z_{1},\hat{Z}_{1})\Cov(Z_{2},\hat{Z}_{2})}{\sd(\hat{Z}_{1})\sd(\hat{Z}_{2})}\Cor(Z_{1},Z_{2})\\
+\Cor(\hat{Z}_{1},\hat{Z}_{2}) & = & \frac{\Cov(Z_{1},\hat{Z}_{1})\Cov(Z_{2},\hat{Z}_{2})}{\sd(\hat{Z}_{1})\sd(\hat{Z}_{2})}\Cor(Z_{1},Z_{2})\\
  & = & \omega(\hat{Z}_{1})\omega(\hat{Z}_{2})\Cor(Z_{1},Z_{2})
 \end{eqnarray*}
 and $\Cor(Z_{1},Z_{2})=\Cor(\hat{Z}_{1},\hat{Z}_{2})/[\omega(\hat{Z}_{1})\omega(\hat{Z}_{2})]$,
-the famous Spearman attenuation formula \citep{spearman1904proof}.
+the famous Spearman \citet{spearman1904proof} attenuation formula.
 
-But correction for attenuation cannot be used unless both $\omega(\hat{Z}_i)$s are the squared correlation between $\hat{Z}_i$ and $Z_i$. For example, if you used the standardized sum scores to make predictions for the first model, it would be wrong to use the reliability based on the sum scores (i.e., the congeneric reliability). If you used the congeneric reliability, the correlation between $Z_1$ and $Z_2$ would incorrectly be calculated according to $$\rho'=\omega(\hat{Z}_{1})\omega(\hat{Z}_{2})\Cor(Z_{1},Z_{2})$$
+But correction for attenuation cannot be used unless both $\omega(\hat{Z}_i)$s are the squared correlation between $\hat{Z}_i$ and $Z_i$. For example, if you used the standardized sum scores to make predictions for the first model, it would be wrong to use the congeneric reliability, as it based on the sum scores. If you used the congeneric reliability, the correlation between $Z_1$ and $Z_2$ would incorrectly be calculated according to $$\rho'=\omega(\hat{Z}_{1})\omega(\hat{Z}_{2})\Cor(Z_{1},Z_{2})$$
 instead of the correct $\rho=\omega(\hat{Z}_{1}^{*})\omega(\hat{Z}_{2})\Cor(Z_{1},Z_{2})$.
 You would be off by a factor of $\omega(\hat{Z}_{1}^{*})/\omega(\hat{Z}_{1})$.
 
 This connection between reliabilities and the choice of predictor
-weights is not new, see e.g. \citep[][p. 112]{Joreskog1971-nn}. \citet{McNeish2018-vu} repeatedly insists on taking this connection into account. And several authors recommends you use standardized alpha with standardized sum scores. For instance, \citet[][p. 451]{Falk2011-ae} states \enquote{If researchers intend to sum
+weights is not new, it has been observed by e.g. \citet[][p. 112]{Joreskog1971-nn} and \citet{McNeish2018-vu}, who repeatedly insists on taking this connection into account. Several authors recommends you use standardized alpha with standardized sum scores. For instance, \citet[][p. 451]{Falk2011-ae} states \enquote{If researchers intend to sum
 standardized scores, the correlation matrix is more appropriate for determining internal consistency,} while \citet[][p. 99]{Cortina1993-aq} says \enquote{Standardized alpha is appropriate if item standard scores are summed to form scale scores.}
 
-I will now argue you should never standardized your items. That is, you should avoid $w_{i}=(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$ when you form your limear predictor.
+I will now argue you should never standardized your items. That is, you should avoid $w_{i}=(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$ when you form your linear predictor.
 Using some $w\ne1$ seems reasonable, for you would not want items
 with large variance to overshadow all the other contributions to $\hat{Z}$.
 But there is something strange about this particular $w$. Dividing by $(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}$
-seems wrong, as you want items with large loadings to have a large
-influence on your prediction of $Z$, but dividing by $(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}$
-makes the influence of large $\lambda_{i}$s smaller. 
+seems wrong, as you want items with large loadings, i.e., $\lambda_{i}$s, to have a large
+influence on your prediction of $Z$. But dividing by $(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}$
+makes the influence of large items with large loadins smaller. 
 
 The weights $w_i=\sigma_{i}^{-1}$ do not suffer from this problem. These weights make the contribution of each $\lambda_i$ directly comparable, as the modified model $wX$ will have all residual standard deviations equal to $1$ and factor loadings equal to the standardized factor loadings $\lambda_i/\sigma_i$. Call the reliability with weights $w=\sigma_{i}^{-1}$ the \emph{sigma reliability} and denote it $\omega_\sigma$. Using Proposition \ref{prop:reliability motivation} it can be written as
 \begin{equation}
@@ -559,8 +566,8 @@ To recap, my arguments are: (i) You should neither avoid standardization altoghe
 % under the $\tau$-equivalent model by Proposition \ref{thm:Properties of three} and $\alpha = \omega$ under the $\tau$-equivalent model. Then it seems reasonable to use standardized alpha together with the sum scores. After all, standardized alpha
 % can be calculated from the covariance matrix alone, and does not require
 % any estimation of $\lambda$ and $\sigma$. But this is wrong! For
-% as mentionioned, $\alpha_{s}=\omega_{s}$ only when $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda$.
-% Otherwise, $\alpha_{s}<\omega_{s}$ by Propositon 1.
+% as mentionioned, $\alpha_S=\omega_{s}$ only when $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda$.
+% Otherwise, $\alpha_S<\omega_{s}$ by Propositon 1.
 
 % \subsection*{Digression: The sigma alpha coefficient}
 % Both coefficient alpha and standardized alpha are simple functions
@@ -571,7 +578,7 @@ To recap, my arguments are: (i) You should neither avoid standardization altoghe
 % over complex solutions. Arguments in favor of coefficient alpha along
 % these lines are common, see e.g. {[}{[}ref; take 2 with page numbers.{]}{]}.
 
-% Since $\omega$ has $\alpha$ and $\omega_{s}$ has $\alpha_{s}$,
+% Since $\omega$ has $\alpha$ and $\omega_{s}$ has $\alpha_S$,
 % the sigma reliability \eqref{eq:Sigma-standardized reliability} should
 % its own alpha coefficient as well. Here I understand an alpha coefficient
 % as a closed form function of the covariance matrix $\Sigma$ such
@@ -757,9 +764,9 @@ are the Thurstone weights.
 \item When the underlying congeneric model is parallel and $w=\mathbf{i}$,
 \begin{eqnarray}
 \omega_{w}' & = & \frac{\lambda^{2}}{(k\lambda^{2}+\sigma^{2})^{2}}\mathbf{i}^{T}\Xi\mathbf{i},\label{eq:Alpha prime}\\
- & = & \alpha_{s}\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\mathbf{i}^{T}\Psi\mathbf{i}},\nonumber 
+ & = & \alpha_S\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\mathbf{i}^{T}\Psi\mathbf{i}},\nonumber 
 \end{eqnarray}
-where $\alpha_{s}$ equals the ordinal alpha.
+where $\alpha_S$ equals the ordinal alpha.
 \item For any weight $w$, $\omega'_{w}\to\omega_{w}$ when $\Xi\to\Phi$. 
 \end{enumerate}
 \end{thm}
@@ -783,7 +790,7 @@ Point (iii) demonstrates that $\omega'$ with unit weights can be
 calculated without running a factor analysis, since the average correlation
 $\mathbf{i}^{T}\Xi\mathbf{i}/\mathbf{i}^{T}\Psi\mathbf{i}$ is a simple
 function of the polychoric correlation matrix and the covariance matrix
-of $\hat{X}.$ Moreover, $\alpha_{s}(\mathbf{i}^{T}\Xi\mathbf{i}/\mathbf{i}^{T}\Psi\mathbf{i})$
+of $\hat{X}.$ Moreover, $\alpha_S(\mathbf{i}^{T}\Xi\mathbf{i}/\mathbf{i}^{T}\Psi\mathbf{i})$
 is the natural variant of the standardized alpha in the ordinal setting,
 as it is defined in terms of the matrices $\Xi$ and $\Psi$ only,
 and is designed to equal the ordinal reliability under the parallel
@@ -865,13 +872,14 @@ are marked for convenience.}
 % Estimation of the polychoric matrix is itself a complicated affair that requires the estimation of a  
 \section*{Appendix}
 
+This lemma formulates the the squared correlation in terms of the mean squared error and established the connection between the correlation coefficient and $R^2$. It is used in in the proof of Proposition \ref{prop:reliability motivation}. 
 \begin{lem}
 \label{lem:r^2 and correlation}Assume $Y$ and $\hat{Y}$ have finite
-variance. Then 
+variance. If $Z$ is a random variable, let $\MSE(Z) = E[(X-Z)^2]$ denote the mean squared error of $Z$ as predictor of $X$. Then 
 \begin{equation}
 \Cor^{2}(\hat{Y},Y)=1-\frac{\MSE(\alpha+\beta\hat{Y})}{\Var(Y)},\label{eq:rsq and correlation}
 \end{equation}
-where $\alpha=E(Y)-E(\hat{Y})$ and $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$.
+where $\alpha=E(Y)-E(\hat{Y})$ and $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$ are the theoretical regression coefficients minimizing the mean squared error $\MSE(\alpha+\beta\hat{Y})$. 
 \end{lem}
 
 \begin{proof}
@@ -945,7 +953,7 @@ iff all $w_i\lambda_i$ are equal and is otherwise an underestimate.
 This lemma comes in handy in the proof of Proposition \ref{prop:Reliabilities.} as it allows us to use Jensen's inequality.
 
 \begin{lem}
-Assume the congeneric model of \eqref{eq:congeneric model} and let $\alpha$ be as in \eqref{eq:Coefficient alpha} and $\alpha_s$ be as in \eqref{eq:standardized alpha}. Then $\alpha_{s}\geq\alpha$
+Assume the congeneric model of \eqref{eq:congeneric model} and let $\alpha$ be as in \eqref{eq:Coefficient alpha} and $\alpha_S$ be as in \eqref{eq:standardized alpha}. Then $\alpha_S\geq\alpha$
 if and only if
 \begin{equation}
 \label{eq:alpha_s_alpha_inequality}
@@ -958,7 +966,7 @@ if and only if
 \begin{proof}
 From definition \eqref{eq:Coefficient alpha}
 \begin{eqnarray*}
-\alpha_{s} & = & \frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\\
+\alpha_S & = & \frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\\
  & = & \frac{k}{k-1}\left(1-\frac{k}{\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)
 \end{eqnarray*}
 and definition \eqref{eq:standardized alpha}
@@ -966,7 +974,7 @@ and definition \eqref{eq:standardized alpha}
 \alpha & = & \frac{k}{k-1}\left(1-\frac{\tr\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
  & = & \frac{k}{k-1}\left(1-\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}\right)
 \end{eqnarray*}
-Thus $\alpha_{s}\geq\alpha$ if and only if
+Thus $\alpha_S\geq\alpha$ if and only if
 \[
 \frac{k}{\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\leq\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
 \]
@@ -999,7 +1007,7 @@ with equality if and only if $\sigma_{i}^{2}=\sigma_{j}^{2}$ for
 all $i,j$. Since \eqref{eq:Alpha-alpha_s inequality} is true when
 $\lambda=0$ too we are done.
 
-As for (ii). Observe that $\alpha_{s}\geq\alpha$
+As for (ii). Observe that $\alpha_S\geq\alpha$
 if and only if
 \begin{equation}
 \label{eq:Alpha-alpha_s inequality}
@@ -1017,7 +1025,7 @@ By the inequality of arithmetic and geometric means, $1/2[(\lambda_{1}^{2}+\sigm
 with equality only if $\lambda_{1}^{2}+\sigma_{1}^{2}=\lambda_{2}^{2}+\sigma_{2}^{2}$.
 
 Consider the second claim of (iii). Let $k>2$ and assume all $\lambda_{j}=0$
-except $\lambda_{1},\lambda_{2}$. By \eqref{eq:Alpha-alpha_s inequality}, $\alpha_s \geq \alpha$ if and
+except $\lambda_{1},\lambda_{2}$. By \eqref{eq:Alpha-alpha_s inequality}, $\alpha_S \geq \alpha$ if and
 only if
 \[
 \frac{k}{2\frac{\lambda_{1}\lambda_{2}}{\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}+k}<\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{2\lambda_{1}\lambda_{2}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
@@ -1030,9 +1038,9 @@ Now $k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}
 can be made true by choosing $\sigma_{i}^{2}=0$ for $i>2$. For the
 other way around, just choose $\sigma_{i}^{2}$ large enough.
 
-(iv) First assume $\lambda_{i}=\sigma_{i}$ for each $i$. Then $\alpha_{s}=k/(k+1)$
+(iv) First assume $\lambda_{i}=\sigma_{i}$ for each $i$. Then $\alpha_S=k/(k+1)$
 and $\omega=(\tsum\lambda_{i})^{2}/(\tsum\lambda_{i})^{2}+\tsum\lambda_{i}^{2})$.
-But but then $\alpha_{s}\geq\omega$ with equality if and only if
+But but then $\alpha_S\geq\omega$ with equality if and only if
 all $\lambda$s are equal, for $k\tsum_{i=1}^{k}\lambda_{i}^{2}\geq\tsum_{i=1}^{k}\lambda_{i}$
 by Chebyshev's inequality. Now assume $\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}=a$
 for each $i$. Then $\tsum(\sigma_{i}^{2}+\lambda_{i}^{2})=ak$
@@ -1047,9 +1055,9 @@ which is equivalent to
 which is true by Chebyshev's inequality, once again with equality
 if and only if all $\lambda$s are equal. Let $A=\{ (\lambda,\omega)\mid\lambda_{i}\neq\lambda_{j}\text{\textrm{ for some }}j\} $.
 Then $A$ is connected, and by the intermediate value theorem there
-is a $(\lambda,\omega)$ where $[\alpha_{s}-\omega](\lambda,\sigma)=0$,
-for there are elements in $A$ where $\alpha_{s}-\omega$ takes on
-negative values and elements where $\alpha_{s}-\omega$ takes on positive
+is a $(\lambda,\omega)$ where $[\alpha_S-\omega](\lambda,\sigma)=0$,
+for there are elements in $A$ where $\alpha_S-\omega$ takes on
+negative values and elements where $\alpha_S-\omega$ takes on positive
 values.
 \end{proof}
 
@@ -1145,7 +1153,7 @@ This can be simplified to
 \]
 \citet[equation 10]{hayashi2005note} found the asymptotic variance
 \[
-\sigma^{2}(\alpha_{s})=\frac{1}{(k-1)^{2}}\frac{1}{(1+\rho(k-1))^{4}}2\mathbf{1}^{T}Q_{p}(P\otimes P)Q_{P}^{T}\mathbf{1}.
+\sigma^{2}(\alpha_S)=\frac{1}{(k-1)^{2}}\frac{1}{(1+\rho(k-1))^{4}}2\mathbf{1}^{T}Q_{p}(P\otimes P)Q_{P}^{T}\mathbf{1}.
 \]
 The expression $2\mathbf{1}^{T}Q_{p}(P\otimes P)Q_{P}^{T}\mathbf{1}$
 can be rewritten to \citep[appendix 3]{hayashi2005note}
@@ -1155,24 +1163,24 @@ can be rewritten to \citep[appendix 3]{hayashi2005note}
 which can be further simplfied to $(\rho-1)^{2}(1+\rho(k-1)^{2})^{2}$.
 Thus
 \[
-\sigma^{2}(\alpha_{s})=\frac{2k}{(k-1)}\frac{(\rho-1)^{2}}{(1+\rho(k-1))^{2}}
+\sigma^{2}(\alpha_S)=\frac{2k}{(k-1)}\frac{(\rho-1)^{2}}{(1+\rho(k-1))^{2}}
 \]
 and the limits are equal.
 Since
 \begin{eqnarray*}
-\alpha_{s} & = & \frac{k}{k-1}(1-\frac{k}{k(k-1)\rho+k}) = \frac{k\rho}{(k-1)\rho+1}
+\alpha_S & = & \frac{k}{k-1}(1-\frac{k}{k(k-1)\rho+k}) = \frac{k\rho}{(k-1)\rho+1}
 \end{eqnarray*}
 we get
 \begin{eqnarray*}
-1-\alpha_{s} & = & \frac{(k-1)\rho+1-k\rho}{(k-1)\rho+1} = \frac{1-\rho}{(k-1)\rho+1}
+1-\alpha_S & = & \frac{(k-1)\rho+1-k\rho}{(k-1)\rho+1} = \frac{1-\rho}{(k-1)\rho+1}
 \end{eqnarray*}
 Taken together, the asymptotic variance is
 \[
-\sigma^{2}(\alpha_{s})=2\frac{k}{k-1}(1-\alpha_{s})^{2}
+\sigma^{2}(\alpha_S)=2\frac{k}{k-1}(1-\alpha_S)^{2}
 \]
 Since $\hat{\alpha}$ is the maximum likelihood estimator of $\omega$
 when $n$ is large it is efficient. And since the asymptotic variances
-of $\hat{\alpha}$ and $\hat{\alpha_{s}}$ coincides they
+of $\hat{\alpha}$ and $\hat{\alpha_S}$ coincides they
 are both efficient.
 \end{proof}
 
@@ -1351,11 +1359,11 @@ $w_{0}=\lambda/[\sigma^{2}+k\lambda^{2}]$ and the squared correlation
 is $w_{0}^{2}\mathbf{i}^{T}\Xi\mathbf{i}=\lambda^{2}\mathbf{i}^{T}\Xi\mathbf{i}/(k\lambda^{2}+\sigma^{2})^{2}$.
 For the second equation, first notice that
 \[
-\alpha_{s}=\frac{k}{k-1}\frac{i^{T}\Phi i-k}{i^{T}\Phi i}=k^{2}\frac{\overline{\rho}}{i^{T}\Phi i}.
+\alpha_S=\frac{k}{k-1}\frac{i^{T}\Phi i-k}{i^{T}\Phi i}=k^{2}\frac{\overline{\rho}}{i^{T}\Phi i}.
 \]
 Since $(k\lambda^{2}+\sigma^{2})^{2}=(i^{T}\Phi i/k)^{2}$, 
 \begin{equation}
-\frac{\lambda^{2}}{(k\lambda^{2}+\sigma^{2})^{2}}\mathbf{i}^{T}\Xi\mathbf{i} =  k^{2}\frac{\overline{\rho}}{(i^{T}\Phi i)^{2}}\mathbf{i}^{T}\Xi\mathbf{i} =  \alpha_{s}\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\mathbf{i}^{T}\Psi\mathbf{i}},\nonumber
+\frac{\lambda^{2}}{(k\lambda^{2}+\sigma^{2})^{2}}\mathbf{i}^{T}\Xi\mathbf{i} =  k^{2}\frac{\overline{\rho}}{(i^{T}\Phi i)^{2}}\mathbf{i}^{T}\Xi\mathbf{i} =  \alpha_S\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\mathbf{i}^{T}\Psi\mathbf{i}},\nonumber
 \end{equation}
 as claimed.
 
