@@ -80,6 +80,7 @@
 \DeclareMathOperator{\Cov}{Cov}
 \DeclareMathOperator{\diag}{diag} 
 \DeclareMathOperator{\MSE}{\textsc{MSE}} 
+\DeclareMathOperator{\tsum}{\textstyle \sum}
 
 \renewcommand{\sqrt}[1]{{(#1)^{1/2}}}
 
@@ -132,7 +133,7 @@ In section \ref{sec:coefficienta alpha} I introduce coefficient alpha, the stand
 
 Let $X$ be random variable in $\mathbb{R}^{k}$ with finite variance.
 Let $\Sigma=\Cov X$ be the covariance matrix of $X$ and $\Phi=\Cor X$
-be the correlation matrix of $X$. Let $\mathbf{i}=\left(1,1,\ldots,1\right)$ by a vector of ones of the appropriate size and $\tr$ be the trace operator.
+be the correlation matrix of $X$. Let $\mathbf{i}=(1,1,\ldots,1)$ by a vector of ones of the appropriate size and $\tr$ be the trace operator.
 The population coefficient alpha \citep[][eq. 2]{cronbach1951coefficient} is
 \begin{equation}
 \alpha =  \frac{k}{k-1}\left(1-\frac{\tr\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\label{eq:Coefficient alpha}
@@ -141,7 +142,7 @@ and the population standardized alpha \citep[][eq. 2]{Falk2011-ae} is
 \begin{equation}
 \alpha_s=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\label{eq:standardized alpha}
 \end{equation}
-We care about these alphas since they sometimes coincide with the reliability coefficient under the congeneric model, a special case of the linear one-factor model. Let $Z$ be a mean zero latent variable with unit variance and $\varepsilon=\left(\varepsilon_{1},\varepsilon_{2},\ldots,\varepsilon_{k}\right)$
+We care about these alphas since they sometimes coincide with the reliability coefficient under the congeneric model, a special case of the linear one-factor model. Let $Z$ be a mean zero latent variable with unit variance and $\varepsilon=(\varepsilon_{1},\varepsilon_{2},\ldots,\varepsilon_{k})$
 be a mean zero vector of uncorrelated errors with unit variance. In addition, assume $Z$ and $\varepsilon$ are uncorrelated. Define the congeneric model
 \begin{equation}
 X=\lambda Z+\Psi^{1/2}\varepsilon\label{eq:congeneric model}
@@ -160,7 +161,7 @@ The squared correlation between two variables $X$ and $Y$ quantifies the degree 
 In this paper the predictors $\hat{Z}$ are linear functions of $X$, that is, there are some real weights $w_{i},i=1,\ldots,k$, such that
 \begin{equation}
 \label{eq:Linear predictor}
-\hat{Z} =  \sum_{i=1}^{k}w_{i}X_i = Z\sum_{i=1}^{k}w_{i}(\lambda_i + \sigma_{i} \varepsilon_i).\nonumber 
+\hat{Z} =  \sum_{i=1}^{k} w_{i}X_i = \sum_{i=1}^{k}w_{i}(Z\lambda_i + \sigma_{i} \varepsilon_i).\nonumber 
 \end{equation}
 The second equation follows from the definition of $X$ in the congeneric model \eqref{eq:congeneric model}. 
 
@@ -170,7 +171,7 @@ The purpose of the reliability coefficient is to tell us how well a linear predi
 
 \begin{prop}
 \label{prop:reliability motivation}Assume the congeneric model \eqref{eq:congeneric model}. Let $\hat{Z}=\sum_{i=1}^{k}w_{i}X$
-for some weights $w_{i},i=1,\ldots,k$. Then the reliability equals
+for some vector of weights $w$ with elements $w_{i},i=1,\ldots,k$. Then the reliability equals
 \begin{eqnarray}
 \omega & = & \frac{(w^{T}\lambda)^{2}}{(w^{T}\lambda)^{2}+w^{T}\Psi w}\label{eq:linear reliabiltiy}\\
  & = & \frac{(w^{T}\Sigma v)^{2}}{w^{T}\Sigma w} \nonumber \\
@@ -183,14 +184,14 @@ mean squared error, $w_{0}=\overline{w\lambda}/(k\overline{w\lambda}^{2}+\overli
 See the appendix, page \pageref{proof:reliability motivation} for a proof.
 \end{proof}
 
-Equation \eqref{eq:linear reliabiltiy} is the definition \citet[][p. 112]{Joreskog1971-nn} gave of the composite reliability under the congeneric model \eqref{eq:congeneric model}. The role of $w_0$ in Proposition \ref{prop:reliability motivation} is to make sure $\hat{Z}$ predicts $Z$ on he right scale, and in this paper the scale of $Z$ is fixed by $\Var Z = 1$. Since $Z$ is latent we would usually not care about this scale, but it is handy to fix it to $1$ since it allows us to compare different predictors of $\hat{Z}$. The formulation $1-\MSE (w_{0}\hat{Z})$ is more concrete than the correlation formulation, as it explicitly references the predictor $w_{0}\hat{Z}$, while the correlation is scale-free and more abstract. The mean squared error definition is amenable to generalizations too, and I will explore one such generalization in future paper. 
+Equation \eqref{eq:linear reliabiltiy} is the definition \citet[][p. 112]{Joreskog1971-nn} gave of the composite reliability under the congeneric model \eqref{eq:congeneric model}. The role of $w_0$ in Proposition \ref{prop:reliability motivation} is to make sure $\hat{Z}$ predicts $Z$ on he right scale, and in this paper the scale of $Z$ is fixed by $\Var Z = 1$. Since $Z$ is latent we would usually not care about this scale, but it is handy to fix it to $1$ since it allows us to compare different predictors of $\hat{Z}$. The formulation $1-\MSE (w_{0}\hat{Z})$ is more concrete than the correlation formulation, as it explicitly references the predictor $w_{0}\hat{Z}$, while the correlation is scale-free and more abstract. The mean squared error definition is amenable to generalizations too, and I will explore one such generalization in a future paper. 
 
-A modestly popular choice for $w$ are the weights minimizing the mean squared error (or equivalently, maximizing the reliability $\omega$), known as the Thurstone \citep{thurshronebook} weights. Using these weights lead to coefficient $H$ \citep{hancock2001rethinking}, also known as the maximal reliability \citep{Li1997-yh}, 
+A modestly popular choice for $w$ are the weights minimizing the mean squared error, known as the Thurstone weights \citep{thurshronebook}. Using these weights lead to coefficient $H$ \citep{hancock2001rethinking}, also known as the maximal reliability \citep{Li1997-yh}, 
 \begin{equation}
 \label{eq:coefficient_H}
 \omega_{H}=\frac{k\overline{\lambda^{2}\sigma^{-2}}}{k\overline{\lambda^{2}\sigma^{-2}}+1},
 \end{equation}
-where $\overline{\lambda^{2}\sigma^{-2}} = k^{-1}\sum_{i=1}^{k}\lambda_{i}^2/\sigma_i^2$. But by far the most popular choice is give to same weight to each $X_i$, or $w = \mathbf{i}=\left(1,1,\ldots,1\right)$. This leads to the congeneric reliability
+where $\overline{\lambda^{2}\sigma^{-2}} = k^{-1}\sum_{i=1}^{k}\lambda_{i}^2/\sigma_i^2$. But by far the most popular choice is give to same weight to each $X_i$, that is, $w = \mathbf{i}=(1,1,\ldots,1)$. This leads to the congeneric reliability
 \begin{equation}
 \omega =\frac{k\overline{\lambda}^{2}/\overline{\sigma^{2}}}{k\overline{\lambda}^{2}/\overline{\sigma^{2}} + 1}\label{eq:Congeneric reliability}
 \end{equation}
@@ -205,7 +206,7 @@ alpha, the \emph{weighted alpha},
 \begin{equation}
 \alpha_{w}=\frac{k}{k-1}\left(1-\frac{w^{T}(\diag\Sigma)w}{w^{T}\Sigma w}\right)\label{eq:weighted alpha}
 \end{equation}
-where $\diag\Sigma$ is the diagonal matrix with diagonal elements $\Sigma_i$.
+where $\diag\Sigma$ is the diagonal matrix .
 The ordinary coefficient alpha \eqref{eq:Coefficient alpha} has weights $w=\mathbf{i}$
 while the standardized alpha \eqref{eq:standardized alpha} has weights $w_{i}=\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$. Coefficient alpha and standardized alpha are the most interesting cases of the weighted alpha as you can calculate them using only the covariance matrix $\Sigma = \Cov X$, but the definition makes sense for any weight $w$. The following Proposition summarizes the basic relationship
 between the reliability $\omega_{w}$ and the weighted $\alpha_{w}$. To state it, we will need
@@ -215,7 +216,7 @@ factor loadings are equal.
 \label{prop:weighted alpha}. Let $w$ be a vector of weights and
 assume $X$ follows the congeneric model \eqref{eq:congeneric model}. Then 
 \begin{equation}
-\alpha_{w}=\omega_{w}-\frac{k}{k-1}\left(\frac{\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2}}{k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}}}\right)\label{eq:alpha-omega discrepancy}
+\alpha_{w}=\omega_{w}-\frac{k}{k-1}\frac{\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2}}{k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}}}\label{eq:alpha-omega discrepancy}
 \end{equation}
 and $\alpha_w \leq \omega_w$ with equality if and only if $wX$ is $\tau$-equivalent, i.e. $w_i\lambda_{i}=w_j\lambda_{j}$
 for all $i,j$.
@@ -316,7 +317,7 @@ Point (D) about robustness is an easy one, for we have already established that 
 \subsection{Maximum likelihood}
 In this section we will work with the parallel model \eqref{eq:parallel model} where $Z$ and $\varepsilon$ are independent standard normals. Call this model the normal parallel model.
 
-Coefficient alpha is "usually" the maximum likelihood estimator of $\omega$ in the normal parallel model, see Theorem \ref{thm:ML} below for details. Why does this matter? For one thing, maximum likelihood estimators are guaranteed to be efficient under quite weak conditions \citep[][Section 7.3]{Lehmann2004-ke}. But maximum likelihood also has an heuristic justification; maximizing likelihood is an intuitive procedure and is the most popular recipe for making estimators.
+Coefficient alpha the maximum likelihood estimator of $\omega$ in the normal parallel model provided it is non-negative, see Theorem \ref{thm:ML} below for details. Why does this matter? For one thing, maximum likelihood estimators are guaranteed to be efficient under quite weak conditions \citep[][Section 7.3]{Lehmann2004-ke}. But maximum likelihood also has an heuristic justification; maximizing likelihood is an intuitive procedure and is the most popular recipe for making estimators.
 
 \begin{thm}\label{thm:ML}
 Assume the parallel model \eqref{eq:parallel model} and that $(Z,\varepsilon)$ is multivariate normal. 
@@ -325,14 +326,14 @@ Assume the parallel model \eqref{eq:parallel model} and that $(Z,\varepsilon)$ i
 and $\sigma^{2}$ are 
 \begin{eqnarray*}
 \hat{\lambda}^2_\textrm{ML} & = & \begin{cases}
-\frac{1}{k-1}\left(\frac{\mathbf{i}^{T}S\mathbf{i}}{k}-\frac{\tr{S}}{k}\right) & \mathbf{i}^{T}S\mathbf{i}\geq\tr{S},\\
+\frac{1}{(k-1)k}(\mathbf{i}^{T}S\mathbf{i}-\tr{S}) & \mathbf{i}^{T}S\mathbf{i}\geq\tr{S},\\
 0 & \text{\textrm{otherwise}},
 \end{cases}\\
 \end{eqnarray*}
 and
 \begin{eqnarray*}
 \hat{\sigma}^2_\textrm{ML} & = & \begin{cases}
-\frac{1}{k-1}\left(\tr{S}-\frac{\mathbf{i}^{T}S\mathbf{i}}{k}\right) & \mathbf{i}^{T}S\mathbf{i}\geq\tr{S},\\
+\frac{1}{k-1}(\tr{S}-\mathbf{i}^{T}S\mathbf{i}/k) & \mathbf{i}^{T}S\mathbf{i}\geq\tr{S},\\
 \frac{\tr{S}}{k} & \textrm{otherwise}.
 \end{cases}
 \end{eqnarray*}
@@ -365,7 +366,7 @@ Assume $X$ has finite variance.
     \item Both sample coefficient alpha and sample standardized alpha converge to their population counterparts with probability $1$. Under the parallel model they are strongly consistent and converge to the congeneric reliability. That is, $\hat{\alpha}\to\alpha$ and $\hat{\alpha}_s\to\alpha_s$ with probability $1$ and $\alpha = \alpha_s = \omega$.
     \item Under the parallel model \eqref{eq:parallel model} coefficient alpha and standardized alpha share a normal limit distribution when $Z$ and $\varepsilon$ have finite fourth moments, i.e. $n^{1/2}(\hat{\alpha} - \alpha)$ and  $n^{1/2}(\hat{\alpha}_s - \alpha_s)$ both converge to the same normal variable $Z$.
     \item Under the normal parallel model, both $\alpha$ and $\alpha_s$ are efficient. Their common limit is normal with asymptotic variance 
-    $$\sigma^{2}\left(\alpha\right)= \sigma^{2}\left(\alpha_{s}\right)=2\frac{k}{k-1}\left(1-\alpha_{s}\right)^{2},$$
+    $$\sigma^{2}(\alpha)= \sigma^{2}(\alpha_{s})=2\frac{k}{k-1}(1-\alpha_{s})^{2},$$
     where $\rho$ is the unique correlation of the covariance matrix $\Phi$.
 \end{enumerate}
 \end{thm}    
@@ -411,7 +412,7 @@ To sum up, sample alpha won the maximum likelihood and robustness competitions, 
 \input{chunks/simulations_table.tex}
 %% example table end >>>>>
 
-\section{Argument B. The issue with standardized scores}
+\section{Argument B. The problem with standardized scores}
 \label{sec:argument B}
 I have two arguments against using standardized alpha for standardized
 test items. First, you should not standardize test items. Second,
@@ -574,10 +575,10 @@ To recap, my arguments are: (i) You should neither avoid standardization altoghe
 % the sigma reliability \eqref{eq:Sigma-standardized reliability} should
 % its own alpha coefficient as well. Here I understand an alpha coefficient
 % as a closed form function of the covariance matrix $\Sigma$ such
-% that $\alpha\left(\Sigma\right)=\omega$ {[}{[}fill in{]}. Now it
+% that $\alpha(\Sigma)=\omega$ {[}{[}fill in{]}. Now it
 % is time to derive it. The covariance matrix $\Sigma$ under the $\tau$-equivalent
 % model has diagonal elements $\lambda^{2}+\sigma_{i}^{2}$ and off-digonal
-% elements $\lambda^{2}$. Then $\lambda^{2}=\left(k-1\right)^{-1}\left(\mathbf{i}^{T}\Sigma\mathbf{i}/k-\tr\Sigma/k\right)$
+% elements $\lambda^{2}$. Then $\lambda^{2}=(k-1)^{-1}(\mathbf{i}^{T}\Sigma\mathbf{i}/k-\tr\Sigma/k)$
 % and $\sigma^{2}=\diag\Sigma-\lambda^{2}$. Define the sigma standardized
 % matrix
 % \begin{eqnarray*}
@@ -585,7 +586,7 @@ To recap, my arguments are: (i) You should neither avoid standardization altoghe
 % \end{eqnarray*}
 % and the sigma coefficient alpha (sigma alpha for short) as
 % \begin{eqnarray}
-% \alpha_{\sigma} & = & \frac{k}{k-1}\left(1-\frac{\tr\Xi}{\mathbf{i}^{T}\Xi\mathbf{i}}\right)\label{eq:alpha_sigma-1}
+% \alpha_{\sigma} & = & \frac{k}{k-1}(1-\frac{\tr\Xi}{\mathbf{i}^{T}\Xi\mathbf{i}})\label{eq:alpha_sigma-1}
 % \end{eqnarray}
 % The sigma alpha is only interesting when $\alpha_{\sigma}=\omega_{\sigma}$,
 % or at the very least when $\alpha_{\sigma}\approx\omega_{\sigma}$.
@@ -602,7 +603,7 @@ To recap, my arguments are: (i) You should neither avoid standardization altoghe
 
 % Sadly, condition \eqref{eq:sigma model} renders $\alpha_{\sigma}=\omega_{\sigma}$
 % trivial. By the definition of $\omega_{\sigma}$ \eqref{eq:Sigma-standardized reliability},
-% $\omega_{k}=k/\left(k+1\right)$ when \eqref{eq:sigma model} holds, no matter what values of $\lambda$ and $\sigma$.
+% $\omega_{k}=k/(k+1)$ when \eqref{eq:sigma model} holds, no matter what values of $\lambda$ and $\sigma$.
 % Moreover, some elements of $\diag\Sigma-\lambda^{2}$ may be less
 % than $0$ when $\Sigma$ fails to correspond to a $\tau$-equivalent model, which makes the undefined. Since this happens with probability $1$ when $S$ is used in place of $\Sigma$, $\hat{\alpha}_{\sigma}$
 % is a likely to be horrible estimator of $\omega_{s}$. Instead,
@@ -649,7 +650,7 @@ values of the theoretical ordinal alpha and the standardized alpha
 are not the same in general. \citet{Zumbo2007-ap}'s main argument
 in favor of the ordinal alpha is ``coefficient alpha (and KR-20)
 are correlation-based statistics and hence assume continuous data\textquoteright \textquoteright{}
-\citep[p. 27]{Zumbo2007-ap}. In section \ref{sec:coefficienta alpha} I argued against the notion that coefficient alpha only makes sense for continuous data. \citet[p. 1060, "Misconcetion 1"]{Chalmers2018-fj}
+\citep[p. 27]{Zumbo2007-ap}. In section \ref{sec:coefficienta alpha} I argued against the notion that coefficient alpha only makes sense for continuous data. \citet[p. 1060, "Misconception 1"]{Chalmers2018-fj}
 persuasively argues against this idea, see also \citep{Raykov2019-yr}. The argument is reiterated
 by \citep{Gadermann2012-jl}, but \citet{Zumbo2019-lm} argue
 the the benefit of sample ordinal alpha is that we are truly interested
@@ -676,8 +677,7 @@ for the multivariate normal ogive model, you should avoid the theoretical
 alpha.
 
 Theoretical ordinal alpha is apparently not connected to any predictor
-of $Z$ that depends on the data $Y$, only the squared correlation $$\Cor^{2}(\sum_{i=1}^{k}w_{i}X_{i},Z).$$
-This correlation is barely interesting though, since we do not observe
+of $Z$ that depends on the data $Y$, only the squared correlation $\Cor^{2}(\hat{Z},Z)$ where $\hat{Z}=\sum_{i=1}^k w_iX_i$. This correlation is barely interesting though, as we do not observe
 the latent $X_{i}$s. The theoretical alpha does not have the concrete
 interpretation of the congeneric alpha mentioned in section 2. The question
 ``how good can I expected my prediction of $Z$ based on $X$ to
@@ -726,15 +726,14 @@ expectation of a truncated normal. Since $\hat{X}_{i}$ is the
 conditional expectation of $X_{i}$ given $Y_{i}$, it is the optimal
 predictor of $X_{i}$ given $Y_{i}$ in the sense of minimizing the
 mean squared error. A natural predictor of $Z$ given $Y$ is a linear
-function of $\hat{X}_{i}$, i.e. $\sum_{i=1}^{k}w_{i}\hat{X}_{i}$
+function of $\hat{X}_{i}$, i.e. $\hat{Z} = \sum_{i=1}^{k}w_{i}\hat{X}_{i}$
 for some weights $w_{i}$, which gives rise to the analogue of the
-weighted reliability \eqref{eq:linear reliabiltiy} in the context of the congeneric ogive
+weighted reliability \eqref{eq:linear reliabiltiy} in the context of the congeneric ogive model
 (\ref{eq:discretization model}) when $X$ is multivariate normal
-with standard normal marginals. Define the weighted ordinal reliability
-as
-\begin{equation}
-\omega_{w}'=\Cor^{2}\left(\sum_{i=1}^{k}w_{i}\hat{X}_{i},Z\right).\label{eq:Weighted ordinal reliability}
-\end{equation}
+with standard normal marginals. 
+\begin{defn}\label{defn:weighted ordinal reliability}
+Let $w$ be a vector of weights and $\hat{Z}=\sum_{i=1}^{k}w_{i}\hat{X}_{i}$, with $\hat{X}_i$ as in \eqref{eq:Predictor of X}. The \textit{weighted ordinal} reliability is $\omega_{w}'=\Cor^2(\hat{Z},Z)$.
+\end{defn}
 The following theorem shows how to calculate $\omega_{w}'$ and
 some of its properties.
 \begin{thm}
@@ -757,7 +756,7 @@ minimizer of $\MSE(v_{0}\hat{Z})$. Moreover, $\omega_{v}'=v^{T}\Xi v$ when $v$
 are the Thurstone weights.
 \item When the underlying congeneric model is parallel and $w=\mathbf{i}$,
 \begin{eqnarray}
-\omega_{w}' & = & \frac{\lambda^{2}}{\left(k\lambda^{2}+\sigma^{2}\right)^{2}}\mathbf{i}^{T}\Xi\mathbf{i},\label{eq:Alpha prime}\\
+\omega_{w}' & = & \frac{\lambda^{2}}{(k\lambda^{2}+\sigma^{2})^{2}}\mathbf{i}^{T}\Xi\mathbf{i},\label{eq:Alpha prime}\\
  & = & \alpha_{s}\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\mathbf{i}^{T}\Psi\mathbf{i}},\nonumber 
 \end{eqnarray}
 where $\alpha_{s}$ equals the ordinal alpha.
@@ -884,31 +883,32 @@ $2\beta\Var(\hat{Y})-2\Cov(\hat{Y},Y)=0$. Then $\beta=\Cov(\hat{Y},Y)/\Var(\hat{
 \begin{proof}[Proof of Proposition \ref{prop:reliability motivation}]\label{proof:reliability motivation}
 Since $\Var Z=1$, the covariance between $\hat{Z}$ and $Z$
 is
-\begin{eqnarray*}
-\Cov\left(Z,\hat{Z}\right)=\Cov\left[Z,\sum_{i=1}^{k}w_{i}\left(Z\lambda_{i}+\sigma_{i}\varepsilon\right)\right] & = & \sum_{i=1}^{k}w_{i}\lambda_{i}.
-\end{eqnarray*}
+\begin{equation}
+\Cov(Z,\hat{Z})=\Cov[Z,{\textstyle\tsum_{i=1}^{k}w_{i}}(Z\lambda_{i}+\sigma_{i}\varepsilon)]  =  {\textstyle\tsum_{i=1}^{k}w_{i}}\lambda_{i}.
+\end{equation}
 and the variance of $\hat{Z}$ is
 \[
-\Var\left(\hat{Z}\right)=\Var\left[\sum_{i=1}^{k}w_{i}\left(Z\lambda_{i}+\sigma_{i}\varepsilon\right)\right]=\left(\sum_{i=1}^{k}w_{i}\lambda_{i}\right)^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}.
+\Var(\hat{Z})=\Var[{\textstyle\tsum_{i=1}^{k}}w_{i}(Z\lambda_{i}+\sigma_{i}\varepsilon)]
+=({\textstyle\tsum_{i=1}^{k}}w_{i}\lambda_{i})^{2}+\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}.
 \]
 Combining these two formulas gives us the squared correlation between
 $Z$ and $\hat{Z}$,
-\begin{eqnarray*}
-\omega=\Cor^{2}\left(\hat{Z},Z\right) & = & \frac{\left(\sum_{i=1}^{k}w_{i}\lambda_{i}\right)^{2}}{\left(\sum_{i=1}^{k}w_{i}\lambda_{i}\right)^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}}.
-\end{eqnarray*}
+\begin{equation}
+\omega=\Cor^{2}(\hat{Z},Z) = \frac{(\tsum_{i=1}^{k}w_{i}\lambda_{i})^{2}}{(\tsum_{i=1}^{k}w_{i}\lambda_{i})^{2}+\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}}.
+\end{equation}
 
 For the second claim,
 \begin{eqnarray*}
-E\left\{ \left[Z-\sum_{i=1}^{k}w_{i}\left(\lambda_{i}Z+\sigma_{i}\varepsilon_{i}\right)\right]^{2}\right\}  & = & E\left\{ \left[Z-\sum_{i=1}^{k}w_{0}w_{i}\left(\lambda_{i}Z+\sigma_{i}\varepsilon_{i}\right)\right]^{2}\right\} ,\\
- &  & w_{0}^{2}\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}+\left(w_{0}\sum_{i=1}^{k}w_{i}\lambda_{i}-1\right)^{2}.
+E\{ [Z-\tsum_{i=1}^{k}w_{i}(\lambda_{i}Z+\sigma_{i}\varepsilon_{i})]^{2}\}  & = & E\{ [Z-\tsum_{i=1}^{k}w_{0}w_{i}(\lambda_{i}Z+\sigma_{i}\varepsilon_{i})]^{2}\} ,\\
+ & = & w_{0}^{2}\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}+(w_{0}\tsum_{i=1}^{k}w_{i}\lambda_{i}-1)^{2}.
 \end{eqnarray*}
 Differentiate with respect to $w_{0}$ to find the minimizer
 \[
-w_{0}=\frac{\sum_{i=1}^{k}w_{i}\lambda_{i}}{\left(\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}+\left(\sum_{i=1}^{k}w_{i}\lambda_{i}\right)^{2}\right)}
+w_{0}=\frac{\tsum_{i=1}^{k}w_{i}\lambda_{i}}{(\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}+(\tsum_{i=1}^{k}w_{i}\lambda_{i})^{2})}
 \]
 And then
 \[
-E\left\{ \left[Z-\sum_{i=1}^{k}w_{i}\left(\lambda_{i}Z+\sigma_{i}\varepsilon_{i}\right)\right]^{2}\right\} =\frac{\left(\sum_{i=1}^{k}w_{i}\lambda_{i}\right)^{2}}{\left(\sum_{i=1}^{k}w_{i}\lambda_{i}\right)^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}}
+E\{[Z-\tsum_{i=1}^{k}w_{i}(\lambda_{i}Z+\sigma_{i}\varepsilon_{i})]^{2}\} =\frac{(\tsum_{i=1}^{k}w_{i}\lambda_{i})^{2}}{(\tsum_{i=1}^{k}w_{i}\lambda_{i})^{2}+\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}}
 \]
 as claimed.
 \end{proof}
@@ -920,18 +920,18 @@ if and only if $w_{i}\lambda_{i}=w_{j}\lambda_{j}$ for each $i,j$,
 which implies $w^{T}\lambda=k\lambda_{i}w_{i}$. Then
 \begin{eqnarray*}
 \alpha_{w} & = & \frac{k}{k-1}\left(1-\frac{w^{T}\diag\Sigma w}{w^{T}\Sigma w}\right)\\
- & = & \frac{k}{k-1}\left(\frac{k^{2}\lambda_{1}^{2}w_{1}^{2}-k\lambda_{1}^{2}w_{1}^{2}}{k^{2}\lambda_{1}^{2}w_{1}^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}}\right)\\
+ & = & \frac{k}{k-1}\frac{k^{2}\lambda_{1}^{2}w_{1}^{2}-k\lambda_{1}^{2}w_{1}^{2}}{k^{2}\lambda_{1}^{2}w_{1}^{2}+\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}}\\
  & = & \frac{(w^{T}\lambda)^{2}}{(w^{T}\lambda)^{2}+w^{T}\Psi w}
 \end{eqnarray*}
 as claimed.
 
 The bias term for coefficient $\alpha_w$ can be derived as follows:
 \begin{eqnarray*}
-\alpha_{w} & = & \frac{k}{k-1}\left(1-\frac{w^{T}(\diag\Sigma)w}{w^{T}\Sigma w}\right)\\
+\alpha_{w} & = & \frac{k}{k-1}(1-\frac{w^{T}(\diag\Sigma)w}{w^{T}\Sigma w})\\
  & = & \frac{k}{k-1}\frac{(w^{T}\lambda)^{2}-(w^{2})^{T}\lambda^{2}}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})}\\
- & = & \frac{k}{k-1}\left(\frac{(w^{T}\lambda)^{2}-(w^{T}\lambda)^{2}/k+(w^{T}\lambda)^{2}/k-(w^{2})^{T}\lambda^{2}}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})}\right)\\
- & = & \omega_{w}-\frac{k}{k-1}\left(\frac{(w^{2})^{T}\lambda^{2}-(w^{T}\lambda)^{2}/k}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})}\right)\\
- & = & \omega_{w}-\frac{k}{k-1}\left(\frac{\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2}}{k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}}}\right)
+ & = & \frac{k}{k-1}\frac{(w^{T}\lambda)^{2}-(w^{T}\lambda)^{2}/k+(w^{T}\lambda)^{2}/k-(w^{2})^{T}\lambda^{2}}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})}\\
+ & = & \omega_{w}-\frac{k}{k-1}\frac{(w^{2})^{T}\lambda^{2}-(w^{T}\lambda)^{2}/k}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})}\\
+ & = & \omega_{w}-\frac{k}{k-1}\frac{\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2}}{k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}}}
 \end{eqnarray*}
 
 Since $(\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2})/(k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}})\geq0$
@@ -949,9 +949,9 @@ Assume the congeneric model of \eqref{eq:congeneric model} and let $\alpha$ be a
 if and only if
 \begin{equation}
 \label{eq:alpha_s_alpha_inequality}
-\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_j^{2}+\lambda_{j}^{2}}} 
+\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_j^{2}+\lambda_{j}^{2}}} 
 \geq
-\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sum_{i=1}^{k}\left(\lambda_{i}^{2}+\sigma_{i}^{2}\right)/k}
+\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\tsum_{i=1}^{k}(\lambda_{i}^{2}+\sigma_{i}^{2})/k}
 \end{equation}
 \end{lem}
 
@@ -959,20 +959,20 @@ if and only if
 From definition \eqref{eq:Coefficient alpha}
 \begin{eqnarray*}
 \alpha_{s} & = & \frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\\
- & = & \frac{k}{k-1}\left(1-\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)
+ & = & \frac{k}{k-1}\left(1-\frac{k}{\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)
 \end{eqnarray*}
 and definition \eqref{eq:standardized alpha}
 \begin{eqnarray*}
 \alpha & = & \frac{k}{k-1}\left(1-\frac{\tr\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
- & = & \frac{k}{k-1}\left(1-\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}\right)
+ & = & \frac{k}{k-1}\left(1-\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}\right)
 \end{eqnarray*}
 Thus $\alpha_{s}\geq\alpha$ if and only if
 \[
-\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\leq\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}
+\frac{k}{\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\leq\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
 \]
 which happens if and only if 
 \[
-\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_j^{2}+\lambda_{j}^{2}}}\geq\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sum_{i=1}^{k}\left(\lambda_{i}^{2}+\sigma_{i}^{2}\right)/k}
+\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_j^{2}+\lambda_{j}^{2}}}\geq\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\tsum_{i=1}^{k}(\lambda_{i}^{2}+\sigma_{i}^{2})/k}
 \]
 \end{proof}
 
@@ -980,20 +980,20 @@ which happens if and only if
 (i) From \eqref{eq:Alpha-alpha_s inequality} and $\lambda_{i}=\lambda$
 for all $i$, we need to show
 \[
-\lambda^{2}\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}\geq\lambda^{2}\sum_{i\neq j}\frac{1}{\sum_{i=1}^{k}\left(\lambda^{2}+\sigma_{i}^{2}\right)/k}
+\lambda^{2}\tsum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}\geq\lambda^{2}\tsum_{i\neq j}\frac{1}{\tsum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})/k}
 \]
-Recall Jensen's inequality: When $f$ is convex, $E\left[f\left(X\right)\right]\geq f\left[E\left(X\right)\right]$ with equality if and only if $f$ is linear.
-The function $f\left(x,y\right)=\left(x+\lambda^{2}\right)^{-1/2}\left(y+\lambda^{2}\right)^{-1/2}$
-is convex for any $\lambda$. Let $E\left(X,Y\right)=\left[k\left(k-1\right)\right]^{-1}\left(\sum_{i\neq j}x_{i},\sum_{i\neq j}y_{i}\right)$
+Recall Jensen's inequality: When $f$ is convex, $E[f(X)]\geq f[E(X)]$ with equality if and only if $f$ is linear.
+The function $f(x,y)=(x+\lambda^{2})^{-1/2}(y+\lambda^{2})^{-1/2}$
+is convex for any $\lambda$. Let $E(X,Y)=[k(k-1)]^{-1}(\tsum_{i\neq j}x_{i},\tsum_{i\neq j}y_{i})$
 and observe that
 \begin{eqnarray*}
-f\left(E\left(\sigma^{2},\sigma^{2}\right)\right) & = & f\left(\left[k\left(k-1\right)\right]^{-1}\sum_{i\neq j}\sigma_{i}^{2},\left[k\left(k-1\right)\right]^{-1}\sum_{i\neq j}\sigma_{i}^{2}\right)\\
- & = & \left[\left[k\left(k-1\right)\right]^{-1}\sum_{i\neq j}\sigma_{i}^{2}+\lambda^{2}\right]^{-1/2}\left[\left[k\left(k-1\right)\right]^{-1}\sum_{i\neq j}\sigma_{i}^{2}+\lambda^{2}\right]^{-1/2}\\
- & = & \left(\sum_{i=1}^{k}\left(\lambda^{2}+\sigma_{i}^{2}\right)/k\right)^{-1}
+f(E(\sigma^{2},\sigma^{2})) & = & f([k(k-1)]^{-1}\tsum_{i\neq j}\sigma_{i}^{2},[k(k-1)]^{-1}\tsum_{i\neq j}\sigma_{i}^{2})\\
+ & = & [[k(k-1)]^{-1}\tsum_{i\neq j}\sigma_{i}^{2}+\lambda^{2}]^{-1/2}[[k(k-1)]^{-1}\tsum_{i\neq j}\sigma_{i}^{2}+\lambda^{2}]^{-1/2}\\
+ & = & (\tsum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})/k)^{-1}
 \end{eqnarray*}
 and by Jensen's inequality
 \[
-\sum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}\geq\sum_{i\neq j}\frac{1}{\sum_{i=1}^{k}\left(\lambda^{2}+\sigma_{i}^{2}\right)/k}
+\tsum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}\geq\tsum_{i\neq j}\frac{1}{\tsum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})/k}
 \]
 with equality if and only if $\sigma_{i}^{2}=\sigma_{j}^{2}$ for
 all $i,j$. Since \eqref{eq:Alpha-alpha_s inequality} is true when
@@ -1003,51 +1003,51 @@ As for (ii). Observe that $\alpha_{s}\geq\alpha$
 if and only if
 \begin{equation}
 \label{eq:Alpha-alpha_s inequality}
-\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\leq\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}
+\frac{k}{\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\leq\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
 \end{equation}
 Let $k=2$. Then \eqref{eq:Alpha-alpha_s inequality} simplifies to
 \[
-\frac{1}{\frac{\lambda_{1}\lambda_{2}}{\sqrt{\left(\sigma_{1}^{2}+\lambda_{1}^{2}\right)\left(\sigma_{2}^{2}+\lambda_{2}^{2}\right)}}+1}\leq\frac{\left(\lambda_{1}^{2}+\sigma_{1}^{2}\right)+\left(\lambda_{2}^{2}+\sigma_{2}^{2}\right)}{2\lambda_{1}\lambda_{2}+\left(\lambda_{1}^{2}+\sigma_{1}^{2}\right)+\left(\lambda_{2}^{2}+\sigma_{2}^{2}\right)}
+\frac{1}{\frac{\lambda_{1}\lambda_{2}}{\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}}+1}\leq\frac{(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})}{2\lambda_{1}\lambda_{2}+(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})}
 \]
 and further to
 \begin{eqnarray*}
-\frac{\sqrt{\left(\sigma_{1}^{2}+\lambda_{1}^{2}\right)\left(\sigma_{2}^{2}+\lambda_{2}^{2}\right)}}{\lambda_{1}\lambda_{2}+\sqrt{\left(\sigma_{1}^{2}+\lambda_{1}^{2}\right)\left(\sigma_{2}^{2}+\lambda_{2}^{2}\right)}} & \geq & \frac{\left[\left(\lambda_{1}^{2}+\sigma_{1}^{2}\right)+\left(\lambda_{2}^{2}+\sigma_{2}^{2}\right)\right]/2}{\lambda_{1}\lambda_{2}+\left[\left(\lambda_{1}^{2}+\sigma_{1}^{2}\right)+\left(\lambda_{2}^{2}+\sigma_{2}^{2}\right)\right]/2}
+\frac{\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}}{\lambda_{1}\lambda_{2}+\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}} & \geq & \frac{[(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})]/2}{\lambda_{1}\lambda_{2}+[(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})]/2}
 \end{eqnarray*}
-By the inequality of arithmetic and geometric means, $1/2\left[\left(\lambda_{1}^{2}+\sigma_{1}^{2}\right)+\left(\lambda_{2}^{2}+\sigma_{2}^{2}\right)\right]\geq\sqrt{\left(\sigma_{1}^{2}+\lambda_{1}^{2}\right)\left(\sigma_{2}^{2}+\lambda_{2}^{2}\right)}$
+By the inequality of arithmetic and geometric means, $1/2[(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})]\geq\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}$
 with equality only if $\lambda_{1}^{2}+\sigma_{1}^{2}=\lambda_{2}^{2}+\sigma_{2}^{2}$.
 
 Consider the second claim of (iii). Let $k>2$ and assume all $\lambda_{j}=0$
 except $\lambda_{1},\lambda_{2}$. By \eqref{eq:Alpha-alpha_s inequality}, $\alpha_s \geq \alpha$ if and
 only if
 \[
-\frac{k}{2\frac{\lambda_{1}\lambda_{2}}{\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}+k}<\frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{2\lambda_{1}\lambda_{2}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}
+\frac{k}{2\frac{\lambda_{1}\lambda_{2}}{\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}+k}<\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{2\lambda_{1}\lambda_{2}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
 \]
 or
-\begin{eqnarray*}
-\frac{k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}{2\lambda_{1}\lambda_{2}+k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}} & \leq & \frac{\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}{2\lambda_{1}\lambda_{2}+\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)}
-\end{eqnarray*}
-Now $k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}>\sum_{i=1}^{k}\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)$
+\begin{equation*}
+\frac{k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}{2\lambda_{1}\lambda_{2}+k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}} \leq \frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{2\lambda_{1}\lambda_{2}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
+\end{equation*}
+Now $k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}>\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})$
 can be made true by choosing $\sigma_{i}^{2}=0$ for $i>2$. For the
 other way around, just choose $\sigma_{i}^{2}$ large enough.
 
-(iv) First assume $\lambda_{i}=\sigma_{i}$ for each $i$. Then $\alpha_{s}=\frac{k}{k+1}$
-and $\omega=\frac{\left(\sum\lambda_{i}\right)^{2}}{\left(\sum\lambda_{i}\right)^{2}+\sum\lambda_{i}^{2}}$.
+(iv) First assume $\lambda_{i}=\sigma_{i}$ for each $i$. Then $\alpha_{s}=k/(k+1)$
+and $\omega=(\tsum\lambda_{i})^{2}/(\tsum\lambda_{i})^{2}+\tsum\lambda_{i}^{2})$.
 But but then $\alpha_{s}\geq\omega$ with equality if and only if
-all $\lambda$s are equal, for $k\sum_{i=1}^{k}\lambda_{i}^{2}\geq\sum_{i=1}^{k}\lambda_{i}$
+all $\lambda$s are equal, for $k\tsum_{i=1}^{k}\lambda_{i}^{2}\geq\tsum_{i=1}^{k}\lambda_{i}$
 by Chebyshev's inequality. Now assume $\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}=a$
-for each $i$. Then $\sum\left(\sigma_{i}^{2}+\lambda_{i}^{2}\right)=ak$
+for each $i$. Then $\tsum(\sigma_{i}^{2}+\lambda_{i}^{2})=ak$
 and
 \[
-\frac{k}{k-1}\left(\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak}\right)\leq\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum\lambda_{i}^{2}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak}
+\frac{k}{k-1}\frac{\tsum_{i\neq j}\lambda_{i}\lambda_{j}}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+ak}\leq\frac{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum\lambda_{i}^{2}}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+ak}
 \]
 which is equivalent to
-\begin{eqnarray*}
-\left(\sum_{i=1}^{k}\lambda_{i}\right)^{2} & \leq & k\sum_{i=1}^{k}\lambda_{i}^{2}
-\end{eqnarray*}
+\begin{equation*}
+(\tsum_{i=1}^{k}\lambda_{i})^{2} \leq k\tsum_{i=1}^{k}\lambda_{i}^{2}
+\end{equation*}
 which is true by Chebyshev's inequality, once again with equality
-if and only if all $\lambda$s are equal. Let $A=\left\{ \left(\lambda,\omega\right)\mid\lambda_{i}\neq\lambda_{j}\text{\textrm{ for some }}j\right\} $.
+if and only if all $\lambda$s are equal. Let $A=\{ (\lambda,\omega)\mid\lambda_{i}\neq\lambda_{j}\text{\textrm{ for some }}j\} $.
 Then $A$ is connected, and by the intermediate value theorem there
-is a $\left(\lambda,\omega\right)$ where $\left[\alpha_{s}-\omega\right]\left(\lambda,\sigma\right)=0$,
+is a $(\lambda,\omega)$ where $[\alpha_{s}-\omega](\lambda,\sigma)=0$,
 for there are elements in $A$ where $\alpha_{s}-\omega$ takes on
 negative values and elements where $\alpha_{s}-\omega$ takes on positive
 values.
@@ -1058,64 +1058,65 @@ values.
 \begin{proof}[Proof of Theorem \ref{thm:ML}]\label{proof:ML}
 We start with (i). The log-likelihood of the multivariate normal is
 \begin{equation}
-l\left(\Sigma;S\right)=-\frac{1}{2}\left[\log\left|\Sigma\right|+\textrm{tr}\left(S\Sigma^{-1}\right)+k\log2\pi\right]
+l(\Sigma;S)=-\frac{1}{2}[\log\left|\Sigma\right|+\textrm{tr}(S\Sigma^{-1})+k\log2\pi]
 \end{equation}
 Under the parallel model $\Sigma=\lambda^{2}\mathbf{i}\mathbf{i}^{T}+\sigma^{2}I$.
 By the matrix determinant lemma \citep[][Theorem 18.1.1 (p. 416)]{Harville2008-el}, $\left|\Sigma\right|=\sigma^{2k}+k\lambda^{2}\sigma^{2k-2}$
 and an application of the Sherman--Morrison formula \citep{shermanmorrison}
-gives us $\Sigma^{-1}=\sigma^{-2}I-\frac{\lambda^{2}}{\sigma^{4}\left(1+k\lambda^{2}\right)}\mathbf{i}\mathbf{i}^{T}$.
-It follows that $\textrm{tr}\left(S\Sigma^{-1}\right)=\sigma^{-2}\textrm{tr}S-\frac{\lambda^{2}}{\sigma^{4}+k\lambda^{2}\sigma^{2}}\mathbf{i}^{T}S\mathbf{i}$.
-The gradients of $\log\left|\Sigma\right|$ and $\textrm{tr}\left(S\Sigma^{-1}\right)$
+gives us $\Sigma^{-1}=\sigma^{-2}I-\frac{\lambda^{2}}{\sigma^{4}(1+k\lambda^{2})}\mathbf{i}\mathbf{i}^{T}$.
+It follows that $\textrm{tr}(S\Sigma^{-1})=\sigma^{-2}\textrm{tr}S-\frac{\lambda^{2}}{\sigma^{4}+k\lambda^{2}\sigma^{2}}\mathbf{i}^{T}S\mathbf{i}$.
+The gradients of $\log\left|\Sigma\right|$ and $\textrm{tr}(S\Sigma^{-1})$
 are, with differentation with respect to $\sigma$ first:
 \begin{eqnarray}
 \nabla\log\left|\Sigma\right| & = & \frac{2k}{\lambda^{2}k+\sigma^{2}}\left(\begin{array}{c}
-\frac{\lambda^{2}\left(k-1\right)+\sigma^{2}}{\sigma}\\
+\frac{\lambda^{2}(k-1)+\sigma^{2}}{\sigma}\\
 \lambda
 \end{array}\right)\\
-\nabla\log\textrm{tr}\left(S\Sigma^{-1}\right) & = & \left(\begin{array}{c}
--2\sigma^{-3}\textrm{tr}S+2\lambda^{2}\left(\frac{1}{\sigma^{3}\left(\lambda^{2}k+\sigma^{2}\right)}+\frac{1}{\sigma\left(\lambda^{2}k+\sigma^{2}\right)^{2}}\right)\mathbf{i}^{T}S\mathbf{i}\\
--\frac{2\lambda}{\left(\lambda^{2}k+\sigma^{2}\right)^{2}}\mathbf{i}^{T}S\mathbf{i}
+\nabla\log\textrm{tr}(S\Sigma^{-1}) & = & \left(\begin{array}{c}
+-2\sigma^{-3}\textrm{tr}S+2\lambda^{2}({\sigma^{3}(\lambda^{2}k+\sigma^{2})}^{-1}+{\sigma(\lambda^{2}k+\sigma^{2})^{2}}^{-1})\mathbf{i}^{T}S\mathbf{i}\\
+-\frac{2\lambda}{(\lambda^{2}k+\sigma^{2})^{2}}\mathbf{i}^{T}S\mathbf{i}
 \end{array}\right)\nonumber 
 \end{eqnarray}
-The optimum is obtained when $-\nabla\log\textrm{tr}\left(S\Sigma^{-1}\right)=\nabla\log\left|\Sigma\right|$.
+The optimum is obtained when $-\nabla\log\textrm{tr}(S\Sigma^{-1})=\nabla\log\left|\Sigma\right|$.
 I will show that $\frac{\mathbf{i}^{T}S\mathbf{i}}{k}=\lambda^{2}k+\sigma^{2}$
 and $\frac{\textrm{tr}S}{k}=\sigma^{2}+\lambda^{2}$ are the unconstraied
 solutions to this equation.
 
-The second part of the likelihood equation is $\lambda$$\frac{2\lambda}{\left(\lambda^{2}k+\sigma^{2}\right)^{2}}\mathbf{i}^{T}S\mathbf{i}=\frac{2k\lambda}{\lambda^{2}k+\sigma^{2}}$.
+The second part of the likelihood equation is $\lambda$$\frac{2\lambda}{(\lambda^{2}k+\sigma^{2})^{2}}\mathbf{i}^{T}S\mathbf{i}=\frac{2k\lambda}{\lambda^{2}k+\sigma^{2}}$.
 There are two solutions to this equation. Either $\lambda>0$ and
-$\frac{\mathbf{i}^{T}S\mathbf{i}}{k}=\left(\lambda^{2}k+\sigma^{2}\right)$
+$\frac{\mathbf{i}^{T}S\mathbf{i}}{k}=(\lambda^{2}k+\sigma^{2})$
 or $\lambda=0$. Assume $\lambda>0$ and substitute and simplify the
 derivative with respect to $\sigma$. Now
-\begin{eqnarray*}
--2\sigma^{-3}\textrm{tr}S+\left(\frac{2\lambda^{2}}{\sigma^{3}\left(\lambda^{2}k+\sigma^{2}\right)}+\frac{2\lambda^{2}}{\sigma\left(\lambda^{2}k+\sigma^{2}\right)^{2}}\right)\mathbf{i}^{T}S\mathbf{i} & =\\
+\begin{equation*}
+-2\sigma^{-3}\textrm{tr}S+\left(\frac{2\lambda^{2}}{\sigma^{3}(\lambda^{2}k+\sigma^{2})}+\frac{2\lambda^{2}}{\sigma(\lambda^{2}k+\sigma^{2})^{2}}\right)\mathbf{i}^{T}S\mathbf{i} =
 -2\sigma^{-3}\textrm{tr}S+2\lambda^{2}k\left(\frac{1}{\sigma^{3}}+\frac{k}{\sigma\mathbf{i}^{T}S\mathbf{i}}\right)
-\end{eqnarray*}
-and $\frac{2k}{\lambda^{2}k+\sigma^{2}}\frac{\lambda^{2}\left(k-1\right)+\sigma^{2}}{\sigma}=\frac{2k^{2}}{\mathbf{i}^{T}S\mathbf{i}}\frac{\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2}}{\sigma}$.
-I rearrange $2\sigma^{-3}\textrm{tr}S-2\lambda^{2}k\left(\frac{1}{\sigma^{3}}+\frac{k}{\sigma\mathbf{i}^{T}S\mathbf{i}}\right)=\frac{2k^{2}}{\mathbf{i}^{T}S\mathbf{i}}\frac{\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2}}{\sigma}$
-and get $\frac{\textrm{tr}S}{k}-\lambda^{2}\left(\frac{\mathbf{i}^{T}S\mathbf{i}+k\sigma^{2}}{\mathbf{i}^{T}S\mathbf{i}}\right)=\frac{\sigma^{2}k}{\mathbf{i}^{T}S\mathbf{i}}\left(\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2}\right)$.
+\end{equation*}
+
+and $\frac{2k}{\lambda^{2}k+\sigma^{2}}\frac{\lambda^{2}(k-1)+\sigma^{2}}{\sigma}=\frac{2k^{2}}{\mathbf{i}^{T}S\mathbf{i}}\frac{\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2}}{\sigma}$.
+Rearrange $2\sigma^{-3}\textrm{tr}S-2\lambda^{2}k(\frac{1}{\sigma^{3}}+\frac{k}{\sigma\mathbf{i}^{T}S\mathbf{i}})=\frac{2k^{2}}{\mathbf{i}^{T}S\mathbf{i}}\frac{\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2}}{\sigma}$
+and get $\frac{\textrm{tr}S}{k}-\lambda^{2}(\frac{\mathbf{i}^{T}S\mathbf{i}+k\sigma^{2}}{\mathbf{i}^{T}S\mathbf{i}})=\frac{\sigma^{2}k}{\mathbf{i}^{T}S\mathbf{i}}(\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2})$.
 Then isolate $\frac{\textrm{tr}S}{k}$ on the left hand side to get
-$\frac{\textrm{tr}S}{k}=\frac{1}{K}\left(\sigma^{2}\mathbf{i}^{T}S\mathbf{i}+\lambda^{2}\mathbf{i}^{T}S\mathbf{i}\right)$,
+$\frac{\textrm{tr}S}{k}=\frac{1}{K}(\sigma^{2}\mathbf{i}^{T}S\mathbf{i}+\lambda^{2}\mathbf{i}^{T}S\mathbf{i})$,
 hence $\frac{\textrm{tr}S}{k}=\sigma^{2}+\lambda^{2}$ as claimed.
 
-If $\mathbf{i}^{T}S\mathbf{i}\geq\textrm{tr}S$ then $\hat{\lambda^{2}}=\frac{1}{k-1}\left(\frac{\mathbf{i}^{T}S\mathbf{i}}{k}-\frac{\textrm{tr}S}{k}\right)$
-and $\hat{\sigma^{2}}=\frac{1}{k-1}\left(\textrm{tr}S-\frac{\mathbf{i}^{T}S\mathbf{i}}{k}\right)$
+If $\mathbf{i}^{T}S\mathbf{i}\geq\textrm{tr}S$ then $\hat{\lambda^{2}}=\frac{1}{k-1}(\frac{\mathbf{i}^{T}S\mathbf{i}}{k}-\frac{\textrm{tr}S}{k})$
+and $\hat{\sigma^{2}}=\frac{1}{k-1}(\textrm{tr}S-\frac{\mathbf{i}^{T}S\mathbf{i}}{k})$
 are the maximum likelihood estimates. If not, $\lambda=0$ as already
 mentioned. In this case,
-\begin{eqnarray*}
--2\sigma^{-3}\textrm{tr}S+\left(\frac{2\lambda^{2}}{\sigma^{3}\left(\lambda^{2}k+\sigma^{2}\right)}+\frac{2\lambda^{2}}{\sigma\left(\lambda^{2}k+\sigma^{2}\right)^{2}}\right)\mathbf{i}^{T}S\mathbf{i}+\frac{2k}{\lambda^{2}k+\sigma^{2}}\frac{\lambda^{2}\left(k-1\right)+\sigma^{2}}{\sigma} & =\\
+\begin{equation*}
+-2\sigma^{-3}\textrm{tr}S+\left(\frac{2\lambda^{2}}{\sigma^{3}(\lambda^{2}k+\sigma^{2})}+\frac{2\lambda^{2}}{\sigma(\lambda^{2}k+\sigma^{2})^{2}}\right)\mathbf{i}^{T}S\mathbf{i}+\frac{2k}{\lambda^{2}k+\sigma^{2}}\frac{\lambda^{2}(k-1)+\sigma^{2}}{\sigma} =
 -2\sigma^{-3}\textrm{tr}S+\frac{2k}{\sigma}
-\end{eqnarray*}
-hence $\hat{\sigma^{2}}=\frac{\textrm{tr}S}{k}$ is another solution.
+\end{equation*}
+hence $\hat{\sigma}^2=\textrm{tr}S/{k}$ is another solution.
 
 As for (ii), first assume the maximum likelihood estmator of $\lambda^{2}$
 is not $0$. By the invariance property of maximum likelihood an the definition of the congeneric reliability \eqref{eq:Congeneric reliability}, the maximum likelihood of the congeneric reliability is
 \begin{eqnarray*}
-\frac{\left(\mathbf{i}^{T}\mathbf{\hat{\lambda}}\right)^{2}}{\left(\mathbf{i}^{T}\mathbf{\hat{\lambda}}\right)^{2}+\mathbf{i}^{T}\Psi\mathbf{i}} & = & \frac{k\left(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S\right)}{k\left(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S\right)+\left(k\textrm{tr}S-\mathbf{i}^{T}S\mathbf{i}\right)}\\
- & = & \frac{k\left(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S\right)}{\left(k-1\right)\mathbf{i}^{T}S\mathbf{i}}\\
+\frac{(\mathbf{i}^{T}\mathbf{\hat{\lambda}})^{2}}{(\mathbf{i}^{T}\mathbf{\hat{\lambda}})^{2}+\mathbf{i}^{T}\Psi\mathbf{i}} & = & \frac{k(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S)}{k(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S)+(k\textrm{tr}S-\mathbf{i}^{T}S\mathbf{i})}\\
+ & = & \frac{k(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S)}{(k-1)\mathbf{i}^{T}S\mathbf{i}}\\
  & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}S}{\mathbf{i}^{T}S\mathbf{i}}\right)
 \end{eqnarray*}
-If the maximum likelihood estmator of $\lambda^{2}$ is $0$, $\left(\mathbf{i}^{T}\mathbf{\hat{\lambda}}\right)^{2}=0$
+If the maximum likelihood estmator of $\lambda^{2}$ is $0$, $(\mathbf{i}^{T}\mathbf{\hat{\lambda}})^{2}=0$
 and the maximum likelihood estimator of the reliability is $0.$
 \end{proof}
 
@@ -1123,51 +1124,51 @@ and the maximum likelihood estimator of the reliability is $0.$
 (i) Let $R_{n}$, $S_{n}$ be the sample correlation and covariance matrices
 and $\Phi$, $\Sigma$ be their population counterparts. By the law
 of large numbers and Slutsky's theorom \citep[][Lemma 2.8, p. 11]{Van_der_Vaart2000-qc}, $R_{n}\to\Phi$ and $S_{n}\to\Sigma$
-with probability $1$ in the entry-wise matrix norm $\left\Vert A\right\Vert _{1}=\sum_{j=1}^{k}\sum_{i=1}^{k}\left|a_{ij}\right|$.
+with probability $1$ in the entry-wise matrix norm $\left\Vert A\right\Vert _{1}=\tsum_{j=1}^{k}\tsum_{i=1}^{k}\left|a_{ij}\right|$.
 The mapping
 \[
-f\left(A\right)=\frac{k}{k-1}\left(1-\frac{\mathbf{i}^{T}(\diag A)\mathbf{i}}{\mathbf{i}^{T}A\mathbf{i}}\right)
+f(A)=\frac{k}{k-1}\left(1-\frac{\mathbf{i}^{T}(\diag A)\mathbf{i}}{\mathbf{i}^{T}A\mathbf{i}}\right)
 \]
 is continuous with respect to the norm $\left\Vert \cdot\right\Vert _{1}$,
 and by the continuous mapping theorem \citep[][Theorem 2.3, p. 7]{Van_der_Vaart2000-qc}
-$f\left(S_{n}\right)\to f\left(\Sigma\right)$ and $f\left(R_{n}\right)\to f\left(\Phi\right)$
+$f(S_{n})\to f(\Sigma)$ and $f(R_{n})\to f(\Phi)$
 with probability 1.
 
 (iii) \citet[eq. 22]{Van_Zyl2000-si} showed that the asymptotic variance
 is
 \[
-\sigma^{2}\left(\alpha\right)=\frac{2k}{\left(k-1\right)\left[1+\rho\left(k-1\right)\right]^{3}}\left[\left(k-1\right)\rho^{3}-\left(2k-3\right)\rho^{2}+\left(k-3\right)\rho+1\right]
+\sigma^{2}(\alpha)=\frac{2k}{(k-1)[1+\rho(k-1)]^{3}}[(k-1)\rho^{3}-(2k-3)\rho^{2}+(k-3)\rho+1]
 \]
 This can be simplified to
 \[
-\sigma^{2}\left(\alpha\right)=\frac{2k\left(\rho-1\right)^{2}}{\left(k-1\right)\left[1+\rho\left(k-1\right)\right]^{2}}
+\sigma^{2}(\alpha)=\frac{2k(\rho-1)^{2}}{(k-1)[1+\rho(k-1)]^{2}}
 \]
 \citet[equation 10]{hayashi2005note} found the asymptotic variance
 \[
-\sigma^{2}\left(\alpha_{s}\right)=\frac{1}{\left(k-1\right)^{2}}\frac{1}{\left(1+\rho\left(k-1\right)\right)^{4}}2\mathbf{1}^{T}Q_{p}\left(P\otimes P\right)Q_{P}^{T}\mathbf{1}.
+\sigma^{2}(\alpha_{s})=\frac{1}{(k-1)^{2}}\frac{1}{(1+\rho(k-1))^{4}}2\mathbf{1}^{T}Q_{p}(P\otimes P)Q_{P}^{T}\mathbf{1}.
 \]
-The expression $2\mathbf{1}^{T}Q_{p}\left(P\otimes P\right)Q_{P}^{T}\mathbf{1}$
+The expression $2\mathbf{1}^{T}Q_{p}(P\otimes P)Q_{P}^{T}\mathbf{1}$
 can be rewritten to \citep[appendix 3]{hayashi2005note}
 \[
-2k\left(k-1\right)\left\{ \left(k-1\right)^{2}\rho^{4}-2\left(k-1\right)\left(k-2\right)\rho^{3}+\left(k^{2}-6k+6\right)\text{\ensuremath{\rho^{2}+2\left(k-2\right)\rho+1}}\right\} ,
+2k(k-1)\{ (k-1)^{2}\rho^{4}-2(k-1)(k-2)\rho^{3}+(k^{2}-6k+6)\text{\ensuremath{\rho^{2}+2(k-2)\rho+1}}\} ,
 \]
-which can be further simplfied to $\left(\rho-1\right)^{2}\left(1+\rho\left(k-1\right)^{2}\right)^{2}$.
+which can be further simplfied to $(\rho-1)^{2}(1+\rho(k-1)^{2})^{2}$.
 Thus
 \[
-\sigma^{2}\left(\alpha_{s}\right)=\frac{2k}{\left(k-1\right)}\frac{\left(\rho-1\right)^{2}}{\left(1+\rho\left(k-1\right)\right)^{2}}
+\sigma^{2}(\alpha_{s})=\frac{2k}{(k-1)}\frac{(\rho-1)^{2}}{(1+\rho(k-1))^{2}}
 \]
 and the limits are equal.
 Since
 \begin{eqnarray*}
-\alpha_{s} & = & \frac{k}{k-1}\left(1-\frac{k}{k\left(k-1\right)\rho+k}\right) = \frac{k\rho}{\left(k-1\right)\rho+1}
+\alpha_{s} & = & \frac{k}{k-1}(1-\frac{k}{k(k-1)\rho+k}) = \frac{k\rho}{(k-1)\rho+1}
 \end{eqnarray*}
 we get
 \begin{eqnarray*}
-1-\alpha_{s} & = & \frac{\left(k-1\right)\rho+1-k\rho}{\left(k-1\right)\rho+1} = \frac{1-\rho}{\left(k-1\right)\rho+1}
+1-\alpha_{s} & = & \frac{(k-1)\rho+1-k\rho}{(k-1)\rho+1} = \frac{1-\rho}{(k-1)\rho+1}
 \end{eqnarray*}
 Taken together, the asymptotic variance is
 \[
-\sigma^{2}\left(\alpha_{s}\right)=2\frac{k}{k-1}\left(1-\alpha_{s}\right)^{2}
+\sigma^{2}(\alpha_{s})=2\frac{k}{k-1}(1-\alpha_{s})^{2}
 \]
 Since $\hat{\alpha}$ is the maximum likelihood estimator of $\omega$
 when $n$ is large it is efficient. And since the asymptotic variances
@@ -1177,32 +1178,32 @@ are both efficient.
 
 % This lemma relates weighted averages to ordinary averages, and is useful for showing inequalities involving the alpha and omega coefficients.
 % \begin{lem}
-% \label{lem:weighted averages}Let $\left\{ x_{i}\right\} _{i=1}^{k},\left\{ w_{i}\right\} _{i=1}^{k}$
+% \label{lem:weighted averages}Let $\{ x_{i}\} _{i=1}^{k},\{ w_{i}\} _{i=1}^{k}$
 % be sequences of positive real numbers such that $x_{i}\leq x_{j}$ implies
-% $w'_{i}\geq w'_{j}$ and $\sum_{i=1}^{k}w_{i}=1$. Then $k^{-1}\sum_{i=1}^{k}x_{i}\geq\sum_{i=1}^{k}w_{i}x_{i}.$
+% $w'_{i}\geq w'_{j}$ and $\tsum_{i=1}^{k}w_{i}=1$. Then $k^{-1}\tsum_{i=1}^{k}x_{i}\geq\tsum_{i=1}^{k}w_{i}x_{i}.$
 % \end{lem}
 % \begin{proof}
 % See Theorem 2 of \citep{Sbert2016-al}.
 % \end{proof}
-% \begin{proof}[Proof of the claim $w_{0} = \overline{\lambda^{2}}/\left(k\overline{\lambda}^{2}+\overline{\sigma^{2}}\right)$ on page \pageref{eq:w0}]
+% \begin{proof}[Proof of the claim $w_{0} = \overline{\lambda^{2}}/(k\overline{\lambda}^{2}+\overline{\sigma^{2}})$ on page \pageref{eq:w0}]
 % \label{proof:w0}
 % \end{proof}
 
 % \begin{proof}[Proof of Proposition \ref{prop:Z-reliabiltiy}]\label{proof:Z-reliability}
 % (i) The mean squared error is
 % \begin{eqnarray*}
-% E\left[\left(Z-w\sum_{i=1}^{k}\left(X_{i}-\mu_{i}\right)-\theta\right)^{2}\right] & = & E\left[\left(\left[1-w\sum_{i=1}^{k}\lambda_{i}\right]Z-w\sum_{i=1}^{k}\sigma_{i}\varepsilon_{i}\right)^{2}\right],\\
-%  & = & E\left[\left(\left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]Z\right)^{2}\right]+E\left[\left(w\sum_{i=1}^{k}\sigma_{i}\varepsilon_{i}\right)^{2}\right],\\
-%  & = & \left[1-w\sum_{i=1}^{k}\lambda_{i}\right]^{2}+w^{2}\sum_{i=1}^{k}\sigma_{i}^{2}.
+% E[(Z-w\tsum_{i=1}^{k}(X_{i}-\mu_{i})-\theta)^{2}] & = & E[([1-w\tsum_{i=1}^{k}\lambda_{i}]Z-w\tsum_{i=1}^{k}\sigma_{i}\varepsilon_{i})^{2}],\\
+%  & = & E[([1-\tsum_{i=1}^{k}\lambda_{i}w_{i}]Z)^{2}]+E[(w\tsum_{i=1}^{k}\sigma_{i}\varepsilon_{i})^{2}],\\
+%  & = & [1-w\tsum_{i=1}^{k}\lambda_{i}]^{2}+w^{2}\tsum_{i=1}^{k}\sigma_{i}^{2}.
 % \end{eqnarray*}
 % Differentatiate with respect to $\omega$,
 % \[
-% 2\sum_{i=1}^{k}\lambda_{i}\left[w\sum_{i=1}^{k}\lambda_{i}-1\right]+2w\sum_{i=1}^{k}\sigma_{i}^{2}.
+% 2\tsum_{i=1}^{k}\lambda_{i}[w\tsum_{i=1}^{k}\lambda_{i}-1]+2w\tsum_{i=1}^{k}\sigma_{i}^{2}.
 % \]
-% Hence $w=\overline{\lambda}/\left(\overline{\sigma^{2}}+k\overline{\lambda}^{2}\right)$.
+% Hence $w=\overline{\lambda}/(\overline{\sigma^{2}}+k\overline{\lambda}^{2})$.
 % The risk is
 % \begin{eqnarray*}
-% \left[1-wk\overline{\lambda}\right]^{2}+w^{2}k\overline{\sigma^{2}} & = & \left[1-\frac{k\overline{\lambda}^{2}}{\overline{\sigma^{2}}+k\overline{\lambda}^{2}}\right]^{2}+\frac{k\overline{\lambda}^{2}\overline{\sigma^{2}}}{\left(\overline{\sigma^{2}}+k\overline{\lambda}^{2}\right)^{2}}\\
+% [1-wk\overline{\lambda}]^{2}+w^{2}k\overline{\sigma^{2}} & = & [1-\frac{k\overline{\lambda}^{2}}{\overline{\sigma^{2}}+k\overline{\lambda}^{2}}]^{2}+\frac{k\overline{\lambda}^{2}\overline{\sigma^{2}}}{(\overline{\sigma^{2}}+k\overline{\lambda}^{2})^{2}}\\
 %  & = & \frac{\overline{\sigma^{2}}}{\overline{\sigma^{2}}+k\overline{\lambda}^{2}}
 % \end{eqnarray*}
 % Hence
@@ -1211,24 +1212,24 @@ are both efficient.
 % \]
 % (ii) The formula for the mean squared error is
 % \begin{eqnarray*}
-% E\left[\left(Z-\sum_{i=1}^{k}w_{i}\left(X_{i}-\mu_{i}\right)\right)^{2}\right] & = & E\left[\left(\left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]Z-\sum_{i=1}^{k}w_{i}\sigma_{i}\varepsilon_{i}\right)^{2}\right]\\
-%  & = & E\left[\left(\left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]Z\right)^{2}\right]+E\left[\left(\sum_{i=1}^{k}w_{i}\sigma_{i}\varepsilon_{i}\right)^{2}\right]\\
-%  & = & \left[1-\sum_{i=1}^{k}\lambda_{i}w_{i}\right]^{2}+\sum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}
+% E[(Z-\tsum_{i=1}^{k}w_{i}(X_{i}-\mu_{i}))^{2}] & = & E[([1-\tsum_{i=1}^{k}\lambda_{i}w_{i}]Z-\tsum_{i=1}^{k}w_{i}\sigma_{i}\varepsilon_{i})^{2}]\\
+%  & = & E[([1-\tsum_{i=1}^{k}\lambda_{i}w_{i}]Z)^{2}]+E[(\tsum_{i=1}^{k}w_{i}\sigma_{i}\varepsilon_{i})^{2}]\\
+%  & = & [1-\tsum_{i=1}^{k}\lambda_{i}w_{i}]^{2}+\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}
 % \end{eqnarray*}
-% By differentiation, the minimum satisfies $\lambda_{j}\sum_{i=1}^{k}\lambda_{i}w_{i}+w_{j}\sigma_{j}^{2}=\lambda_{j}$,
+% By differentiation, the minimum satisfies $\lambda_{j}\tsum_{i=1}^{k}\lambda_{i}w_{i}+w_{j}\sigma_{j}^{2}=\lambda_{j}$,
 % thus 
 % \[
-% 1-\sum_{i=1}^{k}\lambda_{i}w_{i}=\frac{w_{j}\sigma_{j}^{2}}{\lambda_{j}}
+% 1-\tsum_{i=1}^{k}\lambda_{i}w_{i}=\frac{w_{j}\sigma_{j}^{2}}{\lambda_{j}}
 % \]
 % This implies $w_{i}=w_{j}\frac{\sigma_{j}^{2}}{\sigma_{i}^{2}}\frac{\lambda_{i}}{\lambda_{j}}$
-% for each $i,j$, hence $\sum_{i=1}^{k}w_{j}\lambda_{i}^{2}\frac{\sigma_{j}^{2}}{\sigma_{i}^{2}}+w_{j}\sigma_{j}^{2}=\lambda_{j}$
+% for each $i,j$, hence $\tsum_{i=1}^{k}w_{j}\lambda_{i}^{2}\frac{\sigma_{j}^{2}}{\sigma_{i}^{2}}+w_{j}\sigma_{j}^{2}=\lambda_{j}$
 % for each $j$, and
 % \[
 % w_{j}=\lambda_{j}/[\sigma_{j}^{2}(1+k\overline{\lambda\sigma^{-2}})]
 % \]
 % The risk is
 % \begin{eqnarray*}
-% w_{j}^{2}\frac{\sigma_{j}^{4}}{\lambda_{j}^{2}}+\sum_{i=1}^{k}w_{j}^{2}\frac{\sigma_{j}^{4}}{\sigma_{i}^{2}}\frac{\lambda_{i}^{2}}{\lambda_{j}^{2}} & = & w_{j}^{2}\lambda_{j}^{-2}\sigma_{j}^{4}\left(1+\sum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2}\right)\\
+% w_{j}^{2}\frac{\sigma_{j}^{4}}{\lambda_{j}^{2}}+\tsum_{i=1}^{k}w_{j}^{2}\frac{\sigma_{j}^{4}}{\sigma_{i}^{2}}\frac{\lambda_{i}^{2}}{\lambda_{j}^{2}} & = & w_{j}^{2}\lambda_{j}^{-2}\sigma_{j}^{4}(1+\tsum_{i=1}^{k}\lambda_{i}^{2}\sigma_{i}^{-2})\\
 %  & = & \lambda_{j}^{-1}\sigma_{j}^{2}w_{j}\\
 %  & = & \frac{1}{1+k\overline{\lambda\sigma^{-2}}}
 % \end{eqnarray*}
@@ -1251,49 +1252,49 @@ are both efficient.
 % \end{eqnarray*}
 % \end{proof}
 
-Let $p$ be real and $x=\left\{ x_{i}\right\} _{i=1}^{k}$ be a sequence
+Let $p$ be real and $x=\{ x_{i}\} _{i=1}^{k}$ be a sequence
 of positive reals. The \emph{power mean} with exponent $p$ is
 \[
-M_{p}\left(x\right)=\begin{cases}
-\left(\frac{1}{k}\sum_{i=1}^{k}x_{i}^{p}\right)^{1/p} & p\neq0,\\
-\left(\prod_{i=1}^{k}x_{i}\right)^{1/k} & p=0.
+M_{p}(x)=\begin{cases}
+(\frac{1}{k}\tsum_{i=1}^{k}x_{i}^{p})^{1/p} & p\neq0,\\
+(\prod_{i=1}^{k}x_{i})^{1/k} & p=0.
 \end{cases}
 \]
 We will make use of the power mean inequality,
 \begin{equation}
-M_{p}\left(x\right)\leq M_{q}\left(x\right),\quad p<q\label{eq:generalized mean inequality}
+M_{p}(x)\leq M_{q}(x),\quad p<q\label{eq:generalized mean inequality}
 \end{equation}
 with equality if and only if $x_{1}=\ldots=x_{k}$. See for instance \citep[][Chapter III]{Bullen2013-os}.
 
 \begin{lem}
-\label{lem:power mean lemma}Let $\left\{ x_{i}\right\} _{i=1}^{k}$
-be some positive real numbers, $a>0$, and $M_{p}\left(x\right)$
+\label{lem:power mean lemma}Let $\{ x_{i}\} _{i=1}^{k}$
+be some positive real numbers, $a>0$, and $M_{p}(x)$
 the power mean with exponent $p$. 
 \begin{equation}
-M_{p}\left(x+a\right)M_{q}\left(\frac{x}{x+a}\right)\leq\overline{x}\label{eq:power mean inequality}
+M_{p}(x+a)M_{q}\left(\frac{x}{x+a}\right)\leq\overline{x}\label{eq:power mean inequality}
 \end{equation}
 when $p,q\leq1$, with equality if and only if $x_{1}=x_{2}=\cdots=x_{k}$.
 If $p<0$, 
 \begin{equation}
-M_{p}\left(x\right)\leq M_{p}\left(x+a\right)M_{q}\left(\frac{x}{x+a}\right)\leq\overline{x}\label{eq:power mean full inequality}
+M_{p}(x)\leq M_{p}(x+a)M_{q}\left(\frac{x}{x+a}\right)\leq\overline{x}\label{eq:power mean full inequality}
 \end{equation}
 holds too, again with equality if and only if $x_{1}=x_{2}=\cdots=x_{k}$.
 \end{lem}
 
 \begin{proof}
 Let's start with (\ref{eq:power mean inequality}). By the power
-mean inequality \ref{eq:generalized mean inequality}  $M_{p}\left(x+a\right)\leq\overline{x}+a$, and $M_{q}\left(x+a\right)\leq\overline{\frac{x}{x+a}}$,
-hence it suffices to show $\left(\overline{x}+a\right)\overline{\frac{x}{x+a}}\leq\overline{x}$,
+mean inequality \ref{eq:generalized mean inequality}  $M_{p}(x+a)\leq\overline{x}+a$, and $M_{q}(x+a)\leq\overline{x/(x+a)}$,
+hence it suffices to show $(\overline{x}+a)\overline{\frac{x}{x+a}}\leq\overline{x}$,
 or $\overline{\frac{x}{x+a}}\leq\frac{\overline{x}}{\overline{x}+a}$.
-The function $x\mapsto x/(a+x)$ is concave, hence $E\left[f\left(X\right)\right]\leq f\left[E\left(X\right)\right]$
-by Jensen's inequality. But then $\overline{\frac{x}{x+a}}\leq\frac{\overline{x}}{\overline{x}+a}$
+The function $x\mapsto x/(a+x)$ is concave, hence $E[f(X)]\leq f[E(X)]$
+by Jensen's inequality. But then $\overline{x/(x+a)}\leq\overline{x}/(\overline{x}+a)$
 follows.
 
-For equation (\ref{eq:power mean full inequality}), $M_{p}\left(\frac{x}{x+a}\right)\leq\overline{\frac{x}{x+a}}$
-by the power mean inequality, And since $f\left(x\right)\mapsto x/(x+a)$
+For equation (\ref{eq:power mean full inequality}), $M_{p}(\frac{x}{x+a})\leq\overline{\frac{x}{x+a}}$
+by the power mean inequality, And since $f(x)\mapsto x/(x+a)$
 is concave,
 \[
-\frac{M_{p}\left(x\right)}{M_{p}\left(x+a\right)}\leq M_{p}\left(\frac{x}{x+a}\right)
+M_{p}(x)/M_{p}(x+a)\leq M_{p}(x/(x+a))
 \]
 by Jensen's inequality, with equality if and only if all $x$s are
 equal.
@@ -1316,7 +1317,7 @@ To prove $\omega_{\sigma}>\omega_{s}$ we need to show that
 \]
 or equivalently,
 \[
-M_{-1/2}\left(\sigma^{2}\right)\leq M_{-1/2}\left(\lambda^{2}+\sigma^{2}\right)\overline{\frac{\sigma^{2}}{\lambda^{2}+\sigma^{2}}}.
+M_{-1/2}(\sigma^{2})\leq M_{-1/2}(\lambda^{2}+\sigma^{2})\overline{\sigma^{2}/\lambda^{2}+\sigma^{2}}.
 \]
 This is a case of Lemma \ref{lem:power mean lemma}, equation \eqref{eq:power mean full inequality}.
 
@@ -1326,20 +1327,20 @@ I omit the proof of (ii) since it is similar the proof of (i).
 \begin{proof}[Proof of Theorem (\ref{thm:omega-prime})]
 \label{proof:omega-prime}(ii) That $\omega'=1-\MSE(v_{0}\hat{Z})$
 follows from Lemma \ref{lem:r^2 and correlation} and the formula
-for the covariance, which we now show. The covariance between $\sum_{i=1}^{k}w_{i}\hat{X}_{i}$
+for the covariance, which we now show. The covariance between $\tsum_{i=1}^{k}w_{i}\hat{X}_{i}$
 and $Z$ is
 \begin{eqnarray*}
-\Cov(\sum_{i=1}^{k}w_{i}\hat{X}_{i},Z) & = & E[\Cov(\sum_{i=1}^{k}w_{i}\hat{X}_{i},Z\mid\{Y_{i}\})]+\Cov(E\left[\sum_{i=1}^{k}w_{i}\hat{X}_{i}\mid\{Y_{i}\}\right],E\left[Z\mid\{Y_{i}\}\right]),\\
- & = & -\Cov\left(\sum_{i=1}^{k}w_{i}\hat{X}_{i},E\left[Z\mid\{Y_{i}\}\right]\right).
+\Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},Z) & = & E[\Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},Z\mid\{Y_{i}\})]+\Cov(E[\tsum_{i=1}^{k}w_{i}\hat{X}_{i}\mid\{Y_{i}\}],E[Z\mid\{Y_{i}\}]),\\
+ & = & -\Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},E[Z\mid\{Y_{i}\}]).
 \end{eqnarray*}
-The expectation $E\left[Z\mid\{Y_{i}=k_{i}\}\right]$ equals $E\left[E\left[Z\mid X\right]\mid\{Y_{i}\}\right]$.
-The conditional expectation $E(Z\mid X)=\sum_{i=1}^{k}v_{i}X_{i}$
+The expectation $E[Z\mid\{Y_{i}=k_{i}\}]$ equals $E[E[Z\mid X]\mid\{Y_{i}\}]$.
+The conditional expectation $E(Z\mid X)=\tsum_{i=1}^{k}v_{i}X_{i}$
 under multivariate normality, where $v_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})]$
 are the Thurstone weights, see \citet[Theorem 3.3.4]{Tong1990-lm}.
-Consequently, $E[E(Z\mid X)\mid\{Y_{i}\}]=-\sum_{i=1}^{k}v_{i}\hat{X_{i}}$
+Consequently, $E[E(Z\mid X)\mid\{Y_{i}\}]=-\tsum_{i=1}^{k}v_{i}\hat{X_{i}}$
 and 
 \begin{eqnarray*}
-\Cov(\sum_{i=1}^{k}w_{i}\hat{X}_{i},Z) & = & \Cov\left(\sum_{i=1}^{k}w_{i}\hat{X}_{i},\sum_{i=1}^{k}v_{i}\hat{X}_{i}\right)=w^{T}\Xi v.
+\Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},Z) & = & \Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},\tsum_{i=1}^{k}v_{i}\hat{X}_{i})=w^{T}\Xi v.
 \end{eqnarray*}
 Standardize to find the correlation $w^{T}\Xi v/\sqrt{w^{T}\Xi w}$,
 and the squared correlation is $\omega'=(w^{T}\Xi v)^{2}/w^{T}\Xi w$.
@@ -1347,20 +1348,19 @@ This completes point (i).
 
 As for (iii), under the parallel model, $v=w_{0}\mathbf{i}$, where
 $w_{0}=\lambda/[\sigma^{2}+k\lambda^{2}]$ and the squared correlation
-is $w_{0}^{2}\mathbf{i}^{T}\Xi\mathbf{i}=\lambda^{2}\mathbf{i}^{T}\Xi\mathbf{i}/\left(k\lambda^{2}+\sigma^{2}\right)^{2}$.
+is $w_{0}^{2}\mathbf{i}^{T}\Xi\mathbf{i}=\lambda^{2}\mathbf{i}^{T}\Xi\mathbf{i}/(k\lambda^{2}+\sigma^{2})^{2}$.
 For the second equation, first notice that
 \[
-\alpha_{s}=\frac{k}{k-1}\left(\frac{i^{T}\Phi i-k}{i^{T}\Phi i}\right)=k^{2}\left(\frac{\overline{\rho}}{i^{T}\Phi i}\right).
+\alpha_{s}=\frac{k}{k-1}\frac{i^{T}\Phi i-k}{i^{T}\Phi i}=k^{2}\frac{\overline{\rho}}{i^{T}\Phi i}.
 \]
-Since $(k\lambda^{2}+\sigma^{2})^{2}=((i^{T}\Phi i)/k)^{2}$, 
-\begin{eqnarray*}
-\frac{\lambda^{2}}{\left(k\lambda^{2}+\sigma^{2}\right)^{2}}\mathbf{i}^{T}\Xi\mathbf{i} & = & k^{2}\frac{\overline{\rho}}{(i^{T}\Phi i)^{2}}\mathbf{i}^{T}\Xi\mathbf{i},\\
- & = & \alpha_{s}\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\mathbf{i}^{T}\Psi\mathbf{i}},
-\end{eqnarray*}
+Since $(k\lambda^{2}+\sigma^{2})^{2}=(i^{T}\Phi i/k)^{2}$, 
+\begin{equation}
+\frac{\lambda^{2}}{(k\lambda^{2}+\sigma^{2})^{2}}\mathbf{i}^{T}\Xi\mathbf{i} =  k^{2}\frac{\overline{\rho}}{(i^{T}\Phi i)^{2}}\mathbf{i}^{T}\Xi\mathbf{i} =  \alpha_{s}\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\mathbf{i}^{T}\Psi\mathbf{i}},\nonumber
+\end{equation}
 as claimed.
 
 (i) Follows from the proof (ii); the Thurstone weights optimize $(w^{T}\Xi v)^{2}/w^{T}\Xi w$
-since $E[E(Z\mid X)\mid\{Y_{i}\}]=-\sum_{i=1}^{k}v_{i}\hat{X_{i}}$.
+since $E[E(Z\mid X)\mid\{Y_{i}\}]=-\tsum_{i=1}^{k}v_{i}\hat{X_{i}}$.
 \end{proof}
 
 %\bibliographystyle{apacite}
