@@ -785,7 +785,7 @@ This lemma formulates the the squared correlation in terms of the mean squared e
 \label{lem:r^2 and correlation}Assume $Y$ and $\hat{Y}$ have finite
 variance. If $Z$ is a random variable, let $\MSE(Z) = E[(X-Z)^2]$ denote the mean squared error of $Z$ as predictor of $X$. Then 
 \begin{equation}
-\Cor^{2}(\hat{Y},Y)=1-\frac{\MSE(\alpha+\beta\hat{Y})}{\Var(Y)},\label{eq:rsq and correlation}
+\Cor^{2}(\hat{Y},Y)=1-\MSE(\alpha+\beta\hat{Y})/\Var(Y),\label{eq:rsq and correlation}
 \end{equation}
 where $\alpha=E(Y)-E(\hat{Y})$ and $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$ are the theoretical regression coefficients minimizing the mean squared error $\MSE(\alpha+\beta\hat{Y})$. 
 \end{lem}
@@ -837,10 +837,8 @@ which implies $w^{T}\lambda=k\lambda_{i}w_{i}$. Then
 \begin{eqnarray*}
 \alpha_{w} & = & \frac{k}{k-1}\left(1-\frac{w^{T}\diag\Sigma w}{w^{T}\Sigma w}\right)\\
  & = & \frac{k}{k-1}\frac{k^{2}\lambda_{1}^{2}w_{1}^{2}-k\lambda_{1}^{2}w_{1}^{2}}{k^{2}\lambda_{1}^{2}w_{1}^{2}+\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}}\\
- & = & \frac{(w^{T}\lambda)^{2}}{(w^{T}\lambda)^{2}+w^{T}\Psi w}
+ & = & \frac{(w^{T}\lambda)^{2}}{(w^{T}\lambda)^{2}+w^{T}\Psi w.}
 \end{eqnarray*}
-as claimed.
-
 The bias term for coefficient $\alpha_w$ can be derived as follows:
 \begin{eqnarray*}
 \alpha_{w} & = & \frac{k}{k-1}(1-\frac{w^{T}(\diag\Sigma)w}{w^{T}\Sigma w})\\
@@ -926,9 +924,9 @@ Let $k=2$. Then \eqref{eq:Alpha-alpha_s inequality} simplifies to
 \frac{1}{\frac{\lambda_{1}\lambda_{2}}{\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}}+1}\leq\frac{(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})}{2\lambda_{1}\lambda_{2}+(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})}
 \]
 and further to
-\begin{eqnarray*}
-\frac{\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}}{\lambda_{1}\lambda_{2}+\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}} & \geq & \frac{[(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})]/2}{\lambda_{1}\lambda_{2}+[(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})]/2}
-\end{eqnarray*}
+\begin{equation*}
+\frac{\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}}{\lambda_{1}\lambda_{2}+\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}} \geq \frac{[(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})]/2}{\lambda_{1}\lambda_{2}+[(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})]/2}
+\end{equation*}
 By the inequality of arithmetic and geometric means, $1/2[(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})]\geq\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}$
 with equality only if $\lambda_{1}^{2}+\sigma_{1}^{2}=\lambda_{2}^{2}+\sigma_{2}^{2}$.
 
@@ -992,13 +990,13 @@ are, with differentation with respect to $\sigma$ first:
 \end{array}\right)\nonumber 
 \end{eqnarray}
 The optimum is obtained when $-\nabla\log\textrm{tr}(S\Sigma^{-1})=\nabla\log\left|\Sigma\right|$.
-I will show that $\frac{\mathbf{i}^{T}S\mathbf{i}}{k}=\lambda^{2}k+\sigma^{2}$
-and $\frac{\textrm{tr}S}{k}=\sigma^{2}+\lambda^{2}$ are the unconstraied
+I will show that $\mathbf{i}^{T}S\mathbf{i}/k=\lambda^{2}k+\sigma^{2}$
+and $\textrm{tr}S/k=\sigma^{2}+\lambda^{2}$ are the unconstraied
 solutions to this equation.
 
 The second part of the likelihood equation is $\lambda$$\frac{2\lambda}{(\lambda^{2}k+\sigma^{2})^{2}}\mathbf{i}^{T}S\mathbf{i}=\frac{2k\lambda}{\lambda^{2}k+\sigma^{2}}$.
 There are two solutions to this equation. Either $\lambda>0$ and
-$\frac{\mathbf{i}^{T}S\mathbf{i}}{k}=(\lambda^{2}k+\sigma^{2})$
+$\mathbf{i}^{T}S\mathbf{i}/k=(\lambda^{2}k+\sigma^{2})$
 or $\lambda=0$. Assume $\lambda>0$ and substitute and simplify the
 derivative with respect to $\sigma$. Now
 \begin{equation*}
@@ -1006,16 +1004,16 @@ derivative with respect to $\sigma$. Now
 -2\sigma^{-3}\textrm{tr}S+2\lambda^{2}k\left(\frac{1}{\sigma^{3}}+\frac{k}{\sigma\mathbf{i}^{T}S\mathbf{i}}\right)
 \end{equation*}
 
-and $\frac{2k}{\lambda^{2}k+\sigma^{2}}\frac{\lambda^{2}(k-1)+\sigma^{2}}{\sigma}=\frac{2k^{2}}{\mathbf{i}^{T}S\mathbf{i}}\frac{\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2}}{\sigma}$.
+and $$\frac{2k}{\lambda^{2}k+\sigma^{2}}\frac{\lambda^{2}(k-1)+\sigma^{2}}{\sigma}=\frac{2k^{2}}{\mathbf{i}^{T}S\mathbf{i}}\frac{\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2}}{\sigma}.$$
 Rearrange $2\sigma^{-3}\textrm{tr}S-2\lambda^{2}k(\frac{1}{\sigma^{3}}+\frac{k}{\sigma\mathbf{i}^{T}S\mathbf{i}})=\frac{2k^{2}}{\mathbf{i}^{T}S\mathbf{i}}\frac{\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2}}{\sigma}$
-and get $\frac{\textrm{tr}S}{k}-\lambda^{2}(\frac{\mathbf{i}^{T}S\mathbf{i}+k\sigma^{2}}{\mathbf{i}^{T}S\mathbf{i}})=\frac{\sigma^{2}k}{\mathbf{i}^{T}S\mathbf{i}}(\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2})$.
-Then isolate $\frac{\textrm{tr}S}{k}$ on the left hand side to get
-$\frac{\textrm{tr}S}{k}=\frac{1}{K}(\sigma^{2}\mathbf{i}^{T}S\mathbf{i}+\lambda^{2}\mathbf{i}^{T}S\mathbf{i})$,
-hence $\frac{\textrm{tr}S}{k}=\sigma^{2}+\lambda^{2}$ as claimed.
+and get $\textrm{tr}S/k-\lambda^{2}(\frac{\mathbf{i}^{T}S\mathbf{i}+k\sigma^{2}}{\mathbf{i}^{T}S\mathbf{i}})=\frac{\sigma^{2}k}{\mathbf{i}^{T}S\mathbf{i}}(\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2})$.
+Then isolate $\textrm{tr}S/k$ on the left hand side to get
+$\textrm{tr}S/k=(\sigma^{2}\mathbf{i}^{T}S\mathbf{i}+\lambda^{2}\mathbf{i}^{T}S\mathbf{i})/k$,
+hence $\textrm{tr}S/k=\sigma^{2}+\lambda^{2}$ as claimed.
 
-If $\mathbf{i}^{T}S\mathbf{i}\geq\textrm{tr}S$ then $\hat{\lambda^{2}}=\frac{1}{k-1}(\frac{\mathbf{i}^{T}S\mathbf{i}}{k}-\frac{\textrm{tr}S}{k})$
-and $\hat{\sigma^{2}}=\frac{1}{k-1}(\textrm{tr}S-\frac{\mathbf{i}^{T}S\mathbf{i}}{k})$
-are the maximum likelihood estimates. If not, $\lambda=0$ as already
+If $\mathbf{i}^{T}S\mathbf{i}\geq\textrm{tr}S$ the maximum likelihood estimates are $$\hat{\lambda^{2}}=\frac{1}{k-1}(\frac{\mathbf{i}^{T}S\mathbf{i}}{k}-\frac{\textrm{tr}S}{k})$$
+and $$\hat{\sigma^{2}}=\frac{1}{k-1}(\textrm{tr}S-\frac{\mathbf{i}^{T}S\mathbf{i}}{k})$$
+If not, $\lambda=0$ as already
 mentioned. In this case,
 \begin{equation*}
 -2\sigma^{-3}\textrm{tr}S+\left(\frac{2\lambda^{2}}{\sigma^{3}(\lambda^{2}k+\sigma^{2})}+\frac{2\lambda^{2}}{\sigma(\lambda^{2}k+\sigma^{2})^{2}}\right)\mathbf{i}^{T}S\mathbf{i}+\frac{2k}{\lambda^{2}k+\sigma^{2}}\frac{\lambda^{2}(k-1)+\sigma^{2}}{\sigma} =
@@ -1073,14 +1071,10 @@ Thus
 \]
 and the limits are equal.
 Since
-\begin{eqnarray*}
-\alpha_S & = & \frac{k}{k-1}(1-\frac{k}{k(k-1)\rho+k}) = \frac{k\rho}{(k-1)\rho+1}
-\end{eqnarray*}
-we get
-\begin{eqnarray*}
-1-\alpha_S & = & \frac{(k-1)\rho+1-k\rho}{(k-1)\rho+1} = \frac{1-\rho}{(k-1)\rho+1}
-\end{eqnarray*}
-Taken together, the asymptotic variance is
+\begin{equation*}
+\alpha_S = \frac{k}{k-1}(1-\frac{k}{k(k-1)\rho+k}) = \frac{k\rho}{(k-1)\rho+1}
+\end{equation*}
+we get that $1-\alpha_S = (1-\rho)/((k-1)\rho+1)$. Taken together, the asymptotic variance is
 \[
 \sigma^{2}(\alpha_S)=2\frac{k}{k-1}(1-\alpha_S)^{2}
 \]
@@ -1090,50 +1084,47 @@ of $\hat{\alpha}$ and $\hat{\alpha_S}$ coincides they
 are both efficient.
 \end{proof}
 
-Let $p$ be real and $x=\{ x_{i}\} _{i=1}^{k}$ be a sequence
-of positive reals. The \emph{power mean} with exponent $p$ is
+The proof of Proposition \ref{thm:Properties of three} needs a lemma for power means. Let $p$ be real and $x=\{ x_{i}\} _{i=1}^{k}$ be a sequence
+of positive reals. The \textit{power mean} with exponent $p$ is
 \[
 M_{p}(x)=\begin{cases}
 (\frac{1}{k}\tsum_{i=1}^{k}x_{i}^{p})^{1/p} & p\neq0,\\
 (\prod_{i=1}^{k}x_{i})^{1/k} & p=0.
 \end{cases}
 \]
-We will make use of the power mean inequality,
+We will make use of the \textit{power mean inequality} \citep[][Chapter III]{Bullen2013-os},
 \begin{equation}
 M_{p}(x)\leq M_{q}(x),\quad p<q\label{eq:generalized mean inequality}
 \end{equation}
-with equality if and only if $x_{1}=\ldots=x_{k}$. See for instance \citep[][Chapter III]{Bullen2013-os}.
+with equality if and only if $x_{1}=\cdots=x_{k}$. 
 
 \begin{lem}
 \label{lem:power mean lemma}Let $\{ x_{i}\} _{i=1}^{k}$
 be some positive real numbers, $a>0$, and $M_{p}(x)$
 the power mean with exponent $p$. 
 \begin{equation}
-M_{p}(x+a)M_{q}\left(\frac{x}{x+a}\right)\leq\overline{x}\label{eq:power mean inequality}
+M_{p}(x+a)M_{q}(x/{(x+a)})\leq\overline{x}\label{eq:power mean inequality}
 \end{equation}
 when $p,q\leq1$, with equality if and only if $x_{1}=x_{2}=\cdots=x_{k}$.
 If $p<0$, 
 \begin{equation}
-M_{p}(x)\leq M_{p}(x+a)M_{q}\left(\frac{x}{x+a}\right)\leq\overline{x}\label{eq:power mean full inequality}
+M_{p}(x)\leq M_{p}(x+a)M_{q}(x/{(x+a)})\leq\overline{x}\label{eq:power mean full inequality}
 \end{equation}
 holds too, again with equality if and only if $x_{1}=x_{2}=\cdots=x_{k}$.
 \end{lem}
 
 \begin{proof}
 Let's start with (\ref{eq:power mean inequality}). By the power
-mean inequality \ref{eq:generalized mean inequality}  $M_{p}(x+a)\leq\overline{x}+a$, and $M_{q}(x+a)\leq\overline{x/(x+a)}$,
-hence it suffices to show $(\overline{x}+a)\overline{\frac{x}{x+a}}\leq\overline{x}$,
-or $\overline{\frac{x}{x+a}}\leq\frac{\overline{x}}{\overline{x}+a}$.
+mean inequality \eqref{eq:generalized mean inequality}  $M_{p}(x+a)\leq\overline{x}+a$, and $M_{q}(x+a)\leq\overline{x/(x+a)}$,
+hence it suffices to show $(\overline{x}+a)\overline{x/(x+a)}\leq\overline{x}$,
+or $\overline{x/(x+a)}\leq\overline{x}/(\overline{x}+a)$.
 The function $x\mapsto x/(a+x)$ is concave, hence $E[f(X)]\leq f[E(X)]$
 by Jensen's inequality. But then $\overline{x/(x+a)}\leq\overline{x}/(\overline{x}+a)$
 follows.
 
-For equation (\ref{eq:power mean full inequality}), $M_{p}(\frac{x}{x+a})\leq\overline{\frac{x}{x+a}}$
-by the power mean inequality, And since $f(x)\mapsto x/(x+a)$
-is concave,
-\[
-M_{p}(x)/M_{p}(x+a)\leq M_{p}(x/(x+a))
-\]
+For equation (\ref{eq:power mean full inequality}), $M_{p}(x/({x+a}))\leq\overline{x}/(\overline{x}+a)$
+by the power mean inequality. And since $f(x)\mapsto x/(x+a)$
+is concave, $M_{p}(x)/M_{p}(x+a)\leq M_{p}(x/(x+a))$
 by Jensen's inequality, with equality if and only if all $x$s are
 equal.
 \end{proof}
@@ -1177,9 +1168,9 @@ under multivariate normality, where $v_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overl
 are the Thurstone weights, see \citet[Theorem 3.3.4]{Tong1990-lm}.
 Consequently, $E[E(Z\mid X)\mid\{Y_{i}\}]=-\tsum_{i=1}^{k}v_{i}\hat{X_{i}}$
 and 
-\begin{eqnarray*}
-\Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},Z) & = & \Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},\tsum_{i=1}^{k}v_{i}\hat{X}_{i})=w^{T}\Xi v.
-\end{eqnarray*}
+\begin{equation*}
+\Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},Z) =  \Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},\tsum_{i=1}^{k}v_{i}\hat{X}_{i})=w^{T}\Xi v.
+\end{equation*}
 Standardize to find the correlation $w^{T}\Xi v/\sqrt{w^{T}\Xi w}$,
 and the squared correlation is $\omega'=(w^{T}\Xi v)^{2}/w^{T}\Xi w$.
 This completes point (i). 
