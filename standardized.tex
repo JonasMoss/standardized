@@ -377,7 +377,7 @@ Assume $X$ has finite variance.
 \end{enumerate}
 \end{thm}    
 \begin{proof}
-See page \pageref{proof:asymptotics} of the appendix. The proofs of (ii) and (iii) rely heavily on \citep{Van_Zyl2000-si} and \citep{hayashi2005note}. \citep{Raykov2019-tv} has a proof of (i) and is an introduction to convergence with probability $1$ in the psychometry context. The limit distribution of coefficient alpha in (iii) was derived by \citet[][eq. 13]{Van_Zyl2000-si} and \citet[][eq. 58]{Kristof1963-tb}.
+See page \pageref{proof:asymptotics} of the appendix. The proofs of (ii) and (iii) rely heavily on the work of \citet{Van_Zyl2000-si} and \citet{hayashi2005note}. \citet{Raykov2019-tv} is an introduction to convergence with probability $1$ in the psychometry context and contains a proof of (i) for coefficient alpha. \citet[][eq. 13]{Van_Zyl2000-si} and \citet[][eq. 58]{Kristof1963-tb} derived the limit distribution of coefficient alpha in (iii).
 \end{proof}
 
 Time for some remarks about Theorem \ref{thm:asymptotics}. Item (i) states that both $\hat{\alpha}_s$ and $\hat{\alpha}$ estimate what they should. Item (ii) is the main argument of this section. It shows that $\hat{\alpha}_{s}$ and $\hat{\alpha}$ perform equally well in the limit no matter what $\lambda$, $\sigma$ and the distributions of $Z$, $\varepsilon$ are. We only require that the models have finite fourth moments. Regarding item (iii), a straightforward consequence of Theorem \ref{thm:ML} is that $\hat{\alpha}$ is efficient under the normal parallel model, and in this sense (iii) is an extension of said theorem. The shared limit distribution is simple enough to be usable in practice for both estimators. 
@@ -425,8 +425,8 @@ test items. First, you should not standardize test items. Second,
 even if you decide to standardize test items, avoid standardized
 alpha and use the standardized reliability instead.
 
-Before I begin fleshing out these arguments, I will explain why standardized alpha is explicitly linked to the standardized scores $w_i = {(\lambda_i^2 + \sigma_i^2)}^{1/2}$  but not the unit scores. My point of departure is a quote of \citet[][p.348]{Osburn2000-jd}: 
-\enquote{However, it is important to note that the true reliability of a measure is the same for both standardized and unstandardized observed scores.}
+Before I begin fleshing out these arguments, I will explain why standardized alpha is explicitly linked to the standardized scores $w_i = {(\lambda_i^2 + \sigma_i^2)}^{1/2}$,  but not to the unit scores. My starting point is the following claim of \citet[][p.348]{Osburn2000-jd}: 
+\enquote{[] it is important to note that the true reliability of a measure is the same for both standardized and unstandardized observed scores.}
 
 I will argue against this claim. Recall the definition of reliability from
 section $2$. Given a predictor $\hat{Z}$ of $Z$, the
@@ -434,13 +434,13 @@ reliability $\omega$ equals the square correlation between $\hat{Z}$
 and $Z$, or $\omega=\Cor^{2}(\hat{Z},Z)$. Assume
 we know the values of $\lambda$ and $\sigma$. When you use unstandardized
 scores, your predictor is $$\hat{Z}=w_{0}\sum_{i=1}^{k}X_{i}$$
-where $w_{0}=\overline{\lambda}/(k\overline{\lambda}^{2}+\overline{\sigma^{2}})$ scales the predictions to match $\Var Z=1$, recall Proposition \ref{prop:reliability motivation}. When you use standardized
+where $w_{0}=\overline{\lambda}/(k\overline{\lambda}^{2}+\overline{\sigma^{2}})$ scales the predictions to match $\Var Z=1$ (Proposition \ref{prop:reliability motivation}). When you use standardized
 scores, your predictor is $$
 \hat{Z}^{*}=w_{0}\sum_{i=1}^{k}(\lambda^{2}+\sigma^{2})^{-1/2}X_{i}.$$
 These predictors are not the same in general, and their reliabilities are not
 the same either.
 
-This difference matters. Reliability coefficients are useful because they tell you how good you can expected your prediction of $Z$ based on $X$ to be. Provided you use the mean squared error as a measure of prediction success, this is exactly what the equivalent reliability concept in Proposition \ref{prop:reliability motivation} says, as $1 - \MSE(w_0\hat{Z})$ puts a number between $0$ and $1$ on the expected quality of your prediction. If you do not use $\hat{Z}$, but some other predictor $\hat{Z}'$, this concrete interpretation of the reliability disappears. 
+This difference matters. Reliability coefficients are useful because they tell you how good you can expected your prediction of $Z$ based on $X$ to be. Provided you use the mean squared error as a measure of prediction success, this is exactly what the equivalent reliability concept in Proposition \ref{prop:reliability motivation} says. For $1 - \MSE(w_0\hat{Z})$ puts a number between $0$ and $1$ on the expected quality of your prediction. If you do not use $\hat{Z}$, but some other predictor $\hat{Z}'$, this concrete interpretation of the reliability disappears. 
 
 An important motivation for using the squared
 correlation between $Z$ and $\hat{Z}$ as the definition of a
@@ -465,30 +465,30 @@ instead of the correct $\rho=\omega(\hat{Z}_{1}^{*})\omega(\hat{Z}_{2})\Cor(Z_{1
 You would be off by a factor of $\omega(\hat{Z}_{1}^{*})/\omega(\hat{Z}_{1})$.
 
 This connection between reliabilities and the choice of predictor
-weights is not new, it has been observed by e.g. \citet[][p. 112]{Joreskog1971-nn} and \citet{McNeish2018-vu}, who repeatedly insists on taking this connection into account. Several authors recommends you use standardized alpha with standardized sum scores. For instance, \citet[][p. 451]{Falk2011-ae} states \enquote{If researchers intend to sum
+weights is not new. It has been observed by e.g. \citet[][p. 112]{Joreskog1971-nn} and \citet{McNeish2018-vu}, who repeatedly insists on taking this connection into account. Several authors recommend you use standardized alpha with standardized sum scores. For instance, \citet[][p. 451]{Falk2011-ae} states \enquote{If researchers intend to sum
 standardized scores, the correlation matrix is more appropriate for determining internal consistency,} while \citet[][p. 99]{Cortina1993-aq} says \enquote{Standardized alpha is appropriate if item standard scores are summed to form scale scores.}
 
-I will now argue you should never standardized your items. That is, you should avoid $w_{i}=(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$ when you form your linear predictor.
+You should never standardized your items. That is, you should avoid $w_{i}=(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$ when you form your linear predictor.
 Using some $w\ne1$ seems reasonable, for you would not want items
 with large variance to overshadow all the other contributions to $\hat{Z}$.
 But there is something strange about this particular $w$. Dividing by $(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}$
 seems wrong, as you want items with large loadings, i.e., $\lambda_{i}$s, to have a large
 influence on your prediction of $Z$. But dividing by $(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}$
-makes the influence of large items with large loadins smaller. 
+makes the influence of items with large loadings smaller!
 
-The weights $w_i=\sigma_{i}^{-1}$ do not suffer from this problem. These weights make the contribution of each $\lambda_i$ directly comparable, as the modified model $wX$ will have all residual standard deviations equal to $1$ and factor loadings equal to the standardized factor loadings $\lambda_i/\sigma_i$. Call the reliability with weights $w=\sigma_{i}^{-1}$ the \emph{sigma reliability} and denote it $\omega_\sigma$. Using Proposition \ref{prop:reliability motivation} it can be written as
+The weights $w_i=\sigma_{i}^{-1}$ is an intuitive alternative to standardized weights. These weights make the contribution of each $\lambda_i$ directly comparable, as the modified model $wX$ will have all residual standard deviations equal to $1$ and factor loadings equal to the standardized factor loadings $\lambda_i/\sigma_i$. Since the weights do not involve $\lambda$, they do not penalize items with large loadings. 
+
+Call the reliabiltiy with weights $w=\sigma^{-1}$ the \textit{sigma reliabiltiy} and denote it $\omega_\sigma$. Using Proposition \ref{prop:reliability motivation}, it can be written as
 \begin{equation}
 \omega_\sigma=\frac{k\overline{\lambda\sigma^{-1}}^{2}}{k\overline{\lambda\sigma^{-1}}^{2}+1}.\label{eq:Sigma-standardized reliability}
 \end{equation}
 
-Another option is to use the optimal weights, yielding coefficient $H$ and the Thurstone factor scores instead of the standardized alpha and standardized sum scores. \citet{McNeish2019-ea} argue in favour of adopting optimal weights when forming the predictor.
+Another option is to use the optimal weights, yielding coefficient $H$ and the Thurstone factor scores instead of the standardized alpha and standardized sum scores.  \citet{McNeish2019-ea} argue in favour of adopting optimal weights when forming the predictor. 
 
 The following theorem exposes some basic facts about these four reliability coefficients.
 
 \begin{thm}
-\label{thm:Properties of three} Assume the $\tau$-equivalent model,
-i.e. the congeneric model with $\lambda_{i}=\lambda>0$ for all $i$
-but possibly different residual errors $\sigma_{i}$. Let $\omega$ be the congeneric
+\label{thm:Properties of three} Let $\omega$ be the congeneric
 reliability \eqref{eq:Congeneric reliability}, $\omega_{s}$ the standardized reliability \eqref{eq:Standardized reliability},
 $\omega_{\sigma}$ the sigma reliability \eqref{eq:Sigma-standardized reliability},
 and $\omega_{H}$ coefficient $H$ \eqref{eq:coefficient_H}. 
@@ -500,7 +500,7 @@ but possibly different residual errors $\sigma_{i}>0$. Then
 \[
 \omega_{h}\geq\omega_{\sigma}\geq\omega_{s}\geq\omega,
 \]
-with all inequalities strict unless $\sigma_{i}=\sigma$ or all
+with all inequalities strict unless $\sigma_{i}=\sigma$ for all
 $i$. In that case, $\omega_{h} = \omega_{\sigma} = \omega_{s} = \omega$.
 \item Assume the congeneric model with $\sigma_i = \sigma > 0$ for all $i$ but possibly different loadings $\lambda_i$. Then
 \[
@@ -516,12 +516,12 @@ $i$. In that case, $\omega_{h} = \omega_{\sigma} = \omega_{s} = \omega$.
 See the appendix, page \pageref{proof:Properties}.
 \end{proof}
 
-Since the $\tau$-equivalent model is such a common assumption among psychometricians, point (i) of the theorem above gives a strong reason to prefer $\omega_sigma$ to $\omega_s$ and $\omega$. Point (ii) can be used as an argument against using the standardized reliability \eqref{eq:Standardized reliability} when $\sigma_{i}^{2}=\sigma_j^{2}$ for all $i,j$.
+Since the $\tau$-equivalent model is such a common assumption among psychometricians, point (i) of the theorem above gives a strong reason to prefer $\omega_{\sigma}$ to $\omega_s$ and $\omega$. Point (ii) can be used as an argument against using the standardized reliability \eqref{eq:Standardized reliability} when $\sigma_{i}^{2}=\sigma_j^{2}$ for all $i,j$.
 
 You can interpret Theorem \ref{thm:Properties of three} as a ranking factor scores too. Under the $\tau$-equivalent model, Thurstone scores are better than $\sigma$-standardized sum scores, which in turn are better than the standardized sum scores, which are
 better than the ordinary sum scores.
 
-Theorem \ref{thm:Properties of three} has shows how the four reliabilities relates to each other only under the $\tau$-equivalent model and the model where all $\sigma_i$s are equal. If we assume only the congeneric model, the nice inequalities of Theorem \ref{thm:Properties of three} disappear. Since coefficient $H$ uses the optimal weights, it is guaranteed to be larger than the three other reliabilities mentioned above. The
+Theorem \ref{thm:Properties of three} shows how the four reliabilities relate to each other only under the $\tau$-equivalent model and the model where all $\sigma_i$s are equal. If we assume only the congeneric model, the nice inequalities of Theorem \ref{thm:Properties of three} disappear. Since coefficient $H$ uses the optimal weights, it is guaranteed to be larger than the three other reliabilities mentioned above. The
 other three reliabilities can be in any order, but
 $\omega_{\sigma}$ will usually be the largest. In a short
 simulation ($10^{5}$ repetitions) of $k=5$ items with $\lambda_{i}\sim \textrm{Exp}(1)$
@@ -530,7 +530,7 @@ was the largest $98\%$ of the time, $\omega$ largest $2\%$
 of the time, but $\omega_{s}$ was never the largest. The average reliabilities where $\overline{\omega}_\sigma = 0.91$, $\overline{\omega}_s= 0.76$, and $\overline{\omega} = 0.70$.
 The congeneric reliability $\omega$ dominated the standardized $\omega_{s}$ in $4/10$ iterations. You could argue this simulation study
 is somewhat unrealistic, but the slightly different simulation with $\lambda_{i}$ and $\sigma_{i}\sim \textrm{HalfNormal}(0,1)$, yielded virtually the same results. In a simulation where $\lambda$ and $\sigma$ where uniform on $[0,1]$, yet again $\omega_{\sigma}$
-was the largest $98\%$ of the time and $\omega$ the largest the remaining $2\%$. Moreover, in every iteration of every simulations $\omega_\sigma > \omega_s$. The take-away from these simulations is that $\omega_{\sigma}$ generally does better than $\omega_{s}$ and
+was the largest $98\%$ of the time and $\omega$ the largest the remaining $2\%$. Moreover, in every iteration of every simulations $\omega_\sigma > \omega_s$. The take-away message from these simulations is that $\omega_{\sigma}$ generally does better than $\omega_{s}$ and
 $\omega$, while it is hard to predict the winner among $\omega$
 and $\omega_{s}$. See the Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) for the code to run these informal simulations.
 
