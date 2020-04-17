@@ -19,10 +19,10 @@ tab = prettify(reliabilities)
 caption = "Comparison of reliability coefficients on personality data"
 tab = xtable::xtable(tab, caption = caption)
 
-rownames(tab) = c("Congeneric reliability",
-                  "Coefficient \\it{H}",
-                  "Standardized reliability",
-                  "Sigma reliability")
+rownames(tab) = c("Congeneric reliability (\\omega)",
+                  "Coefficient \\it{H} (\\omega_H)",
+                  "Standardized reliability (\\omega_S)",
+                  "Sigma reliability (\\omega_\\sigma)")
 
 colnames(tab) = c("A", "C", "E", "N", "O")
 xtable::align(tab) = c("l", rep("c", 5))
