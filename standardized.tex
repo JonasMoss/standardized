@@ -397,21 +397,22 @@ errors distributions:
 \begin{enumerate}
 \item Scaled $t$-distribution with $5$ degrees of freedom. The $t$-distribution
 has heavier tails than the normal distribution but is symmetric and nearly bell-shaped. 
-\begin{figure}
-	\centering     %%% not \center
-	\subfigure[Beta distribution]{\includegraphics[width=0.46\textwidth]{chunks/beta}}
-	\subfigure[Gamma distribution]{\includegraphics[width=0.46\textwidth]{chunks/gamma}}
-	\caption{Rescaled $\textrm{Beta}(1/10, 1/10)$ and $\textrm{Gamma}(1/100, 1/100)$ distributions with variance $1$ and mean $0$.}
-	\label{fig::distributions}
-\end{figure}
+% \begin{figure}
+% 	\centering     %%% not \center
+% 	\subfigure[Beta distribution]{\includegraphics[width=0.46\textwidth]{chunks/beta}}
+% 	\subfigure[Gamma distribution]{\includegraphics[width=0.46\textwidth]{chunks/gamma}}
+% 	\caption{Rescaled $\textrm{Beta}(1/10, 1/10)$ and $\textrm{Gamma}(1/100, 1/100)$ distributions with variance $1$ and mean $0$.}
+% 	\label{fig::distributions}
+% \end{figure}
 
-\item Scaled and centered Beta distribution with $\alpha=\beta=1/10$. This is a bimodal distribution with a lot of weight placed on the modes. See the left of Figure \ref{fig::distributions}.
-\item Scaled and centered Gamma distribution with $\alpha=\beta=1/100$. This is asymmetric and with heavy tails. See the right of Figure \ref{fig::distributions}.
+\item Scaled and centered Beta distribution with $\alpha=\beta=1/10$. This is a bimodal distribution with much weight placed on the modes at $0$ and $1$. %See the left of Figure \ref{fig::distributions}.
+\item Scaled and centered Gamma distribution with $\alpha=\beta=1/100$. This is asymmetric and with heavy tails. %See the right of Figure \ref{fig::distributions}.
 \end{enumerate}
 
-I have chosen $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment. The parameters for the Beta and Gamma make them both extreme, as should be clear from Figure \ref{fig::distributions}. I have chosen these distributions since they are extreme and should be able to force out some difference between the estimators. The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains the code I used to run the simulations.
+I have chosen $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment. %, as should be clear from Figure \ref{fig::distributions}. 
+I have chosen these distributions since they are extreme, and should be able to force out some difference between the estimators. The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains the code I used to run the simulations.
 
-Table \ref{tab:simulation} contains $100 \times \MSE_\alpha/\MSE_{\alpha_S}$, where $\MSE$ denotes the mean squared error. Values higher than $100$ are in favor of $\hat{\alpha}_s$ and values lower than $100$ in favor of $\hat{\alpha}$. The table shows that $\alpha_S$ tends to outperform $\alpha$ when both $k$ and $n$ is large and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\hat{\alpha}_s$ does slightly better than $\hat{\alpha}$ -- the geometric mean of $\MSE_\alpha/\MSE_{\alpha_S}$ is $1.08$, giving an $8$\% advantage to $\hat{\alpha}_s$. Of course, this is a small simulation study and it is hard to predict what would happen with other distributions. Still, I believe the result of these simulations should be counted in favor of sample standardized alpha.
+Table \ref{tab:simulation} contains $100 \times \MSE_\alpha/\MSE_{\alpha_S}$, where $\MSE$ denotes the mean squared error. Values higher than $100$ are in favor of $\hat{\alpha}_s$ and values lower than $100$ in favor of $\hat{\alpha}$. The table shows that $\alpha_S$ tends to outperform $\alpha$ when both $k$ and $n$ are large and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\hat{\alpha}_s$ does slightly better than $\hat{\alpha}$ -- the geometric mean of $\MSE_\alpha/\MSE_{\alpha_S}$ is $1.08$, giving an $8$\% advantage to $\hat{\alpha}_s$. Of course, this is a small simulation study and it is hard to predict what would happen with other distributions. Still, I believe the result of these simulations should be counted in favor of sample standardized alpha.
 
 To sum up, sample alpha won the maximum likelihood and robustness competitions, drew the asymptotic efficiency competition, and lost the finite sample competition. The tally is sample alpha 2\sfrac{1}{2} - 1\sfrac{1}{2} standardized alpha. 
 
@@ -427,7 +428,7 @@ even if you decide to standardize test items, avoid standardized
 alpha and use the standardized reliability instead.
 
 Before I begin fleshing out these arguments, I will explain why standardized alpha is explicitly linked to the standardized scores $w_i = {(\lambda_i^2 + \sigma_i^2)}^{1/2}$,  but not to the unit scores. My starting point is the following claim of \citet[][p.348]{Osburn2000-jd}: 
-\enquote{[] it is important to note that the true reliability of a measure is the same for both standardized and unstandardized observed scores.}
+\enquote{\textelp{} it is important to note that the true reliability of a measure is the same for both standardized and unstandardized observed scores.}
 
 I will argue against this claim. Recall the definition of reliability from
 section $2$. Given a predictor $\hat{Z}$ of $Z$, the
@@ -541,16 +542,16 @@ and $\omega_{s}$. See the Open Science Foundation repository for this paper (\ur
 \input{chunks/example_table.tex}
 %% example table end >>>>>
 
-In this example we will take a look at the data set $\texttt{bfi}$ from he $\texttt{R}$ \citep{Team2013-tt} package $\texttt{psychTools}$ \citep{Revelle2019-te}. This data set contains the responses on $25$ personality self report items from the International Personality Item Pool \citep{Goldberg1999-iz} collected from the Synthetic Aperture Personality Assessment project \citep{Revelle2017-ez}. The $25$ items are evenly distributed across the big five traits: Agreeableness, conscientiousness, extraversion, neuroticism, and openness to experience. 
+In this example we will take a look at the data set $\texttt{bfi}$ from the $\texttt{R}$ \citep{Team2013-tt} package $\texttt{psychTools}$ \citep{Revelle2019-te}. This data set contains the responses on $25$ personality self report items from the International Personality Item Pool \citep{Goldberg1999-iz} collected from the Synthetic Aperture Personality Assessment project \citep{Revelle2017-ez}. The $25$ items are evenly distributed across the big five traits: Agreeableness, conscientiousness, extraversion, neuroticism, and openness to experience. 
 
 For each trait I estimated the factor loadings $\lambda$ and residual standard deviations $\sigma$ in the congeneric measurement model \eqref{eq:congeneric model} using  $\texttt{lavaan}$ \citep{Rosseel2012-yg}. I plugged these estimates into the definitions of the four reliability coefficients. The results are in Table \ref{tab:reliabilites}. As expected, $\omega_\sigma$ is larger than both $\omega_s$ and $\omega$ for all five traits. Moreover, $\omega_s > \omega$ for all traits except extraversion, where the difference is marginal. The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains the code I used in this example.
 \end{example} 
 
 Suppose you want to use the standardized weights despite the counterarguments above. By Proposition \ref{prop:weighted alpha}, the standardized coefficient alpha equals the standardized reliability only when the modified model
 \begin{equation}\label{eq:std-modified model}
-X_{i}^{*}=\frac{\lambda_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}Z+\frac{\sigma_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}\varepsilon_{i}\:i=1,\ldots,k    \end{equation}
+X_{i}^{*}=\frac{\lambda_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}Z+\frac{\sigma_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}\varepsilon_{i}, \quad i=1,\ldots,k    \end{equation}
 is $\tau$-equivalent. This occurs if and only if each $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda^{*}$
-for some $\lambda^{*}$. Of course, this would be an exceptional coincidence, but the standardized alpha is just a lower bound for the true standardized reliability when this condition fails. The natural way to estimate $\omega_w$ consistently without making this unwarranted assumption, use the plug-in estimator for $\omega_s$ \eqref{eq:Standardized reliability}. This is not hard, as estimation of $\lambda_{i},\sigma_{i}$ with structural equation modeling programs is routine.
+for some $\lambda^{*}$. Of course, this would be an exceptional coincidence, but the standardized alpha is just a lower bound for the true standardized reliability when this condition fails. The natural way to consistently stimate $\omega_w$ without making this unwarranted assumption is to use the plug-in estimator for $\omega_s$ \eqref{eq:Standardized reliability}. This is not hard, as estimation of $\lambda_{i},\sigma_{i}$ with structural equation modeling programs is routine.
 
 \begin{example}
 %% <<<<< Example table start (\label{tab:omega_std_alpha_std})
@@ -559,53 +560,51 @@ for some $\lambda^{*}$. Of course, this would be an exceptional coincidence, but
 I used $\mathtt{lavaan}$ to estimate $\lambda$ and $\sigma$ for the agreeableness factor on the the $\texttt{bfi}$ data from $\texttt{psychTools}$ \citep{Revelle2019-te}, the data used in Example \ref{exa:reliabilities}. The estimates are $\hat{\lambda} = (0.53, -0.77, -0.99, -0.72, -0.79)$ and $\hat{\sigma} = (1.3, 0.89, 0.85, 1.3, 0.98)$. Using formula \eqref{eq:standardized alpha} and \eqref{eq:Standardized reliability} and flipping the sign of reverse-scored item \eqref{eq:Standardized reliability}, we find $\hat{\omega}_s = 0.72$ and $\hat{\alpha}_s = 0.71$. The difference $\hat{\alpha}_s - \hat{\omega}_s = -0.011$ is not alarmingly high, but the estimator is inconsistent. Table \ref{tab:reliabilites} contains mean squared error calculations for different $n$s when with data simulated from a congeneric model with $\lambda=\hat{\lambda}$ and $\sigma = \hat{\sigma}$. The mean squared error is uniformly lower for $\hat{\omega}_s$ than $\hat{\alpha}_s$. The results are similar for the other traits in the $\texttt{bfi}$ data.
 \end{example}
 
-To recap, my arguments are: (i) You should neither avoid standardization altogether nor standardize with $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$. You should standardize with $\sigma_i^{-1}$ or use the optimal weights, as this yields better results in the most plausible scenarios. (ii) Even if you decide to standardize with $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$, please avoid standardized alpha, as won't equal $\omega_s$ under any reasonable assumptions.
+To recap, my arguments are: (i) You should neither avoid standardization altogether nor standardize with $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$. You should standardize with $\sigma_i^{-1}$ or use the optimal weights, as this yields better results in the most plausible scenarios. (ii) Even if you decide to standardize with $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$, please avoid standardized alpha, as it will not equal $\omega_s$ under any reasonable assumptions.
 
 \section{Ordinal alpha\label{sec:Ordinal alpha}}
 
-Recall the congeneric model
+Recall the congeneric model from section \ref{sec:coefficienta alpha},
 \begin{equation}
-X=\lambda Z+\Psi^{1/2}\varepsilon    \tag{\ref{eq:congeneric model}}
+X=\lambda Z+\Psi^{1/2}\varepsilon.    \tag{\ref{eq:congeneric model}}
 \end{equation}
 Consider the scenario when we do not observe the $X_{i}$s directly,
 but rather $X_{i}$s discretized into $m_{i}$ categories according
 to
 \begin{equation}
-Y_{i}=k1[\tau_{i(k-1)}\leq X_{i}\leq\tau_{ik}],\label{eq:discretization model}
+Y_{i}=j1[\tau_{i(j-1)}\leq X_{i}\leq\tau_{ij}],\quad j = 1, \ldots,m_i. \label{eq:discretization model}
 \end{equation}
-where $-\infty=\tau_{i0}<\tau_{i1}<\ldots<\tau_{i(m_{i}+1)}=\infty$
+Here $-\infty=\tau_{i0}<\tau_{i1}<\ldots<\tau_{i(m_{i})}=\infty$
 are thresholds for each $i$ and $1[A]$ is the indicator function of $A$.
 This is a common model for Likert scales with $m_{i}$ levels for
 the $i$th item. If $X$ is multivariate normal, model (\ref{eq:discretization model})
 is a congeneric \emph{ogive model} \citep{Swaminathan2016-rg}.
-Under multivariate normality the correlation matrix $\Phi$ is point-identified
-from the distribution of $Y$, and is called the \emph{polychoric
-correlation}. It can be estimated by maximum likelihood directly
+Under multivariate normality, the correlation matrix $\Phi$ is point-identified
+from the distribution of $Y$, and is called the \textit{polychoric
+correlation matrix}. It can be estimated by maximum likelihood directly
 or by a two-step procedure \citep{Olsson1979-ti}. To make the model
-identified, usual practice is to assume that $\Psi^{1/2}$ is correlation
+identified, usual practice is to assume that $\Psi^{1/2}$ is a correlation
 matrix. 
 
 \citet{Zumbo2007-ap} proposed what I call the \emph{theoretical ordinal
 alpha}
 \begin{equation}
-\alpha=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\label{eq:ordinal alpha}
+\alpha=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right), \label{eq:ordinal alpha}
 \end{equation}
 where $\Phi=\Cor X$ is polychoric correlation coefficient of $Y$.
 Theoretical ordinal alpha is a standardized alpha, but it is based
 on the latent correlation matrix between the unobserved $X$ instead
 of the observed correlation matrix between the $Y$s. The population
 values of the theoretical ordinal alpha and the standardized alpha
-are not the same in general. \citet{Zumbo2007-ap}'s main argument
-in favor of the ordinal alpha is ``coefficient alpha (and KR-20)
-are correlation-based statistics and hence assume continuous data\textquoteright \textquoteright{}
-\citep[p. 27]{Zumbo2007-ap}. In section \ref{sec:coefficienta alpha} I argued against the notion that coefficient alpha only makes sense for continuous data. \citet[p. 1060, "Misconception 1"]{Chalmers2018-fj}
-persuasively argues against this idea, see also \citep{Raykov2019-yr}. The argument is reiterated
-by \citep{Gadermann2012-jl}, but \citet{Zumbo2019-lm} argue
+are not the same in general. \citet[p. 27]{Zumbo2007-ap}'s main argument
+in favor of the ordinal alpha is \enquote{coefficient alpha (and KR-20)
+are correlation-based statistics and hence assume continuous data}. \citet[p. 1060]{Chalmers2018-fj}
+persuasively argues against this idea, as does \citet{Raykov2019-yr}. \ref{sec:coefficienta alpha}, and I argued against it in section \ref{sec:coefficienta alpha}. The argument that correlations assume continuous data is reiterated
+by \citet{Gadermann2012-jl}, but \citet{Zumbo2019-lm} argue
 the the benefit of sample ordinal alpha is that we are truly interested
-in the reliability of $X$ as a predictor of $Y$ (in the parlance
-of this paper). 
+in the reliability of $X$ as a predictor of $Y$.
 
-A related notion is the \emph{theoretical ordinal reliability}, the
+A related notion is the \textit{theoretical ordinal reliability}, the
 analogue of the weighted reliability \eqref{eq:linear reliabiltiy} based on the polychoric
 correlation coefficient. Its definition is 
 \begin{equation}
@@ -614,13 +613,13 @@ correlation coefficient. Its definition is
 were $\lambda_{i}^{*}=\lambda_{i}/\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$
 and $\sigma_{i}^{*}=\sigma_{i}/\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$.
 
-There several reasons to avoid the theoretical ordinal alpha. If your
+There are several reasons to avoid the theoretical ordinal alpha. If your
 goal is to estimate the congeneric reliability or the standardized
 reliability, the theoretical ordinal alpha is inappropriate since
 it does not equal the congeneric reliability, even under the parallel
 model \citep[p. 1062, "Misconception 2"]{Chalmers2018-fj}, a point
 conceded by \citet{Zumbo2019-lm}. But this is not the worst problem.
-For even if you are interested in estimating the congeneric reliability
+Even if you are interested in estimating the congeneric reliability
 for the multivariate normal ogive model, you should avoid the theoretical
 alpha.
 
@@ -657,7 +656,7 @@ normality in general \citep{Foldnes2019-yd}.
 
 The main argument of \citet{Zumbo2019-lm}'s rebuttal of \citep{Chalmers2018-fj}
 is that the congeneric ogive model \eqref{eq:discretization model} 
-is a better approximation to reality than the congeneric model \eqref{eq:congeneric model}. (See also \citet[][p.2]{Gadermann2012-jl}.)
+is a better approximation to reality than the congeneric model \eqref{eq:congeneric model}, an argument also made by \citet[][p.2]{Gadermann2012-jl}.)
 So assume we believe in the discretized model and can be reasonably
 sure that $X$ is multivariate normal. Then ordinal alpha would still
 not be appropriate as it is theoretical and not concrete. However,
@@ -759,7 +758,7 @@ reliabilities calculated under the congeneric model with $\mathtt{lavaan}$ \cite
 equals $\omega'_{H}=0.77$ and $\omega'=0.74$.
 
 I calculated $\omega'_{H}$ and $\omega'$ for selection of Likert
-scales with $\lambda=\hat{\lambda}$ and $\hat{\sigma}=\sigma$ and
+scales with $\hat{\lambda} = \lambda$ and $\hat{\sigma}=\sigma$ and
 the thresholds $\tau$ at $\{\Phi^{-1}[i/(k+1)]\}_{i=1}^{k+1}$, which
 approximates the reliabilities we would have obtained had we used
 $k+1$ Likert levels. Figure \ref{fig:Ordinal reliability} contains the results. The difference between ordinal alpha and the true ordinal reliability is uniformly at approximately $0.04$. The distance from theoretical ordinal reliability to actual ordinal reliability is larger than $0.04$ when the number of Likert levels is less than $10$, and unacceptably large when the number of Likert levels is less than $6$. 
