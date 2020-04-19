@@ -147,7 +147,7 @@ be a mean zero vector of uncorrelated errors with unit variance. In addition, as
 \begin{equation}
 X=\lambda Z+\Psi^{1/2}\varepsilon\label{eq:congeneric model}
 \end{equation}
-where $\lambda$ is a vector of loadings, and $\Psi^{1/2}$ is a diagonal matrix with positive diagonal elements $\sigma_i$. Since $\Psi^{1/2}$ is diagonal the errors $\Psi^{1/2}\varepsilon$ are uncorrelated. When $\Psi^{1/2}$ is allowed to be any positive definite matrix, the model \eqref{eq:congeneric model} is a one-factor model, and if the dimension of $Z$ is larger than one it is a linear factor model. The random variables $Z$ and $\varepsilon$ can have any distribution whatsoever. Since $\lambda,\Psi$ are parameters of the model, we are dealing with a semi-parametric model. 
+where $\lambda$ is a vector of loadings, and $\Psi^{1/2}$ is a diagonal matrix with positive diagonal elements $\sigma_i$. Since $\Psi^{1/2}$ is diagonal the errors $\Psi^{1/2}\varepsilon$ are uncorrelated. When $\Psi^{1/2}$ is allowed to be any positive definite matrix, the model \eqref{eq:congeneric model} is a linear one-factor model, and if the dimension of $Z$ is larger than one it is a linear factor model. The random variables $Z$ and $\varepsilon$ can have any distribution whatsoever. Since $\lambda,\Psi$ are parameters of the model, we are dealing with a semi-parametric model. 
 
 The congeneric model is not necessarily a realistic model. The assumption of one latent factor $Z$ and the assumption of uncorrelated errors are unrealistic in most psychometric settings \citep[][section 1.2 -- 1.3]{Green2009-le}. I have restricted this paper to the congeneric model since it is commonly used, standardized alpha only makes sense on specific cases of the congeneric models, and it makes the presentation smoother. Nevertheless, if I were to use a general linear factor model, the case against standardized alpha as a reliability coefficient would be even stronger. See \citet[][section 2]{Green2009-le} for an assessment of how coefficient alpha fares when the congeneric model assumption is loosened up.
 
@@ -211,7 +211,7 @@ Let $w$ be a vector of weights and $\Sigma$ a covariance matrix. The \textit{wei
 where $\diag\Sigma$ is the diagonal matrix with diagonal equal to the diagonal of $\Sigma$.
 \end{defn}
 The ordinary coefficient alpha \eqref{eq:Coefficient alpha} has weights $w=\mathbf{i}$
-while the standardized alpha \eqref{eq:standardized alpha} has weights $w_{i}=\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$. Coefficient alpha and standardized alpha are the most interesting cases of the weighted alpha, as you can calculate them using only the covariance matrix $\Sigma = \Cov X$. When $w$ are the Thurstone weights, $a_w$ is not a function of $\Sigma$, as they require knowledge of $\lambda$, $\Psi$. Still, the definition makes sense for any weight $w$. The following Proposition summarizes the basic relationship
+while the standardized alpha \eqref{eq:standardized alpha} has weights $w_{i}=\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$. Coefficient alpha and standardized alpha are the most interesting cases of the weighted alpha, as you can calculate them using only the covariance matrix $\Sigma = \Cov X$. When $w$ are the Thurstone weights, $a_w$ is not a function of $\Sigma$, as they require knowledge of the factor loadings $\lambda$ and the residual errors $\sigma$. Still, the definition makes sense for any weight $w$. The following Proposition summarizes the basic relationship
 between the reliability $\omega_{w}$ and the weighted $\alpha_{w}$. To state it, we will need
 the notion of a \textit{$\tau$-equivalent model} \citep[][section 2.13]{Lord1968-ax}. A congeneric model \eqref{eq:congeneric model} is $\tau$-equivalent if $\lambda_{i}=\lambda_{j}$ for all $i,j$. That is, all unstandardized
 factor loadings are equal.
@@ -356,7 +356,7 @@ when $\mathbf{i}^{T}S\mathbf{i}\geq\tr{S}$ and $0$ otherwise. That is,
 \end{enumerate}
 \end{thm}
 \begin{proof}
-See page \pageref{proof:ML} of the appendix for a proof. \citet[][section B]{Kristof1963-tb} worked out the maximum likelihood estimator of the unique correlation $\rho$. \citep[][Exercise 3.9, p. 114]{Muirhead2009-kq} is about the same problem in a different parameterization.
+See page \pageref{proof:ML} of the appendix for a proof. \citet[][section B]{Kristof1963-tb} worked out the maximum likelihood estimator of the unique correlation $\rho$. 
 \end{proof}
 
 \subsection{Asymptotic efficiency}
@@ -421,16 +421,15 @@ To sum up, sample alpha won the maximum likelihood and robustness competitions, 
 
 \section{Argument B. The problem with standardized scores}
 \label{sec:argument B}
-I have two arguments against using standardized alpha for standardized
-test items. First, you should not standardize test items. Second,
-even if you decide to standardize test items, avoid standardized
-alpha and use the standardized reliability instead.
+If you standardize your scores you should use the standardized alpha. Or so the story goes. In the notation of this paper, standardized scores are predictors on the form $\hat{Z} = \tsum_{i=1}^k w_iX_i$, where $w=(\lambda_i^2 + \sigma_i^2)^{1/2}$. Then the weighted alpha \eqref{eq:weighted alpha} for these weights is the standardized alpha. Provided you can find good reasons for using the standardization weights $w=(\lambda_i^2 + \sigma_i^2)^{1/2}$, using the standardized alpha is \textit{prima facie} reasonable.
 
-Before I begin fleshing out these arguments, I will explain why standardized alpha is explicitly linked to the standardized scores $w_i = {(\lambda_i^2 + \sigma_i^2)}^{1/2}$,  but not to the unit scores. My starting point is the following claim of \citet[][p.348]{Osburn2000-jd}: 
+In this section I argue against the standardization weights and propose the alternative sigma weights. But even if you decide to use the standardization weights, I argue you should avoid the standardized alpha in favour of the standardized reliability \eqref{eq:Standardized reliability}. 
+
+Before I begin fleshing out these arguments, I will explain why standardized alpha is explicitly linked to the standardized scores $w_i = (\lambda_i^2 + \sigma_i^2)^{1/2}$,  but not to the unit scores.  \citet[][p.348]{Osburn2000-jd} claimed
 \enquote{\textelp{} it is important to note that the true reliability of a measure is the same for both standardized and unstandardized observed scores.}
 
 I will argue against this claim. Recall the definition of reliability from
-section $2$. Given a predictor $\hat{Z}$ of $Z$, the
+\cref{sec:coefficienta alpha}. Given a predictor $\hat{Z}$ of $Z$, the
 reliability $\omega$ equals the square correlation between $\hat{Z}$
 and $Z$, or $\omega=\Cor^{2}(\hat{Z},Z)$. Assume
 we know the values of $\lambda$ and $\sigma$. When you use unstandardized
@@ -777,6 +776,7 @@ and $\sigma=(0.90,0.70,0.59,0.86,0.74)$. The original number of levels
 are marked for convenience.}
 \end{figure}
 
+\clearpage
 \section*{Appendix}
 
 This lemma formulates the the squared correlation in terms of the mean squared error and established the connection between the correlation coefficient and $R^2$. It is used in in the proof of Proposition \ref{prop:reliability motivation}. 
@@ -792,7 +792,7 @@ where $\alpha=E(Y)-E(\hat{Y})$ and $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$ are the
 \begin{proof}
 Recenter $Y$ and $\hat{Y}$ so that $E(Y)=E(\hat{Y})=0$. Then $\MSE(\alpha+\beta\hat{Y})$ equals $\beta^{2}\Var(\hat{Y})-2\beta\Cov(\hat{Y},Y)+\Var Y^{2}$.
 Differentiate with respect to $\beta$ and set equal to zero, so that
-$2\beta\Var(\hat{Y})-2\Cov(\hat{Y},Y)=0$. Then $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$
+$2\beta\Var(\hat{Y})-2\Cov(\hat{Y},Y)=0$, which implies $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$. Plug the expression of $\beta$ into the expression for $\MSE$ to get \cref{eq:rsq and correlation}.
 \end{proof}
 
 \begin{proof}[Proof of Proposition \ref{prop:reliability motivation}]\label{proof:reliability motivation}
@@ -967,67 +967,34 @@ values.
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{thm:ML}]\label{proof:ML}
-We start with (i). The log-likelihood of the multivariate normal is
-\begin{equation}
-l(\Sigma;S)=-\frac{1}{2}[\log\left|\Sigma\right|+\textrm{tr}(S\Sigma^{-1})+k\log2\pi]
-\end{equation}
-Under the parallel model $\Sigma=\lambda^{2}\mathbf{i}\mathbf{i}^{T}+\sigma^{2}I$.
-By the matrix determinant lemma \citep[][Theorem 18.1.1 (p. 416)]{Harville2008-el}, $\left|\Sigma\right|=\sigma^{2k}+k\lambda^{2}\sigma^{2k-2}$
-and an application of the Sherman--Morrison formula \citep{shermanmorrison}
-gives us $\Sigma^{-1}=\sigma^{-2}I-\frac{\lambda^{2}}{\sigma^{4}(1+k\lambda^{2})}\mathbf{i}\mathbf{i}^{T}$.
-It follows that $\textrm{tr}(S\Sigma^{-1})=\sigma^{-2}\textrm{tr}S-\frac{\lambda^{2}}{\sigma^{4}+k\lambda^{2}\sigma^{2}}\mathbf{i}^{T}S\mathbf{i}$.
-The gradients of $\log\left|\Sigma\right|$ and $\textrm{tr}(S\Sigma^{-1})$
-are, with differentation with respect to $\sigma$ first:
-\begin{eqnarray}
-\nabla\log\left|\Sigma\right| & = & \frac{2k}{\lambda^{2}k+\sigma^{2}}\left(\begin{array}{c}
-\frac{\lambda^{2}(k-1)+\sigma^{2}}{\sigma}\\
-\lambda
-\end{array}\right)\\
-\nabla\log\textrm{tr}(S\Sigma^{-1}) & = & \left(\begin{array}{c}
--2\sigma^{-3}\textrm{tr}S+2\lambda^{2}({\sigma^{3}(\lambda^{2}k+\sigma^{2})}^{-1}+{\sigma(\lambda^{2}k+\sigma^{2})^{2}}^{-1})\mathbf{i}^{T}S\mathbf{i}\\
--\frac{2\lambda}{(\lambda^{2}k+\sigma^{2})^{2}}\mathbf{i}^{T}S\mathbf{i}
-\end{array}\right)\nonumber 
-\end{eqnarray}
-The optimum is obtained when $-\nabla\log\textrm{tr}(S\Sigma^{-1})=\nabla\log\left|\Sigma\right|$.
-I will show that $\mathbf{i}^{T}S\mathbf{i}/k=\lambda^{2}k+\sigma^{2}$
-and $\textrm{tr}S/k=\sigma^{2}+\lambda^{2}$ are the unconstraied
-solutions to this equation.
-
-The second part of the likelihood equation is $\lambda$$\frac{2\lambda}{(\lambda^{2}k+\sigma^{2})^{2}}\mathbf{i}^{T}S\mathbf{i}=\frac{2k\lambda}{\lambda^{2}k+\sigma^{2}}$.
-There are two solutions to this equation. Either $\lambda>0$ and
-$\mathbf{i}^{T}S\mathbf{i}/k=(\lambda^{2}k+\sigma^{2})$
-or $\lambda=0$. Assume $\lambda>0$ and substitute and simplify the
-derivative with respect to $\sigma$. Now
-\begin{equation*}
--2\sigma^{-3}\textrm{tr}S+\left(\frac{2\lambda^{2}}{\sigma^{3}(\lambda^{2}k+\sigma^{2})}+\frac{2\lambda^{2}}{\sigma(\lambda^{2}k+\sigma^{2})^{2}}\right)\mathbf{i}^{T}S\mathbf{i} =
--2\sigma^{-3}\textrm{tr}S+2\lambda^{2}k\left(\frac{1}{\sigma^{3}}+\frac{k}{\sigma\mathbf{i}^{T}S\mathbf{i}}\right)
-\end{equation*}
-
-and $$\frac{2k}{\lambda^{2}k+\sigma^{2}}\frac{\lambda^{2}(k-1)+\sigma^{2}}{\sigma}=\frac{2k^{2}}{\mathbf{i}^{T}S\mathbf{i}}\frac{\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2}}{\sigma}.$$
-Rearrange $2\sigma^{-3}\textrm{tr}S-2\lambda^{2}k(\frac{1}{\sigma^{3}}+\frac{k}{\sigma\mathbf{i}^{T}S\mathbf{i}})=\frac{2k^{2}}{\mathbf{i}^{T}S\mathbf{i}}\frac{\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2}}{\sigma}$
-and get $\textrm{tr}S/k-\lambda^{2}(\frac{\mathbf{i}^{T}S\mathbf{i}+k\sigma^{2}}{\mathbf{i}^{T}S\mathbf{i}})=\frac{\sigma^{2}k}{\mathbf{i}^{T}S\mathbf{i}}(\mathbf{i}^{T}S\mathbf{i}/k-\lambda^{2})$.
-Then isolate $\textrm{tr}S/k$ on the left hand side to get
-$\textrm{tr}S/k=(\sigma^{2}\mathbf{i}^{T}S\mathbf{i}+\lambda^{2}\mathbf{i}^{T}S\mathbf{i})/k$,
-hence $\textrm{tr}S/k=\sigma^{2}+\lambda^{2}$ as claimed.
-
-If $\mathbf{i}^{T}S\mathbf{i}\geq\textrm{tr}S$ the maximum likelihood estimates are $$\hat{\lambda^{2}}=\frac{1}{k-1}(\frac{\mathbf{i}^{T}S\mathbf{i}}{k}-\frac{\textrm{tr}S}{k})$$
-and $$\hat{\sigma^{2}}=\frac{1}{k-1}(\textrm{tr}S-\frac{\mathbf{i}^{T}S\mathbf{i}}{k})$$
-If not, $\lambda=0$ as already
-mentioned. In this case,
-\begin{equation*}
--2\sigma^{-3}\textrm{tr}S+\left(\frac{2\lambda^{2}}{\sigma^{3}(\lambda^{2}k+\sigma^{2})}+\frac{2\lambda^{2}}{\sigma(\lambda^{2}k+\sigma^{2})^{2}}\right)\mathbf{i}^{T}S\mathbf{i}+\frac{2k}{\lambda^{2}k+\sigma^{2}}\frac{\lambda^{2}(k-1)+\sigma^{2}}{\sigma} =
--2\sigma^{-3}\textrm{tr}S+\frac{2k}{\sigma}
-\end{equation*}
-hence $\hat{\sigma}^2=\textrm{tr}S/{k}$ is another solution.
-
-As for (ii), first assume the maximum likelihood estmator of $\lambda^{2}$
-is not $0$. By the invariance property of maximum likelihood an the definition of the congeneric reliability \eqref{eq:Congeneric reliability}, the maximum likelihood of the congeneric reliability is
+(i) Assume the parallel model and define $\psi^{2}$ and $\rho$ by
+$\sigma^{2}+\lambda^{2}=\psi^{2}$ and $\lambda^{2}=\psi^{2}\rho$.
+Then, by exercise 3.9 of \citet[][p. 114]{Muirhead2009-kq}, the maximum likelihood estimates of $\hat{\psi}^{2}$
+and $\hat{\rho}$ are
+\[
+\hat{\psi}^{2}=\tr S/k,\quad\hat{\rho}=\frac{\boldsymbol{1}^{T}S\boldsymbol{1}-\tr S}{(k-1)\tr S}1\{\boldsymbol{1}^{T}S\boldsymbol{1}\geq\tr S\}.
+\]
+That $\hat{\rho}=0$ when $\boldsymbol{1}^{T}S\boldsymbol{1}<\tr S$
+is not explicitly stated in the exercise, but is required since $\rho\geq0$
+is needed for $\Sigma$ to be positive definite. Using the invariance
+principle for maximum likelihood we find
+\[
+\lambda^{2} = \frac{\boldsymbol{1}^{T}S\boldsymbol{1}-\tr S}{k(k-1)}1\{\boldsymbol{1}^{T}S\boldsymbol{1}\geq\tr S\}.
+\]
+Assume $\boldsymbol{1}^{T}S\boldsymbol{1}<\tr S$. Then $\hat{\sigma}^{2}=\hat{\psi}^{2}=\tr S/k$
+as claimed in the statement of this theorem. If $\boldsymbol{1}^{T}S\boldsymbol{1}\geq\tr S$,
 \begin{eqnarray*}
-\frac{(\mathbf{i}^{T}\mathbf{\hat{\lambda}})^{2}}{(\mathbf{i}^{T}\mathbf{\hat{\lambda}})^{2}+\mathbf{i}^{T}\Psi\mathbf{i}} & = & \frac{k(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S)}{k(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S)+(k\textrm{tr}S-\mathbf{i}^{T}S\mathbf{i})}\\
- & = & \frac{k(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S)}{(k-1)\mathbf{i}^{T}S\mathbf{i}}\\
- & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}S}{\mathbf{i}^{T}S\mathbf{i}}\right)
+\hat{\sigma}^{2} & = & \hat{\psi}^{2}(1-\hat{\rho}),\\
+ & = & \frac{\tr S}{k}\left(1-\frac{\boldsymbol{1}^{T}S\boldsymbol{1}-\tr S}{(k-1)\tr S}\right),\\
+ & = & \frac{\tr S}{k}\left(\frac{(\tr S-\boldsymbol{1}^{T}S\boldsymbol{1}}{(k-1)\tr S}\right).
 \end{eqnarray*}
-If the maximum likelihood estmator of $\lambda^{2}$ is $0$, $(\mathbf{i}^{T}\mathbf{\hat{\lambda}})^{2}=0$
+As for (ii), first assume the $\hat{\lambda}^2\neq 0$. By the invariance property of maximum likelihood and the definition of the congeneric reliability \eqref{eq:Congeneric reliability}, the maximum likelihood estimator of the congeneric reliability is
+\begin{eqnarray*}
+\frac{(\mathbf{i}^{T}\mathbf{\hat{\lambda}})^{2}}{(\mathbf{i}^{T}\mathbf{\hat{\lambda}})^{2}+\mathbf{i}^{T}\Psi\mathbf{i}} & = & \frac{k(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S)}{k(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S)+(k\textrm{tr}S-\mathbf{i}^{T}S\mathbf{i})},\\
+ & = & \frac{k(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S)}{(k-1)\mathbf{i}^{T}S\mathbf{i}},\\
+ & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}S}{\mathbf{i}^{T}S\mathbf{i}}\right).
+\end{eqnarray*}
+If the maximum likelihood estimator of $\lambda^{2}$ is $0$, $(\mathbf{i}^{T}\mathbf{\hat{\lambda}})^{2}=0$
 and the maximum likelihood estimator of the reliability is $0.$
 \end{proof}
 
