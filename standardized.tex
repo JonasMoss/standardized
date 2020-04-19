@@ -66,7 +66,7 @@
 
 \documentclass[twoside]{article}
 \usepackage{moss} % contains layout and most imported packages.
-
+\usepackage{cleveref}
 
 %%% ============================================================================
 %%% Macros.
@@ -191,18 +191,17 @@ A modestly popular choice for $w$ are the weights minimizing the mean squared er
 \label{eq:coefficient_H}
 \omega_{H}=\frac{k\overline{\lambda^{2}\sigma^{-2}}}{k\overline{\lambda^{2}\sigma^{-2}}+1},
 \end{equation}
-where $\overline{\lambda^{2}\sigma^{-2}} = k^{-1}\sum_{i=1}^{k}\lambda_{i}^2/\sigma_i^2$. But by far the most popular choice is give to same weight to each $X_i$, that is, $w = \mathbf{i}=(1,1,\ldots,1)$. This leads to the congeneric reliability
+where $\overline{\lambda^{2}\sigma^{-2}} = k^{-1}\sum_{i=1}^{k}\lambda_{i}^2/\sigma_i^2$. But by far the most popular choice is give to same weight to each $X_i$, that is, $w = \mathbf{i}=(1,1,\ldots,1)$. This leads to the congeneric reliability, which is the estimand of coefficient alpha under certain conditions. Its definition is
 \begin{equation}
 \omega =\frac{k\overline{\lambda}^{2}/\overline{\sigma^{2}}}{k\overline{\lambda}^{2}/\overline{\sigma^{2}} + 1}\label{eq:Congeneric reliability}
 \end{equation}
 where $\overline{\lambda}=k^{-1}\sum_{i=1}^{k}\lambda_{i}$ and
-$\overline{\sigma^{2}}=k^{-1}\sum_{i=1}^{k}\sigma_{i}^{2}$. Finally, the weights $w_i = \sqrt{\lambda_i^2 + \sigma_i^2}$ yield the standardized reliability, which is closely related to standardized alpha.
+$\overline{\sigma^{2}}=k^{-1}\sum_{i=1}^{k}\sigma_{i}^{2}$. Finally, the weights $w_i = \sqrt{\lambda_i^2 + \sigma_i^2}$ yield the standardized reliability. The standardized reliability is the estimand of the standardized alpha under the certain conditions, and can be written down as
 \begin{equation}
-\omega_s=\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}+1}.\label{eq:Standardized reliability}
+\omega_S=\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}+1}.\label{eq:Standardized reliability}
 \end{equation}
-It is time to relate the reliabilities to the alpha coefficients.
-Define the generalization of the coefficient alpha and the standardized
-alpha, the \emph{weighted alpha},
+
+It is time to precisely state the relation between the reliabilities and alpha coefficients. To do this, define the generalization of the coefficient alpha and the standardized alpha, the \textit{weighted alpha},
 
 \begin{defn}
 Let $w$ be a vector of weights and $\Sigma$ a covariance matrix. The \textit{weighted alpha} is
@@ -212,9 +211,9 @@ Let $w$ be a vector of weights and $\Sigma$ a covariance matrix. The \textit{wei
 where $\diag\Sigma$ is the diagonal matrix with diagonal equal to the diagonal of $\Sigma$.
 \end{defn}
 The ordinary coefficient alpha \eqref{eq:Coefficient alpha} has weights $w=\mathbf{i}$
-while the standardized alpha \eqref{eq:standardized alpha} has weights $w_{i}=\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$. Coefficient alpha and standardized alpha are the most interesting cases of the weighted alpha as you can calculate them using only the covariance matrix $\Sigma = \Cov X$, but the definition makes sense for any weight $w$. The following Proposition summarizes the basic relationship
+while the standardized alpha \eqref{eq:standardized alpha} has weights $w_{i}=\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$. Coefficient alpha and standardized alpha are the most interesting cases of the weighted alpha, as you can calculate them using only the covariance matrix $\Sigma = \Cov X$. When $w$ are the Thurstone weights, $a_w$ is not a function of $\Sigma$, as they require knowledge of $\lambda$, $\Psi$. Still, the definition makes sense for any weight $w$. The following Proposition summarizes the basic relationship
 between the reliability $\omega_{w}$ and the weighted $\alpha_{w}$. To state it, we will need
-the notion of a \emph{$\tau$-equivalent model} \citep[][section 2.13]{Lord1968-ax}. A congeneric model \eqref{eq:congeneric model} is $\tau$-equivalent if $\lambda_{i}=\lambda_{j}$ for all $i,j$. That is, all unstandardized
+the notion of a \textit{$\tau$-equivalent model} \citep[][section 2.13]{Lord1968-ax}. A congeneric model \eqref{eq:congeneric model} is $\tau$-equivalent if $\lambda_{i}=\lambda_{j}$ for all $i,j$. That is, all unstandardized
 factor loadings are equal.
 \begin{prop}
 \label{prop:weighted alpha}. Let $w$ be a vector of weights and
@@ -234,7 +233,7 @@ for a proof. The discrepancy term in \eqref{eq:alpha-omega discrepancy} for the 
 % with equality if and only if $w_{i}\lambda_{i}=w_{j}\lambda_{j}$,
 % that is, the weighted model is $\tau$-equivalent. The discrepancy term in \eqref{eq:alpha-omega discrepancy} for the special case of coefficient alpha is extensively discussed by \citet{Raykov1997-bu}. 
 
-Proposition \ref{prop:weighted alpha} is a minor generalization of the two most frequently mentioned fact about coefficient alpha: (i) That $\alpha = \omega$ under the $\tau$-equivalent model. (ii) Coefficient alpha is a lower bound for the congeneric reliability, $\alpha \leq \omega$ under the congeneric model.
+Proposition \ref{prop:weighted alpha} is a minor generalization of the two most frequently mentioned fact about coefficient alpha: (i) That $\alpha = \omega$ under the $\tau$-equivalent model. (ii) Coefficient alpha is a lower bound for the congeneric reliability (that is, $\alpha \leq \omega$) under the congeneric model.
  
 When $w_{i}=\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$, $wX$ is $\tau$-equivalent if and only if the standardized factor loadings are equal, and Proposition \ref{prop:weighted alpha} tells us $\alpha_S = \omega_S$ in this case. 
 
@@ -254,7 +253,7 @@ are possible when $\lambda_{i}\neq\lambda_{j}$ for some $j$.
 Most of (i) -- (iii) have been known for a while. See page \pageref{proof:Reliabilities.} of the appendix for a proof.
 \end{proof}
 
-A congeneric model satisfying $\sigma_{i}=\sigma_{j}$ for all $i,j$ is called a \emph{parallel model} \citep[][section 2.13]{Lord1968-ax}. 
+A congeneric model satisfying $\sigma_{i}=\sigma_{j}$ for all $i,j$ is called a \textit{parallel model} \citep[][section 2.13]{Lord1968-ax}. 
 
 That $\alpha = \omega$ under the $\tau$-equivalent model and $\alpha_S = \omega$ under the parallel model show us a way to estimate the congeneric reliability $\omega$ using a simple function of the sample covariance $S$. The intuitive estimate of $\omega$ is the plug-in estimator, which needs estimates of $\lambda$ and $\sigma$. This is usually a complicated procedure involving iterative algorithms and complex software. This advantage of $\alpha_S$ and $\alpha$ is not decisive these days, as it is easy to estimate $\lambda$ and $\sigma$ using for instance the \texttt{R} \citep{Team2013-tt} package \texttt{lavaan} \citep{Rosseel2012-yg}. Estimating $\omega$ using the plug-in estimator allows us to forego the unrealistic assumptions of $\tau$-equivalence and parallel test items altogether.
 
@@ -491,7 +490,7 @@ The following theorem exposes some basic facts about these four reliability coef
 
 \begin{thm}
 \label{thm:Properties of three} Let $\omega$ be the congeneric
-reliability \eqref{eq:Congeneric reliability}, $\omega_{s}$ the standardized reliability \eqref{eq:Standardized reliability},
+reliability \eqref{eq:Congeneric reliability}, $\omega_{S}$ the standardized reliability \eqref{eq:Standardized reliability},
 $\omega_{\sigma}$ the sigma reliability \eqref{eq:Sigma-standardized reliability},
 and $\omega_{H}$ coefficient $H$ \eqref{eq:coefficient_H}. 
 
@@ -500,16 +499,16 @@ and $\omega_{H}$ coefficient $H$ \eqref{eq:coefficient_H}.
 i.e. the congeneric model with $\lambda_{i}=\lambda>0$ for all $i$
 but possibly different residual errors $\sigma_{i}>0$. Then
 \[
-\omega_{h}\geq\omega_{\sigma}\geq\omega_{s}\geq\omega,
+\omega_{h}\geq\omega_{\sigma}\geq\omega_{S}\geq\omega,
 \]
 with all inequalities strict unless $\sigma_{i}=\sigma$ for all
-$i$. In that case, $\omega_{h} = \omega_{\sigma} = \omega_{s} = \omega$.
+$i$. In that case, $\omega_{h} = \omega_{\sigma} = \omega_{S} = \omega$.
 \item Assume the congeneric model with $\sigma_i = \sigma > 0$ for all $i$ but possibly different loadings $\lambda_i$. Then
 \[
-\omega_{H}\geq\omega_{\sigma}=\omega\geq\omega_{s},
+\omega_{H}\geq\omega_{\sigma}=\omega\geq\omega_{S},
 \]
 and the inequalities are strict unless $\lambda_{i}=\lambda$ for all
-$i$. In that case, $\omega_{h} = \omega_{\sigma} = \omega_{s} = \omega$.
+$i$. In that case, $\omega_{h} = \omega_{\sigma} = \omega_{S} = \omega$.
 
 \end{enumerate}
 
@@ -518,7 +517,7 @@ $i$. In that case, $\omega_{h} = \omega_{\sigma} = \omega_{s} = \omega$.
 See the appendix, page \pageref{proof:Properties}.
 \end{proof}
 
-Since the $\tau$-equivalent model is such a common assumption among psychometricians, point (i) of the theorem above gives a strong reason to prefer $\omega_{\sigma}$ to $\omega_s$ and $\omega$. Point (ii) can be used as an argument against using the standardized reliability \eqref{eq:Standardized reliability} when $\sigma_{i}^{2}=\sigma_j^{2}$ for all $i,j$.
+Since the $\tau$-equivalent model is such a common assumption among psychometricians, point (i) of the theorem above gives a strong reason to prefer $\omega_{\sigma}$ to $\omega_S$ and $\omega$. Point (ii) can be used as an argument against using the standardized reliability \eqref{eq:Standardized reliability} when $\sigma_{i}^{2}=\sigma_j^{2}$ for all $i,j$.
 
 You can interpret Theorem \ref{thm:Properties of three} as a ranking factor scores too. Under the $\tau$-equivalent model, Thurstone scores are better than $\sigma$-standardized sum scores, which in turn are better than the standardized sum scores, which are
 better than the ordinary sum scores.
@@ -529,12 +528,12 @@ $\omega_{\sigma}$ will usually be the largest. In a short
 simulation ($10^{5}$ repetitions) of $k=5$ items with $\lambda_{i}\sim \textrm{Exp}(1)$
 and $\sigma_{i}\sim \textrm{Exp}(1)$ independently with $i=1,\ldots,5$, $\omega_{\sigma}$
 was the largest $98\%$ of the time, $\omega$ largest $2\%$
-of the time, but $\omega_{s}$ was never the largest. The average reliabilities where $\overline{\omega}_\sigma = 0.91$, $\overline{\omega}_s= 0.76$, and $\overline{\omega} = 0.70$.
-The congeneric reliability $\omega$ dominated the standardized $\omega_{s}$ in $4/10$ iterations. You could argue this simulation study
+of the time, but $\omega_{S}$ was never the largest. The average reliabilities where $\overline{\omega}_\sigma = 0.91$, $\overline{\omega}_s= 0.76$, and $\overline{\omega} = 0.70$.
+The congeneric reliability $\omega$ dominated the standardized $\omega_{S}$ in $4/10$ iterations. You could argue this simulation study
 is somewhat unrealistic, but the slightly different simulation with $\lambda_{i}$ and $\sigma_{i}\sim \textrm{HalfNormal}(0,1)$, yielded virtually the same results. In a simulation where $\lambda$ and $\sigma$ where uniform on $[0,1]$, yet again $\omega_{\sigma}$
-was the largest $98\%$ of the time and $\omega$ the largest the remaining $2\%$. Moreover, in every iteration of every simulations $\omega_\sigma > \omega_s$. The take-away message from these simulations is that $\omega_\sigma$ generally does better than $\omega_{s}$ and
+was the largest $98\%$ of the time and $\omega$ the largest the remaining $2\%$. Moreover, in every iteration of every simulations $\omega_\sigma > \omega_S$. The take-away message from these simulations is that $\omega_\sigma$ generally does better than $\omega_{S}$ and
 $\omega$, while it is hard to predict the winner among $\omega$
-and $\omega_{s}$. See the Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) for the code to run these informal simulations.
+and $\omega_{S}$. See the Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) for the code to run these informal simulations.
 
 \begin{example}
 \label{exa:reliabilities}
@@ -544,14 +543,14 @@ and $\omega_{s}$. See the Open Science Foundation repository for this paper (\ur
 
 In this example we will take a look at the data set $\texttt{bfi}$ from the $\texttt{R}$ \citep{Team2013-tt} package $\texttt{psychTools}$ \citep{Revelle2019-te}. This data set contains the responses on $25$ personality self report items from the International Personality Item Pool \citep{Goldberg1999-iz} collected from the Synthetic Aperture Personality Assessment project \citep{Revelle2017-ez}. The $25$ items are evenly distributed across the big five traits: Agreeableness, conscientiousness, extraversion, neuroticism, and openness to experience. 
 
-For each trait I estimated the factor loadings $\lambda$ and residual standard deviations $\sigma$ in the congeneric measurement model \eqref{eq:congeneric model} using  $\texttt{lavaan}$ \citep{Rosseel2012-yg}. I plugged these estimates into the definitions of the four reliability coefficients. The results are in Table \ref{tab:reliabilites}. As expected, $\omega_\sigma$ is larger than both $\omega_s$ and $\omega$ for all five traits. Moreover, $\omega_s > \omega$ for all traits except extraversion, where the difference is marginal. The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains the code I used in this example.
+For each trait I estimated the factor loadings $\lambda$ and residual standard deviations $\sigma$ in the congeneric measurement model \eqref{eq:congeneric model} using  $\texttt{lavaan}$ \citep{Rosseel2012-yg}. I plugged these estimates into the definitions of the four reliability coefficients. The results are in Table \ref{tab:reliabilites}. As expected, $\omega_\sigma$ is larger than both $\omega_S$ and $\omega$ for all five traits. Moreover, $\omega_S > \omega$ for all traits except extraversion, where the difference is marginal. The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains the code I used in this example.
 \end{example} 
 
 Suppose you want to use the standardized weights despite the counterarguments above. By Proposition \ref{prop:weighted alpha}, the standardized coefficient alpha equals the standardized reliability only when the modified model
 \begin{equation}\label{eq:std-modified model}
 X_{i}^{*}=\frac{\lambda_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}Z+\frac{\sigma_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}\varepsilon_{i}, \quad i=1,\ldots,k    \end{equation}
 is $\tau$-equivalent. This occurs if and only if each $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda^{*}$
-for some $\lambda^{*}$. Of course, this would be an exceptional coincidence, but the standardized alpha is just a lower bound for the true standardized reliability when this condition fails. The natural way to consistently stimate $\omega_w$ without making this unwarranted assumption is to use the plug-in estimator for $\omega_s$ \eqref{eq:Standardized reliability}. This is not hard, as estimation of $\lambda_{i},\sigma_{i}$ with structural equation modeling programs is routine.
+for some $\lambda^{*}$. Of course, this would be an exceptional coincidence, but the standardized alpha is just a lower bound for the true standardized reliability when this condition fails. The natural way to consistently stimate $\omega_w$ without making this unwarranted assumption is to use the plug-in estimator for $\omega_S$ \eqref{eq:Standardized reliability}. This is not hard, as estimation of $\lambda_{i},\sigma_{i}$ with structural equation modeling programs is routine.
 
 \begin{example}
 %% <<<<< Example table start (\label{tab:omega_std_alpha_std})
@@ -560,7 +559,7 @@ for some $\lambda^{*}$. Of course, this would be an exceptional coincidence, but
 I used $\mathtt{lavaan}$ to estimate $\lambda$ and $\sigma$ for the agreeableness factor on the the $\texttt{bfi}$ data from $\texttt{psychTools}$ \citep{Revelle2019-te}, the data used in Example \ref{exa:reliabilities}. The estimates are $\hat{\lambda} = (0.53, -0.77, -0.99, -0.72, -0.79)$ and $\hat{\sigma} = (1.3, 0.89, 0.85, 1.3, 0.98)$. Using formula \eqref{eq:standardized alpha} and \eqref{eq:Standardized reliability} and flipping the sign of reverse-scored item \eqref{eq:Standardized reliability}, we find $\hat{\omega}_s = 0.72$ and $\hat{\alpha}_s = 0.71$. The difference $\hat{\alpha}_s - \hat{\omega}_s = -0.011$ is not alarmingly high, but the estimator is inconsistent. Table \ref{tab:reliabilites} contains mean squared error calculations for different $n$s when with data simulated from a congeneric model with $\lambda=\hat{\lambda}$ and $\sigma = \hat{\sigma}$. The mean squared error is uniformly lower for $\hat{\omega}_s$ than $\hat{\alpha}_s$. The results are similar for the other traits in the $\texttt{bfi}$ data.
 \end{example}
 
-To recap, my arguments are: (i) You should neither avoid standardization altogether nor standardize with $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$. You should standardize with $\sigma_i^{-1}$ or use the optimal weights, as this yields better results in the most plausible scenarios. (ii) Even if you decide to standardize with $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$, please avoid standardized alpha, as it will not equal $\omega_s$ under any reasonable assumptions.
+To recap, my arguments are: (i) You should neither avoid standardization altogether nor standardize with $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$. You should standardize with $\sigma_i^{-1}$ or use the optimal weights, as this yields better results in the most plausible scenarios. (ii) Even if you decide to standardize with $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$, please avoid standardized alpha, as it will not equal $\omega_S$ under any reasonable assumptions.
 
 \section{Ordinal alpha\label{sec:Ordinal alpha}}
 
@@ -578,7 +577,7 @@ Here $-\infty=\tau_{i0}<\tau_{i1}<\ldots<\tau_{i(m_{i})}=\infty$
 are thresholds for each $i$ and $1[A]$ is the indicator function of $A$.
 This is a common model for Likert scales with $m_{i}$ levels for
 the $i$th item. If $X$ is multivariate normal, model (\ref{eq:discretization model})
-is a congeneric \emph{ogive model} \citep{Swaminathan2016-rg}.
+is a congeneric \textit{ogive model} \citep{Swaminathan2016-rg}.
 Under multivariate normality, the correlation matrix $\Phi$ is point-identified
 from the distribution of $Y$, and is called the \textit{polychoric
 correlation matrix}. It can be estimated by maximum likelihood directly
@@ -586,7 +585,7 @@ or by a two-step procedure \citep{Olsson1979-ti}. To make the model
 identified, usual practice is to assume that $\Psi^{1/2}$ is a correlation
 matrix. 
 
-\citet{Zumbo2007-ap} proposed what I call the \emph{theoretical ordinal
+\citet{Zumbo2007-ap} proposed what I call the \textit{theoretical ordinal
 alpha}
 \begin{equation}
 \alpha=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right), \label{eq:ordinal alpha}
@@ -642,7 +641,7 @@ are still needed, i.e. the weighted $\tau$-equivalent model \eqref{eq:std-modifi
 theoretical ordinal reliability can be estimated using e.g. $\mathtt{lavaan}$
 without much added complexity. Using the same arguments as in the
 previous section, the theoretical ordinal reliability with optimal
-weights (corresponding to coefficient \emph{H}) or weights $w_{i}=\sigma_{i}$
+weights (corresponding to coefficient \textit{H}) or weights $w_{i}=\sigma_{i}$
 (corresponding to the sigma reliability) should be preferred to the
 standardized reliability too.
 
@@ -1131,7 +1130,7 @@ equal.
 
 \begin{proof}[Proof of Proposition \ref{thm:Properties of three}]\label{proof:Properties}
 (i) The equality $\omega_H \geq \omega_\sigma$ trivially true, so we will focus on the rest. Each reliability is on the form $a/(a+1)$ for some $a>0$, and $a/(a+1)\geq b(b+1)$
-iff $a>b$. Let's take on $\omega_s > \omega$ first, or
+iff $a>b$. Let's take on $\omega_S > \omega$ first, or
 \[
 k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}\geq k\overline{\lambda}^{2}/\overline{\sigma^{2}}
 \]
@@ -1140,7 +1139,7 @@ This is equivalent to
 \frac{\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}{\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}\leq\overline{\sigma^{2}}
 \]
 which is true by Lemma \ref{lem:power mean lemma} using exponent $p = -1/2$.
-To prove $\omega_{\sigma}>\omega_{s}$ we need to show that
+To prove $\omega_{\sigma}>\omega_{S}$ we need to show that
 \[
 \overline{\sigma^{-1}}^{-2}\leq\frac{\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}{\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}
 \]
