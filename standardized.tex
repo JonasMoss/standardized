@@ -113,9 +113,9 @@ Coefficient alpha is the most widely used measure of reliability for psychometri
 
 \section{Introduction}
 
-((Smoother introduction.))
+The sample coefficient alpha is the most popular estimator of the congeneric reliability, and so it has been for a long time \citep{McNeish2018-vu}. A close cousin of coefficient alpha is the standardized coefficient alpha, or standardized alpha for short. The difference between these two alphas is simple: To calculate coefficient alpha you use the covariance matrix, to calculate the standardized alpha you use the correlation matrix. Standardized alpha is not as popular as coefficient alpha, but is well-known.
 
-In unidimensional psychometric scales with $k$ test items, the most popular predictor $\hat{Z}$ is the sum of test items, $\hat{Z}=X_1 + \cdots + X_k$. This predictor is often called the sum score \citep{McNeish2019-ea}, and the associated reliability is the congeneric reliability \citep{Cho2016-bs}. The sample coefficient alpha is the most popular estimator of the congeneric reliability, and so it has been for a long time \citep{McNeish2018-vu}. A close cousin of coefficient alpha is the standardized coefficient alpha, or standardized alpha for short. The difference between these two alphas is simple: To calculate coefficient alpha you use the covariance matrix, to calculate the standardized alpha you use the correlation matrix.
+%In unidimensional psychometric scales with $k$ test items, the most popular predictor $\hat{Z}$ is the sum of test items, $\hat{Z}=X_1 + \cdots + X_k$. This predictor is often called the sum score \citep{McNeish2019-ea}, and the associated reliability is the congeneric reliability \citep{Cho2016-bs}. 
 
 I argue you should avoid standardized alpha in all circumstances. I make my case with two arguments:
 
@@ -861,7 +861,7 @@ This lemma comes in handy in the proof of Proposition \ref{prop:Reliabilities.} 
 Assume the congeneric model of \eqref{eq:congeneric model} and let $\alpha$ be as in \eqref{eq:Coefficient alpha} and $\alpha_S$ be as in \eqref{eq:standardized alpha}. Then $\alpha_S\geq\alpha$
 if and only if
 \begin{equation}
-\label{eq:alpha_s_alpha_inequality}
+\label{eq:Alpha-alpha_s inequality}
 \tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_j^{2}+\lambda_{j}^{2}}} 
 \geq
 \tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\tsum_{i=1}^{k}(\lambda_{i}^{2}+\sigma_{i}^{2})/k}
@@ -869,12 +869,12 @@ if and only if
 \end{lem}
 
 \begin{proof}
-From definition \eqref{eq:Coefficient alpha}
+From definition \eqref{eq:standardized alpha}
 \begin{eqnarray*}
 \alpha_S & = & \frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\\
  & = & \frac{k}{k-1}\left(1-\frac{k}{\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)
 \end{eqnarray*}
-and definition \eqref{eq:standardized alpha}
+and definition \eqref{eq:coeffficient alpha}
 \begin{eqnarray*}
 \alpha & = & \frac{k}{k-1}\left(1-\frac{\tr\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
  & = & \frac{k}{k-1}\left(1-\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}\right)
@@ -912,13 +912,7 @@ with equality if and only if $\sigma_{i}^{2}=\sigma_{j}^{2}$ for
 all $i,j$. Since \eqref{eq:Alpha-alpha_s inequality} is true when
 $\lambda=0$ too we are done.
 
-As for (ii). Observe that $\alpha_S\geq\alpha$
-if and only if
-\begin{equation}
-\label{eq:Alpha-alpha_s inequality}
-\frac{k}{\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\leq\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
-\end{equation}
-Let $k=2$. Then \eqref{eq:Alpha-alpha_s inequality} simplifies to
+(ii) Let $k=2$. Then \eqref{eq:Alpha-alpha_s inequality} simplifies to
 \[
 \frac{1}{\frac{\lambda_{1}\lambda_{2}}{\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}}+1}\leq\frac{(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})}{2\lambda_{1}\lambda_{2}+(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})}
 \]
@@ -929,7 +923,7 @@ and further to
 By the inequality of arithmetic and geometric means, $1/2[(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})]\geq\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}$
 with equality only if $\lambda_{1}^{2}+\sigma_{1}^{2}=\lambda_{2}^{2}+\sigma_{2}^{2}$.
 
-Consider the second claim of (iii). Let $k>2$ and assume all $\lambda_{j}=0$
+(iii) Let $k>2$ and assume all $\lambda_{j}=0$
 except $\lambda_{1},\lambda_{2}$. By \eqref{eq:Alpha-alpha_s inequality}, $\alpha_S \geq \alpha$ if and
 only if
 \[
