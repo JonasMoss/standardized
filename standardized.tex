@@ -9,7 +9,7 @@
 % \usepackage[colorlinks=true, citecolor = blue]{hyperref}      % hyperlinks
 % \usepackage{url}            % simple URL typesetting
 % \usepackage{booktabs}       % professional-quality tables
-% \usepackage{amsfonts}       % blackboard math symbols
+% \usepackage{amsfonts}       %f blackboard math symbols
 % \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 % \usepackage{microtype}      % microtypography
 % \usepackage{graphicx, subfigure}
@@ -67,6 +67,7 @@
 \documentclass[twoside]{article}
 \usepackage{moss} % contains layout and most imported packages.
 \usepackage{cleveref}
+\usepackage{amsbsy}
 
 %%% ============================================================================
 %%% Macros.
@@ -95,7 +96,7 @@
   \it{jonasmgj@math.uio.no}
 }
 
-\titletag{An PsyArXiv preprint, v1.0}
+\titletag{A PsyArXiv preprint, v1.0}
 \makeatletter
 \titlerunning{\@title}
 \makeatother
@@ -113,16 +114,16 @@ Coefficient alpha is the most widely used measure of reliability for psychometri
 
 \section{Introduction}
 
-The sample coefficient alpha is the most popular estimator of the congeneric reliability, and so it has been for a long time \citep{McNeish2018-vu}. A close cousin of coefficient alpha is the standardized coefficient alpha, or standardized alpha for short. The difference between these two alphas is simple: To calculate coefficient alpha you use the covariance matrix, to calculate the standardized alpha you use the correlation matrix. Standardized alpha is not as popular as coefficient alpha, but is well-known.
+The sample coefficient alpha is the most popular estimator of the congeneric reliability, and so it has been for a long time \citep{McNeish2018-vu}. A close cousin of coefficient alpha is the standardized coefficient alpha, or standardized alpha for short. The difference between these two alphas is easy to state. To calculate coefficient alpha you use the covariance matrix, to calculate the standardized alpha you use the correlation matrix. Standardized alpha is not as popular as coefficient alpha, but is well-known.
 
 %In unidimensional psychometric scales with $k$ test items, the most popular predictor $\hat{Z}$ is the sum of test items, $\hat{Z}=X_1 + \cdots + X_k$. This predictor is often called the sum score \citep{McNeish2019-ea}, and the associated reliability is the congeneric reliability \citep{Cho2016-bs}. 
 
-I argue you should avoid standardized alpha in all circumstances. I make my case with two arguments:
+I argue you should avoid standardized alpha in all circumstances. I make my case with two arguments.
 
 \begin{enumerate}[label=(\Alph*)]
-\item I compare standardized alpha to the coefficient alpha as estimators of the congeneric reliability. Standardized alpha is reasonable estimator of the congeneric only under the parallel model, but I argue you should prefer coefficient alpha even if you have good reasons to believe in the parallel model. While the population values of standardized alpha and coefficient alpha equals the congeneric reliability under the parallel model, coefficient alpha equals the congeneric reliability under the more general $\tau$-equivalent model. But standardized alpha will be greater than the congeneric reliability under the $\tau$-equivalent model. Moreover, sample coefficient alpha is the maximum likelihood estimator of the congeneric reliability under the parallel model with multivariate normal errors and normal latent variables, which provides a decent heuristic argument in favor of coefficient alpha. Finally, provided the observed variables have finite fourth moments, sample coefficient alpha and sample standardized alpha have the same asymptotic variances. 
+\item Standardized alpha and coefficient alpha are estimators of the congeneric reliability. Standardized alpha is reasonable estimator of the congeneric reliability only under the parallel model, but you should prefer coefficient alpha even if you have good reasons to believe in the parallel model. While the population values of standardized alpha and coefficient alpha equals the congeneric reliability under the parallel model, coefficient alpha equals the congeneric reliability under the more general $\tau$-equivalent model. But standardized alpha will be greater than the congeneric reliability under the $\tau$-equivalent model. Sample coefficient alpha is the maximum likelihood estimator of the congeneric reliability under the parallel model with multivariate normal errors and normal latent variables, which provides a decent heuristic argument in favor of coefficient alpha. Finally, provided the observed variables have finite fourth moments, sample coefficient alpha and sample standardized alpha have the same asymptotic variances. 
 
-\item A common stance on sample standardized alpha is to use it only with standardized test scores. In this case, sample standardized alpha is best understood as an estimator of the standardized reliability, i.e. the squared correlation between $Z$ and $\hat{Z}$ when $\hat{Z}$ is the sum of standardized test items. However, the standardized alpha equals the standardized reliability only under restrictive and unrealistic conditions. If you are willing to go for another kind reliability than the congeneric reliability, consider coefficient $H$ instead, which corresponds to the optimal linear predictor $\hat{Z}$. If coefficient $H$ is too hard to swallow, I propose to standardize with the the residual errors and use the new sigma reliability.
+\item A common stance on sample standardized alpha is to use it only with standardized test scores. In this case, sample standardized alpha is best understood as an estimator of the standardized reliability, i.e., the squared correlation between $Z$ and $\hat{Z}$ when $\hat{Z}$ is the sum of standardized test items. However, the standardized alpha equals the standardized reliability only under restrictive and unrealistic conditions. If you are willing to go for another kind reliability than the congeneric reliability, consider coefficient $H$ instead, which corresponds to the optimal linear predictor $\hat{Z}$. If coefficient $H$ is too hard to swallow, you can standardize with the residual errors and use the new sigma reliability.
 \end{enumerate}
 
 In section \ref{sec:coefficienta alpha} I introduce coefficient alpha, the standardized alpha, and the notion of reliability. I make an effort to be mathematically precise here, and reiterate several known properties about the alphas in Proposition \ref{prop:Reliabilities.}. I elaborate on argument A in section \ref{sec:argument A} and devote section \ref{sec:argument B} to argument B. In section \ref{sec:Ordinal alpha} I argue against the use of the ordinal alpha of  \citet{Zumbo2007-ap} and propose an alternative.
@@ -147,7 +148,7 @@ be a mean zero vector of uncorrelated errors with unit variance. In addition, as
 \begin{equation}
 X=\lambda Z+\Psi^{1/2}\varepsilon\label{eq:congeneric model}
 \end{equation}
-where $\lambda$ is a vector of loadings, and $\Psi^{1/2}$ is a diagonal matrix with positive diagonal elements $\sigma_i$. Since $\Psi^{1/2}$ is diagonal the errors $\Psi^{1/2}\varepsilon$ are uncorrelated. When $\Psi^{1/2}$ is allowed to be any positive definite matrix, the model \eqref{eq:congeneric model} is a linear one-factor model, and if the dimension of $Z$ is larger than one it is a linear factor model. The random variables $Z$ and $\varepsilon$ can have any distribution whatsoever. Since $\lambda,\Psi$ are parameters of the model, we are dealing with a semi-parametric model. 
+where $\lambda$ is a vector of loadings, and $\Psi^{1/2}$ is a diagonal matrix with positive diagonal elements $\sigma_i$. Since $\Psi^{1/2}$ is diagonal, the errors $\Psi^{1/2}\varepsilon$ are uncorrelated. If $\Psi^{1/2}$ is allowed to be any positive definite matrix, the model \eqref{eq:congeneric model} is a linear one-factor model, and if the dimension of $Z$ is larger than one it is a linear factor model. The random variables $Z$ and $\varepsilon$ can have any distribution whatsoever. Since $\lambda,\Psi$ are parameters of the model, we are dealing with a semi-parametric model. 
 
 The congeneric model is not necessarily a realistic model. The assumption of one latent factor $Z$ and the assumption of uncorrelated errors are unrealistic in most psychometric settings \citep[][section 1.2 -- 1.3]{Green2009-le}. I have restricted this paper to the congeneric model since it is commonly used, standardized alpha only makes sense on specific cases of the congeneric models, and it makes the presentation smoother. Nevertheless, if I were to use a general linear factor model, the case against standardized alpha as a reliability coefficient would be even stronger. See \citet[][section 2]{Green2009-le} for an assessment of how coefficient alpha fares when the congeneric model assumption is loosened up.
 
@@ -421,7 +422,7 @@ To sum up, sample alpha won the maximum likelihood and robustness competitions, 
 
 \section{Argument B. The problem with standardized scores}
 \label{sec:argument B}
-If you standardize your scores you should use the standardized alpha. Or so the story goes. In the notation of this paper, standardized scores are predictors on the form $\hat{Z} = \tsum_{i=1}^k w_iX_i$, where $w=(\lambda_i^2 + \sigma_i^2)^{1/2}$. Then the weighted alpha \eqref{eq:weighted alpha} for these weights is the standardized alpha. Provided you can find good reasons for using the standardization weights $w=(\lambda_i^2 + \sigma_i^2)^{1/2}$, using the standardized alpha is \textit{prima facie} reasonable.
+If you standardize your scores you should use the standardized alpha. Or so the story goes. In the notation of this paper, standardized scores are predictors on the form $\hat{Z} = \tsum_{i=1}^k w_iX_i$, where $w=(\lambda_i^2 + \sigma_i^2)^{1/2}$. Then the weighted alpha \eqref{eq:weighted alpha} for these weights is the standardized alpha. Provided you can find good reasons for using the standardization weights $w=(\lambda_i^2 + \sigma_i^2)^{1/2}$, using the standardized alpha is reasonable from the looks of it.
 
 In this section I argue against the standardization weights and propose the alternative sigma weights. But even if you decide to use the standardization weights, I argue you should avoid the standardized alpha in favour of the standardized reliability \eqref{eq:Standardized reliability}. 
 
