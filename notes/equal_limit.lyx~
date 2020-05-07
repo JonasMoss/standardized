@@ -318,6 +318,13 @@ By definition,
 .
 \end_layout
 
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section*
 Proof
 \end_layout
@@ -359,17 +366,17 @@ And the formula is
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\sigma^{2}=\frac{k^{2}}{(k-1)^{2}}h^{T}K^{T}\Gamma Kh
-\]
+\begin{equation}
+\sigma^{2}=\frac{k^{2}}{(k-1)^{2}}h^{T}K^{T}\Gamma Kh\label{eq:Zyl formula}
+\end{equation}
 
 \end_inset
 
-where 
+here 
 \begin_inset Formula $h$
 \end_inset
 
- looks quite simple and can be derived from 
+ is taken from 
 \begin_inset CommandInset citation
 LatexCommand citet
 after "eq. 19"
@@ -378,37 +385,45 @@ literal "false"
 
 \end_inset
 
-
+,
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-(j^{T}\Phi j) & = & \phi^{2}k\{(k-1)\rho+1\\
-\tr\Phi & = & \phi^{2}k
+h & = & (\mathbf{i}^{T}\Sigma\mathbf{i})^{-2}[(\mathbf{i}^{T}\Sigma\mathbf{i}^{T}\vecc I-\tr\Sigma\vecc(\mathbf{i}\mathbf{i}^{T})]K^{-}.
 \end{eqnarray*}
 
 \end_inset
 
-
+Using the identities
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-h & = & \frac{[\phi^{2}k\{(k-1)\rho+1\}]\ve(I_{p})-\phi^{2}k\ve^{T}(jj^{T})}{[\phi^{2}k\{(k-1)\rho+1]^{2}}K^{-T}\\
- & = & \frac{[\{(k-1)\rho+1]\ve^{T}(I_{p})-\ve^{T}(jj^{T})}{\phi^{2}k[(k-1)\rho+1]^{2}}K^{-T}
+\mathbf{i}^{T}\Sigma\mathbf{i} & = & \phi^{2}k\{(k-1)\rho+1,\\
+\tr\Sigma & = & \phi^{2}k,
 \end{eqnarray*}
 
 \end_inset
 
-Define 
+we obtain
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+h & = & \frac{[\phi^{2}k\{(k-1)\rho+1\}]\vvec(I_{p})-\phi^{2}k\vvec(jj^{T})}{[\phi^{2}k\{(k-1)\rho+1]^{2}}K^{-},\\
+ & = & \frac{[\{(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})}{\phi^{2}k[(k-1)\rho+1]^{2}}K^{-}.
+\end{eqnarray*}
+
+\end_inset
+
+Define
 \begin_inset Formula 
 \[
-g^{T}=\{[(k-1)\rho+1]\ve^{T}(I_{p})-\ve^{T}(jj^{T})\}K^{-T}
+g=\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})\}K^{-}
 \]
 
 \end_inset
@@ -417,13 +432,13 @@ g^{T}=\{[(k-1)\rho+1]\ve^{T}(I_{p})-\ve^{T}(jj^{T})\}K^{-T}
 \end_layout
 
 \begin_layout Standard
-Then
+So that
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\sigma^{2}=\frac{4}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{4\phi^{4}}g^{T}K^{T}\Gamma Kg
+\sigma^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}g^{T}K^{T}\Gamma Kg
 \]
 
 \end_inset
@@ -437,7 +452,7 @@ Moreover,
 \end_inset
 
 , which satisifies 
-\begin_inset Formula $M_{p}\ve S=\ve S$
+\begin_inset Formula $M_{p}\vvec S=\vvec S$
 \end_inset
 
  whenever 
@@ -451,16 +466,28 @@ Moreover,
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-g^{T}K^{T}\Gamma Kg & = & f^{T}M_{p}^{T}\Gamma M_{p}^{T}f\\
- & = & f^{T}\Gamma f
+g^{T}K^{T}\Gamma Kg & = & f^{T}M_{p}^{T}\Gamma M_{p}^{T}f,\\
+ & = & f^{T}\Gamma f,
 \end{eqnarray*}
 
 \end_inset
 
-(unsure about the second line there...) where 
-\begin_inset Formula $f=\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(\mathbf{i}\mathbf{i}^{T})\}$
+where
+\begin_inset Formula 
+\[
+f=\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(\mathbf{i}\mathbf{i}^{T})\}.
+\]
+
 \end_inset
 
+
+\end_layout
+
+\begin_layout Subsubsection*
+Keep this for now...
+\end_layout
+
+\begin_layout Standard
 .
 \end_layout
 
