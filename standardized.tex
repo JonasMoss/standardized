@@ -381,7 +381,7 @@ Assume $X$ has finite variance.
 \end{enumerate}
 \end{thm}    
 \begin{proof}
-See page \pageref{proof:asymptotics} of the appendix. The proofs of (ii) and (iii) rely heavily on the work of \citet{Van_Zyl2000-si} and \citet{hayashi2005note}. \citet{Raykov2019-tv} is an introduction to convergence with probability $1$ in the psychometry context and contains a proof of (i) for coefficient alpha. \citet[][eq. 13]{Van_Zyl2000-si} and \citet[][eq. 58]{Kristof1963-tb} derived the limit distribution of coefficient alpha in (iii).
+See page \pageref{proof:asymptotics} of Appendix 1 for a proof of (i) and (iii), and Appendix 2 (p. \pageref{appendix 2}) for a proof of (ii). \citet{Raykov2019-tv} is an introduction to convergence with probability $1$ in the psychometry context and contains a proof of (i) for coefficient alpha. The proofs of (ii) and (iii) rely heavily on the work of \citet{Van_Zyl2000-si} and \citet{hayashi2005note}.  \citet[][eq. 13]{Van_Zyl2000-si} and \citet[][eq. 58]{Kristof1963-tb}, among others, derived the limit distribution of coefficient alpha under the normal parallel model.
 \end{proof}
 
 Time for some remarks about Theorem \ref{thm:asymptotics}. Item (i) states that both $\hat{\alpha}_s$ and $\hat{\alpha}$ estimate what they should. Item (ii) is the main argument of this section. It shows that $\hat{\alpha}_{s}$ and $\hat{\alpha}$ perform equally well in the limit no matter what $\lambda$, $\sigma$ and the distributions of $Z$, $\varepsilon$ are. We only require that the models have finite fourth moments. Regarding item (iii), a straightforward consequence of Theorem \ref{thm:ML} is that $\hat{\alpha}$ is efficient under the normal parallel model, and in this sense (iii) is an extension of said theorem. The shared limit distribution is simple enough to be usable in practice for both estimators. 
@@ -879,7 +879,7 @@ From definition \eqref{eq:standardized alpha}
 \alpha_S & = & \frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\\
  & = & \frac{k}{k-1}\left(1-\frac{k}{\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)
 \end{eqnarray*}
-and definition \eqref{eq:coeffficient alpha}
+and definition \eqref{eq:Coefficient alpha}
 \begin{eqnarray*}
 \alpha & = & \frac{k}{k-1}\left(1-\frac{\tr\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
  & = & \frac{k}{k-1}\left(1-\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}\right)
@@ -1039,7 +1039,7 @@ Thus
 and the limits are equal.
 Since
 \begin{equation*}
-\alpha_S = \frac{k}{k-1}(1-\frac{k}{k(k-1)\rho+k}) = \frac{k\rho}{(k-1)\rho+1}
+\alpha_S = \frac{k}{k-1}\left(1-\frac{k}{k(k-1)\rho+k}\right) = \frac{k\rho}{(k-1)\rho+1}
 \end{equation*}
 we get that $1-\alpha_S = (1-\rho)/((k-1)\rho+1)$. Taken together, the asymptotic variance is
 \[
@@ -1051,7 +1051,7 @@ of $\hat{\alpha}$ and $\hat{\alpha_S}$ coincides they
 are both efficient.
 \end{proof}
 
-The proof of Proposition \ref{thm:Properties of three} needs a lemma for power means. Let $p$ be real and $x=\{ x_{i}\} _{i=1}^{k}$ be a sequence
+The proof of Proposition \ref{thm:Properties of three} needs a lemma for power means. Let $p$ be real and $x=\{x_{i}\} _{i=1}^{k}$ be a sequence
 of positive reals. The \textit{power mean} with exponent $p$ is
 \[
 M_{p}(x)=\begin{cases}
@@ -1104,12 +1104,12 @@ k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lam
 \]
 This is equivalent to 
 \[
-\frac{\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}{\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}\leq\overline{\sigma^{2}}
+\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}/\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\leq\overline{\sigma^{2}}
 \]
 which is true by Lemma \ref{lem:power mean lemma} using exponent $p = -1/2$.
 To prove $\omega_{\sigma}>\omega_{S}$ we need to show that
 \[
-\overline{\sigma^{-1}}^{-2}\leq\frac{\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}}{\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}}
+\overline{\sigma^{-1}}^{-2}\leq\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}/\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}
 \]
 or equivalently,
 \[
@@ -1159,12 +1159,11 @@ as claimed.
 since $E[E(Z\mid X)\mid\{Y_{i}\}]=-\tsum_{i=1}^{k}v_{i}\hat{X_{i}}$.
 \end{proof}
 
+\clearpage
 \section*{Appendix 2: Proof of Theorem \ref{thm:asymptotics} (ii)}
 \label{appendix 2}
-This proof is more involved than the other proofs of this paper. Here is an outline of the proof. First, modify the asymptotic variance for standardized alpha of \citet[][eq.9]{hayashi2005note} to account for non-normal variables. Second, modify the similar asymptotic variance of \citet{Van_Zyl2000-si} to work for non-normal variables. Third, do some algebra to show the asymptotic variances are equal under the parallel model.
 
-In this appendix we prove the following proposition. Theorem 2 (ii)
-is a corollary. 
+In this appendix we prove a more detailed variant of Theorem \ref{thm:asymptotics} (ii).
 \begin{prop}
 \label{prop:equal limis}Assume the parallel model with finite fourth
 moments, $k\times k$ covariance matrix $\Sigma$, variances $\phi^{2}$,
@@ -1174,12 +1173,13 @@ alpha and coefficient alpha are both equal to
 \sigma^{2}=\sigma_{s}^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}v^{T}\Gamma v,\label{eq:asymptotic variance-1}
 \end{equation}
 where 
-\begin{eqnarray}
-\Gamma & = & E[XX^{T}\otimes XX^{T}]-(\vvec\Sigma)(\vvec\Sigma)^{T}\label{eq:Gamma}
-\end{eqnarray}
+\begin{equation}
+\nonumber
+\Gamma = E[XX^{T}\otimes XX^{T}]-(\vvec\Sigma)(\vvec\Sigma)^{T},
+\end{equation}
  and
 \[
-v=\vvec(\mathbf{i}\mathbf{i}^{T})=[(k-1)\rho+1]\vvec(I_{p})-\vvec(\mathbf{i}\mathbf{i}^{T}).
+v=[(k-1)\rho+1]\vvec(I_{p})-\vvec(\mathbf{i}\mathbf{i}^{T}).
 \]
 \end{prop}
 
@@ -1203,61 +1203,39 @@ are called $K_{k}$ and $K_{k}^{-}$ by \citet{Van_Zyl2000-si}. The
 matrix $D$ satisfies $\vvec A=D\w(A)$ and $\w(A)=\frac{1}{2}D^{T}\vvec(A)$
 when $A$ is symmetric with $0$ on the diagonal \citep{Neudecker1996-fu}.
 The matrix $K$ is the \emph{commutation matrix}, making $K\vvec X=\vvec X^{T}$
-\citep[see][Chapter 3.7]{Magnus2019-cz}, and $K_{d}$ is the diagonal
-of $K$.In general, if $A$ is a square matrix, $A_{d}$ is the matrix
+\citep[see][Chapter 3.8]{Magnus2019-cz}, and $K_{d}$ is the diagonal
+of $K$. In general, if $A$ is a square matrix, $A_{d}$ is the matrix
 with the same diagonal as $A$ and off-diagonal elements set to $0$. 
 \begin{lem}
 \label{lem:variances}Assume the parallel model with variance $\phi^{2}$
 and correlation $\rho$, covariance matrix $\Sigma$, correlation
-matrix $\Phi$.
-\begin{description}
-\item [{Coefficient~alpha}] The asympotic variance of cofficient alpha
-is
+matrix $\Phi$. Then the asymptotic variance for coefficient alpha is as in Proposition \ref{prop:equal limis}. The asymptotic variance for standardized alpha is 
 \begin{equation}
-\sigma^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}f^{T}\Gamma f,\label{eq:asymptotic variance}
-\end{equation}
-where $\Gamma$ is found in eq. (\ref{eq:Gamma}) and
-\[
-f=\vvec(\mathbf{i}\mathbf{i}^{T})=[(k-1)\rho+1]\vvec(I_{p})-\vvec(\mathbf{i}\mathbf{i}^{T}).
-\]
-\item [{Standardized~alpha}] The asymptotic variance of standardized alpha
-is 
-\begin{equation}
-\sigma^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}\mathbf{i}_{*}^{T}D^{T}\Psi_{*}D\mathbf{i}_{*},\label{eq:asymptotic variance-1-1}
+\nonumber
+\sigma^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}\mathbf{i}_{*}^{T}D^{T}\Psi_{*}D\mathbf{i}_{*},
 \end{equation}
 where $\mathbf{i}_{*}$ has $\frac{1}{2}k(k-1)$ elements and
 \[
 \Psi_{*}=[I-(I\otimes\Phi)K_{d}]\Gamma[I-K_{d}(I\otimes\Phi)].
 \]
-\end{description}
 \end{lem}
 
 \begin{proof}
-(Coefficient alpha.) \citet{Van_Zyl2000-si} showed that, in the case
-of multivariate normality, 
-\begin{equation}
-\sigma^{2}=h^{T}L_{k}^{T}2(\Sigma\otimes\Sigma)L_{k}h,\label{eq:zyl formula}
-\end{equation}
+We will take coefficient alpha first. \citet{Van_Zyl2000-si} showed that, in the case
+of multivariate normality, $\sigma^{2}=h^{T}L_{k}^{T}2(\Sigma\otimes\Sigma)L_{k}h$,
 where $h$ is \citep[eq. 19]{Van_Zyl2000-si}
-\begin{eqnarray*}
-h & = & (\mathbf{i}^{T}\Sigma\mathbf{i})^{-2}[(\mathbf{i}^{T}\Sigma\mathbf{i}^{T}\vvec I-\tr\Sigma\vvec(\mathbf{i}\mathbf{i}^{T})]L_{k}^{-}.
-\end{eqnarray*}
-Using Theorem 1 of \citet{Neudecker1990-ph}, formula (\ref{eq:zyl formula})
-is easily generalized to non-normal variables. Using the substitution
-$2(\Phi\otimes\Phi)=\Gamma$, the general formula is
+\begin{equation*}
+h = (\mathbf{i}^{T}\Sigma\mathbf{i})^{-2}[(\mathbf{i}^{T}\Sigma\mathbf{i}^{T}\vvec I-\tr\Sigma\vvec(\mathbf{i}\mathbf{i}^{T})]L_{k}^{-}.
+\end{equation*}
+Using Theorem 1 of \citet{Neudecker1990-ph}, we can generalize the formula for $\sigma^2$ to non-normal variables. Using the substitution
+$2(\Phi\otimes\Phi)=\Gamma$, the general formula is $\sigma^{2}=h^{T}L_{k}^{T}\Gamma L_{k}h.$
 
-\begin{equation}
-\sigma^{2}=h^{T}L_{k}^{T}\Gamma L_{k}h.\label{eq:zyl formula-1}
-\end{equation}
-\end{proof}
 Using the identities
-
 \begin{eqnarray*}
 \mathbf{i}^{T}\Sigma\mathbf{i} & = & \phi^{2}k\{(k-1)\rho+1,\\
 \tr\Sigma & = & \phi^{2}k,
 \end{eqnarray*}
 we obtain
-
 \begin{eqnarray*}
 h & = & \frac{[\phi^{2}k\{(k-1)\rho+1\}]\vvec(I_{p})-\phi^{2}k\vvec(jj^{T})}{[\phi^{2}k\{(k-1)\rho+1]^{2}}L_{k}^{-},\\
  & = & \frac{[\{(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})}{\phi^{2}k[(k-1)\rho+1]^{2}}L_{k}^{-}.
@@ -1267,24 +1245,21 @@ Define
 g=\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})\}L_{k}^{-},
 \]
 so that
-
 \[
-\sigma^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}g^{T}L_{k}^{T}\Gamma L_{k}g
+\sigma^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}g^{T}L_{k}^{T}\Gamma L_{k}g.
 \]
 Moreover, $L_{k}L_{k}^{-}=M_{p}$, which satisifies $M_{p}\vvec S=\vvec S$
 whenever $S$ is symmetric, see \citet[p. 275]{Van_Zyl2000-si}. Thus 
-
 \begin{eqnarray*}
-\sigma^{2} & = & \frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}f^{T}M_{p}^{T}\Gamma M_{p}^{T}f,\\
- & = & \frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}f^{T}\Gamma f.
-\end{eqnarray*}
+\sigma^{2} & = & \frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}v^{T}M_{p}^{T}\Gamma M_{p}^{T}v,\\
+ & = & \frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}v^{T}\Gamma v.
+\end{eqnarray*} where $v$ is defined in Proposition \ref{prop:equal limis}.
 
-(Standardized alpha.) Combining equations (8) and (9) of \citet{hayashi2005note},
+Now it is time for standardized alpha. Combining equations (8) and (9) of \citet{hayashi2005note},
 we find that the asymptotic variance for standardized alpha is
-
-\begin{equation}
+\begin{equation*}
 \sigma_{s}^{2}=\frac{1}{(k-1)^{2}}\left(\frac{1}{1+\rho(k-1)}\right)^{4}\mathbf{i}_{*}^{T}D^{T}\Psi D\mathbf{i}_{*},\label{eq:standardized alpha variance 3}
-\end{equation}
+\end{equation*}
 where 
 \[
 \Psi=[I-(I\otimes\Phi)K_{d}](\Sigma_{d}^{-1/2}\otimes\Sigma_{d}^{-12})\Gamma(\Sigma_{d}^{-1/2}\otimes\Sigma_{d}^{-12})[I-K_{d}(I\otimes\Phi)]
@@ -1297,15 +1272,16 @@ hence
 \[
 \Psi=\phi^{-4}[I-(I\otimes\Phi)K_{d}]\Gamma[I-K_{d}(I\otimes\Phi)].
 \]
+\end{proof}
 
-Theorem ((cite)) (ii) follows from the following lemma.
+Propositon \ref{prop:equal limis} now follows from this lemma.
 \begin{lem}
 The following equalities are true
-\begin{align*}
- & \{I-K_{d}(I\otimes P)\}D\mathbf{i}_{*}\\
-= & \{I-K_{d}(I\otimes P)\}[\vvec(\mathbf{i}\mathbf{i}^{T})-\vvec I]\\
-= & \vvec(\mathbf{i}\mathbf{i}^{T})-[(k-1)\rho+1]\vvec(I_{p}).
-\end{align*}
+\begin{equation*}
+ \{I-K_{d}(I\otimes P)\}D\mathbf{i}_{*}
+= \{I-K_{d}(I\otimes P)\}[\vvec(\mathbf{i}\mathbf{i}^{T})-\vvec I]
+= \vvec(\mathbf{i}\mathbf{i}^{T})-[(k-1)\rho+1]\vvec(I_{p}).
+\end{equation*}
 \end{lem}
 
 \begin{proof}
