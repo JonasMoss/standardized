@@ -94,23 +94,15 @@ Restate the problem and outline the solution first.
 \end_layout
 
 \begin_layout Enumerate
-Introduce the vec, vecs, and 
-\begin_inset Formula $w$
+Fix notation with 
+\begin_inset Formula $K^{-}$
 \end_inset
 
- notation.
-\end_layout
-
-\begin_layout Enumerate
-Introduce the elimination matrix and the 
-\begin_inset Quotes eld
+, 
+\begin_inset Formula $D$
 \end_inset
 
-almost
-\begin_inset Quotes erd
-\end_inset
-
--elimination matrix.
+ etc.
 \end_layout
 
 \begin_layout Enumerate
@@ -131,7 +123,75 @@ Proof
 \end_layout
 
 \begin_layout Standard
-We will make use three kinds of 
+In this appendix we prove the following proposition.
+ Theorem 2 (ii) is a corollary.
+ 
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:equal limis"
+
+\end_inset
+
+Assume the parallel model with finite fourth moments, 
+\begin_inset Formula $k\times k$
+\end_inset
+
+ covariance matrix 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+, variances 
+\begin_inset Formula $\phi^{2}$
+\end_inset
+
+, and correlation 
+\begin_inset Formula $\rho$
+\end_inset
+
+.
+ Then the asympotic variances of standardized alpha and coefficient alpha
+ are both equal to 
+\begin_inset Formula 
+\begin{equation}
+\sigma^{2}=\sigma_{s}^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}v^{T}\Gamma v,\label{eq:asymptotic variance-1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{eqnarray}
+\Gamma & = & E[XX^{T}\otimes XX^{T}]-(\vvec\Sigma)(\vvec\Sigma)^{T}\label{eq:Gamma}
+\end{eqnarray}
+
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+v=\vvec(\mathbf{i}\mathbf{i}^{T})=[(k-1)\rho+1]\vvec(I_{p})-\vvec(\mathbf{i}\mathbf{i}^{T}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To prove Proposition 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "prop:equal limis"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we will make use three kinds of 
 \emph on
 vectorizations
 \emph default
@@ -303,18 +363,7 @@ literal "false"
 \end_inset
 
 .
- Define
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\Gamma=E[XX^{T}\otimes XX^{T}]-(\vvec\Sigma)(\vvec\Sigma)^{T}.\label{eq:Gamma}
-\end{equation}
-
-\end_inset
-
-The matrix 
+ The matrix 
 \begin_inset Formula $K$
 \end_inset
 

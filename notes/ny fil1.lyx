@@ -84,40 +84,6 @@ figs-within-sections
 
 \begin_body
 
-\begin_layout Section
-Todo
-\end_layout
-
-\begin_layout Enumerate
-Restate the problem and outline the solution first.
- 
-\end_layout
-
-\begin_layout Enumerate
-Fix notation with 
-\begin_inset Formula $K^{-}$
-\end_inset
-
-, 
-\begin_inset Formula $D$
-\end_inset
-
- etc.
-\end_layout
-
-\begin_layout Enumerate
-Check proof.
-\end_layout
-
-\begin_layout Enumerate
-Add more references to the concepts.
-\end_layout
-
-\begin_layout Enumerate
-Make this proof a separate appendix.
- 
-\end_layout
-
 \begin_layout Section*
 Proof
 \end_layout
@@ -292,31 +258,27 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Define the 
-\emph on
-duplication matrix
-\emph default
- 
-\begin_inset Formula $D$
+Define the transition matrices 
+\begin_inset Formula $L_{k}$
 \end_inset
 
- as the matrix satisfying 
-\begin_inset Formula $\vvec A=D\vech(A)$
+ by 
+\begin_inset Formula $\vveh A=L_{k}^{T}\vech(A)$
 \end_inset
 
- and the 
-\emph on
-elimination matrix 
-\emph default
-
-\begin_inset Formula $D^{+}$
+ and 
+\begin_inset Formula $L_{k}^{-}$
 \end_inset
 
- as the matrix satisfying 
-\begin_inset Formula $\vech(A)=D^{+}\vvec A$
+ by 
+\begin_inset Formula $\vech(A)=L_{k}^{-^{T}}\vvec A$
 \end_inset
 
- when 
+ when the 
+\begin_inset Formula $k\times k$
+\end_inset
+
+ matrix 
 \begin_inset Formula $A$
 \end_inset
 
@@ -324,26 +286,34 @@ elimination matrix
 \begin_inset Formula $0$
 \end_inset
 
- on the diagonal 
+ on the diagonal.
+ These matrices are called 
+\begin_inset Formula $K_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $K_{k}^{-}$
+\end_inset
+
+ by 
 \begin_inset CommandInset citation
-LatexCommand citep
-after "Chapter 3.8"
-key "Magnus2019-cz"
+LatexCommand citet
+key "Van_Zyl2000-si"
 literal "false"
 
 \end_inset
 
 .
  The matrix 
-\begin_inset Formula $\widetilde{D}$
+\begin_inset Formula $D$
 \end_inset
 
  satisfies 
-\begin_inset Formula $\vvec A=\widetilde{D}\w(A)$
+\begin_inset Formula $\vvec A=D\w(A)$
 \end_inset
 
  and 
-\begin_inset Formula $\w(A)=\frac{1}{2}\widetilde{D}^{T}\vvec(A)$
+\begin_inset Formula $\w(A)=\frac{1}{2}D^{T}\vvec(A)$
 \end_inset
 
  when 
@@ -393,8 +363,7 @@ literal "false"
 \begin_inset Formula $K$
 \end_inset
 
-.
- In general, if 
+.In general, if 
 \begin_inset Formula $A$
 \end_inset
 
@@ -525,7 +494,7 @@ literal "false"
  showed that, in the case of multivariate normality, 
 \begin_inset Formula 
 \begin{equation}
-\sigma^{2}=h^{T}D^{T}2(\Sigma\otimes\Sigma)Kh,\label{eq:zyl formula}
+\sigma^{2}=h^{T}L_{k}^{T}2(\Sigma\otimes\Sigma)L_{k}h,\label{eq:zyl formula}
 \end{equation}
 
 \end_inset
@@ -546,7 +515,7 @@ literal "false"
 
 \begin_inset Formula 
 \begin{eqnarray*}
-h & = & (\mathbf{i}^{T}\Sigma\mathbf{i})^{-2}[(\mathbf{i}^{T}\Sigma\mathbf{i}^{T}\vecc I-\tr\Sigma\vecc(\mathbf{i}\mathbf{i}^{T})]K^{-}.
+h & = & (\mathbf{i}^{T}\Sigma\mathbf{i})^{-2}[(\mathbf{i}^{T}\Sigma\mathbf{i}^{T}\vecc I-\tr\Sigma\vecc(\mathbf{i}\mathbf{i}^{T})]L_{k}^{-}.
 \end{eqnarray*}
 
 \end_inset
@@ -569,17 +538,18 @@ noprefix "false"
 
 \end_inset
 
- is easily generalized to non-normal variables using the substitution 
+ is easily generalized to non-normal variables.
+ Using the substitution 
 \begin_inset Formula $2(\Phi\otimes\Phi)=\Gamma$
 \end_inset
 
-, that is,
+, the general formula is
 \end_layout
 
 \begin_layout Proof
 \begin_inset Formula 
 \begin{equation}
-\sigma^{2}=h^{T}K^{T}\Gamma Kh.\label{eq:zyl formula-1}
+\sigma^{2}=h^{T}L_{k}^{T}\Gamma L_{k}h.\label{eq:zyl formula-1}
 \end{equation}
 
 \end_inset
@@ -606,8 +576,8 @@ we obtain
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-h & = & \frac{[\phi^{2}k\{(k-1)\rho+1\}]\vvec(I_{p})-\phi^{2}k\vvec(jj^{T})}{[\phi^{2}k\{(k-1)\rho+1]^{2}}K^{-},\\
- & = & \frac{[\{(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})}{\phi^{2}k[(k-1)\rho+1]^{2}}K^{-}.
+h & = & \frac{[\phi^{2}k\{(k-1)\rho+1\}]\vvec(I_{p})-\phi^{2}k\vvec(jj^{T})}{[\phi^{2}k\{(k-1)\rho+1]^{2}}L_{k}^{-},\\
+ & = & \frac{[\{(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})}{\phi^{2}k[(k-1)\rho+1]^{2}}L_{k}^{-}.
 \end{eqnarray*}
 
 \end_inset
@@ -615,7 +585,7 @@ h & = & \frac{[\phi^{2}k\{(k-1)\rho+1\}]\vvec(I_{p})-\phi^{2}k\vvec(jj^{T})}{[\p
 Define
 \begin_inset Formula 
 \[
-g=\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})\}K^{-},
+g=\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})\}L_{k}^{-},
 \]
 
 \end_inset
@@ -626,13 +596,13 @@ so that
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\sigma^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}g^{T}K^{T}\Gamma Kg
+\sigma^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}g^{T}L_{k}^{T}\Gamma L_{k}g
 \]
 
 \end_inset
 
 Moreover, 
-\begin_inset Formula $KK^{-}=M_{p}$
+\begin_inset Formula $L_{k}L_{k}^{-}=M_{p}$
 \end_inset
 
 , which satisifies 
