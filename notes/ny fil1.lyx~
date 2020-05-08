@@ -4,8 +4,13 @@
 \begin_header
 \save_transient_properties true
 \origin unavailable
-\textclass article
+\textclass amsart
 \use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -29,6 +34,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -42,8 +48,11 @@
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine basic
-\cite_engine_type default
+\cite_engine biblatex-natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\biblatex_bibstyle authoryear
+\biblatex_citestyle authoryear
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -75,207 +84,346 @@
 
 \begin_body
 
-\begin_layout Standard
-\begin_inset Formula 
-\[
-K=\left(\begin{array}{cccc}
-1 & 0 & 0 & 0\\
-0 & 0 & 1 & 0\\
-0 & 1 & 0 & 0\\
-0 & 0 & 0 & 1
-\end{array}\right)
-\]
+\begin_layout Section
+Todo
+\end_layout
 
+\begin_layout Enumerate
+Restate the problem and outline the solution first.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Introduce the vec, vecs, and 
+\begin_inset Formula $w$
 \end_inset
 
-
+ notation.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Formula 
-\[
-I\otimes P=\left(\begin{array}{cc}
-1 & 0\\
-0 & 1
-\end{array}\right)\otimes\left(\begin{array}{cc}
-1 & \rho\\
-\rho & 1
-\end{array}\right)=\left(\begin{array}{cccc}
-1 & \rho & 0 & 0\\
-\rho & 1 & 0 & 0\\
-0 & 0 & 1 & \rho\\
-0 & 0 & \rho & 1
-\end{array}\right)
-\]
-
+\begin_layout Enumerate
+Introduce the elimination matrix and the 
+\begin_inset Quotes eld
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-K_{d}(I\otimes P)=\left(\begin{array}{cccc}
-1 & \rho & 0 & 0\\
-0 & 0 & 0 & 0\\
-0 & 0 & 0 & 0\\
-0 & 0 & \rho & 1
-\end{array}\right)
-\]
-
+almost
+\begin_inset Quotes erd
 \end_inset
 
+-elimination matrix.
+\end_layout
 
-\begin_inset Formula 
-\[
-(I\otimes P)K_{d}=\left(\begin{array}{cccc}
-1 & \rho & 0 & 0\\
-0 & 0 & 0 & 0\\
-0 & 0 & 0 & 0\\
-0 & 0 & \rho & 1
-\end{array}\right)
-\]
+\begin_layout Enumerate
+Check proof.
+\end_layout
 
+\begin_layout Enumerate
+Add more references to the concepts.
+\end_layout
+
+\begin_layout Enumerate
+Make this proof a separate appendix.
+ 
+\end_layout
+
+\begin_layout Section*
+Proof
+\end_layout
+
+\begin_layout Standard
+We will make use three kinds of 
+\emph on
+vectorizations
+\emph default
+, operations that map matrices into vectors.
+ The first operation is full vectorization, 
+\begin_inset Formula $\vecc A$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-(I\otimes P)\vvec I=\vvec P
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-K_{d}(I\otimes P)\vvec I=K_{d}\vvec P=\vvec I_{p}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-K_{d}(I\otimes P)\vvec(\mathbf{i}\mathbf{i}^{T})=K_{d}\vvec(P\mathbf{i}\mathbf{i}^{T})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-P\mathbf{i}\mathbf{i}^{T}=\left[\begin{array}{cc}
-1+\rho & 1+\rho\\
-1+\rho & 1+\rho
-\end{array}\right]=(1+\rho)\mathbf{i}\mathbf{i}^{T}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-K_{d}\vvec(P\mathbf{i}\mathbf{i}^{T})=(1+\rho)\vvec I
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Then 
-\begin_inset Formula 
-\[
-\{I-K_{d}(I\otimes P)\}[\vvec(\mathbf{i}\mathbf{i}^{T})-\vvec I]=\vvec(\mathbf{i}\mathbf{i}^{T})-\vvec I-\rho\vvec I
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-..
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-.
-\end_layout
-
-\begin_layout Standard
-Definitions:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-w(A)=
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Let 
-\begin_inset Formula $A$
-\end_inset
-
- be 
+, which maps the 
 \begin_inset Formula $m\times n$
 \end_inset
 
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ to the 
+\begin_inset Formula $mn$
+\end_inset
+
+ column vector 
+\begin_inset Formula $(A_{\cdot1},A_{\cdot2},\ldots,A_{\cdot n})$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "Chapter 2.4"
+key "Magnus2019-cz"
+literal "false"
+
+\end_inset
+
 .
- Then
+ The second operation is half-vectoriazation, where 
+\begin_inset Formula $\vech A$
+\end_inset
+
+ maps the symmetric 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ to the 
+\begin_inset Formula $n(n+1)/2$
+\end_inset
+
+ vector obtained by stacking the columns of the lower triangular part of
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "Chapter 3.8"
+key "Magnus2019-cz"
+literal "false"
+
+\end_inset
+
+.
+ The third 
+\begin_inset Formula $\w(A)$
+\end_inset
+
+ operation maps the symmetric 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix with 
+\begin_inset Formula $0$
+\end_inset
+
+ diagonal to the 
+\begin_inset Formula $n(n-1)/2$
+\end_inset
+
+ vector obtained by stacking the columns of the infradiagonal elements of
+ 
+\begin_inset Formula $A$
+\end_inset
+
+; that is, it the variant of half-vectorization that ignores the main diagonal
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Neudecker1996-fu"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Define the 
+\emph on
+duplication matrix
+\emph default
+ 
+\begin_inset Formula $D$
+\end_inset
+
+ as the matrix satisfying 
+\begin_inset Formula $\vvec A=D\vech(A)$
+\end_inset
+
+ and the 
+\emph on
+elimination matrix 
+\emph default
+
+\begin_inset Formula $D^{+}$
+\end_inset
+
+ as the matrix satisfying 
+\begin_inset Formula $\vech(A)=D^{+}\vvec A$
+\end_inset
+
+ when 
+\begin_inset Formula $A$
+\end_inset
+
+ is symmetric with 
+\begin_inset Formula $0$
+\end_inset
+
+ on the diagonal 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "Chapter 3.8"
+key "Magnus2019-cz"
+literal "false"
+
+\end_inset
+
+.
+ The matrix 
+\begin_inset Formula $\widetilde{D}$
+\end_inset
+
+ satisfies 
+\begin_inset Formula $\vvec A=\widetilde{D}\w(A)$
+\end_inset
+
+ and 
+\begin_inset Formula $\w(A)=\frac{1}{2}\widetilde{D}^{T}\vvec(A)$
+\end_inset
+
+ when 
+\begin_inset Formula $A$
+\end_inset
+
+ is symmetric with 
+\begin_inset Formula $0$
+\end_inset
+
+ on the diagonal 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Neudecker1996-fu"
+literal "false"
+
+\end_inset
+
+.
+ Define
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
+\begin{equation}
+\Gamma=E[XX^{T}\otimes XX^{T}]-(\vvec\Sigma)(\vvec\Sigma)^{T}.\label{eq:Gamma}
+\end{equation}
+
+\end_inset
+
+The matrix 
+\begin_inset Formula $K$
+\end_inset
+
+ is the 
+\emph on
+commutation matrix
+\emph default
+, making 
+\begin_inset Formula $K\vvec X=\vvec X^{T}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "Chapter 3.7"
+before "see"
+key "Magnus2019-cz"
+literal "false"
+
+\end_inset
+
+, and 
+\begin_inset Formula $K_{d}$
+\end_inset
+
+ is the diagonal of 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ In general, if 
+\begin_inset Formula $A$
+\end_inset
+
+ is a square matrix, 
+\begin_inset Formula $A_{d}$
+\end_inset
+
+ is the matrix with the same diagonal as 
+\begin_inset Formula $A$
+\end_inset
+
+ and off-diagonal elements set to 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:variances"
+
+\end_inset
+
+Assume the parallel model with variance 
+\begin_inset Formula $\phi^{2}$
+\end_inset
+
+ and correlation 
+\begin_inset Formula $\rho$
+\end_inset
+
+, covariance matrix 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+, correlation matrix 
+\begin_inset Formula $\Phi$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Coefficient
+\begin_inset space ~
+\end_inset
+
+alpha The asympotic variance of cofficient alpha is
+\begin_inset Formula 
+\begin{equation}
+\sigma^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}f^{T}\Gamma f,\label{eq:asymptotic variance}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is found in eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Gamma"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and
+\begin_inset Formula 
 \[
-\vvec A=\sum_{i=1}^{n}(e_{i}\otimes I_{m})Ae_{i}
+f=\vvec(\mathbf{i}\mathbf{i}^{T})=[(k-1)\rho+1]\vvec(I_{p})-\vvec(\mathbf{i}\mathbf{i}^{T}).
 \]
 
 \end_inset
@@ -283,10 +431,31 @@ Let
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Description
+Standardized
+\begin_inset space ~
+\end_inset
+
+alpha The asymptotic variance of standardized alpha is 
+\begin_inset Formula 
+\begin{equation}
+\sigma^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}\mathbf{i}_{\star}^{T}D^{T}\Psi_{\star}D\mathbf{i}_{\star},\label{eq:asymptotic variance-1-1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{i}_{\star}$
+\end_inset
+
+ has 
+\begin_inset Formula $\frac{1}{2}k(k-1)$
+\end_inset
+
+ elements and
 \begin_inset Formula 
 \[
-Dw(A)=\vvec A
+\Psi_{\star}=[I-(I\otimes\Phi)K_{d}]\Gamma[I-K_{d}(I\otimes\Phi)].
 \]
 
 \end_inset
@@ -294,27 +463,155 @@ Dw(A)=\vvec A
 
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Proof
+(Coefficient alpha.) 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Van_Zyl2000-si"
+literal "false"
+
+\end_inset
+
+ showed that, in the case of multivariate normality, 
 \begin_inset Formula 
-\[
-A=\left[\begin{array}{cccc}
-0 & a & b & c\\
-a & 0 & d & e\\
-b & d & 0 & f\\
-c & e & f & 0
-\end{array}\right]
-\]
+\begin{equation}
+\sigma^{2}=h^{T}D^{T}2(\Sigma\otimes\Sigma)Kh,\label{eq:zyl formula}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $h$
+\end_inset
+
+ is 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "eq. 19"
+key "Van_Zyl2000-si"
+literal "false"
 
 \end_inset
 
 
+\begin_inset Formula 
+\begin{eqnarray*}
+h & = & (\mathbf{i}^{T}\Sigma\mathbf{i})^{-2}[(\mathbf{i}^{T}\Sigma\mathbf{i}^{T}\vecc I-\tr\Sigma\vecc(\mathbf{i}\mathbf{i}^{T})]K^{-}.
+\end{eqnarray*}
+
+\end_inset
+
+Using Theorem 1 of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Neudecker1990-ph"
+literal "false"
+
+\end_inset
+
+, formula 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:zyl formula"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is easily generalized to non-normal variables using the substitution 
+\begin_inset Formula $2(\Phi\otimes\Phi)=\Gamma$
+\end_inset
+
+, that is,
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{equation}
+\sigma^{2}=h^{T}K^{T}\Gamma Kh.\label{eq:zyl formula-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the identities
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-w(A)^{T} & = & (a,b,c,d,e,f)\\
-\vvec^{T}A & = & (0,a,b,c,a,0,d,e,b,d,0,f,c,e,f,0)
+\mathbf{i}^{T}\Sigma\mathbf{i} & = & \phi^{2}k\{(k-1)\rho+1,\\
+\tr\Sigma & = & \phi^{2}k,
+\end{eqnarray*}
+
+\end_inset
+
+we obtain
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+h & = & \frac{[\phi^{2}k\{(k-1)\rho+1\}]\vvec(I_{p})-\phi^{2}k\vvec(jj^{T})}{[\phi^{2}k\{(k-1)\rho+1]^{2}}K^{-},\\
+ & = & \frac{[\{(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})}{\phi^{2}k[(k-1)\rho+1]^{2}}K^{-}.
+\end{eqnarray*}
+
+\end_inset
+
+Define
+\begin_inset Formula 
+\[
+g=\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})\}K^{-},
+\]
+
+\end_inset
+
+so that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}g^{T}K^{T}\Gamma Kg
+\]
+
+\end_inset
+
+Moreover, 
+\begin_inset Formula $KK^{-}=M_{p}$
+\end_inset
+
+, which satisifies 
+\begin_inset Formula $M_{p}\vvec S=\vvec S$
+\end_inset
+
+ whenever 
+\begin_inset Formula $S$
+\end_inset
+
+ is symmetric, see 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 275"
+key "Van_Zyl2000-si"
+literal "false"
+
+\end_inset
+
+.
+ Thus 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\sigma^{2} & = & \frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}f^{T}M_{p}^{T}\Gamma M_{p}^{T}f,\\
+ & = & \frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}f^{T}\Gamma f.
 \end{eqnarray*}
 
 \end_inset
@@ -323,19 +620,49 @@ w(A)^{T} & = & (a,b,c,d,e,f)\\
 \end_layout
 
 \begin_layout Standard
+(Standardized alpha.) Combining equations (8) and (9) of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "hayashi2005note"
+literal "false"
+
+\end_inset
+
+, we find that the asymptotic variance for standardized alpha is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sigma_{s}^{2}=\frac{1}{(k-1)^{2}}\left(\frac{1}{1+\rho(k-1)}\right)^{4}\mathbf{i}_{\star}^{T}D^{T}\Psi D\mathbf{i}_{\star},\label{eq:standardized alpha variance 3}
+\end{equation}
+
+\end_inset
+
+where 
 \begin_inset Formula 
 \[
-\left[\begin{array}{cccccc}
-0 & 0 & 0 & 0 & 0 & 0\\
-1 & 0 & 0 & 0 & 0 & 0\\
-0 & 1 & 0 & 0 & 0 & 0\\
-0 & 0 & 1 & 0 & 0 & 0\\
-1 & 0 & 0 & 0 & 0 & 0\\
-0 & 0 & 0 & 0 & 0 & 0\\
-\\
-\\
-\\
-\end{array}\right]
+\Psi=[I-(I\otimes\Phi)K_{d}](\Sigma_{d}^{-1/2}\otimes\Sigma_{d}^{-12})\Gamma(\Sigma_{d}^{-1/2}\otimes\Sigma_{d}^{-12})[I-K_{d}(I\otimes\Phi)]
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $\Sigma_{d}^{-1/2}=\phi^{-1}I$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\Sigma_{d}^{-1/2}\otimes\Sigma_{d}^{-12}=\phi^{-1}I\otimes\phi^{-1}I=\phi^{-2}I\otimes I=\phi^{-2}I.
+\]
+
+\end_inset
+
+hence 
+\begin_inset Formula 
+\[
+\Psi=\phi^{-4}[I-(I\otimes\Phi)K_{d}]\Gamma[I-K_{d}(I\otimes\Phi)].
 \]
 
 \end_inset
@@ -344,54 +671,135 @@ w(A)^{T} & = & (a,b,c,d,e,f)\\
 \end_layout
 
 \begin_layout Standard
+Theorem ((cite)) (ii) follows from the following lemma.
+\end_layout
+
+\begin_layout Lemma
+The following equalities are true
 \begin_inset Formula 
-\[
-A=\left[\begin{array}{ccc}
-0 & a & b\\
-a & 0 & c\\
-b & c & 0
-\end{array}\right]
-\]
+\begin{align*}
+ & \{I-K_{d}(I\otimes P)\}D\mathbf{i}_{\star}\\
+= & \{I-K_{d}(I\otimes P)\}[\vvec(\mathbf{i}\mathbf{i}^{T})-\vvec I]\\
+= & \vvec(\mathbf{i}\mathbf{i}^{T})-[(k-1)\rho+1]\vvec(I_{p}).
+\end{align*}
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Formula 
-\[
-w(A)=(a,b,c)
-\]
+\begin_layout Proof
+First observe that 
+\begin_inset Formula $D\mathbf{i}_{\star}=\vvec(\mathbf{i}\mathbf{i}^{T})-\vvec I$
+\end_inset
+
+ by the definition of 
+\begin_inset Formula $D$
+\end_inset
+
+, proving the first inequality.
+ 
+\end_layout
+
+\begin_layout Proof
+Now we show that 
+\begin_inset Formula $(I-K_{d}(I\otimes P))\vvec I=0$
+\end_inset
+
+.
+ First observe that 
+\begin_inset Formula $(I\otimes P)\vvec I=\vvec\Phi$
+\end_inset
+
+ by Theorem 2.2 of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Magnus2019-cz"
+literal "false"
 
 \end_inset
 
+.
+ The operation 
+\begin_inset Formula $K_{d}\vvec A$
+\end_inset
 
+ selects the 
+\begin_inset Quotes eld
+\end_inset
+
+diagonal
+\begin_inset Quotes erd
+\end_inset
+
+ elements of 
+\begin_inset Formula $\vvec A$
+\end_inset
+
+, i.e., 
+\begin_inset Formula $K_{d}\vvec A=\vvec A_{d}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\Phi_{d}=I$
+\end_inset
+
+, 
+\begin_inset Formula $K_{p}\vvec\Phi=K_{p}\vvec I=\vvec I$
+\end_inset
+
+, and therefore 
+\begin_inset Formula $(I-K_{d}(I\otimes\Phi))\vvec I=0$
+\end_inset
+
+ as claimed.
+\end_layout
+
+\begin_layout Proof
+The next step is 
+\begin_inset Formula $K_{d}(I\otimes P)\vvec(\mathbf{i}\mathbf{i}^{T})=(1+(k-1)\rho)\mathbf{i}\mathbf{i}^{T}$
+\end_inset
+
+.
+ First, by Theorem 2.2 of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Magnus2019-cz"
+literal "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $K_{d}(I\otimes\Phi)\vvec(\mathbf{i}\mathbf{i}^{T})=K_{d}\vvec(\Phi\mathbf{i}\mathbf{i}^{T})$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\Phi\mathbf{i}\mathbf{i}^{T}=[1+(k-1)\rho]\mathbf{i}\mathbf{i}^{T}$
+\end_inset
+
+, 
+\begin_inset Formula $K_{d}\vvec(\Phi\mathbf{i}\mathbf{i}^{T})=[1+(k-1)\rho]K_{d}\vvec(\mathbf{i}\mathbf{i}^{T})$
+\end_inset
+
+, but since 
+\begin_inset Formula $K_{d}\vvec(\mathbf{i}\mathbf{i}^{T})=\vvec I$
+\end_inset
+
+, we get 
+\begin_inset Formula $K_{d}(I\otimes\Phi)\vvec(\mathbf{i}\mathbf{i}^{T})=[1+(k-1)\rho]\vvec I$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-D=\left[\begin{array}{ccc}
-0 & 0 & 0\\
-1 & 0 & 0\\
-0 & 1 & 0\\
-1 & 0 & 0\\
-0 & 0 & 0\\
-0 & 0 & 1\\
-0 & 1 & 0\\
-0 & 0 & 1\\
-0 & 0 & 0
-\end{array}\right]
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-D^{T}v=2\vecc
-\]
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "C:/Users/jonas/OneDrive/Documents/GitHub/standardized/standardized"
+options "plain"
 
 \end_inset
 
