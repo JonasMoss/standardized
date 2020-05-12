@@ -65,7 +65,7 @@ There are three situations where the use of standardized alpha appears to be jus
 \item \textbf{The ordinal alpha.} A common model for Likert scale items is the normal-ogive model. In this model the covariance matrix is not identifiable, only the correlation matrix is. In this case standardized alpha can be used, but with the sample polychoric correlation matrix in place of the sample correlation matrix. This variant of standardized alpha is called the \textit{ordinal alpha} by \citet{Zumbo2007-ap}. I argue that ordinal alpha should not be considered a proper reliability coefficient and propose an alternative.
 \end{enumerate}
 
-The meat of the arguments are in \cref{sec:argument A,sec:argument B,sec:Ordinal alpha}, while the next section provides background information.
+The meat of the arguments are in \Cref{sec:argument A,sec:argument B,sec:Ordinal alpha}, while the next section provides background information.
 
 %The sample coefficient alpha is by far the most popular method to measure reliability in psychology. Despite the stringent conditions that must be satisfied for its population value to be equal to the true reliability $\omega$ and the questionable choice of weights $w$ \citep{McNeish2019-ea}. This has been lamented by psychometricians such as \citet{McNeish2018-vu} and \citet{Sijtsma2009-hj}. 
 
@@ -559,7 +559,7 @@ alpha.
 Theoretical ordinal alpha is apparently not connected to any predictor
 of $Z$ that depends on the data $Y$, only the squared correlation $\Cor^{2}(\hat{Z},Z)$ where $\hat{Z}=\sum_{i=1}^k w_iX_i$. This correlation is barely interesting though, as we do not observe
 the latent $X_{i}$s. The theoretical alpha does not have the concrete
-interpretation of the congeneric alpha mentioned in \cref{sec:coefficienta alpha}. The question
+interpretation of the congeneric alpha mentioned in \Cref{sec:coefficienta alpha}. The question
 ``how good can I expected my prediction of $Z$ based on $X$ to
 be?'' does not make practical sense to ask, as $X$ is unknown and you cannot use it for your prediction. This
 lack of knowledge about $X$ also makes correction for attenuation
@@ -610,8 +610,8 @@ for some weights $w_{i}$, which gives rise to the analogue of the
 weighted reliability \eqref{eq:linear reliabiltiy} in the context of the congeneric ogive model
 (\ref{eq:discretization model}) when $X$ is multivariate normal
 with standard normal marginals. 
-\begin{defn}\label{defn:weighted ordinal reliability}
-Let $w$ be a vector of weights and $\hat{Z}=\sum_{i=1}^{k}w_{i}\hat{X}_{i}$, with $\hat{X}_i$ as in \eqref{eq:Predictor of X}. The \textit{weighted ordinal} reliability is $\omega_{w}'=\Cor^2(\hat{Z},Z)$.
+\begin{defn}\label{defn:concrete ordinal reliability}
+Let $w$ be a vector of weights and $\hat{Z}=\sum_{i=1}^{k}w_{i}\hat{X}_{i}$, with $\hat{X}_i$ as in \eqref{eq:Predictor of X}. The \textit{concrete ordinal reliability} is $\omega_{w}'=\Cor^2(\hat{Z},Z)$.
 \end{defn}
 The following theorem shows how to calculate $\omega_{w}'$ and
 some of its properties.
@@ -624,10 +624,10 @@ that is, $\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}=1$ for all $i$.
 \item Let  $v_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})],\:i=1,\ldots,k$ be the Thurstone weights. Then $\sum_{i=1}^{k}v_{i}\hat{X}_{i}$
 is the optimal predictor of $Z$, i.e., it minimizes the mean squared
 error $\MSE(\hat{Z})$.
-\item The weighted ordinal reliability is
+\item The concrete ordinal reliability is
 \begin{eqnarray}
-\omega_{w}' & = & \frac{(w^{T}\Xi v)^{2}}{w^{T}\Xi w}\label{eq:Omega prime}\\
- & = & 1-\MSE(v_{0}\hat{Z})\nonumber 
+\omega_{w}' & = & \frac{(w^{T}\Xi v)^{2}}{w^{T}\Xi w},\label{eq:Omega prime}\\
+ & = & 1-\MSE(v_{0}\hat{Z},)\nonumber 
 \end{eqnarray}
 where $v_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})],\:i=1,\ldots,k$
 are the Thurstone weights for $X$ and $v_{0}=w^{T}\Xi v$ is the
@@ -638,7 +638,7 @@ are the Thurstone weights.
 \omega_{w}' & = & \frac{\lambda^{2}}{(k\lambda^{2}+\sigma^{2})^{2}}\mathbf{i}^{T}\Xi\mathbf{i},\label{eq:Alpha prime}\\
  & = & \alpha_S\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\mathbf{i}^{T}\Psi\mathbf{i}},\nonumber 
 \end{eqnarray}
-where $\alpha_S$ equals the theoratical ordinal alpha.
+where $\alpha_S$ equals the theoretical ordinal alpha.
 \item For any weight $w$, $\omega'_{w}\to\omega_{w}$ when $\Xi\to\Phi$. 
 \end{enumerate}
 \end{thm}
@@ -662,11 +662,7 @@ Point (iii) demonstrates that $\omega'$ with unit weights can be
 calculated without running a factor analysis, since the average correlation
 $\mathbf{i}^{T}\Xi\mathbf{i}/\mathbf{i}^{T}\Psi\mathbf{i}$ is a simple
 function of the polychoric correlation matrix and the covariance matrix
-of $\hat{X}.$ Moreover, $\alpha_S(\mathbf{i}^{T}\Xi\mathbf{i}/\mathbf{i}^{T}\Psi\mathbf{i})$
-is the natural variant of the standardized alpha in the ordinal setting,
-as it is defined in terms of the matrices $\Xi$ and $\Psi$ only,
-and is designed to equal the ordinal reliability under the parallel
-model. 
+of $\hat{X}.$ 
 
 \citet[p. 1068]{Chalmers2018-fj} discusses one possible use of the
 ordinal alpha, namely as the theoretical reliability when the number
@@ -682,7 +678,7 @@ The resulting estimates are
 \begin{eqnarray*}
 \hat{\lambda} & = & (0.43,0.71,0.80,0.52,0.67),\\
 \hat{\sigma} & = & (0.90,0.70,0.59,0.86,0.74).
-\end{eqnarray*} The ordinal reliability
+\end{eqnarray*} The concrete ordinal reliability
 with optimal weights is $\omega'_{H}=0.68$, and with equal weights
 and $\omega'=0.64$. But the theoretical variants are $\omega'_{H}=0.81$
 and $\omega'=0.77$, both missed by large margin. In comparison, the
@@ -700,8 +696,8 @@ $k+1$ Likert levels. The difference between ordinal alpha and the true ordinal r
 \noindent \begin{centering}
 \includegraphics[scale=0.5]{chunks/ordinals}
 \par\end{centering}
-\caption{\label{fig:Ordinal reliability}Ordinal reliability ($\fullmoon$)
-and ordinal $H$ ($\newmoon$) for a selection of Likert levels. The
+\caption{\label{fig:Ordinal reliability}Concrete ordinal reliability ($\fullmoon$)
+and concrete ordinal \textit{H} ($\newmoon$) for a selection of Likert levels. The
 theoretical coefficient $H$ is $0.81$ (solid line), and the theoretical
 composite reliability is $0.77$ (dashed line). All cutoffs are uniform,
 and every reliability has been calculated with $\lambda=(0.43,0.71,0.80,0.52,0.67)$
@@ -715,7 +711,7 @@ The definition of reliability (\cref{defn:reliability}) entails a strong depende
 
 \citet{McNeish2019-ea} uses similar arguments against sum-scores, and makes a strong case for $\omega_H$, the coefficient \textit{H}. \Cref{sec:argument B} introduced the sigma-reliability $\omega_\sigma$, and similar arguments can be made against that one too: Why bother with $\omega_\sigma$ when $\omega_H$ is superior by definition? The main point of $\omega_\sigma$ is to give $\omega_H$ skeptics an alternative to standardized reliability and congeneric reliability, and \cref{thm:Properties of three} shows that $\omega_\sigma$ is superior to both. 
 
-The concrete ordinal reliability (\cref{defn:weighted ordinal reliability}) takes the dependence between reliabilities and predictors even further. This newly proposed reliability arguably measures what it should measure; how well can we predict a latent variable $Z$ given our observed data? On the other hand, the theoretical ordinal alpha only measures how well we can predict $Z$ given unobserved data. The difference between the concrete ordinal reliability and the theoretical ordinal reliability is larger than $0.1$ in our example with six Likert levels. This difference is significant and should not be ignored.
+The concrete ordinal reliability (\cref{defn:concrete ordinal reliability}) takes the dependence between reliabilities and predictors even further. This newly proposed reliability arguably measures what it should measure; how well can we predict a latent variable $Z$ given our observed data? On the other hand, the theoretical ordinal alpha only measures how well we can predict $Z$ given unobserved data. The difference between the concrete ordinal reliability and the theoretical ordinal reliability is larger than $0.1$ in our example with six Likert levels. This difference is significant and should not be ignored.
 
 \section{Acknowledgements}
 I am grateful to Riccardo De Bin and Kjersti Moss for helping me with the presentation of the paper. I am grateful to Jonas Christoffer Lindstrøm and Steffen Grønneberg for our discussions about reliability coefficients and psychometrics that inspired this paper.
