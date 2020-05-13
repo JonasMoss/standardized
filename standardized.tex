@@ -199,7 +199,7 @@ The next proposition explores the relationship between coefficient alpha, the st
 \item If $k=2$, $\alpha_S\geq\alpha$, with equality if and only if $\lambda_{1}^{2}+\sigma_{1}^{2}=\lambda_{2}^{2}+\sigma_{2}^{2}$ or $\lambda_1 = 0$ or $\lambda_2 = 0$. But if $k>2$, both $\alpha_S>\alpha$
 and $\alpha_S<\alpha$ are possible.
 \item All of $\alpha_S=\omega$, $\alpha_S>\omega$ and $\alpha_S<\omega$
-are possible when $\lambda_{i}\neq\lambda_{j}$ for some $j$.
+are possible when $\lambda_{i}\neq\lambda_{j}$ for some $j$. In particular, $\alpha_S \geq \omega$ when $\lambda_i = \sigma_i$ for all $i$, and $\alpha_S \leq \omega$ when $\lambda_i^2 + \sigma_i^2$ is constant. Both inequalities are equalities if and only if all $\lambda$s are equal.
 \end{enumerate}
 \end{prop}
 \begin{proof}
@@ -511,13 +511,12 @@ Here $-\infty=\tau_{i0}<\tau_{i1}<\ldots<\tau_{i(m_{i})}=\infty$
 are thresholds for each $i$ and $1[A]$ is the indicator function of $A$.
 This is a common model for Likert scales with $m_{i}$ levels for
 the $i$th item. If $X$ is multivariate normal, model (\ref{eq:discretization model})
-is a congeneric \textit{ogive model} \citep{Swaminathan2016-rg}.
+is a congeneric \textit{normal-ogive model} \citep{Swaminathan2016-rg}.
 Under multivariate normality, the correlation matrix $\Phi$ is point-identified
 from the distribution of $Y$, and is called the \textit{polychoric
 correlation matrix}. It can be estimated by maximum likelihood directly
 or by a two-step procedure \citep{Olsson1979-ti}. To make the model
-identified, usual practice is to assume that $\Psi^{1/2}$ is a correlation
-matrix. 
+identified, usual practice is to assume that $\Psi$ is a correlation matrix.
 
 \citet{Zumbo2007-ap} proposed what we will call the \textit{theoretical ordinal
 alpha}
@@ -536,15 +535,10 @@ persuasively argues against this idea, as does \citet{Raykov2019-yr}. The argume
 by \citet{Gadermann2012-jl}, but \citet{Zumbo2019-lm} argue
 that the benefit of sample ordinal alpha is that we are truly interested
 in the reliability of $X$ as a predictor of $Y$.
-
-A related notion is the \textit{theoretical ordinal reliability}, the
-analogue of the weighted reliability \eqref{eq:linear reliabiltiy} based on the polychoric
-correlation coefficient. Its definition is 
-\begin{equation}
-\omega_{w}=\frac{w\lambda_{i}^{*}}{w\lambda_{i}^{*}+\sigma_{i}^{*}}\label{eq:ordinal omega}
-\end{equation}
-were $\lambda_{i}^{*}=\lambda_{i}/\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$
-and $\sigma_{i}^{*}=\sigma_{i}/\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$.
+ 
+Just as the standardized alpha is an estimator of the standardized reliability \cref{eq:Standardized reliability}, the theoretical ordinal alpha is an estimator of the \textit{theoretical ordinal reliability}. Likewise, we can define
+analogues of the weighted reliability \eqref{eq:linear reliabiltiy} and weighed alphas \eqref{eq:weighted alpha} based on the polychoric correlation coefficient.
+Under the assumption that $\Psi$ is a correlation matrix, the ordinal variants of the standardized alpha and coefficient alpha are the same, and likewise for the ordinal standardized reliability and ordinal congeneric reliability. This makes it unnecessary talk about quantities such as the theoretical standardized ordinal alpha, as it equals the theoretical ordinal alpha. 
 
 There are several reasons to avoid the theoretical ordinal alpha. If your
 goal is to estimate the congeneric reliability or the standardized
@@ -553,10 +547,10 @@ it does not equal the congeneric reliability, even under the parallel
 model \citep[p. 1062, "Misconception 2"]{Chalmers2018-fj}, a point
 conceded by \citet{Zumbo2019-lm}. But this is not the worst problem.
 Even if you are interested in estimating the congeneric reliability
-for the multivariate normal ogive model, you should avoid the theoretical
+for the multivariate normal-ogive model, you should avoid the theoretical
 alpha.
 
-Theoretical ordinal alpha is apparently not connected to any predictor
+Theoretical ordinal alpha is not connected to any predictor
 of $Z$ that depends on the data $Y$, only the squared correlation $\Cor^{2}(\hat{Z},Z)$ where $\hat{Z}=\sum_{i=1}^k w_iX_i$. This correlation is barely interesting though, as we do not observe
 the latent $X_{i}$s. The theoretical alpha does not have the concrete
 interpretation of the congeneric alpha mentioned in \Cref{sec:coefficienta alpha}. The question
@@ -580,20 +574,20 @@ weights (corresponding to coefficient \textit{H}) or weights $w_{i}=\sigma_{i}$
 standardized reliability too.
 
 Finally, theoretical ordinal alpha only makes sense in relation to
-the congeneric multivariate ogive model. But this model depends on
+the congeneric multivariate normal-ogive model. But this model depends on
 the fundamentally unverifiable assumption of multivariate normality
-of $X$. But as \citet{Foldnes2019-yd} argues, the polychoric correlation coefficient is not robust against normality in general.
+of $X$. As \citet{Foldnes2019-yd} argues, the polychoric correlation coefficient is not robust against normality in general.
 
 \subsection{A concrete ordinal reliability}
 
-The main argument of \citet{Zumbo2019-lm}'s rebuttal of \citep{Chalmers2018-fj}
-is that the congeneric ogive model \eqref{eq:discretization model} 
+The main argument of \citet{Zumbo2019-lm}'s rebuttal of \citet{Chalmers2018-fj}
+is that the congeneric normal-ogive model \eqref{eq:discretization model} 
 is a better approximation to reality than the congeneric model \eqref{eq:congeneric model}.
 Assume we believe in the discretized model and can be reasonably
 sure that $X$ is multivariate normal. Then theoretical ordinal reliability would still
 not be appropriate as it is theoretical and not concrete. However,
 it is possible to create a class of concrete reliability coefficients for the
-congeneric ogive model.
+congeneric normal-ogive model.
 
 Let $\hat{X}_{i}$ be the mean of a standard normal distribution
 truncated to $(\tau_{i(Y_{i}-1)},\tau_{iY_{i}}]$, or equivalently
@@ -607,14 +601,16 @@ predictor of $X_{i}$ given $Y_{i}$ in the sense of minimizing the
 mean squared error. A natural predictor of $Z$ given $Y$ is a linear
 function of $\hat{X}_{i}$, i.e. $\hat{Z} = \sum_{i=1}^{k}w_{i}\hat{X}_{i}$
 for some weights $w_{i}$, which gives rise to the analogue of the
-weighted reliability \eqref{eq:linear reliabiltiy} in the context of the congeneric ogive model
+weighted reliability \eqref{eq:linear reliabiltiy} in the context of the congeneric normal-ogive model
 (\ref{eq:discretization model}) when $X$ is multivariate normal
 with standard normal marginals. 
 \begin{defn}\label{defn:concrete ordinal reliability}
 Let $w$ be a vector of weights and $\hat{Z}=\sum_{i=1}^{k}w_{i}\hat{X}_{i}$, with $\hat{X}_i$ as in \eqref{eq:Predictor of X}. The \textit{concrete ordinal reliability} is $\omega_{w}'=\Cor^2(\hat{Z},Z)$.
 \end{defn}
+Also define the natural analogues of the reliabilities in \Cref{sec:coefficienta alpha}: The concrete congeneric reliability is the weighted ordinal reliabiltiy with unit weights, while the concrete ordinal \text{H} as the weighted ordinal reliability with optimal weights.  
+
 The following theorem shows how to calculate $\omega_{w}'$ and
-some of its properties.
+some of its properties when we assume that $\Phi$ is a correlation matrix.
 \begin{thm}
 \label{thm:omega-prime}Let $\hat{Z}=\sum_{i=1}^{k}w_{i}\hat{X}_{i}$
 with $\hat{X}$ defined as in \eqref{eq:Predictor of X} and $\Xi=\Cov\hat{X}$.
@@ -627,7 +623,7 @@ error $\MSE(\hat{Z})$.
 \item The concrete ordinal reliability is
 \begin{eqnarray}
 \omega_{w}' & = & \frac{(w^{T}\Xi v)^{2}}{w^{T}\Xi w},\label{eq:Omega prime}\\
- & = & 1-\MSE(v_{0}\hat{Z},)\nonumber 
+ & = & 1-\MSE(v_{0}\hat{Z}),\nonumber 
 \end{eqnarray}
 where $v_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})],\:i=1,\ldots,k$
 are the Thurstone weights for $X$ and $v_{0}=w^{T}\Xi v$ is the
@@ -658,11 +654,11 @@ reliability in Proposition \ref{prop:reliability motivation}, but the covariance
 instead of $\Sigma$. Moreover, $v^{T}\Xi v$ is easy to estimate
 provided we are able to estimate the Thurstone weights $v$. 
 
-Point (iii) demonstrates that $\omega'$ with unit weights can be
+Point (iii) demonstrates that the concrete ordinal congeneric reliability ($\omega'$ with unit weights) can be
 calculated without running a factor analysis, since the average correlation
 $\mathbf{i}^{T}\Xi\mathbf{i}/\mathbf{i}^{T}\Psi\mathbf{i}$ is a simple
 function of the polychoric correlation matrix and the covariance matrix
-of $\hat{X}.$ 
+of $\hat{X}.$ It also provides a correction factor for the theoretical ordinal alpha as an estimator of the concrete ordinal congeneric reliability.
 
 \citet[p. 1068]{Chalmers2018-fj} discusses one possible use of the
 ordinal alpha, namely as the theoretical reliability when the number
@@ -671,7 +667,7 @@ claim concrete.
 
 \begin{example}
 We will yet again have a look at $6$-level agreeableness factor the
-personally data $\mathtt{bfi}$ from $\mathtt{psychTools}$. The calculations in this example were done with the $\mathtt{conogive}$ package \citep{conogive}. This package employs the \texttt{R} package $\mathtt{psych}$ \citep{psych} to fit the congeneric ogive
+personally data $\mathtt{bfi}$ from $\mathtt{psychTools}$. The calculations in this example were done with the $\mathtt{conogive}$ package \citep{conogive}. This package employs the \texttt{R} package $\mathtt{psych}$ \citep{psych} to fit the congeneric normal-ogive
 model \eqref{eq:discretization model} using the two-step procedure
 to estimate the polychoric correlation matrix, and then calls the $\mathtt{fa}$ function to run a factor analysis on the said matrix.
 The resulting estimates are 
@@ -689,7 +685,9 @@ Figure \ref{fig:Ordinal reliability} contains the calculated $\omega'_{H}$ and $
 scales with $\hat{\lambda} = \lambda$ and $\hat{\sigma}=\sigma$ and
 the thresholds $\tau$ at $\{\Phi^{-1}[i/(k+1)]\}_{i=1}^{k+1}$, which
 approximates the reliabilities we would have obtained had we used
-$k+1$ Likert levels. The difference between ordinal alpha and the true ordinal reliability is uniformly at approximately $0.04$. The distance from theoretical ordinal reliability to actual ordinal reliability is larger than $0.04$ when the number of Likert levels is less than $10$, and unacceptably large when the number of Likert levels is less than $6$. 
+$k+1$ Likert levels. The difference between the concrete ordinal congeneric reliability and the concrete ordinal \textit{H} is approximately $0.04$ for all $k$, but it is unclear if this relationship can be expected in other examples.
+
+The distance from theoretical ordinal reliability to the concrete ordinal reliability is larger than $0.04$ when the number of Likert levels is less than $10$, and unacceptably large when the number of Likert levels is less than or equal to $6$, where it equals about $0.1$ for both reliabilities.
 \end{example}
 
 \begin{figure}
@@ -702,7 +700,7 @@ theoretical coefficient $H$ is $0.81$ (solid line), and the theoretical
 composite reliability is $0.77$ (dashed line). All cutoffs are uniform,
 and every reliability has been calculated with $\lambda=(0.43,0.71,0.80,0.52,0.67)$
 and $\sigma=(0.90,0.70,0.59,0.86,0.74)$. The original number of levels
-($6$) and the ordinal reliabilities $(\omega'_{H}=0.71,\omega'=0.67)$
+($6$) and their corresponding concrete ordinal reliabilities $(\omega'_{H}=0.71,\omega'=0.67)$
 are marked for convenience.}
 \end{figure}
 
@@ -878,14 +876,14 @@ By the arithmetic mean--geometric mean inequality, $1/2[(\lambda_{1}^{2}+\sigma_
 with equality only if $\lambda_{1}^{2}+\sigma_{1}^{2}=\lambda_{2}^{2}+\sigma_{2}^{2}$.
 
 Let $k>2$ and assume all $\lambda_{j}=0$
-except $\lambda_{1},\lambda_{2}$. By \eqref{eq:Alpha-alpha_s inequality}, $\alpha_S \geq \alpha$ if and
+except $\lambda_{1},\lambda_{2}$. By \eqref{eq:Alpha-alpha_s inequality}, $\alpha_S > \alpha$ if and
 only if
 \[
 \frac{k}{2\frac{\lambda_{1}\lambda_{2}}{\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}+k}<\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{2\lambda_{1}\lambda_{2}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
 \]
 or
 \begin{equation*}
-\frac{k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}{2\lambda_{1}\lambda_{2}+k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}} \leq \frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{2\lambda_{1}\lambda_{2}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
+\frac{k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}{2\lambda_{1}\lambda_{2}+k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}} < \frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{2\lambda_{1}\lambda_{2}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
 \end{equation*}
 Now $k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}>\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})$
 can be made true by choosing $\sigma_{i}^{2}=0$ for $i>2$ and choosing a large $k$. For the
@@ -992,11 +990,11 @@ with probability 1.
 (iii) \citet[eq. 22]{Van_Zyl2000-si} showed that the asymptotic variance
 is
 \[
-\sigma^{2}(\alpha)=\frac{2k}{(k-1)[1+\rho(k-1)]^{3}}[(k-1)\rho^{3}-(2k-3)\rho^{2}+(k-3)\rho+1]
+\sigma^{2}(\alpha)=\frac{2k}{(k-1)[1+\rho(k-1)]^{3}}[(k-1)\rho^{3}-(2k-3)\rho^{2}+(k-3)\rho+1].
 \]
 This can be simplified to
 \[
-\sigma^{2}(\alpha)=\frac{2k(\rho-1)^{2}}{(k-1)[1+\rho(k-1)]^{2}}
+\sigma^{2}(\alpha)=\frac{2k(\rho-1)^{2}}{(k-1)[1+\rho(k-1)]^{2}}.
 \]
 \citet[equation 10]{hayashi2005note} found the asymptotic variance
 \[
@@ -1005,21 +1003,21 @@ This can be simplified to
 The expression $2\mathbf{1}^{T}Q_{p}(P\otimes P)Q_{P}^{T}\mathbf{1}$
 can be rewritten to \citep[appendix 3]{hayashi2005note}
 \[
-2k(k-1)\{ (k-1)^{2}\rho^{4}-2(k-1)(k-2)\rho^{3}+(k^{2}-6k+6)\text{\ensuremath{\rho^{2}+2(k-2)\rho+1}}\} ,
+2k(k-1)\{ (k-1)^{2}\rho^{4}-2(k-1)(k-2)\rho^{3}+(k^{2}-6k+6)\text{\ensuremath{\rho^{2}+2(k-2)\rho+1}}\},
 \]
 which can be further simplfied to $(\rho-1)^{2}(1+\rho(k-1)^{2})^{2}$.
 Thus
 \[
-\sigma^{2}(\alpha_S)=\frac{2k}{(k-1)}\frac{(\rho-1)^{2}}{(1+\rho(k-1))^{2}}
+\sigma^{2}(\alpha_S)=\frac{2k}{(k-1)}\frac{(\rho-1)^{2}}{(1+\rho(k-1))^{2}},
 \]
 and the limits are equal.
 Since
 \begin{equation*}
-\alpha_S = \frac{k}{k-1}\left(1-\frac{k}{k(k-1)\rho+k}\right) = \frac{k\rho}{(k-1)\rho+1}
+\alpha_S = \frac{k}{k-1}\left(1-\frac{k}{k(k-1)\rho+k}\right) = \frac{k\rho}{(k-1)\rho+1},
 \end{equation*}
 we get that $1-\alpha_S = (1-\rho)/((k-1)\rho+1)$. Taken together, the asymptotic variance is
 \[
-\sigma^{2}(\alpha_S)=2\frac{k}{k-1}(1-\alpha_S)^{2}
+\sigma^{2}(\alpha_S)=2\frac{k}{k-1}(1-\alpha_S)^{2}.
 \]
 Since $\hat{\alpha}$ is the maximum likelihood estimator of $\omega$
 when $n$ is large it is efficient. And since the asymptotic variances
@@ -1027,7 +1025,7 @@ of $\hat{\alpha}$ and $\hat{\alpha_S}$ coincides they
 are both efficient.
 \end{proof}
 
-The proof of Proposition \ref{thm:Properties of three} needs a lemma for power means. Let $p$ be real and $x=\{x_{i}\} _{i=1}^{k}$ be a sequence
+The proof of Proposition \ref{thm:Properties of three} needs a lemma for power means. Let $p$ be real number and $x=\{x_{i}\} _{i=1}^{k}$ be a sequence
 of positive reals. The \textit{power mean} with exponent $p$ is
 \[
 M_{p}(x)=\begin{cases}
