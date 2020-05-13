@@ -24,7 +24,7 @@
 
 \DeclareMathOperator{\argmax}{argmax}
 
-\title{Please avoid the standardized alpha and the ordinal alpha}
+\title{Avoid the standardized alpha and the ordinal alpha}
 
 \author{
   Jonas Moss \orcid{0000-0002-6876-6964} \\
@@ -133,7 +133,7 @@ where $\MSE (w_{0}\hat{Z})=E[(Z-w_{0}\hat{Z})^{2}]$ is the
 mean squared error, $w_{0}=\overline{w\lambda}/(k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}})$ is the constant minimizing the mean squared error.
 \end{prop}
 \begin{proof}
-See the appendix, page \pageref{proof:reliability motivation} for a proof.
+See Appendix 1, page \pageref{proof:reliability motivation} for a proof.
 \end{proof}
 
 Equation \eqref{eq:linear reliabiltiy} is the definition \citet[][p. 112]{Joreskog1971-nn} gave of the composite reliability under the congeneric model \eqref{eq:congeneric model}. 
@@ -178,7 +178,7 @@ and $\alpha_w \leq \omega_w$ with equality if and only if $wX$ is $\tau$-equival
 for all $i,j$.
 \end{prop}
 \begin{proof}
-See the appendix page \pageref{proof:weighted alpha}
+See Appendix 1, page \pageref{proof:weighted alpha}
 for a proof. The inequality $\alpha\leq\omega$ is classical \citep[][Theorem 4.4.3]{Lord1968-ax}. The discrepancy term in \eqref{eq:alpha-omega discrepancy} for the special case of coefficient alpha is extensively discussed by \citet{Raykov1997-bu}. 
 \end{proof}
 
@@ -203,7 +203,7 @@ are possible when $\lambda_{i}\neq\lambda_{j}$ for some $j$.
 \end{enumerate}
 \end{prop}
 \begin{proof}
-Most of (i) -- (iii) have been known for a while. See page \pageref{proof:Reliabilities.} of the appendix for a proof.
+See page \pageref{proof:Reliabilities.} of Appendix 1 for a proof.
 \end{proof}
 
 A congeneric model satisfying $\sigma_{i}=\sigma_{j}$ for all $i,j$ is called a \textit{parallel model} \citep[][section 2.13]{Lord1968-ax}. 
@@ -219,7 +219,7 @@ While $\alpha_S$ is an upper bound for $\alpha$ when $k = 2$ and under the $\tau
 
 %  The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains code to generate parameter value $\lambda,\sigma$ such that $\alpha_S = \omega$.
 
-By Proposition \ref{prop:weighted alpha}, coefficient alpha equals the congeneric reliability if and only if all the factor loadings $\lambda$ are equal. But there is no simple necessary and sufficient criterion for $\alpha_S = \omega$: the parallel model is merely sufficient. Still, these causes are like lucky coincidences, and it would be preposterous to assume $\alpha_S = \omega$ for unknown parameter values without assuming the parallel model.
+By Proposition \ref{prop:weighted alpha}, coefficient alpha equals the congeneric reliability if and only if all the factor loadings $\lambda$ are equal. But there is no simple necessary and sufficient criterion for $\alpha_S = \omega$, as Proposition \ref{prop:weighted alpha} (ii) entails that the parallel model is merely sufficient. Still, these cases are like lucky coincidences, and it would be preposterous to assume $\alpha_S = \omega$ for unknown parameter values without assuming the parallel model.
 
 Let us proceed to the sample variants of coefficient alpha and standardized
 alpha. Let $S$ be a sample covariance matrix based on
@@ -301,7 +301,7 @@ when $\mathbf{i}^{T}S\mathbf{i}\geq\tr{S}$ and $0$ otherwise. That is,
 \end{enumerate}
 \end{thm}
 \begin{proof}
-See page \pageref{proof:ML} of the appendix for a proof. \citet[][section B]{Kristof1963-tb} worked out the maximum likelihood estimator of the unique correlation $\rho$. 
+See page \pageref{proof:ML} of Appendix 1 for a proof. \citet[][section B]{Kristof1963-tb} worked out the maximum likelihood estimator of the unique correlation $\rho$. 
 \end{proof}
 
 \subsection{Asymptotic efficiency}
@@ -799,27 +799,28 @@ iff all $w_i\lambda_i$ are equal and is otherwise an underestimate.
 This lemma comes in handy in the proof of Proposition \ref{prop:Reliabilities.} as it allows us to use Jensen's inequality.
 
 \begin{lem}
+\label{lem:alpha_s}
 Assume the congeneric model of \eqref{eq:congeneric model} and let $\alpha$ be as in \eqref{eq:Coefficient alpha} and $\alpha_S$ be as in \eqref{eq:standardized alpha}. Then $\alpha_S\geq\alpha$
 if and only if
 \begin{equation}
 \label{eq:Alpha-alpha_s inequality}
 \tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_j^{2}+\lambda_{j}^{2}}} 
 \geq
-\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\tsum_{i=1}^{k}(\lambda_{i}^{2}+\sigma_{i}^{2})/k}
+\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\tsum_{i=1}^{k}(\lambda_{i}^{2}+\sigma_{i}^{2})/k}.
 \end{equation}
 \end{lem}
 
 \begin{proof}
 From definition \eqref{eq:standardized alpha}
-\begin{eqnarray*}
-\alpha_S & = & \frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\\
- & = & \frac{k}{k-1}\left(1-\frac{k}{\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)
-\end{eqnarray*}
+\begin{equation*}
+\alpha_S = \frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\\
+ = \frac{k}{k-1}\left(1-\frac{k}{\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)
+\end{equation*}
 and definition \eqref{eq:Coefficient alpha}
-\begin{eqnarray*}
-\alpha & = & \frac{k}{k-1}\left(1-\frac{\tr\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
- & = & \frac{k}{k-1}\left(1-\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}\right)
-\end{eqnarray*}
+\begin{equation*}
+\alpha = \frac{k}{k-1}\left(1-\frac{\tr\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
+ = \frac{k}{k-1}\left(1-\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}\right)
+\end{equation*}
 Thus $\alpha_S\geq\alpha$ if and only if
 \[
 \frac{k}{\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\leq\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
@@ -831,27 +832,39 @@ which happens if and only if
 \end{proof}
 
 \begin{proof}[Proof of Proposition \ref{prop:Reliabilities.}]\label{proof:Reliabilities.}
-(i) From \eqref{eq:Alpha-alpha_s inequality} and $\lambda_{i}=\lambda$
+(i) From \cref{eq:Alpha-alpha_s inequality} and $\lambda_{i}=\lambda$
 for all $i$, we need to show
 \[
-\lambda^{2}\tsum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}\geq\lambda^{2}\tsum_{i\neq j}\frac{1}{\tsum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})/k}
+\tsum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}\geq\tsum_{i\neq j}\frac{1}{\tsum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})/k} =
+\frac{k^2(k-1)}{\tsum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})}
 \]
-Recall Jensen's inequality: When $f$ is convex, $E[f(X)]\geq f[E(X)]$ with equality if and only if $f$ is linear.
-The function $f(x,y)=(x+\lambda^{2})^{-1/2}(y+\lambda^{2})^{-1/2}$
-is convex for any $\lambda$. Let $E(X,Y)=[k(k-1)]^{-1}(\tsum_{i\neq j}x_{i},\tsum_{i\neq j}y_{i})$
-and observe that
-\begin{eqnarray*}
-f(E(\sigma^{2},\sigma^{2})) & = & f([k(k-1)]^{-1}\tsum_{i\neq j}\sigma_{i}^{2},[k(k-1)]^{-1}\tsum_{i\neq j}\sigma_{i}^{2})\\
- & = & [[k(k-1)]^{-1}\tsum_{i\neq j}\sigma_{i}^{2}+\lambda^{2}]^{-1/2}[[k(k-1)]^{-1}\tsum_{i\neq j}\sigma_{i}^{2}+\lambda^{2}]^{-1/2}\\
- & = & (\tsum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})/k)^{-1}
-\end{eqnarray*}
-and by Jensen's inequality
+Recall Jensen's inequality \citep[Theorem 12 of Chapter 1]{Bullen2013-os}: When $f$ is convex, $E[f(X)]\geq f[E(X)]$ with equality if and only if $f$ is linear or $X$ is constant with probability $1$. 
+Define the random variable $X$ with outcomes $(\sigma_{1}^{2},\ldots,\sigma_{k}^{2})$
+and $P(X=\sigma_{i}^{2})=1/k$ for each $i$, and let $X'$ be identically
+distributed to $X$ but independent of $X$. Define the function $f(x,y)=(x+\lambda^{2})^{-1/2}(y+\lambda^{2})^{-1/2}$.
+Then $f$ is convex for any $\lambda$. Applying the expectation operator
+first yields,
+\begin{equation}
+f(E(X,X'))=\frac{1}{\lambda^{2}+\frac{1}{k}\sum_{i=1}^{k}\sigma_{i}^{2}}=\frac{k}{\sum_{i=1}^{k}(\sigma_{i}^{2}+\lambda^{2})},\label{eq:f(E(X)E(X'))}
+\end{equation}
+while applying $f$ first yields
+\begin{equation}
+E(f(X,X')) = \frac{1}{k^{2}}\sum_{i\neq j}\frac{1}{(\sigma_{i}^{2}+\lambda^{2})^{1/2}(\sigma_{j}^{2}+\lambda^{2})^{1/2}}+\frac{1}{k^{2}}\sum_{i=1}^{k}\frac{1}{\sigma_{i}^{2}+\lambda^{2}}.\label{eq:E(f(XX'))}
+\end{equation}
+Using Jensen's inequality on \cref{eq:f(E(X)E(X'))} and \cref{eq:E(f(XX'))}
+gives us
+\begin{equation*}
+\frac{1}{k}\sum_{i\neq j}\frac{1}{(\sigma_{i}+\lambda^{2})^{1/2}(\sigma_{j}+\lambda^{2})^{1/2}} \geq k\frac{k}{\sum_{i=1}^{k}(\sigma_{i}^{2}+\lambda^{2})}-\frac{1}{k}\sum_{i=1}^{k}\frac{1}{\sigma_{i}^{2}+\lambda^{2}}.
+\end{equation*}
+By the harmonic mean--arithmetic mean inequality, 
 \[
-\tsum_{i\neq j}\frac{1}{\sqrt{\sigma_{i}^{2}+\lambda^{2}}\sqrt{\sigma_{j}^{2}+\lambda^{2}}}\geq\tsum_{i\neq j}\frac{1}{\tsum_{i=1}^{k}(\lambda^{2}+\sigma_{i}^{2})/k}
+\frac{1}{k}\sum_{i=1}^{k}\frac{1}{\sigma_{i}^{2}+\lambda^{2}}\geq\frac{k}{\sum_{i=1}^{k}(\sigma_{i}^{2}+\lambda^{2})},
 \]
-with equality if and only if $\sigma_{i}^{2}=\sigma_{j}^{2}$ for
-all $i,j$. Since \eqref{eq:Alpha-alpha_s inequality} is true when
-$\lambda=0$ too we are done.
+with equality if and only if all $\sigma_{i}$s are equal. Hence
+\[
+\sum_{i\neq j}\frac{1}{(\sigma_{i}+\lambda^{2})^{1/2}(\sigma_{j}+\lambda^{2})^{1/2}}\geq\frac{k^{2}(k-1)}{\sum_{i=1}^{k}(\sigma_{i}^{2}+\lambda^{2})},
+\]
+with equality if and only if all $\sigma_{i}$s are equal.
 
 (ii) Let $k=2$. Then \eqref{eq:Alpha-alpha_s inequality} simplifies to
 \[
@@ -861,10 +874,10 @@ and further to
 \begin{equation*}
 \frac{\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}}{\lambda_{1}\lambda_{2}+\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}} \geq \frac{[(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})]/2}{\lambda_{1}\lambda_{2}+[(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})]/2}
 \end{equation*}
-By the inequality of arithmetic and geometric means, $1/2[(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})]\geq\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}$
+By the arithmetic mean--geometric mean inequality, $1/2[(\lambda_{1}^{2}+\sigma_{1}^{2})+(\lambda_{2}^{2}+\sigma_{2}^{2})]\geq\sqrt{(\sigma_{1}^{2}+\lambda_{1}^{2})(\sigma_{2}^{2}+\lambda_{2}^{2})}$
 with equality only if $\lambda_{1}^{2}+\sigma_{1}^{2}=\lambda_{2}^{2}+\sigma_{2}^{2}$.
 
-(iii) Let $k>2$ and assume all $\lambda_{j}=0$
+Let $k>2$ and assume all $\lambda_{j}=0$
 except $\lambda_{1},\lambda_{2}$. By \eqref{eq:Alpha-alpha_s inequality}, $\alpha_S \geq \alpha$ if and
 only if
 \[
@@ -875,25 +888,52 @@ or
 \frac{k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}{2\lambda_{1}\lambda_{2}+k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}} \leq \frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{2\lambda_{1}\lambda_{2}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
 \end{equation*}
 Now $k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}>\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})$
-can be made true by choosing $\sigma_{i}^{2}=0$ for $i>2$. For the
+can be made true by choosing $\sigma_{i}^{2}=0$ for $i>2$ and choosing a large $k$. For the
 other way around, just choose $\sigma_{i}^{2}$ large enough.
 
-(iv) First assume $\lambda_{i}=\sigma_{i}$ for each $i$. Then $\alpha_S=k/(k+1)$
-and $\omega=(\tsum\lambda_{i})^{2}/(\tsum\lambda_{i})^{2}+\tsum\lambda_{i}^{2})$.
-But but then $\alpha_S\geq\omega$ with equality if and only if
-all $\lambda$s are equal, for $k\tsum_{i=1}^{k}\lambda_{i}^{2}\geq\tsum_{i=1}^{k}\lambda_{i}$
-by Chebyshev's inequality. Now assume $\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}=a$
-for each $i$. Then $\tsum(\sigma_{i}^{2}+\lambda_{i}^{2})=ak$
-and
+(iii) 
+Using the same reasoning as in \cref{lem:alpha_s}, $\alpha_{S}\geq\omega$ if
+and only if 
+\begin{equation}
+\frac{k}{k-1}(1-\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}(\sigma_{i}^{2}+\lambda_{j}^{2})^{1/2}}+k})\leq\frac{(\sum_{i=1}^{k}\lambda_{i})^{2}}{(\sum_{i=1}^{k}\lambda_{i})^{2}+\sum_{i=1}^{k}\sigma_{i}^{2}}.\label{eq:alpha-and-omega}
+\end{equation}
+Now we show that $\alpha_{S}>\omega$ is possible. First assume that
+$\lambda_{i}=\sigma_{i}$ for each $i$. Then 
 \[
-\frac{k}{k-1}\frac{\tsum_{i\neq j}\lambda_{i}\lambda_{j}}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+ak}\leq\frac{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum\lambda_{i}^{2}}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+ak}
+\frac{\lambda_{i}\lambda_{j}}{(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}(\sigma_{i}^{2}+\lambda_{j}^{2})^{1/2}}=\frac{\lambda_{i}\lambda_{j}}{2\lambda_{i}\lambda_{j}}=\frac{1}{2},
 \]
-which is equivalent to
-\begin{equation*}
-(\tsum_{i=1}^{k}\lambda_{i})^{2} \leq k\tsum_{i=1}^{k}\lambda_{i}^{2}
-\end{equation*}
-which is true by Chebyshev's inequality, once again with equality
-if and only if all $\lambda$s are equal. Let $A=\{ (\lambda,\omega)\mid\lambda_{i}\neq\lambda_{j}\text{\textrm{ for some }}j\} $.
+and the left hand side of \cref{eq:alpha-and-omega} equals
+\[
+\frac{k}{k-1}\left(1-\frac{2}{(k+1)}\right)=\frac{k}{k+1}=\frac{1}{1+1/k}.
+\]
+On the other hand, the right hand side becomes
+\[
+\frac{(\sum_{i=1}^{k}\lambda_{i})^{2}}{(\sum_{i=1}^{k}\lambda_{i})^{2}+\sum_{i=1}^{k}\lambda_{i}^{2}}=\left(1+\frac{\sum_{i=1}^{k}\lambda_{i}^{2}}{(\sum_{i=1}^{k}\lambda_{i})^{2}}\right)^{-1}.
+\]
+By Chebyshev's inequality, $k\sum_{i=1}^{k}\lambda_{i}^{2}\geq(\sum_{i=1}^{k}\lambda_{i})^{2}$,
+hence $(\sum_{i=1}^{k}\lambda_{i}^{2})/(\sum_{i=1}^{k}\lambda_{i})^{2}\geq1/k$
+with equality if and only if all $\lambda_{i}$s are equal. It follows
+that $\alpha_{S}\geq\omega$, with strict inequality when the $\lambda_{i}$s
+are unequal.
+
+Now we show that $\alpha_{S}\leq\omega$ is possible. Assume there
+is an $a$ such that $\sigma_{i}^{2}+\lambda_{i}^{2}=a$ for all $i$,
+that is, $\sigma_{i}^{2}+\lambda_{i}^{2}$ is constant. In this case,
+\cref{eq:alpha-and-omega} becomes
+\[
+\frac{k}{k-1}(1-\frac{ak}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak})\leq\frac{(\sum_{i=1}^{k}\lambda_{i})^{2}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ka},
+\]
+which can be further reduced to
+\[
+\frac{k}{k-1}\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak}\leq\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\lambda_{i}^{2}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ka}.
+\]
+This inequality is true if $(\sum_{i=1}^{k}\lambda_{i})^{2}\leq k\sum_{i=1}^{k}\lambda_{i}^{2}$,
+which always holds by Chebyshev's inequality, with equality only if
+all $\lambda$s are equal.
+
+That $\alpha_{S}=\omega$ is possible when some $\lambda$s fail to
+be equal follows from the intermediate value theorem. 
+Let $A=\{ (\lambda,\omega)\mid\lambda_{i}\neq\lambda_{j}\text{\textrm{ for some }}j\} $.
 Then $A$ is connected, and by the intermediate value theorem there
 is a $(\lambda,\omega)$ where $[\alpha_S-\omega](\lambda,\sigma)=0$,
 for there are elements in $A$ where $\alpha_S-\omega$ takes on
