@@ -19,10 +19,14 @@ tab = prettify(reliabilities)
 caption = "Comparison of reliability coefficients on personality data"
 tab = xtable::xtable(tab, caption = caption)
 
-rownames(tab) = c("Congeneric reliability ($\\omega$)",
-                  "Coefficient \\it{H} ($\\omega_H$)",
-                  "Standardized reliability ($\\omega_S$)",
-                  "Sigma reliability ($\\omega_\\sigma$)")
+rownames(tab) = c("Congeneric reliability ($R$)",
+                  "Coefficient \\it{H} ($R_H$)",
+                  "Standardized reliability ($R_S$)",
+                  "Sigma reliability ($R_\\sigma$)")
+
+addtorow = list()
+addtorow$pos <- as.list(c(-1, 0, 4))
+addtorow$command <- c("\\toprule\n", "\\cmidrule{1-6}\n", "\\bottomrule\n")
 
 colnames(tab) = c("A", "C", "E", "N", "O")
 xtable::align(tab) = c("l", rep("c", 5))
@@ -31,7 +35,8 @@ tab_str = print(tab, sanitize.rownames.function = identity,
       sanitize.colnames.function = identity,
       hline.after = NULL,
       caption.placement = "top",
-      print.results = FALSE)
+      print.results = FALSE,
+      add.to.row = addtorow)
 
 description = "  \\vskip7.0pt
 A, agreeableness; C, conscientiousness; E, extraversion; N, neuroticism; O, openness to experience \n"
