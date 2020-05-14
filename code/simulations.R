@@ -53,10 +53,10 @@ tab_str = print(tab,
       print.results = FALSE)
 
 cat(tab_str, file = "chunks/simulations_table.tex")
-cat(paste0("\\renewcommand{\\geomean}{$",
-           round((prod(simulations))^(1/length(simulations)),2),
-           "$}"),
-    file = "chunks/simulations_table.tex",
-    append = TRUE,
-    sep = "\n"
-    )
+# cat(paste0("\\renewcommand{\\geomean}{$",
+#            round((prod(simulations))^(1/length(simulations)),2),
+#            "$}"),
+#     file = "chunks/simulations_table.tex",
+#     append = TRUE,
+#     sep = "\n"
+#     )
