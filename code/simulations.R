@@ -29,10 +29,13 @@ rownames(tab) = c("$k = 5, n = 50$",
                   "$k = 20, n = 200$")
 
 addtorow <- list()
-addtorow$pos <- list(0, 0)
+addtorow$pos <- list(0, 0, 0, 0, 4)
 addtorow$command <- c(
+  " \\toprule\n",
   " & $t(5)$ & $t(5)$ & $t(5)$ & Beta & Beta & Beta & Gamma & Gamma & Gamma \\\\\n",
-  " & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ \\\\\n"
+  " & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ \\\\\n",
+  " \\cmidrule(lr){2-4}\\cmidrule(lr){5-7}\\cmidrule(lr){8-10} \n",
+  " \\bottomrule\n"
 )
 
 tab = xtable::xtable(tab, caption = caption)
