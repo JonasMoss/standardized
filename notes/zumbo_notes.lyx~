@@ -334,23 +334,6 @@ Spearman
 
 \end_inset
 
-Here 
-\begin_inset Formula 
-\begin{eqnarray*}
-\Cov(X_{i}^{1},X_{j}^{2}) & = & \Cov(\lambda_{i}^{1}Z^{1}+\sigma_{i}^{1}\epsilon_{i}^{1},\lambda_{j}^{2}Z^{2}+\sigma_{j}^{2}\epsilon_{j}^{2})\\
- & = & \lambda_{i}^{1}\lambda_{j}^{2}\Cor(Z^{1},Z^{2})
-\end{eqnarray*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\Cov(\hat{Z}_{1},\hat{Z}_{2})=\Cor(Z^{1},Z^{2})\left(\sum_{i=1}^{k_{2}}w_{i}^{1}\lambda_{i}^{1}\right)\left(\sum_{i=1}^{k_{2}}\lambda_{i}^{2}w_{i}^{2}\right)
-\]
-
-\end_inset
-
 
 \end_layout
 

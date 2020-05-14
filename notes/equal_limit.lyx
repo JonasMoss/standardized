@@ -543,7 +543,7 @@ Combining these results yield
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
- & \{I-K_{d}(I\otimes P)\}[\vvec(\mathbf{i}\mathbf{i}^{T})-\vvec I],\\
+ & \mathbf{i}_{\star}^{T}D^{T}\{I-K_{d}(I\otimes P)\}[\vvec(\mathbf{i}\mathbf{i}^{T})-\vvec I],\\
 = & \vvec(\mathbf{i}\mathbf{i}^{T})-\vvec I-(1+\rho)\vvec I+\vvec I,\\
 = & -\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(\mathbf{i}\mathbf{i}^{T})\}.
 \end{align*}

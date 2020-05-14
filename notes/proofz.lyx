@@ -1,0 +1,386 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Define the random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ with outcomes 
+\begin_inset Formula $(\sigma_{1}^{2},\ldots,\sigma_{k}^{2})$
+\end_inset
+
+ and 
+\begin_inset Formula $P(X=\sigma_{i}^{2})=1/k$
+\end_inset
+
+ for each 
+\begin_inset Formula $i$
+\end_inset
+
+, and let 
+\begin_inset Formula $X'$
+\end_inset
+
+ be identically distributed to 
+\begin_inset Formula $X$
+\end_inset
+
+ but independent of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Define the function 
+\begin_inset Formula $f(x,y)=(x+\lambda^{2})^{-1/2}(y+\lambda^{2})^{-1/2}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $f$
+\end_inset
+
+ is convex for any 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ Applying the expectation operator first yields,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f(E(X,X'))=\frac{1}{\lambda^{2}+\frac{1}{k}\sum_{i=1}^{k}\sigma_{i}^{2}}=\frac{k}{\sum_{i=1}^{k}(\sigma_{i}^{2}+\lambda^{2})},\label{eq:f(E(X),E(X'))}
+\end{equation}
+
+\end_inset
+
+while applying 
+\begin_inset Formula $f$
+\end_inset
+
+ first yields
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+E(f(X,X')) & = & \frac{1}{k^{2}}\sum_{i\neq j}\frac{1}{(\sigma_{i}^{2}+\lambda^{2})^{1/2}(\sigma_{j}^{2}+\lambda^{2})^{1/2}}+\frac{1}{k^{2}}\sum_{i=1}^{k}\frac{1}{\sigma_{i}^{2}+\lambda^{2}}.\label{eq:E(f(X,X'))}
+\end{eqnarray}
+
+\end_inset
+
+Using Jensen's inequality on 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:f(E(X),E(X'))"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:E(f(X,X'))"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ gives us
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{1}{k}\sum_{i\neq j}\frac{1}{(\sigma_{i}+\lambda^{2})^{1/2}(\sigma_{j}+\lambda^{2})^{1/2}} & \geq & k\frac{k}{\sum_{i=1}^{k}(\sigma_{i}^{2}+\lambda^{2})}-\frac{1}{k}\sum_{i=1}^{k}\frac{1}{\sigma_{i}^{2}+\lambda^{2}}.
+\end{eqnarray*}
+
+\end_inset
+
+By the arithmetic-harmonic mean inequality ((cite)), 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{k}\sum_{i=1}^{k}\frac{1}{\sigma_{i}^{2}+\lambda^{2}}\geq\frac{k}{\sum_{i=1}^{k}(\sigma_{i}^{2}+\lambda^{2})},
+\]
+
+\end_inset
+
+with equality if and only if all 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+s are equal.
+ Hence
+\begin_inset Formula 
+\[
+\sum_{i\neq j}\frac{1}{(\sigma_{i}+\lambda^{2})^{1/2}(\sigma_{j}+\lambda^{2})^{1/2}}\geq\frac{k^{2}(k-1)}{\sum_{i=1}^{k}(\sigma_{i}^{2}+\lambda^{2})},
+\]
+
+\end_inset
+
+with equality if and only if all 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+s are equal.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+Using the same reasoning as in Lemma 2, 
+\begin_inset Formula $\alpha_{S}\geq\omega$
+\end_inset
+
+ if and only if 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{k}{k-1}(1-\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}(\sigma_{i}^{2}+\lambda_{j}^{2})^{1/2}}+k})\leq\frac{(\sum_{i=1}^{k}\lambda_{i})^{2}}{(\sum_{i=1}^{k}\lambda_{i})^{2}+\sum_{i=1}^{k}\sigma_{i}^{2}}.\label{eq:alpha-and-omega}
+\end{equation}
+
+\end_inset
+
+Now we show that 
+\begin_inset Formula $\alpha_{S}>\omega$
+\end_inset
+
+ is possible.
+ First assume that 
+\begin_inset Formula $\lambda_{i}=\sigma_{i}$
+\end_inset
+
+ for each 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\[
+\frac{\lambda_{i}\lambda_{j}}{(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}(\sigma_{i}^{2}+\lambda_{j}^{2})^{1/2}}=\frac{\lambda_{i}\lambda_{j}}{2\lambda_{i}\lambda_{j}}=\frac{1}{2},
+\]
+
+\end_inset
+
+and the left hand side of (ref) equals
+\begin_inset Formula 
+\[
+\frac{k}{k-1}\left(1-\frac{2}{(k+1)}\right)=\frac{k}{k+1}=\frac{1}{1+1/k}.
+\]
+
+\end_inset
+
+On the other hand, the right hand side becomes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{(\sum_{i=1}^{k}\lambda_{i})^{2}}{(\sum_{i=1}^{k}\lambda_{i})^{2}+\sum_{i=1}^{k}\lambda_{i}^{2}}=\frac{1}{1+\frac{\sum_{i=1}^{k}\lambda_{i}^{2}}{(\sum_{i=1}^{k}\lambda_{i})^{2}}}.
+\]
+
+\end_inset
+
+By Chebyshev's inequality, 
+\begin_inset Formula $k\sum_{i=1}^{k}\lambda_{i}^{2}\geq(\sum_{i=1}^{k}\lambda_{i})^{2}$
+\end_inset
+
+, hence 
+\begin_inset Formula $(\sum_{i=1}^{k}\lambda_{i}^{2})/(\sum_{i=1}^{k}\lambda_{i})^{2}\geq1/k$
+\end_inset
+
+ with equality if and only if all 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+s are equal.
+ It follows that 
+\begin_inset Formula $\alpha_{S}\geq\omega$
+\end_inset
+
+, with strict inequality when the 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+s are unequal.
+\end_layout
+
+\begin_layout Standard
+Now we show that 
+\begin_inset Formula $\alpha_{S}\leq\omega$
+\end_inset
+
+ is possible.
+ Assume there is an 
+\begin_inset Formula $a$
+\end_inset
+
+ such that
+\begin_inset Formula $\sigma_{i}^{2}+\lambda_{i}^{2}=a$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+, that is, 
+\begin_inset Formula $\sigma_{i}^{2}+\lambda_{i}^{2}$
+\end_inset
+
+ is constant.
+ In this case, 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:alpha-and-omega"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ becomes
+\begin_inset Formula 
+\[
+\frac{k}{k-1}(1-\frac{ak}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak})\leq\frac{(\sum_{i=1}^{k}\lambda_{i})^{2}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ka},
+\]
+
+\end_inset
+
+which can be further reduced to
+\begin_inset Formula 
+\[
+\frac{k}{k-1}\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak}\leq\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\lambda_{i}^{2}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ka}.
+\]
+
+\end_inset
+
+This inequality is true if 
+\begin_inset Formula $(\sum_{i=1}^{k}\lambda_{i})^{2}\leq k\sum_{i=1}^{k}\lambda_{i}^{2}$
+\end_inset
+
+, which always holds by Chebyshev's inequality, with equality only if all
+ 
+\begin_inset Formula $\lambda$
+\end_inset
+
+s are equal.
+\end_layout
+
+\begin_layout Standard
+That 
+\begin_inset Formula $\alpha_{S}=\omega$
+\end_inset
+
+ is possible when some 
+\begin_inset Formula $\lambda$
+\end_inset
+
+s fail to be equal follows from the intermediate value theorem.
+ 
+\end_layout
+
+\end_body
+\end_document

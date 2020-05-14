@@ -325,43 +325,18 @@ By definition,
 
 \end_layout
 
-\begin_layout Section*
-Proof
-\end_layout
-
-\begin_layout Enumerate
-Fire up Maple or something and verify matrix expressions.
-\end_layout
-
-\begin_layout Enumerate
-Find non-normal expression for 
-\begin_inset Formula $\Gamma$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Paste results and make the notation uniform.
-\end_layout
-
-\begin_layout Section
-Coefficient alpha
-\end_layout
-
 \begin_layout Standard
-It's general form is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Gamma=E[XX^{T}\otimes XX^{T}]-(\ve\Sigma)(\ve\Sigma)^{T}
-\]
+The expression from Zyl works only for normal variables.
+ As can be verified using e.g.
+ Theorem 1 of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Neudecker1990-ph"
+literal "false"
 
 \end_inset
 
-And the formula is
+, the asymptotic variance of coefficient alpha equals
 \end_layout
 
 \begin_layout Standard
@@ -372,7 +347,7 @@ And the formula is
 
 \end_inset
 
-here 
+where 
 \begin_inset Formula $h$
 \end_inset
 
@@ -423,16 +398,12 @@ h & = & \frac{[\phi^{2}k\{(k-1)\rho+1\}]\vvec(I_{p})-\phi^{2}k\vvec(jj^{T})}{[\p
 Define
 \begin_inset Formula 
 \[
-g=\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})\}K^{-}
+g=\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})\}K^{-},
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-So that
+so that
 \end_layout
 
 \begin_layout Standard
@@ -443,10 +414,6 @@ So that
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Moreover, 
 \begin_inset Formula $KK^{-}=M_{p}$
 \end_inset
@@ -466,8 +433,8 @@ Moreover,
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-g^{T}K^{T}\Gamma Kg & = & f^{T}M_{p}^{T}\Gamma M_{p}^{T}f,\\
- & = & f^{T}\Gamma f,
+\sigma^{2} & = & \frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}f^{T}M_{p}^{T}\Gamma M_{p}^{T}f,\\
+ & = & \frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}f^{T}\Gamma f,
 \end{eqnarray*}
 
 \end_inset
@@ -477,6 +444,176 @@ where
 \[
 f=\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(\mathbf{i}\mathbf{i}^{T})\}.
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On the other hand, the asymptotic variance for standardized alpha is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sigma_{s}^{2}=\frac{1}{(k-1)^{2}}\left(\frac{1}{1+\rho(k-1)}\right)^{4}\mathbf{i}_{\star}^{T}D^{T}\Psi D\mathbf{i}_{\star},\label{eq:standardized alpha variance 3}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\[
+\Psi=[I-(I\otimes\Phi)K_{d}]\Sigma_{\star}\Gamma\Sigma_{\star}[I-K_{d}(I\otimes\Phi)]
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula $\Sigma_{\star}=(\Sigma_{d}^{-1/2}\otimes\Sigma_{d}^{-12})$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\Sigma_{d}^{-1/2}=\phi^{-1}I$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\Sigma_{\star}=\phi^{-1}I\otimes\phi^{-1}I=\phi^{-2}I\otimes I=\phi^{-2}I.
+\]
+
+\end_inset
+
+hence 
+\begin_inset Formula 
+\[
+\Psi=\phi^{-4}[I-(I\otimes\Phi)K_{d}]\Gamma[I-K_{d}(I\otimes\Phi)].
+\]
+
+\end_inset
+
+Thus the variances are equal if 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{i}_{\star}^{T}[I-I\otimes\Phi)K_{d}]=-\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(\mathbf{i}\mathbf{i}^{T})\}.
+\]
+
+\end_inset
+
+First observe that
+\begin_inset Formula 
+\[
+D\mathbf{i}_{\star}=Dw(\mathbf{i}\mathbf{i}^{T})=\vvec(\mathbf{i}\mathbf{i}^{T})-\vvec(I_{p}).
+\]
+
+\end_inset
+
+And then, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+K_{d}(I\otimes\Phi)\vvec(\mathbf{i}\mathbf{i}^{T}) & = & K_{d}\vvec(\Phi\mathbf{i}\mathbf{i}^{T})\\
+ & = & (1+(k-1)\rho)\mathbf{i}\mathbf{i}^{T}.
+\end{eqnarray*}
+
+\end_inset
+
+ Moreover,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+K_{d}(I\otimes P)\vvec I=K_{d}\vvec P=\vvec I_{p}.
+\]
+
+\end_inset
+
+Combining these results yield
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & \{I-K_{d}(I\otimes P)\}[\vvec(\mathbf{i}\mathbf{i}^{T})-\vvec I],\\
+= & \vvec(\mathbf{i}\mathbf{i}^{T})-\vvec I-(1+\rho)\vvec I+\vvec I,\\
+= & -\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(\mathbf{i}\mathbf{i}^{T})\}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Proof
+\end_layout
+
+\begin_layout Enumerate
+Fire up Maple or something and verify matrix expressions.
+\end_layout
+
+\begin_layout Enumerate
+Find non-normal expression for 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Paste results and make the notation uniform.
+\end_layout
+
+\begin_layout Section
+Coefficient alpha
+\end_layout
+
+\begin_layout Standard
+It's general form is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Gamma=E[XX^{T}\otimes XX^{T}]-(\ve\Sigma)(\ve\Sigma)^{T}
+\]
+
+\end_inset
+
+And the formula is
+\end_layout
+
+\begin_layout Standard
+here 
+\begin_inset Formula $h$
+\end_inset
+
+ is taken from 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "eq. 19"
+key "Van_Zyl2000-si"
+literal "false"
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+h & = & (\mathbf{i}^{T}\Sigma\mathbf{i})^{-2}[(\mathbf{i}^{T}\Sigma\mathbf{i}^{T}\vecc I-\tr\Sigma\vecc(\mathbf{i}\mathbf{i}^{T})]K^{-}.
+\end{eqnarray*}
 
 \end_inset
 
@@ -749,13 +886,6 @@ Thus
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\sigma_{s}^{2}=4\frac{1}{(k-1)^{2}}\left(\frac{1}{1+\rho(k-1)}\right)^{4}\mathbf{i}_{\star}^{T}D^{T}\Psi_{\star}D\mathbf{i}_{\star}.\label{eq:standardized alpha variance 3}
-\end{equation}
-
-\end_inset
-
 Now consider
 \end_layout
 
