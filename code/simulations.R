@@ -33,8 +33,8 @@ addtorow$pos <- list(0, 0, 0, 0, 4)
 addtorow$command <- c(
   " \\toprule\n",
   " & $t(5)$ & $t(5)$ & $t(5)$ & Beta & Beta & Beta & Gamma & Gamma & Gamma \\\\\n",
-  " & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ \\\\\n",
   " \\cmidrule(lr){2-4}\\cmidrule(lr){5-7}\\cmidrule(lr){8-10} \n",
+  " & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ & $\\sigma = 2$ & $\\sigma = 1$ & $\\sigma = .5$ \\\\\n",
   " \\bottomrule\n"
 )
 
