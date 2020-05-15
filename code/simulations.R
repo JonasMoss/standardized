@@ -15,7 +15,7 @@ if(!file.exists("chunks/simulations.Rds")) {
 ## Make the table!
 ##
 
-caption = "Simulations of $100 \\times \\textrm{MSE}_\\alpha/\\textrm{MSE}_{\\alpha_s}$ in the parallel model"
+caption = "Simulations of $100 \\times \\textrm{MSE}_Z(\\alpha/)\\textrm{MSE}_Z(\\alpha_s)$ in the parallel model"
 
 tab = prettify(simulations * 100, 3, 0)
 
