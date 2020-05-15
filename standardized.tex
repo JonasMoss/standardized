@@ -46,26 +46,25 @@
 \maketitle
 
 \begin{abstract}
-Coefficient alpha is the most widely used measure of reliability. A cousin of coefficient alpha is the standardized alpha, which is calculated from the correlation matrix instead of the covariance matrix. This paper makes the case that standardized alpha should never be used. It is worse than coefficient alpha as an estimator of the congeneric reliability. It is worse the the plug-in estimator of the appropriately defined standardized reliability as an estimator of the standardized reliability. Ordinal alpha, the standardized alpha based on the polychoric correlation matrix, should also be avoided, as it has no concrete interpretation. We propose a concrete variant of the ordinal alpha and show its relationship to the ordinal alpha.
+Coefficient alpha is the most widely used measure of reliability. A cousin of coefficient alpha is the standardized alpha, which is calculated from the correlation matrix instead of the covariance matrix. This paper makes the case that standardized alpha should never be used. It is worse than coefficient alpha as an estimator of the congeneric reliability. It is worse than the plug-in estimator of the appropriately defined standardized reliability as an estimator of the standardized reliability, and standardization should be avoided to begin with. Ordinal alpha, the standardized alpha based on the polychoric correlation matrix, should also be avoided, as it has no concrete interpretation. We propose a concrete variant of the ordinal alpha and show its relationship to the ordinal alpha.
 \end{abstract}
-
 
 % keywords can be removed
 \keywords{reliability \and coefficient alpha \and Cronbach's alpha \and reliability of Likert scales \and factor analysis of categorical data}
 
 \section{Introduction}
 
-The sample coefficient alpha is the most popular estimator of the congeneric reliability, and so it has been for a long time. A close cousin of coefficient alpha is standardized alpha for short. The difference between these two alphas is easy to state. To calculate coefficient alpha you use the covariance matrix, to calculate the standardized alpha you use the correlation matrix. 
+The sample coefficient alpha is the most popular estimator of the congeneric reliability, and so it has been for a long time. A close cousin of coefficient alpha is the standardized alpha. The difference between these two alphas is easy to state: To calculate coefficient alpha you use the covariance matrix, to calculate the standardized alpha you use the correlation matrix. 
 
-While not as popular as coefficient alpha, standardized alpha is occasionally used. It is discussed the popular textbook of \citet[pp. 139--141]{Furr2013-yu}. It is readily computed using software such as SAS, SPSS, and the popular \texttt{R} \citep{Team2013-tt} package \texttt{psych} \citep{psych}. 
+While not as popular as coefficient alpha, standardized alpha is in use. It is discussed in the popular textbook of \citet[pp. 139--141]{Furr2013-yu}, and it is readily computed using software such as SAS, SPSS, and the popular \texttt{R} \citep{Team2013-tt} package \texttt{psych} \citep{psych}. 
 
-There are three situations where the use of standardized alpha appears to be justified. In each situation there are alternative estimators of reliability that are demonstrably better than standardized alpha. 
+There are three situations where the use of standardized alpha appears to be justified. But in each situation there are alternative estimators of reliability that are demonstrably better than standardized alpha. 
 
 \begin{enumerate}[label=(\Alph*)]
 
 \item \textbf{The parallel model.} Standardized alpha equals the congeneric reliability under the parallel measurement model. But coefficient alpha also equals the congeneric reliability in this case. Coefficient alpha should always be preferred to standardized alpha for four reasons. (i) It is a consistent estimator of the congeneric reliability under less stringent conditions than the parallel model. (ii) It is the maximum likelihood estimator of the congeneric reliability assuming normality. (iii) It has the same asymptotic variance as standardized alpha assuming finite fourth moments. (iv) It performs about as well as standardized alpha in a small simulation study.
-\item \textbf{Standardized scores.} The congeneric reliability is arguably the wrong reliability to use for standardized scores. Standardized alpha is a more reasonable choice than its direct competitor coefficient alpha since it is designed to work for standardized scores. I show there are strong reasons not to standardize your items and suggest an alternative standardization. But even if you decide to standardize your items, please avoid standardized alpha in favour of a plug-in estimate of the standardized reliability.
-\item \textbf{The ordinal alpha.} A common model for Likert scale items is the normal-ogive model. In this model the covariance matrix is not identifiable, only the correlation matrix is. In this case standardized alpha can be used, but with the sample polychoric correlation matrix in place of the sample correlation matrix. This variant of standardized alpha is called the \textit{ordinal alpha} by \citet{Zumbo2007-ap}. I argue that ordinal alpha should not be considered a proper reliability coefficient and propose an alternative.
+\item \textbf{Standardized scores.} The congeneric reliability is arguably the wrong reliability to use for standardized scores. Standardized alpha is a more reasonable choice than its direct competitor coefficient alpha since it is designed to work for standardized scores. I show there are strong reasons not to standardize your items and suggest a superior standardization method. But even if you decide to standardize your items, please avoid standardized alpha and use a plug-in estimate of the standardized reliability instead.
+\item \textbf{The ordinal alpha.} A common model for Likert scale items is the normal-ogive model. In this model the covariance matrix is not identifiable, only the correlation matrix is. In this case standardized alpha can be used, but with the sample polychoric correlation matrix in place of the sample correlation matrix. This variant of standardized alpha is called the \textit{ordinal alpha} and was introduced by \citet{Zumbo2007-ap}. I argue that ordinal alpha should not be considered a proper reliability coefficient, as it has no concrete interpretation, and propose an alternative.
 \end{enumerate}
 
 The meat of the arguments are in \Cref{sec:argument A,sec:argument B,sec:Ordinal alpha}, while the next section provides background information.
@@ -89,14 +88,14 @@ The meat of the arguments are in \Cref{sec:argument A,sec:argument B,sec:Ordinal
 
 Let $X$ be random variable in $\mathbb{R}^{k}$ with finite variance.
 Let $\Sigma=\Cov X$ be the covariance matrix of $X$ and $\Phi=\Cor X$
-be the correlation matrix of $X$. Let $\mathbf{i}=(1,1,\ldots,1)$ by a vector of ones of the appropriate size and $\tr$ be the trace operator.
+be the correlation matrix of $X$. Let $\boldsymbol{1}=(1,1,\ldots,1)$ by a vector of ones of the appropriate size and $\tr$ be the trace operator.
 The population coefficient alpha \citep[][eq. 2]{cronbach1951coefficient} is
 \begin{equation}
-\alpha =  \frac{k}{k-1}\left(1-\frac{\tr\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\label{eq:Coefficient alpha}
+\alpha =  \frac{k}{k-1}\left(1-\frac{\tr\Sigma}{\boldsymbol{1}^{T}\Sigma\boldsymbol{1}}\right)\label{eq:Coefficient alpha}
 \end{equation}
 and the population standardized alpha \citep[][eq. 2]{Falk2011-ae} is
 \begin{equation}
-\alpha_S=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\label{eq:standardized alpha}
+\alpha_S=\frac{k}{k-1}\left(1-\frac{k}{\boldsymbol{1}^{T}\Phi\boldsymbol{1}}\right)\label{eq:standardized alpha}
 \end{equation}
 We care about these alphas since they sometimes coincide with the reliability coefficient under the congeneric model, a special case of the linear one-factor model. Let $Z$ be a mean zero latent variable with unit variance and $\varepsilon=(\varepsilon_{1},\varepsilon_{2},\ldots,\varepsilon_{k})$
 be a mean zero vector of uncorrelated errors with unit variance. In addition, assume $Z$ and $\varepsilon$ are uncorrelated. Define the congeneric model
@@ -149,7 +148,7 @@ A modestly popular choice for $w$ are the weights minimizing the mean squared er
 \end{equation}
 where $\overline{\lambda^{2}\sigma^{-2}} = k^{-1}\sum_{i=1}^{k}\lambda_{i}^2/\sigma_i^2$. By \cref{prop:reliability motivation}, the weights are equivalent to $w_i = \lambda_i/\sigma_i^2$ and $w_0 = \sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})$, which are much easier to interpret.
 
-By far the most popular choice is to give the same weight to each $X_i$, that is, $w = \mathbf{i}=(1,1,\ldots,1)$. This leads to the congeneric reliability, which is the estimand of coefficient alpha under certain conditions. Its definition is
+By far the most popular choice is to give the same weight to each $X_i$, that is, $w = \boldsymbol{1}=(1,1,\ldots,1)$. This leads to the congeneric reliability, which is the estimand of coefficient alpha under certain conditions. Its definition is
 \begin{equation}
  R =\frac{k\overline{\lambda}^{2}/\overline{\sigma^{2}}}{k\overline{\lambda}^{2}/\overline{\sigma^{2}} + 1}\label{eq:Congeneric reliability}
 \end{equation}
@@ -172,7 +171,7 @@ Let $w$ be a vector of weights and $\Sigma$ a covariance matrix. The \textit{wei
 \end{equation}
 where $\diag\Sigma$ is the diagonal matrix with diagonal equal to the diagonal of $\Sigma$.
 \end{defn}
-The ordinary coefficient alpha \eqref{eq:Coefficient alpha} has weights $w=\mathbf{i}$
+The ordinary coefficient alpha \eqref{eq:Coefficient alpha} has weights $w=\boldsymbol{1}$
 while the standardized alpha \eqref{eq:standardized alpha} has weights $w_{i}=\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}$. Coefficient alpha and standardized alpha are the most interesting cases of the weighted alpha, as you can calculate them using only the covariance matrix $\Sigma = \Cov X$. When $w$ are for instance the Thurstone weights, $a_w$ is not a function of $\Sigma$, as they require knowledge of the factor loadings $\lambda$ and the residual errors $\sigma$. Still, the definition makes sense for any weight $w$. 
 
 The following proposition summarizes the basic relationship
@@ -237,11 +236,11 @@ alpha. Let $S$ be a sample covariance matrix based on
 $n$ samples of $X$ and $R$ the corresponding correlation matrix.
 The sample coefficient alpha is 
 \begin{equation}
-\hat{\alpha}=\frac{k}{k-1}\left(1-\frac{\tr{S}}{\mathbf{i}^{T}S\mathbf{i}}\right)\label{eq:sample coefficient alpha}
+\hat{\alpha}=\frac{k}{k-1}\left(1-\frac{\tr{S}}{\boldsymbol{1}^{T}S\boldsymbol{1}}\right)\label{eq:sample coefficient alpha}
 \end{equation}
 while the sample standardized alpha is
 \begin{equation}
-\hat{\alpha}_s=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}R\mathbf{i}}\right)\label{eq:sample standardized alpha}
+\hat{\alpha}_s=\frac{k}{k-1}\left(1-\frac{k}{\boldsymbol{1}^{T}R\boldsymbol{1}}\right)\label{eq:sample standardized alpha}
 \end{equation}
 The congeneric reliability \eqref{eq:Congeneric reliability} has no
 simple sample version, as it depends on estimates of $\lambda$ and
@@ -289,23 +288,23 @@ Assume the normal parallel model.
 and $\sigma^{2}$ are 
 \begin{eqnarray*}
 \hat{\lambda}^2_\textrm{ML} & = & \begin{cases}
-\frac{1}{(k-1)k}(\mathbf{i}^{T}S\mathbf{i}-\tr{S}) & \mathbf{i}^{T}S\mathbf{i}\geq\tr{S},\\
+\frac{1}{(k-1)k}(\boldsymbol{1}^{T}S\boldsymbol{1}-\tr{S}) & \boldsymbol{1}^{T}S\boldsymbol{1}\geq\tr{S},\\
 0 & \text{\textrm{otherwise}},
 \end{cases}\\
 \end{eqnarray*}
 and
 \begin{eqnarray*}
 \hat{\sigma}^2_\textrm{ML} & = & \begin{cases}
-\frac{1}{k-1}(\tr{S}-\mathbf{i}^{T}S\mathbf{i}/k) & \mathbf{i}^{T}S\mathbf{i}\geq\tr{S},\\
+\frac{1}{k-1}(\tr{S}-\boldsymbol{1}^{T}S\boldsymbol{1}/k) & \boldsymbol{1}^{T}S\boldsymbol{1}\geq\tr{S},\\
 \frac{\tr{S}}{k} & \textrm{otherwise}.
 \end{cases}
 \end{eqnarray*}
 \item The maximum likelihood estimator of the congeneric reliability
 \eqref{eq:Congeneric reliability} equals the sample coefficient alpha
-when $\mathbf{i}^{T}S\mathbf{i}\geq\tr{S}$ and $0$ otherwise. That is,
+when $\boldsymbol{1}^{T}S\boldsymbol{1}\geq\tr{S}$ and $0$ otherwise. That is,
 \begin{eqnarray*}
 \hat{ R}_\textrm{ML} & = & \begin{cases}
-\hat{\alpha} & \mathbf{i}^{T}S\mathbf{i}\geq\tr{S},\\
+\hat{\alpha} & \boldsymbol{1}^{T}S\boldsymbol{1}\geq\tr{S},\\
 0 & \text{\textrm{otherwise}}.
 \end{cases}
 \end{eqnarray*}
@@ -333,7 +332,7 @@ Assume $X$ has finite variance.
 \end{enumerate}
 \end{thm}    
 \begin{proof}
-See page \pageref{proof:asymptotics} of Appendix 1 for a proof of (i) and (iii). Appendix 2 (p. \pageref{appendix 2}) contains the proof of (ii) together with an expression of the common variance. The proof of (ii) relies heavily on the work of \citet{Van_Zyl2000-si} and \citet{hayashi2005note}. The proof of (iii) relies on \citet[][eq. 13]{Van_Zyl2000-si} and \citet[][eq. 58]{Kristof1963-tb}, who, among others, derived the limit distribution of coefficient alpha under the normal parallel model.
+See page \pageref{proof:asymptotics} of Appendix 1 for a proof of (i) and (iii). Appendix 2 (p. \pageref{Appendix 2}) contains the proof of (ii) together with an expression of the common variance. The proof of (ii) relies heavily on the work of \citet{Van_Zyl2000-si} and \citet{hayashi2005note}. The proof of (iii) relies on \citet[][eq. 13]{Van_Zyl2000-si} and \citet[][eq. 58]{Kristof1963-tb}, who, among others, derived the limit distribution of coefficient alpha under the normal parallel model.
 \end{proof}
 
 \begin{rem}
@@ -377,11 +376,14 @@ reliability $ R$ equals the square correlation between $\hat{Z}$
 and $Z$, or $ R=\Cor^{2}(\hat{Z},Z)$. Assume
 we know the values of $\lambda$ and $\sigma$. When we use unstandardized
 scores, our predictor is 
-\begin{equation*}
-\hat{Z}=w_{0}\sum_{i=1}^{k}X_{i}\label{eq:standardized sum score}
-\end{equation*}
+\begin{equation}
+\hat{Z}=w_{0}\sum_{i=1}^{k}X_{i}\label{eq:sum score}
+\end{equation}
 where $w_{0}=\overline{\lambda}/(k\overline{\lambda}^{2}+\overline{\sigma^{2}})$ scales the predictions to match $\Var Z=1$ (Proposition \ref{prop:reliability motivation}). When you use standardized
-scores, your predictor is $$\hat{Z}^{*}=w_{0}\sum_{i=1}^{k}(\lambda^{2}+\sigma^{2})^{-1/2}X_{i}.$$
+scores, your predictor is
+\begin{equation}
+\hat{Z}^{*}=w_{0}\sum_{i=1}^{k}(\lambda^{2}+\sigma^{2})^{-1/2}X_{i}\label{eq:standardized sum score}
+\end{equation}
 These predictors are not the same in general, and their reliabilities are not
 the same either.
 
@@ -405,16 +407,18 @@ Then
 and $\Cor(Z_{1},Z_{2})=\Cor(\hat{Z}_{1},\hat{Z}_{2})/\sqrt{ R(\hat{Z}_{1}) R(\hat{Z}_{2})}$,
 the famous \citet{spearman1904proof} attenuation formula.
 
-Correction for attenuation cannot be used unless both $ R(\hat{Z}_i)$s are the squared correlation between $\hat{Z}_i$ and $Z_i$. For example, if you used the standardized sum scores (\cref{eq:standardized sum score} (to make predictions for the first model, it would be wrong to use the congeneric reliability, as it based on the sum scores. If you used the congeneric reliability, the correlation between $Z_1$ and $Z_2$ would incorrectly be calculated according to $$\rho'= R(\hat{Z}_{1}) R(\hat{Z}_{2})\Cor(Z_{1},Z_{2})$$
-instead of the correct $\rho= R(\hat{Z}_{1}^{*}) R(\hat{Z}_{2})\Cor(Z_{1},Z_{2})$.
-You would be off by a factor of $ R(\hat{Z}_{1}^{*})/ R(\hat{Z}_{1})$.
+%Correction for attenuation cannot be used unless both $ R(\hat{Z}_i)$s are the squared correlation between $\hat{Z}_i$ and $Z_i$. For example,
+
+Assume you used the standardized sum scores $\hat{Z}_1^*$ (a predictor on the form of eq. \eqref{eq:standardized sum score}) to make predictions for $Z_1$, and the sum score $\hat{Z}_2$ (on the form of eq. \eqref{eq:sum score}) to make predictions for $Z_2$. Then the correlation between your predictions is $\Cov(\hat{Z}_1^*,\hat{Z}_2)$. Now it would be wrong to use the congeneric reliability for $Z_1$ in Spearman's formula, as it based on the sum scores $\hat{Z}_1$. If you used the congeneric reliability, the correlation between $Z_1$ and $Z_2$ would incorrectly be calculated according to $\Cor(\hat{Z}_{1}^*,\hat{Z}_{2})= sqrt{ R(\hat{Z}_{1}) R(\hat{Z}_{2})}\Cor(Z_{1},Z_{2})$
+instead of the correct $\Cor(\hat{Z}_{1}^*,\hat{Z}_{2})=\sqrt{ R(\hat{Z}_{1}^{*}) R(\hat{Z}_{2})}\Cor(Z_{1},Z_{2})$.
+You would be off by a factor of $\sqrt{ R(\hat{Z}_{1}^{*})/ R(\hat{Z}_{1})}$.
 
 This connection between reliabilities and the choice of predictor
 weights is not new. It has been observed by e.g. \citet[][p. 112]{Joreskog1971-nn} and \citet{McNeish2018-vu}, who repeatedly insists on taking this connection into account. Several authors recommend you use standardized alpha with standardized sum scores. For instance, \citet[][p. 451]{Falk2011-ae} states \enquote{If researchers intend to sum
 standardized scores, the correlation matrix is more appropriate for determining internal consistency,} while \citet[][p. 99]{Cortina1993-aq} writes \enquote{Standardized alpha is appropriate if item standard scores are summed to form scale scores.} But the connection is not always appreciated. For instance, \citet[][p.348]{Osburn2000-jd} writes
 \enquote{\textelp{} it is important to note that the true reliability of a measure is the same for both standardized and unstandardized observed scores.}
 
-You should use standardized reliability if you use standardized scores. But there are good reasons to never standardize scores, that is, to use weights on the form $w_{i}=(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$ when you form your linear predictor.
+You should use standardized reliability if you use standardized scores, and standardization looks reasonable on the face of it. \enquote{For example, it would be a concern if items had different response scales (e.g., if some items were on a 5-point scale and others were on a 7-point scale).} \citep[p. 139]{Furr2013-yu} But there are good reasons to never standardize scores, that is, to use weights on the form $w_{i}=(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$ when you form your linear predictor.
 Using some $w\ne1$ seems reasonable, for you would not want items
 with large variance to overshadow all the other contributions to $\hat{Z}$.
 But there is something strange about this particular $w$. Dividing by $(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}$
@@ -429,7 +433,9 @@ Call the reliability with weights $w=\sigma^{-1}$ the \textit{sigma reliability}
  R_\sigma=\frac{k\overline{\lambda\sigma^{-1}}^{2}}{k\overline{\lambda\sigma^{-1}}^{2}+1}.\label{eq:Sigma-standardized reliability}
 \end{equation}
 
-Another option is to use the optimal weights, yielding coefficient $H$ and the Thurstone factor scores instead of the standardized alpha and standardized sum scores, as favoured by e.g. \citet{McNeish2019-ea}.
+Another option is to use the Thurstone weights, yielding coefficient $H$ and the Thurstone factor scores instead of the standardized alpha and standardized sum scores. Since the unstandardized Thurstone scores equals $\lambda/\sigma^2$, they are easy too interpret too. A strong case for the Thurstone scores is made by \citet{McNeish2019-ea}.
+
+Table \ref{tab:reliabilities} summarizes the four reliability coefficients discussed up to this point and their associated weights. The next theorem describes how they are related to each other. 
 
 \begin{table}
 \label{tab:reliabilities}
@@ -438,16 +444,16 @@ Another option is to use the optimal weights, yielding coefficient $H$ and the T
 \begin{tabular}{lccl}
 \toprule
  Reliability & Definition & Weights ($w_{i}$) & Predictor name\\
- \cmidrule(rrrl){1-4}
+ \cmidrule{1-4}
 Congeneric reliability ($R$) & $\frac{k\overline{\lambda}^{2}/\overline{\sigma^{2}}}{k\overline{\lambda}^{2}/\overline{\sigma^{2}}+1}$ & $1$ & Sum score \\[2ex]
-Coefficient $H$ ($R_{H})$ & $\frac{k\overline{\lambda^{2}\sigma^{-2}}}{k\overline{\lambda^{2}\sigma^{-2}}+1}$ & $\lambda_{i}\sigma_{i}^{-2}$ & Thomson factor score \\[2ex]
+Coefficient $H$ ($R_{H})$ & $\frac{k\overline{\lambda^{2}\sigma^{-2}}}{k\overline{\lambda^{2}\sigma^{-2}}+1}$ & $\lambda_{i}\sigma_{i}^{-2}$ & Thurstone factor score \\[2ex]
 Standardized reliability ($R_{S}$) & $\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}+1}$ & $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$ & Standardized score \\[2ex]
 Sigma reliability $(R_{\sigma}$) & $\frac{k\overline{\lambda\sigma^{-1}}^{2}}{k\overline{\lambda\sigma^{-1}}^{2}+1}$ & $\sigma_{i}^{-1}$ & Sigma-standardized score \\[2ex]
 \bottomrule
 \end{tabular}
 \par\end{centering}
 \vskip7.0pt
-\textit{Note}: The score $\hat{Z} = w_{0}\sum_{i=1}^{k}w_iX_{i}$, where $w_0 = \overline{w\lambda}/(k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}})$.
+\textit{Note}: The score is $\hat{Z} = w_{0}\sum_{i=1}^{k}w_iX_{i}$, where $w_0 = \overline{w\lambda}/(k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}})$.
 \end{table}
 
 
@@ -485,6 +491,8 @@ Since the $\tau$-equivalent model is such a common assumption among psychometric
 You can interpret Theorem \ref{thm:Properties of three} as a ranking factor scores too. Under the $\tau$-equivalent model, Thurstone scores are better than $\sigma$-standardized sum scores, which in turn are better than the standardized sum scores, which are
 better than the ordinary sum scores.
 
+
+
 Theorem \ref{thm:Properties of three} shows how the four reliabilities relate to each other only under the $\tau$-equivalent model and the model where all $\sigma_i$s are equal. If we assume only the congeneric model, the nice inequalities of Theorem \ref{thm:Properties of three} disappear. Since coefficient $H$ uses the optimal weights, it is guaranteed to be larger than the three other reliabilities mentioned above. The
 other three reliabilities can be in any order, but
 $ R_{\sigma}$ will usually be the largest. In a short
@@ -495,7 +503,7 @@ of the time, but $ R_{S}$ was never the largest. The average reliabilities where
 The congeneric reliability $ R$ dominated the standardized $ R_{S}$ in $4/10$ iterations. You could argue this simulation study
 is somewhat unrealistic, but the slightly different simulation with $\lambda_{i}$ and $\sigma_{i}\sim \textrm{HalfNormal}(0,1)$, yielded virtually the same results. In a simulation where $\lambda$ and $\sigma$ where uniform on $[0,1]$, yet again $ R_{\sigma}$
 was the largest $98\%$ of the time and $ R$ the largest the remaining $2\%$. Moreover, in every iteration of every simulations $ R_\sigma >  R_S$. The take-away message from these simulations is that $ R_\sigma$ generally does better than $ R_{S}$ and
-$ R$, while it is hard to predict the winner among $ R$
+$ R$, while it is harder to predict the winner among $ R$
 and $ R_{S}$. See the Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) for the code to run these informal simulations.
 
 \begin{example}
@@ -519,9 +527,9 @@ for some $\lambda^{*}$. Of course, this would be an exceptional coincidence, but
 
 \begin{example}
 %% <<<<< Example table start (\label{tab:omega_std_alpha_std})
-%\input{chunks/example_table_omega_alpha}
+\input{chunks/example_table_omega_alpha}
 %% example table end >>>>>
-$\mathtt{lavaan}$ estimated $\lambda$ and $\sigma$ for the agreeableness factor on the the $\texttt{bfi}$ data from $\texttt{psychTools}$ \citep{Revelle2019-te}, the data used in Example \ref{exa:reliabilities}. The estimates are $\hat{\lambda} = (0.53, -0.77, -0.99, -0.72, -0.79)$ and $\hat{\sigma} = (1.3, 0.89, 0.85, 1.3, 0.98)$. Using formula \eqref{eq:standardized alpha} and \eqref{eq:Standardized reliability} and flipping the sign of reverse-scored item \eqref{eq:Standardized reliability}, we find $\hat{ R}_s = 0.72$ and $\hat{\alpha}_s = 0.71$. The difference $\hat{\alpha}_s - \hat{ R}_s = -0.011$ is not alarmingly high, but the estimator is inconsistent. Table \ref{tab:reliabilites} contains mean squared error calculations for different $n$s when with data simulated from a congeneric model with $\lambda=\hat{\lambda}$ and $\sigma = \hat{\sigma}$. The mean squared error is uniformly lower for $\hat{ R}_s$ than $\hat{\alpha}_s$. The results are similar for the other traits in the $\texttt{bfi}$ data.
+$\mathtt{lavaan}$ estimated $\lambda$ and $\sigma$ for the agreeableness factor on the the $\texttt{bfi}$ data from $\texttt{psychTools}$ \citep{Revelle2019-te}, the data used in Example \ref{exa:reliabilities}. The estimates are $\hat{\lambda} = (0.53, -0.77, -0.99, -0.72, -0.79)$ and $\hat{\sigma} = (1.3, 0.89, 0.85, 1.3, 0.98)$. Using formula \eqref{eq:standardized alpha} and \eqref{eq:Standardized reliability} and flipping the sign of reverse-scored item \eqref{eq:Standardized reliability}, we find $\hat{ R}_s = 0.72$ and $\hat{\alpha}_s = 0.71$. The difference $\hat{\alpha}_s - \hat{ R}_s = -0.011$ is not alarmingly high, but the estimator is inconsistent. Table \ref{tab:omega_std_alpha_std} contains mean squared error calculations for different $n$s when with data simulated from a congeneric model with $\lambda=\hat{\lambda}$ and $\sigma = \hat{\sigma}$. The mean squared error is uniformly lower for $\hat{ R}_s$ than $\hat{\alpha}_s$. The results are similar for the other traits in the $\texttt{bfi}$ data.
 \end{example}
 
 To recap: (i) You should neither avoid standardization altogether nor standardize with $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$. You should standardize with $\sigma_i^{-1}$ or use the optimal weights, as this yields better results in the most plausible scenarios. (ii) Even if you decide to standardize with $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$, please avoid standardized alpha, as it will not equal $ R_S$ under any reasonable assumptions.
@@ -552,7 +560,7 @@ identified, usual practice is to assume that $\Psi$ is a correlation matrix.
 \citet{Zumbo2007-ap} proposed what we will call the \textit{theoretical ordinal
 alpha}
 \begin{equation}
-\alpha=\frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right), \label{eq:ordinal alpha}
+\alpha=\frac{k}{k-1}\left(1-\frac{k}{\boldsymbol{1}^{T}\Phi\boldsymbol{1}}\right), \label{eq:ordinal alpha}
 \end{equation}
 where $\Phi=\Cor X$ is polychoric correlation coefficient of $Y$.
 Theoretical ordinal alpha is a standardized alpha, but it is based
@@ -660,10 +668,10 @@ where $v_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})],
 are the Thurstone weights for $X$ and $v_{0}=w^{T}\Xi v$ is the
 minimizer of $\MSE(v_{0}\hat{Z})$. Moreover, $ R_{v}'=v^{T}\Xi v$ when $v$
 are the Thurstone weights.
-\item When the underlying congeneric model is parallel and $w=\mathbf{i}$,
+\item When the underlying congeneric model is parallel and $w=\boldsymbol{1}$,
 \begin{eqnarray}
- R_{w}' & = & \frac{\lambda^{2}}{(k\lambda^{2}+\sigma^{2})^{2}}\mathbf{i}^{T}\Xi\mathbf{i},\label{eq:Alpha prime}\\
- & = & \alpha_S\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\mathbf{i}^{T}\Psi\mathbf{i}},\nonumber 
+ R_{w}' & = & \frac{\lambda^{2}}{(k\lambda^{2}+\sigma^{2})^{2}}\boldsymbol{1}^{T}\Xi\boldsymbol{1},\label{eq:Alpha prime}\\
+ & = & \alpha_S\frac{\boldsymbol{1}^{T}\Xi\boldsymbol{1}}{\boldsymbol{1}^{T}\Psi\boldsymbol{1}},\nonumber 
 \end{eqnarray}
 where $\alpha_S$ equals the theoretical ordinal alpha.
 \item For any weight $w$, $ R'_{w}\to R_{w}$ when $\Xi\to\Phi$. 
@@ -687,7 +695,7 @@ provided we are able to estimate the Thurstone weights $v$.
 
 Point (iii) demonstrates that the concrete ordinal congeneric reliability ($ R'$ with unit weights) can be
 calculated without running a factor analysis, since the average correlation
-$\mathbf{i}^{T}\Xi\mathbf{i}/\mathbf{i}^{T}\Psi\mathbf{i}$ is a simple
+$\boldsymbol{1}^{T}\Xi\boldsymbol{1}/\boldsymbol{1}^{T}\Psi\boldsymbol{1}$ is a simple
 function of the polychoric correlation matrix and the covariance matrix
 of $\hat{X}.$ It also provides a correction factor for the theoretical ordinal alpha as an estimator of the concrete ordinal congeneric reliability.
 
@@ -747,12 +755,12 @@ I am grateful to Riccardo De Bin and Kjersti Moss for helping me with the presen
 
 \clearpage
 \section*{Appendix 1: Proofs}
-\label{appendix 1}
+\label{Appendix 1}
 
 This lemma formulates the the squared correlation in terms of the mean squared error and establishes the connection between the correlation coefficient and $R^2$. It is used in in the proof of Proposition \ref{prop:reliability motivation}. 
 \begin{lem}
 \label{lem:r^2 and correlation}Assume $Y$ and $\hat{Y}$ have finite
-variance. If $Z$ is a random variable, let $\MSE(Z) = E[(X-Z)^2]$ denote the mean squared error of $Z$ as predictor of $X$. Then 
+variance. Let $\MSE(Z) = E[(Z-Y)^2]$ denote the mean squared error of $Z$ as predictor of $Y$ when $Z$ is a random variable. Then 
 \begin{equation}
 \Cor^{2}(\hat{Y},Y)=1-\MSE(\alpha+\beta\hat{Y})/\Var(Y),\label{eq:rsq and correlation}
 \end{equation}
@@ -762,14 +770,14 @@ where $\alpha=E(Y)-E(\hat{Y})$ and $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$ are the
 \begin{proof}
 Recenter $Y$ and $\hat{Y}$ so that $E(Y)=E(\hat{Y})=0$. Then $\MSE(\alpha+\beta\hat{Y})$ equals $\beta^{2}\Var(\hat{Y})-2\beta\Cov(\hat{Y},Y)+\Var Y^{2}$.
 Differentiate with respect to $\beta$ and set equal to zero, so that
-$2\beta\Var(\hat{Y})-2\Cov(\hat{Y},Y)=0$, which implies $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$. Plug the expression of $\beta$ into the expression for $\MSE$ to get \cref{eq:rsq and correlation}.
+$2\beta\Var(\hat{Y})-2\Cov(\hat{Y},Y)=0$, which implies $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$. Plug the expression of $\beta$ into the expression for the $\MSE$ to get \cref{eq:rsq and correlation}.
 \end{proof}
 
 \begin{proof}[Proof of Proposition \ref{prop:reliability motivation}]\label{proof:reliability motivation}
 Since $\Var Z=1$, the covariance between $\hat{Z}$ and $Z$
 is
 \begin{equation}
-\Cov(Z,\hat{Z})=\Cov[Z,{\textstyle\tsum_{i=1}^{k}w_{i}}(Z\lambda_{i}+\sigma_{i}\varepsilon)]  =  {\textstyle\tsum_{i=1}^{k}w_{i}}\lambda_{i}.
+\Cov(Z,\hat{Z})=\Cov[Z,{\textstyle\tsum_{i=1}^{k}w_{i}}(Z\lambda_{i}+\sigma_{i}\varepsilon)]  =  {\textstyle\tsum_{i=1}^{k}w_{i}}\lambda_{i},
 \end{equation}
 and the variance of $\hat{Z}$ is
 \[
@@ -779,23 +787,19 @@ and the variance of $\hat{Z}$ is
 Combining these two formulas gives us the squared correlation between
 $Z$ and $\hat{Z}$,
 \begin{equation}
- R=\Cor^{2}(\hat{Z},Z) = \frac{(\tsum_{i=1}^{k}w_{i}\lambda_{i})^{2}}{(\tsum_{i=1}^{k}w_{i}\lambda_{i})^{2}+\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}}.
+ R_w=\Cor^{2}(\hat{Z},Z) = \frac{(\tsum_{i=1}^{k}w_{i}\lambda_{i})^{2}}{(\tsum_{i=1}^{k}w_{i}\lambda_{i})^{2}+\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}}.
 \end{equation}
 
-For the second equality,
-\begin{eqnarray*}
-E\{ [Z-\tsum_{i=1}^{k}w_{i}(\lambda_{i}Z+\sigma_{i}\varepsilon_{i})]^{2}\}  & = & E\{ [Z-\tsum_{i=1}^{k}w_{0}w_{i}(\lambda_{i}Z+\sigma_{i}\varepsilon_{i})]^{2}\} ,\\
- & = & w_{0}^{2}\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}+(w_{0}\tsum_{i=1}^{k}w_{i}\lambda_{i}-1)^{2}.
-\end{eqnarray*}
+The second inequality is an application of \cref{lem:r^2 and correlation}.
+
+The formula for $w_0$ follows from
+\begin{equation*}
+E\{[Z-\tsum_{i=1}^{k}w_{0}w_{i}(\lambda_{i}Z+\sigma_{i}\varepsilon_{i})]^{2}\} = w_{0}^{2}\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}+(w_{0}\tsum_{i=1}^{k}w_{i}\lambda_{i}-1)^{2}.
+\end{equation*}
 Differentiate with respect to $w_{0}$ to find the minimizer
 \[
 w_{0}=\frac{\tsum_{i=1}^{k}w_{i}\lambda_{i}}{(\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}+(\tsum_{i=1}^{k}w_{i}\lambda_{i})^{2})}.
 \]
-Then
-\[
-E\{[Z-\tsum_{i=1}^{k}w_{i}(\lambda_{i}Z+\sigma_{i}\varepsilon_{i})]^{2}\} =\frac{(\tsum_{i=1}^{k}w_{i}\lambda_{i})^{2}}{(\tsum_{i=1}^{k}w_{i}\lambda_{i})^{2}+\tsum_{i=1}^{k}w_{i}^{2}\sigma_{i}^{2}}
-\]
-as claimed.
 \end{proof}
 
 
@@ -810,11 +814,11 @@ which implies $w^{T}\lambda=k\lambda_{i}w_{i}$. Then
 \end{eqnarray*}
 The bias term for coefficient $\alpha_w$ can be derived as follows:
 \begin{eqnarray*}
-\alpha_{w} & = & \frac{k}{k-1}(1-\frac{w^{T}(\diag\Sigma)w}{w^{T}\Sigma w})\\
- & = & \frac{k}{k-1}\frac{(w^{T}\lambda)^{2}-(w^{2})^{T}\lambda^{2}}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})}\\
- & = & \frac{k}{k-1}\frac{(w^{T}\lambda)^{2}-(w^{T}\lambda)^{2}/k+(w^{T}\lambda)^{2}/k-(w^{2})^{T}\lambda^{2}}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})}\\
- & = &  R_{w}-\frac{k}{k-1}\frac{(w^{2})^{T}\lambda^{2}-(w^{T}\lambda)^{2}/k}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})}\\
- & = &  R_{w}-\frac{k}{k-1}\frac{\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2}}{k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}}}
+\alpha_{w} & = & \frac{k}{k-1}(1-\frac{w^{T}(\diag\Sigma)w}{w^{T}\Sigma w}),\\
+ & = & \frac{k}{k-1}\frac{(w^{T}\lambda)^{2}-(w^{2})^{T}\lambda^{2}}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})},\\
+ & = & \frac{k}{k-1}\frac{(w^{T}\lambda)^{2}-(w^{T}\lambda)^{2}/k+(w^{T}\lambda)^{2}/k-(w^{2})^{T}\lambda^{2}}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})},\\
+ & = &  R_{w}-\frac{k}{k-1}\frac{(w^{2})^{T}\lambda^{2}-(w^{T}\lambda)^{2}/k}{(w^{T}\lambda)^{2}+(w^{2})^{T}(\sigma^{2})},\\
+ & = &  R_{w}-\frac{k}{k-1}\frac{\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2}}{k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}}}.
 \end{eqnarray*}
 
 Since $(\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2})/(k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}})\geq0$
@@ -842,12 +846,12 @@ if and only if
 \begin{proof}
 From definition \eqref{eq:standardized alpha}
 \begin{equation*}
-\alpha_S = \frac{k}{k-1}\left(1-\frac{k}{\mathbf{i}^{T}\Phi\mathbf{i}}\right)\\
+\alpha_S = \frac{k}{k-1}\left(1-\frac{k}{\boldsymbol{1}^{T}\Phi\boldsymbol{1}}\right)\\
  = \frac{k}{k-1}\left(1-\frac{k}{\tsum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{\sqrt{\sigma_{i}^{2}+\lambda_{i}^{2}}\sqrt{\sigma_{j}^{2}+\lambda_{j}^{2}}}+k}\right)
 \end{equation*}
 and definition \eqref{eq:Coefficient alpha}
 \begin{equation*}
-\alpha = \frac{k}{k-1}\left(1-\frac{\tr\Sigma}{\mathbf{i}^{T}\Sigma\mathbf{i}}\right)\\
+\alpha = \frac{k}{k-1}\left(1-\frac{\tr\Sigma}{\boldsymbol{1}^{T}\Sigma\boldsymbol{1}}\right)\\
  = \frac{k}{k-1}\left(1-\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{\tsum_{i\neq j}\lambda_{i}\lambda_{j}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}\right)
 \end{equation*}
 Thus $\alpha_S\geq\alpha$ if and only if
@@ -910,21 +914,21 @@ Let $k>2$ and assume all $\lambda_{j}=0$
 except $\lambda_{1},\lambda_{2}$. By \eqref{eq:Alpha-alpha_s inequality}, $\alpha_S > \alpha$ if and
 only if
 \[
-\frac{k}{2\frac{\lambda_{1}\lambda_{2}}{\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}+k}<\frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{2\lambda_{1}\lambda_{2}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
+\frac{k}{2\frac{\lambda_{1}\lambda_{2}}{\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}+k}<\frac{\lambda_1^2 + \lambda_2^2 + \tsum_{i=1}^{k}\sigma_{i}^{2}}{2\lambda_{1}\lambda_{2}+\lambda_1^2 + \lambda_2^2 + \tsum_{i=1}^{k}\sigma_{i}^{2}},
 \]
-or
+or, equivalently,
 \begin{equation*}
-\frac{k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}{2\lambda_{1}\lambda_{2}+k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}} < \frac{\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}{2\lambda_{1}\lambda_{2}+\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})}
+\frac{k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}}{2\lambda_{1}\lambda_{2}+k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}} < \frac{\lambda_1^2 + \lambda_2^2 + \tsum_{i=1}^{k}\sigma_{i}^{2}}{2\lambda_{1}\lambda_{2}+\lambda_1^2 + \lambda_2^2 + \tsum_{i=1}^{k}\sigma_{i}^{2}},
 \end{equation*}
-Now $k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}>\tsum_{i=1}^{k}(\sigma_{i}^{2}+\lambda_{i}^{2})$
-can be made true by choosing $\sigma_{i}^{2}=0$ for $i>2$ and choosing a large $k$. For the
+Now, $k\sqrt{\sigma_{1}^{2}+\lambda_{1}^{2}}\sqrt{\sigma_{1}^{2}+\lambda_{2}^{2}}>\lambda_1^2 + \lambda_2^2 + \tsum_{i=1}^{k}\sigma_{i}^{2}$
+can be made true by choosing $\sigma_{i}^{2}=0$ (or very small) for $i>2$ and choosing a large $k$. For the
 other way around, just choose $\sigma_{i}^{2}$ large enough.
 
 (iii) 
-Using the same reasoning as in \cref{lem:alpha_s}, $\alpha_{S}\geq R$ if
+Observe that $\alpha_{S}\geq R$ if
 and only if 
 \begin{equation}
-\frac{k}{k-1}(1-\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}(\sigma_{i}^{2}+\lambda_{j}^{2})^{1/2}}+k})\leq\frac{(\sum_{i=1}^{k}\lambda_{i})^{2}}{(\sum_{i=1}^{k}\lambda_{i})^{2}+\sum_{i=1}^{k}\sigma_{i}^{2}}.\label{eq:alpha-and-omega}
+\frac{k}{k-1}\left(1-\frac{k}{\sum_{i\neq j}\frac{\lambda_{i}\lambda_{j}}{(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}(\sigma_{i}^{2}+\lambda_{j}^{2})^{1/2}}+k}\right)\leq\frac{(\sum_{i=1}^{k}\lambda_{i})^{2}}{(\sum_{i=1}^{k}\lambda_{i})^{2}+\sum_{i=1}^{k}\sigma_{i}^{2}}.\label{eq:alpha-and-omega}
 \end{equation}
 Now we show that $\alpha_{S}> R$ is possible. First assume that
 $\lambda_{i}=\sigma_{i}$ for each $i$. Then 
@@ -950,11 +954,11 @@ is an $a$ such that $\sigma_{i}^{2}+\lambda_{i}^{2}=a$ for all $i$,
 that is, $\sigma_{i}^{2}+\lambda_{i}^{2}$ is constant. In this case,
 \cref{eq:alpha-and-omega} becomes
 \[
-\frac{k}{k-1}(1-\frac{ak}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak})\leq\frac{(\sum_{i=1}^{k}\lambda_{i})^{2}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ka},
+\frac{k}{k-1}\left(1-\frac{ak}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak}\right)\leq\frac{(\sum_{i=1}^{k}\lambda_{i})^{2}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak},
 \]
 which can be further reduced to
 \[
-\frac{k}{k-1}\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak}\leq\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\lambda_{i}^{2}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ka}.
+\frac{k}{k-1}\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak}\leq\frac{\sum_{i\neq j}\lambda_{i}\lambda_{j}+\sum_{i=1}^{k}\lambda_{i}^{2}}{\sum_{i\neq j}\lambda_{i}\lambda_{j}+ak}.
 \]
 This inequality is true if $(\sum_{i=1}^{k}\lambda_{i})^{2}\leq k\sum_{i=1}^{k}\lambda_{i}^{2}$,
 which always holds by Chebyshev's inequality, with equality only if
@@ -983,40 +987,40 @@ is not explicitly stated in the exercise, but is required since $\rho\geq0$
 is needed for $\Sigma$ to be positive definite. We find, using the invariance
 principle for maximum likelihood,
 \[
-\lambda^{2} = \frac{\boldsymbol{1}^{T}S\boldsymbol{1}-\tr S}{k(k-1)}1\{\boldsymbol{1}^{T}S\boldsymbol{1}\geq\tr S\}.
+\hat{\lambda}^{2} = \frac{\boldsymbol{1}^{T}S\boldsymbol{1}-\tr S}{k(k-1)}1\{\boldsymbol{1}^{T}S\boldsymbol{1}\geq\tr S\}.
 \]
-Assume $\boldsymbol{1}^{T}S\boldsymbol{1}<\tr S$. Then $\hat{\sigma}^{2}=\hat{\psi}^{2}=\tr S/k$
+Assume $\boldsymbol{1}^{T}S\boldsymbol{1}<\tr S$. Then $\hat{\sigma}^{2}=\hat{\psi}^{2}=\tr S/k$,
 as claimed in the statement of this theorem. If $\boldsymbol{1}^{T}S\boldsymbol{1}\geq\tr S$,
 \begin{equation*}
 \hat{\sigma}^{2} = \hat{\psi}^{2}(1-\hat{\rho})
  = \frac{\tr S}{k}\left(1-\frac{\boldsymbol{1}^{T}S\boldsymbol{1}-\tr S}{(k-1)\tr S}\right)
  = \frac{\tr S-\boldsymbol{1}^{T}S\boldsymbol{1}/k}{(k-1)}.
 \end{equation*}
-As for (ii), first assume that $\hat{\lambda}^2\neq 0$. By the invariance property of maximum likelihood and the definition of the congeneric reliability (\cref{eq:Congeneric reliability}), the maximum likelihood estimator of the congeneric reliability is
+As for (ii), first assume that $\hat{\lambda}^2\neq 0$. By the invariance property of maximum likelihood and the definition of the congeneric reliability of \cref{eq:Congeneric reliability}, the maximum likelihood estimator of the congeneric reliability is
 \begin{eqnarray*}
-\frac{(\mathbf{i}^{T}\mathbf{\hat{\lambda}})^{2}}{(\mathbf{i}^{T}\mathbf{\hat{\lambda}})^{2}+\mathbf{i}^{T}\Psi\mathbf{i}} & = & \frac{k(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S)}{k(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S)+(k\textrm{tr}S-\mathbf{i}^{T}S\mathbf{i})},\\
- & = & \frac{k(\mathbf{i}^{T}S\mathbf{i}-\textrm{tr}S)}{(k-1)\mathbf{i}^{T}S\mathbf{i}},\\
- & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}S}{\mathbf{i}^{T}S\mathbf{i}}\right).
+\frac{(\boldsymbol{1}^{T}\mathbf{\hat{\lambda}})^{2}}{(\boldsymbol{1}^{T}\mathbf{\hat{\lambda}})^{2}+\boldsymbol{1}^{T}\Psi\boldsymbol{1}} & = & \frac{k(\boldsymbol{1}^{T}S\boldsymbol{1}-\textrm{tr}S)}{k(\boldsymbol{1}^{T}S\boldsymbol{1}-\textrm{tr}S)+(k\textrm{tr}S-\boldsymbol{1}^{T}S\boldsymbol{1})},\\
+ & = & \frac{k(\boldsymbol{1}^{T}S\boldsymbol{1}-\textrm{tr}S)}{(k-1)\boldsymbol{1}^{T}S\boldsymbol{1}},\\
+ & = & \frac{k}{k-1}\left(1-\frac{\textrm{tr}S}{\boldsymbol{1}^{T}S\boldsymbol{1}}\right).
 \end{eqnarray*}
-If the maximum likelihood estimator of $\lambda^{2}$ is $0$, then $(\mathbf{i}^{T}\mathbf{\hat{\lambda}})^{2}=0$,
+If the maximum likelihood estimator of $\lambda^{2}$ is $0$, then $(\boldsymbol{1}^{T}\mathbf{\hat{\lambda}})^{2}=0$,
 and consequently the maximum likelihood estimator of the reliability is $0.$
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{thm:asymptotics}]\label{proof:asymptotics}
 (i) Let $R_{n}$, $S_{n}$ be the sample correlation and covariance matrices
-and $\Phi$, $\Sigma$ be their population counterparts. By the law
-of large numbers and Slutsky's theorom \citep[][Lemma 2.8, p. 11]{Van_der_Vaart2000-qc}, $R_{n}\to\Phi$ and $S_{n}\to\Sigma$
+and $\Phi$, $\Sigma$ be their population counterparts. By the Law
+of Large Numbers and Slutsky's theorom \citep[][Lemma 2.8, p. 11]{Van_der_Vaart2000-qc}, $R_{n}\to\Phi$ and $S_{n}\to\Sigma$
 with probability $1$ in the entry-wise matrix norm $\left\Vert A\right\Vert _{1}=\tsum_{j=1}^{k}\tsum_{i=1}^{k}\left|a_{ij}\right|$.
 The mapping
 \[
-f(A)=\frac{k}{k-1}\left(1-\frac{\mathbf{i}^{T}(\diag A)\mathbf{i}}{\mathbf{i}^{T}A\mathbf{i}}\right)
+f(A)=\frac{k}{k-1}\left(1-\frac{\boldsymbol{1}^{T}(\diag A)\boldsymbol{1}}{\boldsymbol{1}^{T}A\boldsymbol{1}}\right)
 \]
 is continuous with respect to the norm $\left\Vert \cdot\right\Vert _{1}$,
-and by the continuous mapping theorem \citep[][Theorem 2.3, p. 7]{Van_der_Vaart2000-qc}
+and by the continuous mapping theorem \citep[][Theorem 2.3, p. 7]{Van_der_Vaart2000-qc} we have
 $f(S_{n})\to f(\Sigma)$ and $f(R_{n})\to f(\Phi)$
 with probability 1.
 
-(ii) See Appendix 2 (p. \pageref{appendix 2}).
+(ii) See Appendix 2 (p. \pageref{Appendix 2}).
 
 (iii) \citet[eq. 22]{Van_Zyl2000-si} showed that the asymptotic variance
 is
@@ -1029,14 +1033,14 @@ This can be simplified to
 \]
 \citet[equation 10]{hayashi2005note} found the asymptotic variance
 \[
-\sigma^{2}(\alpha_S)=\frac{1}{(k-1)^{2}}\frac{1}{(1+\rho(k-1))^{4}}2\mathbf{1}^{T}Q_{p}(P\otimes P)Q_{P}^{T}\mathbf{1}.
+\sigma^{2}(\alpha_S)=\frac{1}{(k-1)^{2}}\frac{1}{(1+\rho(k-1))^{4}}2\boldsymbol{1}^{T}Q_{p}(P\otimes P)Q_{P}^{T}\boldsymbol{1}.
 \]
-The expression $2\mathbf{1}^{T}Q_{p}(P\otimes P)Q_{P}^{T}\mathbf{1}$
-can be rewritten to \citep[appendix 3]{hayashi2005note}
+The expression $2\boldsymbol{1}^{T}Q_{p}(P\otimes P)Q_{P}^{T}\boldsymbol{1}$
+can be rewritten to \citep[Appendix 3]{hayashi2005note}
 \[
 2k(k-1)\{ (k-1)^{2}\rho^{4}-2(k-1)(k-2)\rho^{3}+(k^{2}-6k+6)\text{\ensuremath{\rho^{2}+2(k-2)\rho+1}}\},
 \]
-which can be further simplfied to $(\rho-1)^{2}(1+\rho(k-1)^{2})^{2}$.
+which can be further simplified to $(\rho-1)^{2}(1+\rho(k-1)^{2})^{2}$.
 Thus
 \[
 \sigma^{2}(\alpha_S)=\frac{2k}{(k-1)}\frac{2k(\rho-1)^{2}}{(k-1)[1+\rho(k-1)]^{2}},
@@ -1057,7 +1061,7 @@ of $\hat{\alpha}$ and $\hat{\alpha_S}$ coincide they
 are both efficient.
 \end{proof}
 
-The proof of Proposition \ref{thm:Properties of three} needs a lemma for power means. Let $p$ be real number and $x=\{x_{i}\} _{i=1}^{k}$ be a sequence
+The proof of \cref{thm:Properties of three} uses the theory of power means. Let $p$ be real number and $x=\{x_{i}\} _{i=1}^{k}$ be a sequence
 of positive reals. The \textit{power mean} with exponent $p$ is
 \[
 M_{p}(x)=\begin{cases}
@@ -1069,9 +1073,9 @@ We will make use of a generalization of the arithmetic mean--geometric mean and 
 \begin{equation}
 M_{p}(x)\leq M_{q}(x),\quad p<q\label{eq:generalized mean inequality}
 \end{equation}
-with equality if and only if $x_{1}=\cdots=x_{k}$. This is a generalization of the arithmetic mean--geometric mean and harmonic mean--arithmetic mean inequalities.
+with equality if and only if $x_{1}=\cdots=x_{k}$. 
 
-Moreover, a generalized Minkowski inequality holds for the power means. See \citep[][Section 2.4, Theorem 9.]{Bullen2013-os} more proofs.
+Moreover, a generalized Minkowski inequality holds for the power means. See \citep[][Section 2.4, Theorem 9.]{Bullen2013-os} for proofs of this result.
 
 \begin{thm}[Minkowski inequality]
 \label{thm:minkowski}
@@ -1093,14 +1097,14 @@ the power mean with exponent $p$.
 M_{p}(x+a)M_{q}(x/{(x+a)})\leq\overline{x}\label{eq:power mean inequality}
 \end{equation}
 when $p,q\leq1$, with equality if and only if $x_{1}=x_{2}=\cdots=x_{k}$.
-If $1\leq p<0$, 
+If $-1\leq p<0$, 
 \begin{equation}
 M_{p}(x)\leq M_{p}(x+a)M_{p}(x/{(x+a)})\leq\overline{x}\label{eq:power mean full inequality}
 \end{equation}
 holds too, again with equality if and only if $x_{1}=x_{2}=\cdots=x_{k}$.
 \end{lem}
 \begin{proof}
-(\Cref{eq:power mean inequality}.) By the power
+Consider \cref{eq:power mean inequality} first. By the power
 mean inequality (\cref{eq:generalized mean inequality}) we have $M_{p}(x+a)\leq\overline{x}+a$ and $M_{q}(x/(x+a))\leq\overline{x/(x+a)}$,
 hence it suffices to show $(\overline{x}+a)\overline{x/(x+a)}\leq\overline{x}$,
 or equivalently, $\overline{x/(x+a)}\leq\overline{x}/(\overline{x}+a)$.
@@ -1108,8 +1112,8 @@ The function $x\mapsto x/(a+x)$ is concave, hence $E[f(X)]\leq f[E(X)]$
 by Jensen's inequality. But then $\overline{x/(x+a)}\leq\overline{x}/(\overline{x}+a)$
 follows.
 
-(\Cref{eq:power mean full inequality}.) 
-Since $1\leq p<0$, the function $f(x)=x^{p}/(x^{p}+a)$ is convex, as can
+Now let us take on \cref{eq:power mean full inequality}.
+Since $-1\leq p<0$, the function $f(x)=x^{p}/(x^{p}+a)$ is convex, as can
 be verified by differentation. Hence $f(E(x))\leq Ef(x)$ by Jensen's
 inequality (here $x$ is regarded as a uniform random variable). Since
 \[
@@ -1120,7 +1124,7 @@ and
 f[E(x)]=\overline{x^{p}}/(\overline{x^{p}}+a)=M_{p}^{p}(x)/(M_{p}^{p}(x)+a),
 \]
 we get that $M_{p}^{p}(x)/[M_{p}^{p}(x)+a]\leq M_{p}^{p}(x/(x+a)$. Moreover, $M_{p}^{p}(x)+a=M_{p}^{p}(x)+M_{p}^{p}(a)\leq M_{p}^{p}(x+a)$
-by the Minkowski inequality (\cref{eq:Minkowski 3}, hence $M_{p}(x)/M_{p}(x+a)\leq M_{p}(x/(x+a))$. This can be rearranged to get the left-most inequality. 
+by the Minkowski inequality (\cref{eq:Minkowski 3}), hence $M_{p}(x)/M_{p}(x+a)\leq M_{p}(x/(x+a))$. This can be rearranged to get the left-most inequality. 
 Now notice that the right-most inequality is a special case of \cref{eq:power mean inequality}, and we are done. 
 \end{proof}
 
@@ -1131,38 +1135,53 @@ iff $a>b$. Let's take on $ R_S >  R$. From \cref{eq:Congeneric reliability} and 
 \[
 k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}\geq k\overline{\lambda}^{2}/\overline{\sigma^{2}}.
 \]
-This is equivalent to 
+Since all $\lambda_i$s are equal by assumption, this is equivalent to 
 \[
 \overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}/\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\leq\overline{\sigma^{2}}
 \]
 which is true by Lemma \ref{lem:power mean lemma}, \cref{eq:power mean inequality} using exponent $p = -1/2$, $q = 1$ and $a = \lambda^2$.
+
 To prove $ R_{\sigma}> R_{S}$, refer to \cref{eq:Sigma-standardized reliability} and \cref{eq:Standardized reliability} to verify that we need to show
 \[
 \overline{\sigma^{-1}}^{-2}\leq\overline{\sigma^{2}/(\lambda^{2}+\sigma^{2})}/\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2},
 \]
 or equivalently,
 \[
-M_{-1/2}(\sigma^{2})\leq M_{-1/2}(\lambda^{2}+\sigma^{2})\overline{\sigma^{2}/\lambda^{2}+\sigma^{2}}.
+M_{-1/2}(\sigma^{2})\leq \overline{\sigma^{2}/\lambda^{2}+\sigma^{2}}M_{-1/2}(\lambda^{2}+\sigma^{2}).
 \]
-This is a case of \cref{lem:power mean lemma}, \cref{eq:power mean full inequality}.
+This is a case of \cref{lem:power mean lemma}, \cref{eq:power mean full inequality}, as $\overline{\sigma^{2}/\lambda^{2}+\sigma^{2}} \geq M_{-1/2}(\sigma^{2}/\lambda^{2}+\sigma^{2})$ by the power mean inequality.
 
-The proof of (ii) is omitted since it is similar the proof of (i).
+(ii) That $R_{\sigma}=R$ follows from \cref{prop:reliability motivation}, and $R_{H}\geq R_{\sigma}$
+since the weights of $R_{H}$ are optimal. It suffices to show $R\geq R_{S}$.
+From the proof of (i), we must verify
+\[
+\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})}/\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}\geq\sigma^{2}
+\]
+Since $\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})}=\sigma^{2}\overline{(\lambda^{2}+\sigma^{2})}$,
+this is equivalent to
+\[
+\overline{(\lambda^{2}+\sigma^{2})}\geq\overline{(\lambda^{2}+\sigma^{2})^{-1/2}}^{2},
+\]
+but this follows from the power mean inequality, \cref{eq:generalized mean inequality}.
+
+
 \end{proof}
 
 \begin{proof}[Proof of Theorem (\ref{thm:omega-prime})]
 \label{proof:omega-prime}(ii) That $ R'=1-\MSE(v_{0}\hat{Z})$
 follows from Lemma \ref{lem:r^2 and correlation} and the formula
-for the covariance, which we now show. The covariance between $\tsum_{i=1}^{k}w_{i}\hat{X}_{i}$
+for the covariance, which we now show. By the law of total covariance, the covariance between $\tsum_{i=1}^{k}w_{i}\hat{X}_{i}$
 and $Z$ is
 \begin{eqnarray*}
 \Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},Z) & = & E[\Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},Z\mid\{Y_{i}\})]+\Cov(E[\tsum_{i=1}^{k}w_{i}\hat{X}_{i}\mid\{Y_{i}\}],E[Z\mid\{Y_{i}\}]),\\
- & = & -\Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},E[Z\mid\{Y_{i}\}]).
+ & = & \Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},E[Z\mid\{Y_{i}\}]).
 \end{eqnarray*}
-The expectation $E[Z\mid\{Y_{i}=k_{i}\}]$ equals $E[E[Z\mid X]\mid\{Y_{i}\}]$.
+The second equality holds since $\Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},Z\mid\{Y_{i}\}) = 0$, as $X_i$ is a constant function of $Y_i$, and $E[\tsum_{i=1}^{k}w_{i}\hat{X}_{i}| \{Y_{i}\}] = \tsum_{i=1}^{k}w_{i}\hat{X}_{i}$.
+The expectation $E[Z\mid\{Y_{i}\}]$ equals $E[E[Z\mid X]\mid\{Y_{i}\}]$.
 The conditional expectation $E(Z\mid X)=\tsum_{i=1}^{k}v_{i}X_{i}$
 under multivariate normality, where $v_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})]$
 are the Thurstone weights, see \citet[Theorem 3.3.4]{Tong1990-lm}.
-Consequently, $E[E(Z\mid X)\mid\{Y_{i}\}]=-\tsum_{i=1}^{k}v_{i}\hat{X_{i}}$
+Consequently, $E[E(Z\mid X)\mid\{Y_{i}\}]=\tsum_{i=1}^{k}v_{i}\hat{X_{i}}$
 and 
 \begin{equation*}
 \Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},Z) =  \Cov(\tsum_{i=1}^{k}w_{i}\hat{X}_{i},\tsum_{i=1}^{k}v_{i}\hat{X}_{i})=w^{T}\Xi v.
@@ -1171,26 +1190,30 @@ Standardize to find the correlation $w^{T}\Xi v/\sqrt{w^{T}\Xi w}$,
 and the squared correlation is $ R'=(w^{T}\Xi v)^{2}/w^{T}\Xi w$.
 This completes point (i). 
 
-As for (iii), under the parallel model, $v=w_{0}\mathbf{i}$, where
+As for (iii), under the parallel model, $v=w_{0}\boldsymbol{1}$, where
 $w_{0}=\lambda/[\sigma^{2}+k\lambda^{2}]$ and the squared correlation
-is $w_{0}^{2}\mathbf{i}^{T}\Xi\mathbf{i}=\lambda^{2}\mathbf{i}^{T}\Xi\mathbf{i}/(k\lambda^{2}+\sigma^{2})^{2}$.
+is $w_{0}^{2}\boldsymbol{1}^{T}\Xi\boldsymbol{1}=\lambda^{2}\boldsymbol{1}^{T}\Xi\boldsymbol{1}/(k\lambda^{2}+\sigma^{2})^{2}$.
 For the second equation, first notice that
 \[
-\alpha_S=\frac{k}{k-1}\frac{i^{T}\Phi i-k}{i^{T}\Phi i}=k^{2}\frac{\overline{\rho}}{i^{T}\Phi i}.
+\alpha_S=\frac{k}{k-1}\frac{i^{T}\Phi i-k}{i^{T}\Phi i}=k^{2}\frac{\rho}{i^{T}\Phi i},
 \]
-Since $(k\lambda^{2}+\sigma^{2})^{2}=(i^{T}\Phi i/k)^{2}$, 
+where $\overline{\rho}$ is the unique correlation. Since $(k\lambda^{2}+\sigma^{2})^{2}=(i^{T}\Phi i/k)^{2}$, 
 \begin{equation}
-\frac{\lambda^{2}}{(k\lambda^{2}+\sigma^{2})^{2}}\mathbf{i}^{T}\Xi\mathbf{i} =  k^{2}\frac{\overline{\rho}}{(i^{T}\Phi i)^{2}}\mathbf{i}^{T}\Xi\mathbf{i} =  \alpha_S\frac{\mathbf{i}^{T}\Xi\mathbf{i}}{\mathbf{i}^{T}\Psi\mathbf{i}},\nonumber
+\frac{\lambda^{2}}{(k\lambda^{2}+\sigma^{2})^{2}}\boldsymbol{1}^{T}\Xi\boldsymbol{1} =  k^{2}\frac{\rho}{(i^{T}\Phi i)^{2}}\boldsymbol{1}^{T}\Xi\boldsymbol{1} =  \alpha_S\frac{\boldsymbol{1}^{T}\Xi\boldsymbol{1}}{\boldsymbol{1}^{T}\Psi\boldsymbol{1}},\nonumber
 \end{equation}
 as claimed.
 
-(i) Follows from the proof (ii); the Thurstone weights optimize $(w^{T}\Xi v)^{2}/w^{T}\Xi w$
-since $E[E(Z\mid X)\mid\{Y_{i}\}]=-\tsum_{i=1}^{k}v_{i}\hat{X_{i}}$.
+(i) Follows from the representation $R_w = (w^T\Xi v)^2/(w^T\Xi w)$. We use the derivatives $\frac{d}{dw}w^{T}\Xi w=2w^{T}\Xi$ and $\frac{d}{dw}w^{T}\Xi v=v^{T}\Xi$,
+so that $\frac{d}{dw}(w^{T}\Xi v)^{2}=2(w^{T}\Xi v)v^{T}\Xi$. Now
+apply the quotient rule
+\begin{eqnarray*}
+\frac{d}{dx}\frac{(x^{T}\Xi y)^{2}}{x^{T}\Xi x} & = & \frac{2(w^{T}\Xi v)v^{T}\Xi(w^{T}\Xi w)-(w^{T}\Xi v)^{2}2w^{T}\Xi}{(w^{T}\Xi w)^{2}}
+\end{eqnarray*}
+This is equal to $0$ when $w=v$, for $v^{T}\Xi(v^{T}\Xi v)^{2}-(v^{T}\Xi v)^{2}v^{T}\Xi=0$.
 \end{proof}
-
-\clearpage
+%\clearpage
 \section*{Appendix 2: Proof of Theorem \ref{thm:asymptotics} (ii)}
-\label{appendix 2}
+\label{Appendix 2}
 
 In this appendix we prove a more detailed variant of Theorem \ref{thm:asymptotics} (ii).
 \begin{prop}
@@ -1208,7 +1231,7 @@ where
 \end{equation}
  and
 \[
-v=[(k-1)\rho+1]\vvec(I_{p})-\vvec(\mathbf{i}\mathbf{i}^{T}).
+v=[(k-1)\rho+1]\vvec(I_{p})-\vvec(\boldsymbol{1}\boldsymbol{1}^{T}).
 \]
 \end{prop}
 
@@ -1241,9 +1264,9 @@ and correlation $\rho$, covariance matrix $\Sigma$, correlation
 matrix $\Phi$. Then the asymptotic variance for coefficient alpha is as in Proposition \ref{prop:equal limis}. The asymptotic variance for standardized alpha is 
 \begin{equation}
 \nonumber
-\sigma^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}\mathbf{i}_{*}^{T}D^{T}\Psi_{*}D\mathbf{i}_{*},
+\sigma^{2}=\frac{1}{(k-1)^{2}}\frac{1}{[\{(k-1)\rho+1]^{4}}\frac{1}{\phi^{4}}\boldsymbol{1}_{*}^{T}D^{T}\Psi_{*}D\boldsymbol{1}_{*},
 \end{equation}
-where $\mathbf{i}_{*}$ has $\frac{1}{2}k(k-1)$ elements and
+where $\boldsymbol{1}_{*}$ has $\frac{1}{2}k(k-1)$ elements and
 \[
 \Psi_{*}=[I-(I\otimes\Phi)K_{d}]\Gamma[I-K_{d}(I\otimes\Phi)].
 \]
@@ -1254,24 +1277,24 @@ We will take coefficient alpha first. \citet{Van_Zyl2000-si} showed that, in the
 of multivariate normality, $\sigma^{2}=h^{T}L_{k}^{T}2(\Sigma\otimes\Sigma)L_{k}h$,
 where $h$ is \citep[eq. 19]{Van_Zyl2000-si}
 \begin{equation*}
-h = (\mathbf{i}^{T}\Sigma\mathbf{i})^{-2}[(\mathbf{i}^{T}\Sigma\mathbf{i}^{T}\vvec I-\tr\Sigma\vvec(\mathbf{i}\mathbf{i}^{T})]L_{k}^{-}.
+h = (\boldsymbol{1}^{T}\Sigma\boldsymbol{1})^{-2}[(\boldsymbol{1}^{T}\Sigma\boldsymbol{1}^{T}\vvec I-\tr\Sigma\vvec(\boldsymbol{1}\boldsymbol{1}^{T})]L_{k}^{-}.
 \end{equation*}
-Using Theorem 1 of \citet{Neudecker1990-ph}, we can generalize the formula for $\sigma^2$ to non-normal variables. Using the substitution
-$2(\Phi\otimes\Phi)=\Gamma$, the general formula is $\sigma^{2}=h^{T}L_{k}^{T}\Gamma L_{k}h.$
+Now we use Theorem 1 of \citet{Neudecker1990-ph} to generalize the formula for $\sigma^2$ to non-normal variables; the substitution
+$2(\Phi\otimes\Phi)=\Gamma$ gives the general formula $\sigma^{2}=h^{T}L_{k}^{T}\Gamma L_{k}h.$
 
 Using the identities
 \begin{eqnarray*}
-\mathbf{i}^{T}\Sigma\mathbf{i} & = & \phi^{2}k\{(k-1)\rho+1,\\
+\boldsymbol{1}^{T}\Sigma\boldsymbol{1} & = & \phi^{2}k\{(k-1)\rho+1,\\
 \tr\Sigma & = & \phi^{2}k,
 \end{eqnarray*}
 we obtain
 \begin{eqnarray*}
-h & = & \frac{[\phi^{2}k\{(k-1)\rho+1\}]\vvec(I_{p})-\phi^{2}k\vvec(jj^{T})}{[\phi^{2}k\{(k-1)\rho+1]^{2}}L_{k}^{-},\\
- & = & \frac{[\{(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})}{\phi^{2}k[(k-1)\rho+1]^{2}}L_{k}^{-}.
+h & = & \frac{[\phi^{2}k\{(k-1)\rho+1\}]\vvec(I_{p})-\phi^{2}k\vvec(\boldsymbol{1}\boldsymbol{1}^{T})}{[\phi^{2}k\{(k-1)\rho+1]^{2}}L_{k}^{-},\\
+ & = & \frac{[\{(k-1)\rho+1]\vvec(I_{p})-\vvec(\boldsymbol{1}\boldsymbol{1}^{T})}{\phi^{2}k[(k-1)\rho+1]^{2}}L_{k}^{-}.
 \end{eqnarray*}
 Define
 \[
-g=\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(jj^{T})\}L_{k}^{-},
+g=\{[(k-1)\rho+1]\vvec(I_{p})-\vvec(\boldsymbol{1}\boldsymbol{1}^{T})\}L_{k}^{-},
 \]
 so that
 \[
@@ -1287,7 +1310,7 @@ whenever $S$ is symmetric, see \citet[p. 275]{Van_Zyl2000-si}. Thus
 Now it is time for standardized alpha. Combining equations (8) and (9) of \citet{hayashi2005note},
 we find that the asymptotic variance for standardized alpha is
 \begin{equation*}
-\sigma_{s}^{2}=\frac{1}{(k-1)^{2}}\left(\frac{1}{1+\rho(k-1)}\right)^{4}\mathbf{i}_{*}^{T}D^{T}\Psi D\mathbf{i}_{*},\label{eq:standardized alpha variance 3}
+\sigma_{s}^{2}=\frac{1}{(k-1)^{2}}\left(\frac{1}{1+\rho(k-1)}\right)^{4}\boldsymbol{1}_{*}^{T}D^{T}\Psi D\boldsymbol{1}_{*},\label{eq:standardized alpha variance 3}
 \end{equation*}
 where 
 \[
@@ -1307,29 +1330,29 @@ Propositon \ref{prop:equal limis} now follows from this lemma.
 \begin{lem}
 The following equalities are true
 \begin{equation*}
- \{I-K_{d}(I\otimes P)\}D\mathbf{i}_{*}
-= \{I-K_{d}(I\otimes P)\}[\vvec(\mathbf{i}\mathbf{i}^{T})-\vvec I]
-= \vvec(\mathbf{i}\mathbf{i}^{T})-[(k-1)\rho+1]\vvec(I_{p}).
+ \{I-K_{d}(I\otimes \Phi)\}D\boldsymbol{1}_{*}
+= \{I-K_{d}(I\otimes \Phi)\}[\vvec(\boldsymbol{1}\boldsymbol{1}^{T})-\vvec I]
+= \vvec(\boldsymbol{1}\boldsymbol{1}^{T})-[(k-1)\rho+1]\vvec(I_{p}).
 \end{equation*}
 \end{lem}
 
 \begin{proof}
-First observe that $D\mathbf{i}_{*}=\vvec(\mathbf{i}\mathbf{i}^{T})-\vvec I$
+First observe that $D\boldsymbol{1}_{*}=\vvec(\boldsymbol{1}\boldsymbol{1}^{T})-\vvec I$
 by the definition of $D$, proving the first inequality. 
 
-Now we show that $(I-K_{d}(I\otimes P))\vvec I=0$. First observe
-that $(I\otimes P)\vvec I=\vvec\Phi$ by Theorem 2.2 of \citet{Magnus2019-cz}.
+Now we show that $(I-K_{d}(I\otimes \Phi))\vvec I=0$. First observe
+that $(I\otimes \Phi)\vvec I=\vvec\Phi$ by Theorem 2.2 of \citet{Magnus2019-cz}.
 The operation $K_{d}\vvec A$ selects the ``diagonal'' elements
 of $\vvec A$, i.e., $K_{d}\vvec A=\vvec A_{d}$. Since $\Phi_{d}=I$,
 $K_{p}\vvec\Phi=K_{p}\vvec I=\vvec I$, and therefore $(I-K_{d}(I\otimes\Phi))\vvec I=0$
 as claimed.
 
-The next step is $K_{d}(I\otimes P)\vvec(\mathbf{i}\mathbf{i}^{T})=(1+(k-1)\rho)\mathbf{i}\mathbf{i}^{T}$.
-First, by Theorem 2.2 of \citet{Magnus2019-cz}, $K_{d}(I\otimes\Phi)\vvec(\mathbf{i}\mathbf{i}^{T})=K_{d}\vvec(\Phi\mathbf{i}\mathbf{i}^{T})$.
-Since $\Phi\mathbf{i}\mathbf{i}^{T}=[1+(k-1)\rho]\mathbf{i}\mathbf{i}^{T}$,
-$K_{d}\vvec(\Phi\mathbf{i}\mathbf{i}^{T})=[1+(k-1)\rho]K_{d}\vvec(\mathbf{i}\mathbf{i}^{T})$,
-but since $K_{d}\vvec(\mathbf{i}\mathbf{i}^{T})=\vvec I$, we get
-$K_{d}(I\otimes\Phi)\vvec(\mathbf{i}\mathbf{i}^{T})=[1+(k-1)\rho]\vvec I$.
+The next step is $K_{d}(I\otimes \Phi)\vvec(\boldsymbol{1}\boldsymbol{1}^{T})=(1+(k-1)\rho)\boldsymbol{1}\boldsymbol{1}^{T}$.
+First, by Theorem 2.2 of \citet{Magnus2019-cz}, $K_{d}(I\otimes\Phi)\vvec(\boldsymbol{1}\boldsymbol{1}^{T})=K_{d}\vvec(\Phi\boldsymbol{1}\boldsymbol{1}^{T})$.
+Since $\Phi\boldsymbol{1}\boldsymbol{1}^{T}=[1+(k-1)\rho]\boldsymbol{1}\boldsymbol{1}^{T}$,
+$K_{d}\vvec(\Phi\boldsymbol{1}\boldsymbol{1}^{T})=[1+(k-1)\rho]K_{d}\vvec(\boldsymbol{1}\boldsymbol{1}^{T})$,
+but since $K_{d}\vvec(\boldsymbol{1}\boldsymbol{1}^{T})=\vvec I$, we get
+$K_{d}(I\otimes\Phi)\vvec(\boldsymbol{1}\boldsymbol{1}^{T})=[1+(k-1)\rho]\vvec I$.
 \end{proof}
 
 \bibliography{standardized}
