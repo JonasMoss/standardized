@@ -38,22 +38,31 @@ tab1 = rbind(n*colMeans((omegas - omega_std_true)^2, na.rm = TRUE),
 tab2 = rbind(colMeans((omegas - omega_std_true), na.rm = TRUE),
              colMeans((alphas - omega_std_true), na.rm = TRUE))
 
-caption = "$n \\times \\textsc{MSE}$ for sample $\\omega_s$ and sample $\\alpha_s$"
+caption = "$n \\times \\textsc{MSE}$ for sample $R_S$ and sample $\\alpha_S$"
 
 tab = rbind(formatC(tab1, digits = 2, drop0trailing = TRUE, format = "fg"))
 colnames(tab) = c("$n = 50$", "$n = 200$", "$n = 1000$", "$n = 5000$")
 rownames(tab) = c("omegas", "alphas")
-tab = print(xtable::xtable(tab, caption = caption, label = "tab:omega_std_alpha_std",),
+addtorow = list()
+addtorow$pos <- as.list(c(-1, 0, 0, 2))
+addtorow$command <- c("\\toprule\n",
+                      "& $n = 50$ & $n = 200$ & $n = 1000$ & $n = 5000$ \\\\ \n ",
+                      "\\cmidrule{1-5}\n",
+                      "\\bottomrule\n")
+
+tab = print(xtable::xtable(tab, caption = caption,
+                           label = "tab:omega_std_alpha_std",
+                           align = c("ccccc")),
       include.colnames = FALSE, hline.after = NULL,
       sanitize.rownames.function = identity,
       caption.placement = "top",
       sanitize.colnames.function = identity,
       sanitize.text.function = identity,
-      add.to.row = list(pos = list(0),
-      command = c("& $n = 50$ & $n = 200$ & $n = 1000$ & $n = 5000$ \\\\ \n ")),
+      add.to.row = addtorow,
       timestamp = paste0("Do not edit by hand. Last updated: ", date()))
 
-tab = gsub("alphas", "$\\alpha_s$", tab, fixed = TRUE)
-tab = gsub("omegas", "$\\omega_s$", tab, fixed = TRUE)
+tab = gsub("alphas", "$\\alpha_S$", tab, fixed = TRUE)
+tab = gsub("omegas", "$R_S$", tab, fixed = TRUE)
+
 
 cat(tab, file = "chunks/example_table_omega_alpha.tex")
