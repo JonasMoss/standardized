@@ -18,7 +18,7 @@
 \DeclareMathOperator{\vech}{vech}
 \DeclareMathOperator{\w}{w}
 \DeclareMathOperator{\diag}{diag} 
-\DeclareMathOperator{\MSE}{MSE} 
+\DeclareMathOperator{\MSE}{MSE_Z} 
 \DeclareMathOperator{\tsum}{\textstyle \sum}
 
 \renewcommand{\sqrt}[1]{{(#1)^{1/2}}}
@@ -111,9 +111,25 @@ It is time to define reliability. Let $Z$ be an unobserved variable and $\hat{Z}
 \begin{defn}\label{defn:reliability} The reliability of $\hat{Z}$ as a predictor of $Z$ is $ R=\Cor^{2}(\hat{Z},Z)$.
 \end{defn} 
 
-The squared correlation between two variables $X$ and $Y$ quantifies the degree of linear relationship between $X$ and $Y$, with $0$ being no linear relationship and $1$ a perfect linear relationship. In the same way, the reliability coefficient quantifies how well the noisy $\hat{Z}$ works as a predictor of $Z$.
+The squared correlation between two variables $X$ and $Y$ quantifies the degree of linear relationship between $X$ and $Y$, with $0$ being no linear relationship and $1$ a perfect linear relationship. In the same way, the reliability coefficient quantifies how the strength of the linear relationship between $\hat{Z}$ and $Z$.
 
-In this paper the predictors $\hat{Z}$ are linear functions of $X$, that is, there are some real weights $w_{i},i=1,\ldots,k$, such that
+There is well-known concrete interpretation of the squared correlation as the $R^2$, or coefficient of determination. The $R^2$ between $\hat{Z}$ and $Z$ quantifies how well $\hat{Z}$ works as a predictor of $Z$ when it is optimally weighted.
+
+\begin{lem}
+\label{lem:r^2 and correlation}Assume $Z$ and $\hat{Z}$ have finite
+variance. Let $\MSE(X) = E[(X-Z)^2]$ denote the mean squared error of $X$ as predictor of $Z$ when $X$ is a random variable. Then 
+\begin{equation}
+\Cor^{2}(\hat{Z},Z)=1-\frac{\MSE(\alpha+\beta\hat{Z})}{\Var(Z)},\label{eq:rsq and correlation}
+\end{equation}
+where $\alpha=E(Z)-E(\hat{Z})$ and $\beta=\Cov(\hat{Z},Z)/\Var(\hat{Z})$ are the theoretical regression coefficients minimizing the mean squared error $\MSE(\alpha+\beta\hat{Z})$. 
+\end{lem}
+
+
+
+\Cref{lem:r^2 and correlation} requires 
+\Cref{eq:rsq and correlation} allows us to understand $\Cor^2(\hat{Y},Y)$ as the relative reduction in risk you 
+
+In this paper the predictors $\hat{Z}$ are l inear functions of $X$, that is, there are some real weights $w_{i},i=1,\ldots,k$, such that
 \begin{equation}
 \label{eq:Linear predictor}
 \hat{Z} =  \sum_{i=1}^{k} w_{i}X_i = \sum_{i=1}^{k}w_{i}(Z\lambda_i + \sigma_{i} \varepsilon_i).\nonumber 
@@ -359,7 +375,7 @@ has heavier tails than the normal distribution but is symmetric and nearly bell-
 
 All of the distributions are extreme, and should be able to force out the difference between the estimators. We use $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment. The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains the code for the simulations.
 
-Table \ref{tab:simulation} contains $100 \times \MSE_\alpha/\MSE_{\alpha_S}$, where $\MSE$ denotes the mean squared error. Values higher than $100$ are in favor of $\hat{\alpha}_s$ and values lower than $100$ in favor of $\hat{\alpha}$. The table shows that $\alpha_S$ tends to outperform $\alpha$ when both $k$ and $n$ are large and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\hat{\alpha}_s$ does slightly better than $\hat{\alpha}$ -- the geometric mean of $\MSE_\alpha/\MSE_{\alpha_S}$ is $1.08$, giving an $8$\% advantage to $\hat{\alpha}_s$. Of course, this is a small simulation study and it is hard to predict what would happen with other distributions. Still, the result of these simulations should be counted in favor of sample standardized alpha.
+Table \ref{tab:simulation} contains $100 \times \MSE(\alpha)/\MSE(\alpha_S)$, where $\MSE$ denotes the mean squared error. Values higher than $100$ are in favor of $\hat{\alpha}_S$ and values lower than $100$ in favor of $\hat{\alpha}$. The table shows that $\alpha_S$ tends to outperform $\alpha$ when both $k$ and $n$ are large and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\hat{\alpha}_s$ does slightly better than $\hat{\alpha}$ -- the geometric mean of $\MSE(\alpha)/\MSE({\alpha_S})$ is $1.08$, giving an $8$\% advantage to $\hat{\alpha}_s$. Of course, this is a small simulation study and it is hard to predict what would happen with other distributions. Still, the result of these simulations should be counted in favor of sample standardized alpha.
 
 To sum up, sample alpha won the maximum likelihood and robustness competitions, drew the asymptotic efficiency competition, and lost the finite sample competition. The tally is sample alpha 2\sfrac{1}{2} - 1\sfrac{1}{2} standardized alpha. 
 
@@ -756,14 +772,7 @@ I am grateful to Riccardo De Bin and Kjersti Moss for helping me with the presen
 \label{Appendix 1}
 
 This lemma formulates the the squared correlation in terms of the mean squared error and establishes the connection between the correlation coefficient and $R^2$. It is used in in the proof of Proposition \ref{prop:reliability motivation}. 
-\begin{lem}
-\label{lem:r^2 and correlation}Assume $Y$ and $\hat{Y}$ have finite
-variance. Let $\MSE(Z) = E[(Z-Y)^2]$ denote the mean squared error of $Z$ as predictor of $Y$ when $Z$ is a random variable. Then 
-\begin{equation}
-\Cor^{2}(\hat{Y},Y)=1-\MSE(\alpha+\beta\hat{Y})/\Var(Y),\label{eq:rsq and correlation}
-\end{equation}
-where $\alpha=E(Y)-E(\hat{Y})$ and $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$ are the theoretical regression coefficients minimizing the mean squared error $\MSE(\alpha+\beta\hat{Y})$. 
-\end{lem}
+
 
 \begin{proof}
 Recenter $Y$ and $\hat{Y}$ so that $E(Y)=E(\hat{Y})=0$. Then $\MSE(\alpha+\beta\hat{Y})$ equals $\beta^{2}\Var(\hat{Y})-2\beta\Cov(\hat{Y},Y)+\Var Y^{2}$.
