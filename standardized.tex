@@ -734,13 +734,14 @@ tend to give roughly the same results, but the sample estimator is faster to com
 The $\mathtt{R}$-package $\mathtt{conogive}$ is the companion $\mathtt{R}$-package of this paper. It can used to calculate concrete ordinal reliabilities. 
 \begin{itemize}
 \item[1.] The function $\mathtt{conogive}$ estimates a congeneric normal-ogive
-model using maximum likelihood. It is a wrapper for the $\mathtt{fa}$ function of the $\mathtt{psych}$
+model using maximum likelihood. It is a wrapper for the $\mathtt{fa}$ and \texttt{polychoric} functions of the $\mathtt{psych}$
 package \citep{psych}.
 \item[2.] The function $\mathtt{ordinal\_r}$ calculates the concrete ordinal
 reliability, using either $\hat{\Xi}_{s}$ or $\hat{\Xi}_{p}$ as
-estimators of $\Xi$. It supports equal weights, optimal weights,
-and sigma weights.
-\item[3.] The functions $\mathtt{theoretical\_ordinal\_r}$ and $\mathtt{theoretical\_ordinal\_alpha}$
+estimators of $\Xi$. It supports optimal weights,
+and equal weights.
+\item[3.] The \texttt{predict} function predicts the value of $Z$ given $\hat{X}_i$.
+\item[4.] The functions $\mathtt{theoretical\_ordinal\_r}$ and $\mathtt{theoretical\_ordinal\_alpha}$
 calculate the theoretical ordinal reliability and the theoretical
 ordinal alpha. 
 \end{itemize}
