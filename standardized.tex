@@ -46,11 +46,11 @@
 \maketitle
 
 \begin{abstract}
-Coefficient alpha is the most widely used measure of reliability. A cousin of coefficient alpha is the standardized alpha, which is calculated from the correlation matrix instead of the covariance matrix. This paper makes the case that standardized alpha should never be used. It is worse than coefficient alpha as an estimator of the congeneric reliability. It is worse than the plug-in estimator of the appropriately defined standardized reliability as an estimator of the standardized reliability, and standardization should be avoided to begin with. Ordinal alpha, the standardized alpha based on the polychoric correlation matrix, should also be avoided, as it has no concrete interpretation. We propose a concrete variant of the ordinal alpha and show its relationship to the ordinal alpha.
+Coefficient alpha is the most widely used measure of reliability. A cousin of coefficient alpha is the standardized alpha, which is calculated from the correlation matrix instead of the covariance matrix. This paper makes the case that standardized alpha should never be used. It is worse than coefficient alpha as an estimator of the congeneric reliability. There are superior estimators of the standardized reliability, and standardization should be avoided to begin with. Ordinal alpha, the standardized alpha based on the polychoric correlation matrix, should also be avoided, as it has no concrete interpretation. We propose a concrete variant of the ordinal alpha and show its relationship to the ordinal alpha.
 \end{abstract}
 
 % keywords can be removed
-\keywords{reliability \and coefficient alpha \and Cronbach's alpha \and reliability of Likert scales \and factor analysis of categorical data}
+\keywords{reliability \and coefficient alpha \and Cronbach's alpha \and reliability of Likert scales \and factor analysis of categorical data \and ordinal alpha}
 
 \section{Introduction}
 
@@ -127,7 +127,6 @@ where $\alpha=E(Z)-E(\hat{Z})$ and $\beta=\Cov(\hat{Z},Z)/\Var(\hat{Z})$ are the
 See Appendix 1, page \pageref{proof:r^2 and correlation}.
 \end{proof}
 
-
 Suppose we have no predictor $\hat{Z}$ available. Then we will minimize the mean squared error by guessing $E(Z)$, and in this case $\MSE[E(Z)]=\Var(Z)$. Therefore \cref{eq:rsq and correlation} is a statement about the relative reduction in mean squared error when we use the best linear predictor based on $\hat{Z}$ instead of $E(Z)$. This interpretation of the reliability is concrete, as it numerically answers the question ``how good can I expected my best possible linear prediction of $Z$ based on $\hat{Z}$ to be?''.
 
 In this paper the predictors $\hat{Z}$ are linear functions of $X$, that is, there are some real weights $w_{i},i=1,\ldots,k$, such that
@@ -194,7 +193,7 @@ between the reliability $ R_{w}$ and the weighted $\alpha_{w}$. To state it, we 
 the notion of a \textit{$\tau$-equivalent model} \citep[][section 2.13]{Lord1968-ax}. A congeneric model \eqref{eq:congeneric model} is \textit{$\tau$-equivalent} if $\lambda_{i}=\lambda_{j}$ for all $i,j$. That is, all unstandardized
 factor loadings are equal.
 \begin{prop}
-\label{prop:weighted alpha}. Let $w$ be a vector of weights and
+\label{prop:weighted alpha}Let $w$ be a vector of weights and
 assume $X$ follows the congeneric model \eqref{eq:congeneric model}. Then 
 \begin{equation}
 \alpha_{w}= R_{w}-\frac{k}{k-1}\frac{\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2}}{k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}}}\label{eq:alpha-omega discrepancy}
@@ -278,7 +277,7 @@ where $\lambda$ and $\sigma$ are positive scalars and $\varepsilon\in\mathbb{R}^
 \end{equation}
 Now we have a model, a parameter, and two competing estimators of that parameter, namely $\hat{\alpha}$ and $\hat{\alpha}_s$. Which should we choose? 
 
-Choosing between estimators is a classical statistical problem. Some well-established methods to attack such problems are:
+Choosing between estimators is a classical statistical problem. Some well-established methods to approach such problems are:
 
 % Let $\rho = \lambda^2/\sqrt{\lambda^2 + \sigma^2}$ be the unique off-diagonal correlation of $\Cor(x)$. 
 
@@ -372,13 +371,13 @@ has heavier tails than the normal distribution but is symmetric and nearly bell-
 
 All of the distributions are extreme, and should be able to force out the difference between the estimators. We use $5$ degrees of freedom for the $t$-distribution since it is the first integer degree of freedom where $t$ has finite fourth moment. The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains the code for the simulations.
 
-Table \ref{tab:simulation} contains $100 \times \MSE(\alpha)/\MSE(\alpha_S)$, where $\MSE$ denotes the mean squared error. Values higher than $100$ are in favor of $\hat{\alpha}_S$ and values lower than $100$ in favor of $\hat{\alpha}$. The table shows that $\alpha_S$ tends to outperform $\alpha$ when both $k$ and $n$ are large and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\hat{\alpha}_s$ does slightly better than $\hat{\alpha}$ -- the geometric mean of $\MSE(\alpha)/\MSE({\alpha_S})$ is $1.08$, giving an $8$\% advantage to $\hat{\alpha}_s$. Of course, this is a small simulation study and it is hard to predict what would happen with other distributions. Still, the result of these simulations should be counted in favor of sample standardized alpha.
-
-To sum up, sample alpha won the maximum likelihood and robustness competitions, drew the asymptotic efficiency competition, and lost the finite sample competition. The tally is coefficient alpha 2\sfrac{1}{2} - 1\sfrac{1}{2} standardized alpha. 
-
 %% <<<<< Example table start (\label{tab:reliabilites})
 \input{chunks/simulations_table.tex}
 %% example table end >>>>>
+
+Table \ref{tab:simulation} contains $100 \times \MSE(\alpha)/\MSE(\alpha_S)$, where $\MSE$ denotes the mean squared error. Values higher than $100$ are in favor of $\hat{\alpha}_S$ and values lower than $100$ in favor of $\hat{\alpha}$. The table shows that $\alpha_S$ tends to outperform $\alpha$ when both $k$ and $n$ are large and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\hat{\alpha}_s$ does slightly better than $\hat{\alpha}$ -- the geometric mean of $\MSE(\alpha)/\MSE({\alpha_S})$ is $1.08$, giving an $8$\% advantage to $\hat{\alpha}_s$. Of course, this is a small simulation study and it is hard to predict what would happen with other distributions. Still, the result of these simulations should be counted in favor of sample standardized alpha.
+
+To sum up, sample alpha won the maximum likelihood and robustness competitions, drew the asymptotic efficiency competition, and lost the finite sample competition. The tally is coefficient alpha 2\sfrac{1}{2} - 1\sfrac{1}{2} standardized alpha. 
 
 \section{Situation B. Standardized scores}
 \label{sec:argument B}
@@ -434,7 +433,7 @@ standardized scores, the correlation matrix is more appropriate for determining 
 You should use standardized reliability if you use standardized scores, and standardization looks reasonable on the face of it. For instance, standardization appears reasonable if you have some items on 5-point scale and others on a 7-point scale \citep[p. 139]{Furr2013-yu}. But there are good reasons to never standardize scores, that is, to never use weights on the form $w_{i}=(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$ when you form your linear predictor.
 Using some $w\ne1$ seems reasonable, for you would not want items
 with large variance to overshadow the other contributions to $\hat{Z}$.
-But there is something strange about this particular $w$. Dividing by $(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}$
+But there is something strange about $w_i = (\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}$. Dividing by this particular $w_i$
 seems wrong, as you want items with large loadings, i.e., $\lambda_{i}$s, to have a large
 influence on your prediction of $Z$. But dividing by $(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}$
 makes the influence of items with large loadings smaller!
