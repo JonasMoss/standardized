@@ -6,6 +6,9 @@
 \origin unavailable
 \textclass article
 \use_default_options true
+\begin_modules
+theorems-ams
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -29,6 +32,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -44,6 +48,7 @@
 \use_package undertilde 1
 \cite_engine basic
 \cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -255,6 +260,175 @@ p(z\mid y)=Ep(z\mid x)p(x\mid y)
 \end_layout
 
 \begin_layout Standard
+The expectation of 
+\begin_inset Formula $\hat{X}_{i}$
+\end_inset
+
+ is
+\begin_inset Formula 
+\begin{eqnarray*}
+E\hat{X}_{i} & = & -\sum_{k=1}^{m_{i}}[\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})]=0,
+\end{eqnarray*}
+
+\end_inset
+
+and covariance matrix 
+\begin_inset Formula $\Cov\hat{X}=\Xi$
+\end_inset
+
+ has elements
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+E(\hat{X}_{i}\hat{X}_{j}) & = & E\left(\sum_{k=1}^{m_{i}}v_{ik}1[Y_{i}=k]\sum_{l=1}^{m_{j}}v_{jl}1[Y_{j}=l]\right),\nonumber \\
+ & = & \sum_{k=1}^{m_{i}}\sum_{l=1}^{m_{j}}v_{ik}v_{jl}p_{ikjl}.\label{eq:Xi element}
+\end{eqnarray}
+
+\end_inset
+
+Here 
+\begin_inset Formula $v_{ik}=-[\phi(\tau_{ik})-\phi(\tau_{i(k-1)})]/[F(\tau_{ik})-F(\tau_{i(k-1)})]$
+\end_inset
+
+ and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p_{ikjl}=P(\tau_{i(k-1)}\leq Z_{1}\leq\tau_{ik},\tau_{j(l-1)}\leq Z_{2}\leq\tau_{jl}),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $Z=(Z_{1},Z_{2})$
+\end_inset
+
+ is a bivariate normal with variances equal to 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Two natural estimators of 
+\begin_inset Formula $\Xi$
+\end_inset
+
+ are the plug-in estimators and sample estimators.
+ The plug-in estimator 
+\begin_inset Formula $\hat{\Xi}_{p}$
+\end_inset
+
+ is calculated by plugging the estimated polychoric correlation 
+\begin_inset Formula $\hat{\Phi}$
+\end_inset
+
+and thresholds 
+\begin_inset Formula $\hat{\tau}$
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Xi element"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The sample 
+\begin_inset Formula $\hat{\Xi}_{s}$
+\end_inset
+
+ also uses the estimated thresholds 
+\begin_inset Formula $\hat{\tau}$
+\end_inset
+
+ to form 
+\begin_inset Formula $\hat{X_{i}}$
+\end_inset
+
+.
+ It equals the sample covariance matrix of 
+\begin_inset Formula $\hat{X_{i}}$
+\end_inset
+
+.
+ The estimators tend to give roughly the same results, but the sample estimator
+ is faster to compute, as it foregoes the computationally expensive bivariate
+ normal probabilities.
+ 
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $\mathtt{R}$
+\end_inset
+
+-package 
+\begin_inset Formula $\mathtt{conogive}$
+\end_inset
+
+ is can be used to calculate concrete ordinal reliabilities.
+ The function 
+\begin_inset Formula $\mathtt{conogive}$
+\end_inset
+
+ estimates a congeneric normal-ogive model, 
+\end_layout
+
+\begin_layout Itemize
+The function 
+\begin_inset Formula $\mathtt{conogive}$
+\end_inset
+
+ estimates a congeneric normal-ogive model  
+\end_layout
+
+\begin_layout Itemize
+The function 
+\begin_inset Formula $\mathtt{ordinal\_r}$
+\end_inset
+
+ calculates the concrete ordinal reliability, using either 
+\begin_inset Formula $\hat{\Xi}_{s}$
+\end_inset
+
+ or 
+\begin_inset Formula $\hat{\Xi}_{p}$
+\end_inset
+
+ as estimators of 
+\begin_inset Formula $\Xi$
+\end_inset
+
+.
+ It supports equal weights, optimal weights, and sigma weights.
+\end_layout
+
+\begin_layout Itemize
+The functions 
+\begin_inset Formula $\mathtt{theoretical\_ordinal\_r}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathtt{theoretical\_ordinal\_alpha}$
+\end_inset
+
+ calculates the theoretical ordinal reliability and the theoretical ordinal
+ alpha.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \Cov(\Xi)
@@ -263,11 +437,22 @@ p(z\mid y)=Ep(z\mid x)p(x\mid y)
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E\hat{X}_{i}=E[E[\hat{X}_{i}\mid Y]]=
+\]
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{eqnarray*}
-E\hat{X}_{i} & = & \sum\nu_{k}^{i}p_{ij}(k,l)=-\sum\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})=0\\
-E\hat{X}_{i}\hat{X}_{j} & = & E\sum\nu_{k}^{i}1[Y_{i}=k]\sum v_{l}^{j}1[Y_{i}=l]\\
- & = & \sum_{i=1}^{k}\sum_{j=1}^{j}\nu_{k}^{i}v_{l}^{j}p_{ij}(k,l)
+E\hat{X}_{i} & = & \sum_{k=1}^{m_{i}}w_{k}p_{ij}(k,l)=-\sum_{k=1}^{m_{i}}[\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})]=0\\
+E\hat{X}_{i}\hat{X}_{j} & = & E\sum_{k=1}^{m_{i}}w|_{k}^{i}1[Y_{i}=k]\sum_{k=1}^{m_{j}}w_{l}^{j}1[Y_{i}=l]\\
+ & = & \sum_{i=1}^{k}\sum_{j=1}^{j}w_{k}^{i}w_{l}^{j}p_{ij}(k,l)
 \end{eqnarray*}
 
 \end_inset
@@ -326,32 +511,85 @@ Spearman
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\Cov(\hat{Z}_{1},\hat{Z}_{2}) & = & \Cov(\sum_{i=1}^{k_{1}}w_{i}^{1}X_{i}^{1},\sum_{j=1}^{k_{2}}w_{j}^{2}X_{j}^{2})\\
- & = & \sum_{i,j}w_{i}^{1}w_{j}^{2}\Cov(X_{i}^{1},X_{j}^{2})
-\end{eqnarray*}
+Define the two congeneric models 
+\end_layout
 
-\end_inset
-
-Here 
-\begin_inset Formula 
-\begin{eqnarray*}
-\Cov(X_{i}^{1},X_{j}^{2}) & = & \Cov(\lambda_{i}^{1}Z^{1}+\sigma_{i}^{1}\epsilon_{i}^{1},\lambda_{j}^{2}Z^{2}+\sigma_{j}^{2}\epsilon_{j}^{2})\\
- & = & \lambda_{i}^{1}\lambda_{j}^{2}\Cor(Z^{1},Z^{2})
-\end{eqnarray*}
-
-\end_inset
-
-
+\begin_layout Standard
 \begin_inset Formula 
 \[
-\Cov(\hat{Z}_{1},\hat{Z}_{2})=\Cor(Z^{1},Z^{2})\left(\sum_{i=1}^{k_{2}}w_{i}^{1}\lambda_{i}^{1}\right)\left(\sum_{i=1}^{k_{2}}\lambda_{i}^{2}w_{i}^{2}\right)
+Z_{1}=\lambda_{1}X_{1}+\diag\sigma_{1}^{2}\epsilon_{1},\quad Z_{2}=\lambda_{2}X_{2}+\diag\sigma_{2}^{2}\epsilon_{2},
 \]
 
 \end_inset
 
+where 
+\begin_inset Formula $\diag x$
+\end_inset
 
+ has 
+\begin_inset Formula $x$
+\end_inset
+
+ on its diagonal and 
+\begin_inset Formula $0$
+\end_inset
+
+s everywhere else.
+ 
+\end_layout
+
+\begin_layout Standard
+Define the predictors
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{Z}_{1}=\sum_{i=1}^{k_{1}}w_{1i}X_{1i},\quad\hat{Z}_{2}=\sum_{i=1}^{k_{1}}w_{2i}X_{2i}
+\]
+
+\end_inset
+
+Then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Cov(\hat{Z}_{1},\hat{Z}_{2}) & = & =\Cov(\sum_{i=1}^{k_{1}}w_{1i}X_{1i},\sum_{j=1}^{k_{2}}w_{2i}X_{1j})=\sum_{i,j}w_{1i}w_{2j}\Cov(X_{i}^{1},X_{j}^{2}).
+\end{eqnarray*}
+
+\end_inset
+
+It follows that
+\begin_inset Formula 
+\begin{eqnarray*}
+\Cov(X_{i}^{1},X_{j}^{2}) & = & \Cov(\lambda_{1i}Z_{1}+\sigma_{1i}\epsilon_{1i},\lambda_{2j}Z_{2}+\sigma_{2j}\epsilon_{2j})=\lambda_{1i}\lambda_{2j}\Cor(Z^{1},Z^{2}),
+\end{eqnarray*}
+
+\end_inset
+
+and therefore,
+\begin_inset Formula 
+\[
+\Cov(\hat{Z}_{1},\hat{Z}_{2})=\Cor(Z_{1},Z_{2})w_{1}^{T}\lambda_{1}w_{2}^{T}\lambda_{2}
+\]
+
+\end_inset
+
+Since variance of 
+\begin_inset Formula $\hat{Z}_{i}$
+\end_inset
+
+ is 
+\begin_inset Formula $(w_{i}^{T}\lambda_{i})^{2}+w^{T}\diag\sigma_{1}^{2}w$
+\end_inset
+
+, it follows that 
+\begin_inset Formula $\Cor(\hat{Z}_{1},\hat{Z}_{2})=\Cor(Z_{1},Z_{2})R_{1}^{1/2}R_{2}^{1/2}$
+\end_inset
+
+, as claimed.
 \end_layout
 
 \end_body

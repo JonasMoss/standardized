@@ -260,6 +260,185 @@ p(z\mid y)=Ep(z\mid x)p(x\mid y)
 \end_layout
 
 \begin_layout Standard
+The expectation of 
+\begin_inset Formula $\hat{X}_{i}$
+\end_inset
+
+ is
+\begin_inset Formula 
+\begin{eqnarray*}
+E\hat{X}_{i} & = & -\sum_{k=1}^{m_{i}}[\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})]=0,
+\end{eqnarray*}
+
+\end_inset
+
+and covariance matrix 
+\begin_inset Formula $\Cov\hat{X}=\Xi$
+\end_inset
+
+ has elements
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+E(\hat{X}_{i}\hat{X}_{j}) & = & E\left(\sum_{k=1}^{m_{i}}v_{ik}1[Y_{i}=k]\sum_{l=1}^{m_{j}}v_{jl}1[Y_{j}=l]\right),\nonumber \\
+ & = & \sum_{k=1}^{m_{i}}\sum_{l=1}^{m_{j}}v_{ik}v_{jl}p_{ikjl}.\label{eq:Xi element}
+\end{eqnarray}
+
+\end_inset
+
+Here 
+\begin_inset Formula $v_{ik}=-[\phi(\tau_{ik})-\phi(\tau_{i(k-1)})]/[F(\tau_{ik})-F(\tau_{i(k-1)})]$
+\end_inset
+
+ and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p_{ikjl}=P(\tau_{i(k-1)}\leq Z_{1}\leq\tau_{ik},\tau_{j(l-1)}\leq Z_{2}\leq\tau_{jl}),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $Z=(Z_{1},Z_{2})$
+\end_inset
+
+ is a bivariate normal with variances equal to 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Two natural estimators of 
+\begin_inset Formula $\Xi$
+\end_inset
+
+ are the plug-in estimators and sample estimators.
+ The plug-in estimator 
+\begin_inset Formula $\hat{\Xi}_{p}$
+\end_inset
+
+ is calculated by plugging the estimated polychoric correlation 
+\begin_inset Formula $\hat{\Phi}$
+\end_inset
+
+and thresholds 
+\begin_inset Formula $\hat{\tau}$
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Xi element"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The sample 
+\begin_inset Formula $\hat{\Xi}_{s}$
+\end_inset
+
+ also uses the estimated thresholds 
+\begin_inset Formula $\hat{\tau}$
+\end_inset
+
+ to form 
+\begin_inset Formula $\hat{X_{i}}$
+\end_inset
+
+.
+ It equals the sample covariance matrix of 
+\begin_inset Formula $\hat{X_{i}}$
+\end_inset
+
+.
+ The estimators tend to give roughly the same results, but the sample estimator
+ is faster to compute, as it foregoes the computationally expensive bivariate
+ normal probabilities.
+ 
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $\mathtt{R}$
+\end_inset
+
+-package 
+\begin_inset Formula $\mathtt{conogive}$
+\end_inset
+
+ is can be used to calculate concrete ordinal reliabilities.
+ The function 
+\begin_inset Formula $\mathtt{conogive}$
+\end_inset
+
+ estimates a congeneric normal-ogive model, 
+\end_layout
+
+\begin_layout Itemize
+The function 
+\begin_inset Formula $\mathtt{conogive}$
+\end_inset
+
+ estimates a congeneric normal-ogive model from a polychoric correlation
+ matrix using maximum likelihood.
+ It is a wrapper for the 
+\begin_inset Formula $\mathtt{fa}$
+\end_inset
+
+ function of the 
+\begin_inset Formula $\mathtt{psych}$
+\end_inset
+
+ package ((cite)).
+\end_layout
+
+\begin_layout Itemize
+The function 
+\begin_inset Formula $\mathtt{ordinal\_r}$
+\end_inset
+
+ calculates the concrete ordinal reliability, using either 
+\begin_inset Formula $\hat{\Xi}_{s}$
+\end_inset
+
+ or 
+\begin_inset Formula $\hat{\Xi}_{p}$
+\end_inset
+
+ as estimators of 
+\begin_inset Formula $\Xi$
+\end_inset
+
+.
+ It supports equal weights, optimal weights, and sigma weights.
+\end_layout
+
+\begin_layout Itemize
+The functions 
+\begin_inset Formula $\mathtt{theoretical\_ordinal\_r}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathtt{theoretical\_ordinal\_alpha}$
+\end_inset
+
+ calculates the theoretical ordinal reliability and the theoretical ordinal
+ alpha.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \Cov(\Xi)
