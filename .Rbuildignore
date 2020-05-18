@@ -14,3 +14,5 @@
 ^workspace$
 ^\.travis\.yml$
 ^codecov\.yml$
+^arxiv\.sty$
+^orcid\.jpg$
