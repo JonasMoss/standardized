@@ -560,41 +560,41 @@ Y_{i}=j1[\tau_{i(j-1)}\leq X_{i}\leq\tau_{ij}],\quad j = 1, \ldots,m_i. \label{e
 Here $-\infty=\tau_{i0}<\tau_{i1}<\ldots<\tau_{i(m_{i})}=\infty$
 are thresholds for each $i$ and $1[A]$ is the indicator function of $A$.
 This is a common model for Likert scales with $m_{i}$ levels for
-the $i$th item. If $X$ is multivariate normal, model (\ref{eq:discretization model})
+the $i$th item. 
+
+If $X$ is multivariate normal, model (\ref{eq:discretization model})
 is a congeneric \textit{normal-ogive model} \citep{Swaminathan2016-rg}.
 Under multivariate normality, the correlation matrix $\Phi=\Cor X$ is point-identified
 from the distribution of $Y$, and is called the \textit{polychoric
 correlation matrix}. It can be estimated by maximum likelihood directly
 or by a two-step procedure \citep{Olsson1979-ti}. To make the model
-identified, usual practice is to assume that $\Psi$ is a correlation matrix.
+identified, usual practice is to assume that $\Cov X = \Cor X = \Phi$. 
 
 \citet{Zumbo2007-ap} proposed what we will call the \textit{theoretical ordinal
 alpha}
 \begin{equation}
 \alpha=\frac{k}{k-1}\left(1-\frac{k}{\boldsymbol{1}^{T}\Phi\boldsymbol{1}}\right), \label{eq:ordinal alpha}
 \end{equation}
-where $\Phi=\Cor X$ is polychoric correlation matrix of $Y$, that is.
+where $\Phi=\Cor X$ is polychoric correlation matrix of $Y$.
 Theoretical ordinal alpha is a standardized alpha, but it is based
 on the latent correlation matrix between the unobserved $X$ instead
-of the correlation matrix of the observed $Y$. The population
-values of the theoretical ordinal alpha and the standardized alpha
-are not the same in general. \citet[p. 27]{Zumbo2007-ap}'s main argument
-in favor of the ordinal alpha is \enquote{coefficient alpha (and KR-20)
-are correlation-based statistics and hence assume continuous data}. \citet[p. 1060]{Chalmers2018-fj}
-persuasively argues against this idea, as does \citet{Raykov2019-yr}. The argument that correlations assume continuous data is reiterated
-by \citet{Gadermann2012-jl}, but \citet{Zumbo2019-lm} argue
-that the benefit of sample ordinal alpha is that we are truly interested
-in the reliability of $X$ as a predictor of $Y$.
+of the correlation matrix of the observed $Y$. 
+
+%The population values of the theoretical ordinal alpha and the standardized alpha are not the same in general. \citet[p. 27]{Zumbo2007-ap}'s main argument in favor of the ordinal alpha is \enquote{coefficient alpha (and KR-20) are correlation-based statistics and hence assume continuous data}. \citet[p. 1060]{Chalmers2018-fj} persuasively argues against this idea, as does \citet{Raykov2019-yr}. . 
+
+%The argument that correlations assume continuous data is reiterated by \citet{Gadermann2012-jl}, but \citet{Zumbo2019-lm} argue that the benefit of sample ordinal alpha is that we are truly interested in the reliability of $X$ as a predictor of $Y$.
  
-Just as the standardized alpha is an estimator of the standardized reliability \cref{eq:Standardized reliability}, the theoretical ordinal alpha is an estimator of the \textit{theoretical ordinal congeneric reliability}. In full generality, define the theoretical weighted ordinal reliability (the ordinal analogue of the weighted reliability, recall \eqref{eq:linear reliabiltiy}) by
+%The congeneric model \eqref{eq:congeneric model} might be used for discrete data, but it is not necessarily a good model. They deserve to have their own reliability coefficients 
+ 
+Just as the standardized alpha is an estimator of the standardized reliability \cref{eq:Standardized reliability}, the theoretical ordinal alpha is an estimator of the \textit{theoretical ordinal congeneric reliability}. In full generality, define the theoretical weighted ordinal reliability, the ordinal analogue of the weighted reliability \eqref{eq:linear reliabiltiy}, by
 \begin{equation}
-\frac{w\lambda^*/(w\lambda^* + \sigma^*}.
+\frac{w\lambda^*}{(w\lambda^* + \sigma^*}.
 \end{equation}
-Here $lambda_i^* = \lambda_i/\sqrt(\lambda_i^2 + \sigma_i^2)$ and $sigma_i^* = \sigma_i/\sqrt(\lambda_i^2 + \sigma_i^2)$. Similarly, we can define the ordinal analogue of the weighed alpha \eqref{eq:weighted alpha} as the weighted alpha based on the polychoric correlation coefficient. Under the assumption that $\Psi$ is a correlation matrix, the ordinal variants of the standardized alpha and coefficient alpha are the same, and likewise for the ordinal standardized reliability and ordinal congeneric reliability. This makes it unnecessary talk about quantities such as the theoretical standardized ordinal alpha, as it equals the theoretical ordinal alpha. 
+Here $\lambda_i^* = \lambda_i/\sqrt(\lambda_i^2 + \sigma_i^2)$ and $\sigma_i^* = \sigma_i/\sqrt(\lambda_i^2 + \sigma_i^2)$. Similarly, we can define the ordinal analogue of the weighed alpha \eqref{eq:weighted alpha} as the weighted alpha based on the polychoric correlation coefficient. Under the assumption that $\Cov X$ is a correlation matrix, the ordinal variants of the standardized alpha and coefficient alpha are the same, and likewise for the ordinal standardized reliability and ordinal congeneric reliability. This makes it unnecessary talk about quantities such as the theoretical standardized ordinal alpha, as it equals the theoretical ordinal alpha. 
 
 There are several reasons to avoid the theoretical ordinal alpha. If your
 goal is to estimate the congeneric reliability or the standardized
-reliability, the theoretical ordinal alpha is inappropriate since
+reliability under the congeneric model, the theoretical ordinal alpha is inappropriate since
 it does not equal the congeneric reliability, even under the parallel
 model \citep[p. 1062, "Misconception 2"]{Chalmers2018-fj}, a point
 conceded by \citet{Zumbo2019-lm}. But this is not the worst problem.
@@ -716,6 +716,36 @@ of thresholds $\tau$ goes towards infinity. Point (iv) makes this
 claim concrete.
 
 
+The expectation of $\hat{X}_{i}$ is
+\begin{equation*}
+E\hat{X}_{i} = -\sum_{k=1}^{m_{i}}[\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})]=0,
+\end{equation*}
+and covariance matrix $\Cov\hat{X}=\Xi$ has elements
+\begin{eqnarray}
+E(\hat{X}_{i}\hat{X}_{j}) & = & E\left(\sum_{k=1}^{m_{i}}v_{ik}1[Y_{i}=k]\sum_{l=1}^{m_{j}}v_{jl}1[Y_{j}=l]\right),\nonumber \\
+ & = & \sum_{k=1}^{m_{i}}\sum_{l=1}^{m_{j}}v_{ik}v_{jl}P(\tau_{i(k-1)}\leq Z_{1}\leq\tau_{ik},\tau_{j(l-1)}\leq Z_{2}\leq\tau_{jl}).\label{eq:Xi element}
+\end{eqnarray}
+Here $Z=(Z_{1},Z_{2})$ is a bivariate normal with variances equal
+to $1$, and $$v_{ik}=-\frac{\phi(\tau_{ik})-\phi(\tau_{i(k-1)})}{F(\tau_{ik})-F(\tau_{i(k-1)})}.$$
+There are two natural estimators of $\Xi$. The plug-in estimator $\hat{\Xi}_{p}$ is calculated by
+plugging the estimated polychoric correlation $\hat{\Phi}$and thresholds
+$\hat{\tau}$ into (\ref{eq:Xi element}). The sample estimator $\hat{\Xi}_{s}$ equals the sample covariance matrix of $\hat{X_{i}}$ when $\hat{X_{i}}$ is formed using the estimated thresholds $\hat{\tau}$. The estimators
+tend to give roughly the same results, but the sample estimator is faster to compute, as it foregoes the computationally expensive bivariate normal probabilities. 
+
+The $\mathtt{R}$-package $\mathtt{conogive}$ is the companion $\mathtt{R}$-package of this paper. It can used to calculate concrete ordinal reliabilities. 
+\begin{itemize}
+\item[1.] The function $\mathtt{conogive}$ estimates a congeneric normal-ogive
+model using maximum likelihood. It is a wrapper for the $\mathtt{fa}$ function of the $\mathtt{psych}$
+package \citep{psych}.
+\item[2.] The function $\mathtt{ordinal\_r}$ calculates the concrete ordinal
+reliability, using either $\hat{\Xi}_{s}$ or $\hat{\Xi}_{p}$ as
+estimators of $\Xi$. It supports equal weights, optimal weights,
+and sigma weights.
+\item[3.] The functions $\mathtt{theoretical\_ordinal\_r}$ and $\mathtt{theoretical\_ordinal\_alpha}$
+calculate the theoretical ordinal reliability and the theoretical
+ordinal alpha. 
+\end{itemize}
+
 \begin{figure}
 \noindent \begin{centering}
 \includegraphics[scale=0.5]{chunks/ordinals}
@@ -731,7 +761,7 @@ are marked for convenience. Notice the logarithmic $x$-axis.}
 \end{figure}
 \begin{example}
 We will yet again have a look at $6$-level agreeableness factor the
-personally data $\mathtt{bfi}$ from $\mathtt{psychTools}$. The calculations in this example were done with the $\mathtt{conogive}$ package \citep{conogive}. This package employs the \texttt{R} package $\mathtt{psych}$ \citep{psych} to fit the congeneric normal-ogive
+personally data $\mathtt{bfi}$ from $\mathtt{psychTools}$. The calculations in this example were done with \citep{conogive}. This package employs the $\mathtt{psych}$ \citep{psych} to fit the congeneric normal-ogive
 model \eqref{eq:discretization model}. First it uses the two-step procedure
 to estimate the polychoric correlation matrix, then it calls the $\mathtt{fa}$ function to run a factor analysis on the said matrix.
 The resulting estimates are 
