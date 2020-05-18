@@ -27,7 +27,7 @@
 
 \DeclareMathOperator{\argmax}{argmax}
 
-\title{Avoid the standardized alpha and the ordinal alpha}
+\title{Please avoid the standardized alpha and the ordinal alpha}
 
 \author{
   Jonas Moss \orcid{0000-0002-6876-6964} \\
@@ -106,39 +106,38 @@ where $\lambda$ is a vector of loadings, and $\Psi^{1/2}$ is a diagonal matrix w
 
 The congeneric model is most commonly used to model Likert items. But it is not is not necessarily a realistic model. The assumption of one latent factor $Z$ and the assumption of uncorrelated errors are unrealistic in most psychometric settings \citep[][Section 1.2 -- 1.3]{Green2009-le}. We restrict our attention to the congeneric model since it is commonly used, standardized alpha only makes sense on specific cases of the congeneric models, and it makes the presentation smoother. Nevertheless, the case against standardized alpha as a reliability coefficient would be even stronger in a general linear factor model. 
 
-It is time to define reliability. Let $Z$ be an unobserved variable and $\hat{Z}$ a prediction of $Z$. The reliability coefficient is the squared correlation between a latent variable $Z$ and its predictor $\hat{Z}$ \citep[][p. 61]{Lord1968-ax}. 
+It is time to define reliability. Let $Z$ be an unobserved variable and $\hat{Z}$ a predictor, or measurement, of $Z$. The reliability coefficient is the squared correlation between a latent variable $Z$ and its predictor $\hat{Z}$ \citep[][p. 61]{Lord1968-ax}. 
 
 \begin{defn}\label{defn:reliability} The reliability of $\hat{Z}$ as a predictor of $Z$ is $ R=\Cor^{2}(\hat{Z},Z)$.
 \end{defn} 
 
 The squared correlation between two variables $X$ and $Y$ quantifies the degree of linear relationship between $X$ and $Y$, with $0$ being no linear relationship and $1$ a perfect linear relationship. In the same way, the reliability coefficient quantifies how the strength of the linear relationship between $\hat{Z}$ and $Z$.
 
-There is well-known concrete interpretation of the squared correlation as the $R^2$, or coefficient of determination. The $R^2$ between $\hat{Z}$ and $Z$ quantifies how well $\hat{Z}$ works as a predictor of $Z$ when it is optimally weighted.
+There is well-known concrete interpretation of the squared correlation as the $R^2$, or coefficient of determination. To state this relationship, we will make use of the notation $\MSE(X) = E[(X-Z)^2]$, the mean squared error of $X$ as predictor of $Z$ when $X$ is a random variable.
 
 \begin{lem}
-\label{lem:r^2 and correlation}Assume $Z$ and $\hat{Z}$ have finite
-variance. Let $\MSE(X) = E[(X-Z)^2]$ denote the mean squared error of $X$ as predictor of $Z$ when $X$ is a random variable. Then 
+\label{lem:r^2 and correlation}Assume $Z$, $\hat{Z}$ have finite
+variance. Then 
 \begin{equation}
 \Cor^{2}(\hat{Z},Z)=1-\frac{\MSE(\alpha+\beta\hat{Z})}{\Var(Z)},\label{eq:rsq and correlation}
 \end{equation}
 where $\alpha=E(Z)-E(\hat{Z})$ and $\beta=\Cov(\hat{Z},Z)/\Var(\hat{Z})$ are the theoretical regression coefficients minimizing the mean squared error $\MSE(\alpha+\beta\hat{Z})$. 
 \end{lem}
+\begin{proof}
+See Appendix 1, page \pageref{proof:r^2 and correlation}.
+\end{proof}
 
 
+Suppose we have no predictor $\hat{Z}$ available. Then we will minimize the mean squared error by guessing $E(Z)$, and in this case $\MSE[E(Z)]=\Var(Z)$. Therefore \cref{eq:rsq and correlation} is a statement about the relative reduction in mean squared error when we use the best linear predictor based on $\hat{Z}$ instead of $E(Z)$. This interpretation of the reliability is concrete, as it numerically answers the question ``how good can I expected my best possible linear prediction of $Z$ based on $\hat{Z}$ to be?''.
 
-\Cref{lem:r^2 and correlation} requires 
-\Cref{eq:rsq and correlation} allows us to understand $\Cor^2(\hat{Y},Y)$ as the relative reduction in risk you 
-
-In this paper the predictors $\hat{Z}$ are l inear functions of $X$, that is, there are some real weights $w_{i},i=1,\ldots,k$, such that
+In this paper the predictors $\hat{Z}$ are linear functions of $X$, that is, there are some real weights $w_{i},i=1,\ldots,k$, such that
 \begin{equation}
 \label{eq:Linear predictor}
 \hat{Z} =  \sum_{i=1}^{k} w_{i}X_i = \sum_{i=1}^{k}w_{i}(Z\lambda_i + \sigma_{i} \varepsilon_i).\nonumber 
 \end{equation}
 The second equation follows from the definition of $X$ in the congeneric model \eqref{eq:congeneric model}. 
 
-%Since $\hat{Z}$ is determined by its weights $w_i$, we will sometimes talk about the reliability with weights $w_i$.
-
-The purpose of the reliability coefficient is to tell us how well a linear predictor $\hat{Z}$ predicts $Z$. In this sense it is analogous to $R^2$ from linear regression. The following proposition makes this claim precise. In this proposition, and the rest of the paper, we will use the notation $\overline{x}$ to denote the mean of the vector $x$. Moreover, when $x$ and $y$ are vectors of the same length, $xy$ is the pointwise product of $x$ and $y$.
+In this proposition, and the rest of the paper, we will use the notation $\overline{x}$ to denote the mean of the vector $x$. Moreover, when $x$ and $y$ are vectors of the same length, $xy$ is the pointwise product of $x$ and $y$.
 
 \begin{prop}
 \label{prop:reliability motivation}Assume the congeneric model \eqref{eq:congeneric model}. Let $\hat{Z}=\sum_{i=1}^{k}w_{i}X$
@@ -155,7 +154,7 @@ See Appendix 1, page \pageref{proof:reliability motivation} for a proof.
 \end{proof}
 
 Equation \eqref{eq:linear reliabiltiy} is the definition \citet[][p. 112]{Joreskog1971-nn} gave of the composite reliability under the congeneric model \eqref{eq:congeneric model}. 
-The role of $w_0$ in Proposition \ref{prop:reliability motivation} is to make sure $\hat{Z}$ predicts $Z$ on he right scale, and in this paper the scale of $Z$ is fixed by $\Var Z = 1$. Since $Z$ is latent we would usually not care about this scale, but it is handy to fix it to $1$ since it allows us to compare different predictors of $\hat{Z}$. The formulation $1-\MSE (w_{0}\hat{Z})$ is more concrete than the correlation formulation, as it explicitly references the predictor $w_{0}\hat{Z}$, while the correlation is scale-free and more abstract. The mean squared error definition is amenable to generalizations too.
+The role of $w_0$ in Proposition \ref{prop:reliability motivation} is to make sure $\hat{Z}$ predicts $Z$ on he right scale, and in this paper the scale of $Z$ is fixed by $\Var Z = 1$. Since $Z$ is latent we would usually not care about this scale, but it is handy to fix it to $1$ since it allows us to compare different predictors of $\hat{Z}$. The formulation $1-\MSE (w_{0}\hat{Z})$ is more concrete than the correlation formulation, as it explicitly references the predictor $w_{0}\hat{Z}$, while the correlation is scale-free and more abstract. The mean squared error definition is amenable to generalizations as well.
 
 A modestly popular choice for $w$ are the weights minimizing the mean squared error, known as the Thurstone weights \citep{thurshronebook}, $w_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})],\:i=1,\ldots,k$. Using these weights lead to coefficient $H$ \citep{hancock2001rethinking}, also known as the maximal reliability \citep{Li1997-yh}, 
 \begin{equation}
@@ -171,12 +170,12 @@ By far the most popular choice is to give the same weight to each $X_i$, that is
 where $\overline{\lambda}=k^{-1}\sum_{i=1}^{k}\lambda_{i}$ and
 $\overline{\sigma^{2}}=k^{-1}\sum_{i=1}^{k}\sigma_{i}^{2}$. 
 
-Finally, the weights $w_i = (\lambda_i^2 + \sigma_i^2)^{-1/2}$ yield the standardized reliability. The standardized reliability is the estimand of the standardized alpha under the certain conditions, and can be written down as
+Finally, the weights $w_i = (\lambda_i^2 + \sigma_i^2)^{-1/2}$ yield the standardized reliability. The standardized reliability is the estimand of the standardized alpha under the certain conditions, and can be written as
 \begin{equation}
  R_S=\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}^{2}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}+1}.\label{eq:Standardized reliability}
 \end{equation}
 
-\cref{prop:reliability motivation} connects all reliabilities on the form of \cref{eq:Linear predictor} to their unique predictor $\hat{Z}$. Given a vector of weights $w$, the only linear predictor minimizing the mean squared error $\MSE(\hat{Z})$ while simultaneously satisfying $1-\MSE(\hat{Z})=R_w$ is $\hat{Z}=w_0\sum_{i=1}^k w_iX_i$. This relationship also holds for the well-known reliabilities in \cref{eq:coefficient_H,eq:Congeneric reliability,eq:Standardized reliability}.
+\cref{prop:reliability motivation} connects all reliabilities on the form of \cref{eq:Linear predictor} to their unique optimal predictor $\hat{Z}$. Given a vector of weights $w$, the only linear predictor minimizing the mean squared error $\MSE(\hat{Z})$ while simultaneously satisfying $1-\MSE(\hat{Z})=R_w$ is $\hat{Z}=w_0\sum_{i=1}^k w_iX_i$. This relationship also holds for the well-known reliabilities in \cref{eq:coefficient_H,eq:Congeneric reliability,eq:Standardized reliability}.
 
 There is a well-known relationship between the congeneric reliability and coefficient alpha. This relationship can be generalized to weighted reliabilities. Define the generalization of the coefficient alpha and the standardized alpha, the \textit{weighted alpha},
 
@@ -249,14 +248,14 @@ By Proposition \ref{prop:weighted alpha}, coefficient alpha equals the congeneri
 
 Let us proceed to the sample variants of coefficient alpha and standardized
 alpha. Let $S$ be a sample covariance matrix based on
-$n$ samples of $X$ and $R$ the corresponding correlation matrix.
+$n$ samples of $X$ and $P$ the sample correlation matrix.
 The sample coefficient alpha is 
 \begin{equation}
 \hat{\alpha}=\frac{k}{k-1}\left(1-\frac{\tr{S}}{\boldsymbol{1}^{T}S\boldsymbol{1}}\right)\label{eq:sample coefficient alpha}
 \end{equation}
 while the sample standardized alpha is
 \begin{equation}
-\hat{\alpha}_s=\frac{k}{k-1}\left(1-\frac{k}{\boldsymbol{1}^{T}R\boldsymbol{1}}\right)\label{eq:sample standardized alpha}
+\hat{\alpha}_s=\frac{k}{k-1}\left(1-\frac{k}{\boldsymbol{1}^{T}P\boldsymbol{1}}\right)\label{eq:sample standardized alpha}
 \end{equation}
 The congeneric reliability \eqref{eq:Congeneric reliability} has no
 simple sample version, as it depends on estimates of $\lambda$ and
@@ -285,7 +284,7 @@ Choosing between estimators is a classical statistical problem. Some well-establ
 
 \begin{enumerate}[label=(\Alph*)]
 \item Check the relative asymptotic efficiency of the estimators.
-\item Is any of the competing estimators a maximum likelihood estimator, perhaps under some parametric restrictions?
+\item Is any of the competing estimators a maximum likelihood estimator under the appropriate parametric restrictions?
 \item Compare finite-sample performance of the estimators in terms of for instance mean squared error.
 \item Investigate the robustness of the estimators against misspecification of the model.
 \end{enumerate}
@@ -327,15 +326,13 @@ when $\boldsymbol{1}^{T}S\boldsymbol{1}\geq\tr{S}$ and $0$ otherwise. That is,
 \end{enumerate}
 \end{thm}
 \begin{proof}
-See page \pageref{proof:ML} of Appendix 1 for a proof. \citet[][section B]{Kristof1963-tb} worked out the maximum likelihood estimator of the unique correlation $\rho$. 
+See page \pageref{proof:ML} of Appendix 1 for a proof. 
 \end{proof}
 
 \subsection{Asymptotic efficiency}
-Comparing efficiencies is the most popular method to compare estimators. Let $\hat{\theta}_1$ and $\hat{\theta}_2$ be two estimators converging at the $n^{1/2}$-rate to a normal distribution centered on the same parameter $\theta$. The asymptotic variance of the first distribution is $\phi_1^2$ and the asymptotic variance of the second distribution is $\phi_2^2$. Then $\theta_1$ is more efficient than $\theta_2$ if $\phi_1<\phi_2$. 
+Comparing efficiencies is the most popular method to compare estimators. Let $\hat{\theta}_1$ and $\hat{\theta}_2$ be two estimators converging at the $n^{1/2}$-rate to normal distributions centered on the same parameter $\theta$. The asymptotic variance of the first distribution is $\phi_1^2$ and the asymptotic variance of the second distribution is $\phi_2^2$. Then $\theta_1$ is more efficient than $\theta_2$ if $\phi_1<\phi_2$. 
 
 An estimator $\hat{\theta}$ is \textit{efficient} \citep[][Section 4.3]{Lehmann2004-ke} if its asymptotic variance is smaller than any other estimator. Maximum likelihood estimators are efficient under weak conditions, hence $\alpha$ is efficient under the normal parallel model by Theorem \ref{thm:ML}.  
-
-The following theorem shows that $\hat{\alpha}_s$ and $\hat{\alpha}$ are equally efficient.
 
 \begin{thm}
 \label{thm:asymptotics}
@@ -377,7 +374,7 @@ All of the distributions are extreme, and should be able to force out the differ
 
 Table \ref{tab:simulation} contains $100 \times \MSE(\alpha)/\MSE(\alpha_S)$, where $\MSE$ denotes the mean squared error. Values higher than $100$ are in favor of $\hat{\alpha}_S$ and values lower than $100$ in favor of $\hat{\alpha}$. The table shows that $\alpha_S$ tends to outperform $\alpha$ when both $k$ and $n$ are large and $\sigma$ is small, but with no clear trends otherwise. In this simulation $\hat{\alpha}_s$ does slightly better than $\hat{\alpha}$ -- the geometric mean of $\MSE(\alpha)/\MSE({\alpha_S})$ is $1.08$, giving an $8$\% advantage to $\hat{\alpha}_s$. Of course, this is a small simulation study and it is hard to predict what would happen with other distributions. Still, the result of these simulations should be counted in favor of sample standardized alpha.
 
-To sum up, sample alpha won the maximum likelihood and robustness competitions, drew the asymptotic efficiency competition, and lost the finite sample competition. The tally is sample alpha 2\sfrac{1}{2} - 1\sfrac{1}{2} standardized alpha. 
+To sum up, sample alpha won the maximum likelihood and robustness competitions, drew the asymptotic efficiency competition, and lost the finite sample competition. The tally is coefficient alpha 2\sfrac{1}{2} - 1\sfrac{1}{2} standardized alpha. 
 
 %% <<<<< Example table start (\label{tab:reliabilites})
 \input{chunks/simulations_table.tex}
@@ -387,7 +384,7 @@ To sum up, sample alpha won the maximum likelihood and robustness competitions, 
 \label{sec:argument B}
 
 Standardized alpha is explicitly linked to the standardized reliability \eqref{eq:Standardized reliability} but not to the congeneric reliability \eqref{eq:Congeneric reliability}. Recall the definition of reliability from
-\cref{sec:coefficienta alpha}. Given a predictor $\hat{Z}$ of $Z$, the
+\Cref{sec:coefficienta alpha}. Given a predictor $\hat{Z}$ of $Z$, the
 reliability $ R$ equals the square correlation between $\hat{Z}$
 and $Z$, or $ R=\Cor^{2}(\hat{Z},Z)$. Assume
 we know the values of $\lambda$ and $\sigma$. When we use unstandardized
@@ -395,8 +392,8 @@ scores, our predictor is
 \begin{equation}
 \hat{Z}=w_{0}\sum_{i=1}^{k}X_{i}\label{eq:sum score}
 \end{equation}
-where $w_{0}=\overline{\lambda}/(k\overline{\lambda}^{2}+\overline{\sigma^{2}})$ scales the predictions to match $\Var Z=1$ (Proposition \ref{prop:reliability motivation}). When you use standardized
-scores, your predictor is
+where $w_{0}=\overline{\lambda}/(k\overline{\lambda}^{2}+\overline{\sigma^{2}})$ scales the predictions to match $\Var Z=1$ (recall Proposition \ref{prop:reliability motivation}). When we use standardized
+scores, our predictor is
 \begin{equation}
 \hat{Z}^{*}=w_{0}\sum_{i=1}^{k}(\lambda^{2}+\sigma^{2})^{-1/2}X_{i}\label{eq:standardized sum score}
 \end{equation}
@@ -409,7 +406,7 @@ An important motivation for using the squared
 correlation between $Z$ and $\hat{Z}$ as the definition of a
 reliability coefficient is that it allows us to do correction for
 attenuation. Let $\hat{Z}_{1},\hat{Z}_{2}$ be two linear
-predictors of two latent variables $Z_{1},Z_{2}$ defined in two separate
+predictors of two latent variables $Z_{1},Z_{2}$ defined on two separate
 congeneric models. Assume the errors $\varepsilon_{1}$ and $\varepsilon_{2}$ of these models
 are uncorrelated. Our goal is to find the correlation $\Cor(Z_{1},Z_{2})$
 between the latent variables $Z_{1}$ and $Z_{2}$ using only the
@@ -425,7 +422,7 @@ the famous \citet{spearman1904proof} attenuation formula.
 
 %Correction for attenuation cannot be used unless both $ R(\hat{Z}_i)$s are the squared correlation between $\hat{Z}_i$ and $Z_i$. For example,
 
-Assume you used the standardized sum scores $\hat{Z}_1^*$ (a predictor on the form of eq. \eqref{eq:standardized sum score}) to make predictions for $Z_1$, and the sum score $\hat{Z}_2$ (on the form of eq. \eqref{eq:sum score}) to make predictions for $Z_2$. Then the correlation between your predictions is $\Cov(\hat{Z}_1^*,\hat{Z}_2)$. Now it would be wrong to use the congeneric reliability for $Z_1$ in Spearman's formula, as it based on the sum scores $\hat{Z}_1$. If you used the congeneric reliability, the correlation between $Z_1$ and $Z_2$ would incorrectly be calculated according to $\Cor(\hat{Z}_{1}^*,\hat{Z}_{2})= sqrt{ R(\hat{Z}_{1}) R(\hat{Z}_{2})}\Cor(Z_{1},Z_{2})$
+Assume you use the standardized sum scores $\hat{Z}_1^*$, a predictor on the form of  \cref{eq:standardized sum score}, to make predictions for $Z_1$. To predict $Z_2$ you use the $\hat{Z}_2$, a predictor on the form of \cref{eq:sum score}. Then the correlation between your predictions is $\Cov(\hat{Z}_1^*,\hat{Z}_2)$. Now it would be wrong to use the congeneric reliability for $Z_1$ in Spearman's formula, as it based on the sum scores $\hat{Z}_1$. If you used the congeneric reliability, the correlation between $Z_1$ and $Z_2$ would incorrectly be calculated according to $\Cor(\hat{Z}_{1}^*,\hat{Z}_{2})= \sqrt{ R(\hat{Z}_{1}) R(\hat{Z}_{2})}\Cor(Z_{1},Z_{2})$
 instead of the correct $\Cor(\hat{Z}_{1}^*,\hat{Z}_{2})=\sqrt{ R(\hat{Z}_{1}^{*}) R(\hat{Z}_{2})}\Cor(Z_{1},Z_{2})$.
 You would be off by a factor of $\sqrt{ R(\hat{Z}_{1}^{*})/ R(\hat{Z}_{1})}$.
 
@@ -434,27 +431,27 @@ weights is not new. It has been observed by e.g. \citet[][p. 112]{Joreskog1971-n
 standardized scores, the correlation matrix is more appropriate for determining internal consistency,} while \citet[][p. 99]{Cortina1993-aq} writes \enquote{Standardized alpha is appropriate if item standard scores are summed to form scale scores.} But the connection is not always appreciated. For instance, \citet[][p.348]{Osburn2000-jd} writes
 \enquote{\textelp{} it is important to note that the true reliability of a measure is the same for both standardized and unstandardized observed scores.}
 
-You should use standardized reliability if you use standardized scores, and standardization looks reasonable on the face of it. \enquote{For example, it would be a concern if items had different response scales (e.g., if some items were on a 5-point scale and others were on a 7-point scale).} \citep[p. 139]{Furr2013-yu} But there are good reasons to never standardize scores, that is, to use weights on the form $w_{i}=(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$ when you form your linear predictor.
+You should use standardized reliability if you use standardized scores, and standardization looks reasonable on the face of it. For instance, standardization appears reasonable if you have some items on 5-point scale and others on a 7-point scale \citep[p. 139]{Furr2013-yu}. But there are good reasons to never standardize scores, that is, to never use weights on the form $w_{i}=(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$ when you form your linear predictor.
 Using some $w\ne1$ seems reasonable, for you would not want items
-with large variance to overshadow all the other contributions to $\hat{Z}$.
+with large variance to overshadow the other contributions to $\hat{Z}$.
 But there is something strange about this particular $w$. Dividing by $(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}$
 seems wrong, as you want items with large loadings, i.e., $\lambda_{i}$s, to have a large
 influence on your prediction of $Z$. But dividing by $(\sigma_{i}^{2}+\lambda_{i}^{2})^{1/2}$
 makes the influence of items with large loadings smaller!
 
-The weights $w_i=\sigma_{i}^{-1}$ is an intuitive alternative to standardized weights. These weights make the contribution of each $\lambda_i$ directly comparable, as the modified model $wX$ will have all residual standard deviations equal to $1$ and factor loadings equal to the standardized factor loadings $\lambda_i/\sigma_i$. Since the weights do not involve $\lambda$, they do not penalize items with large loadings. 
+The weights $w_i=\sigma_{i}^{-1}$ is an intuitive alternative to standardized weights. The modified model $wX$ will have all residual standard deviations equal to $1$ and factor loadings equal to the standardized factor loadings $\lambda_i^* = \lambda_i/\sigma_i$. Since the $\lambda_i^*$s are on the same scale, they are directly comparable. Since the weights do not involve $\lambda$, they do not penalize items with large loadings. 
 
 Call the reliability with weights $w=\sigma^{-1}$ the \textit{sigma reliability} and denote it $ R_\sigma$. Using Proposition \ref{prop:reliability motivation}, it can be written as
 \begin{equation}
  R_\sigma=\frac{k\overline{\lambda\sigma^{-1}}^{2}}{k\overline{\lambda\sigma^{-1}}^{2}+1}.\label{eq:Sigma-standardized reliability}
 \end{equation}
 
-Another option is to use the Thurstone weights, yielding coefficient $H$ and the Thurstone factor scores instead of the standardized alpha and standardized sum scores. Since the unstandardized Thurstone scores equals $\lambda/\sigma^2$, they are easy too interpret too. A strong case for the Thurstone scores is made by \citet{McNeish2019-ea}.
+Another option is to use the Thurstone weights, yielding coefficient $H$ and the Thurstone scores instead of the standardized alpha and standardized sum scores. Since the unstandardized Thurstone scores equals $\lambda/\sigma^2$, they are easy too interpret too. A strong case for the Thurstone scores is made by \citet{McNeish2019-ea}.
 
-Table \ref{tab:reliabilities} summarizes the four reliability coefficients discussed up to this point and their associated weights. The next theorem describes how they are related to each other. 
+Table \ref{tab:reliabilities_} summarizes the four reliability coefficients discussed up to this point and their associated weights. The next theorem describes how they are related to each other. 
 
 \begin{table}
-\label{tab:reliabilities}
+\label{tab:reliabilities_}
 \noindent \begin{centering}
 \caption{Reliabilities, weights, and predictors}
 \begin{tabular}{lccl}
@@ -462,7 +459,7 @@ Table \ref{tab:reliabilities} summarizes the four reliability coefficients discu
  Reliability & Definition & Weights ($w_{i}$) & Predictor name\\
  \cmidrule{1-4}
 Congeneric reliability ($R$) & $\frac{k\overline{\lambda}^{2}/\overline{\sigma^{2}}}{k\overline{\lambda}^{2}/\overline{\sigma^{2}}+1}$ & $1$ & Sum score \\[2ex]
-Coefficient $H$ ($R_{H})$ & $\frac{k\overline{\lambda^{2}\sigma^{-2}}}{k\overline{\lambda^{2}\sigma^{-2}}+1}$ & $\lambda_{i}\sigma_{i}^{-2}$ & Thurstone factor score \\[2ex]
+Coefficient $H$ ($R_{H})$ & $\frac{k\overline{\lambda^{2}\sigma^{-2}}}{k\overline{\lambda^{2}\sigma^{-2}}+1}$ & $\lambda_{i}\sigma_{i}^{-2}$ & Thurstone score \\[2ex]
 Standardized reliability ($R_{S}$) & $\frac{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}}{k\overline{\lambda(\lambda^{2}+\sigma^{2})^{-1/2}}/\overline{\sigma^{2}(\lambda^{2}+\sigma^{2})^{-1}}+1}$ & $(\lambda_{i}^{2}+\sigma_{i}^{2})^{-1/2}$ & Standardized score \\[2ex]
 Sigma reliability $(R_{\sigma}$) & $\frac{k\overline{\lambda\sigma^{-1}}^{2}}{k\overline{\lambda\sigma^{-1}}^{2}+1}$ & $\sigma_{i}^{-1}$ & Sigma-standardized score \\[2ex]
 \bottomrule
@@ -475,9 +472,9 @@ Sigma reliability $(R_{\sigma}$) & $\frac{k\overline{\lambda\sigma^{-1}}^{2}}{k\
 
 \begin{thm}
 \label{thm:Properties of three} Let $ R$ be the congeneric
-reliability \eqref{eq:Congeneric reliability}, $ R_{S}$ the standardized reliability \eqref{eq:Standardized reliability},
-$ R_{\sigma}$ the sigma reliability \eqref{eq:Sigma-standardized reliability},
-and $ R_{H}$ coefficient $H$ \eqref{eq:coefficient_H}. 
+reliability, $ R_{S}$ the standardized reliability 
+$ R_{\sigma}$ the sigma reliability 
+and $ R_{H}$ coefficient $H$. The definitions of these reliabilities are in Table \ref{tab:reliabilities_}.
 
 \begin{enumerate}[label=(\roman*)]
 \item Assume the $\tau$-equivalent model,
@@ -507,9 +504,7 @@ Since the $\tau$-equivalent model is such a common assumption among psychometric
 You can interpret Theorem \ref{thm:Properties of three} as a ranking factor scores too. Under the $\tau$-equivalent model, Thurstone scores are better than $\sigma$-standardized sum scores, which in turn are better than the standardized sum scores, which are
 better than the ordinary sum scores.
 
-
-
-Theorem \ref{thm:Properties of three} shows how the four reliabilities relate to each other only under the $\tau$-equivalent model and the model where all $\sigma_i$s are equal. If we assume only the congeneric model, the nice inequalities of Theorem \ref{thm:Properties of three} disappear. Since coefficient $H$ uses the optimal weights, it is guaranteed to be larger than the three other reliabilities mentioned above. The
+Theorem \ref{thm:Properties of three} shows how the four reliabilities relate to each other only under the $\tau$-equivalent model and the model where all $\sigma_i$s are equal. If we the fully general congeneric model, the nice inequalities of Theorem \ref{thm:Properties of three} disappear. Since coefficient $H$ uses the optimal weights, it is guaranteed to be larger than the three other reliabilities mentioned above. The
 other three reliabilities can be in any order, but
 $ R_{\sigma}$ will usually be the largest. In a short
 simulation ($10^{5}$ repetitions) of $k=5$ items with $\lambda_{i}\sim \textrm{Exp}(1)$
@@ -530,7 +525,7 @@ and $ R_{S}$. See the Open Science Foundation repository for this paper (\url{ht
 
 In this example we will take a look at the data set $\texttt{bfi}$ from the $\texttt{R}$ \citep{Team2013-tt} package $\texttt{psychTools}$ \citep{Revelle2019-te}. This data set contains the responses on $25$ personality self report items from the International Personality Item Pool \citep{Goldberg1999-iz} collected from the Synthetic Aperture Personality Assessment project \citep{Revelle2017-ez}. The $25$ items are evenly distributed across the big five traits: Agreeableness, conscientiousness, extraversion, neuroticism, and openness to experience. 
 
-For each trait $\texttt{lavaan}$ \citep{Rosseel2012-yg} estimated the factor loadings $\lambda$ and residual standard deviations $\sigma$ in the congeneric measurement model \eqref{eq:congeneric model}. Table \ref{tab:reliabilites} contains the plug-in estimators for all the four reliability coefficients, i.e., each $\hat{ R}$ calculated by substituting $\lambda,\sigma$ for $\hat{\lambda},\hat{\sigma}$. As expected, $ R_\sigma$ is larger than both $ R_S$ and $ R$ for all five traits. Moreover, $ R_S >  R$ for all traits except extraversion, where the difference is marginal. 
+For each trait, $\texttt{lavaan}$ \citep{Rosseel2012-yg} estimated the factor loadings $\lambda$ and residual standard deviations $\sigma$ in the congeneric measurement model \eqref{eq:congeneric model}. Table \ref{tab:reliabilites} contains the plug-in estimators for all the four reliability coefficients, i.e., each $\hat{ R}$ calculated by substituting $\hat{\lambda},\hat{\sigma}$ for $\lambda,\sigma$. As expected, $ R_\sigma$ is larger than both $ R_S$ and $ R$ for all five traits. Moreover, $ R_S >  R$ for all traits except extraversion, where the difference is marginal. 
 
 The Open Science Foundation repository for this paper (\url{https://osf.io/s356h/}) contains the code for this example.
 \end{example} 
@@ -539,7 +534,7 @@ Suppose you want to use the standardized weights despite the counterarguments ab
 \begin{equation}\label{eq:std-modified model}
 X_{i}^{*}=\frac{\lambda_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}Z+\frac{\sigma_{i}}{\sqrt{\lambda_{i}^{2}+\sigma_{i}^{2}}}\varepsilon_{i}, \quad i=1,\ldots,k    \end{equation}
 is $\tau$-equivalent. This occurs if and only if each $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda^{*}$
-for some $\lambda^{*}$. Of course, this would be an exceptional coincidence, but the standardized alpha is just a lower bound for the true standardized reliability when this condition fails. The natural way to consistently estimate $ R_w$ without making this unwarranted assumption is to use the plug-in estimator for $ R_S$ \eqref{eq:Standardized reliability}. This is not hard, as estimation of $\lambda_{i},\sigma_{i}$ with structural equation modeling programs is routine. 
+for some $\lambda^{*}$. Of course, this would be an exceptional coincidence, but the standardized alpha is just a lower bound for the true standardized reliability when this condition fails. Luckily, there is a natural way to consistently estimate $ R_w$ without making the unwarranted assumption that $\lambda_{i}/(\lambda_{i}^{2}+\sigma_{i}^{2})=\lambda^{*}$. Just to use the plug-in estimator for $ R_S$ \eqref{eq:Standardized reliability}. This is not hard, as estimation of $\lambda,\sigma$ with structural equation modeling programs is routine. 
 
 \begin{example}
 %% <<<<< Example table start (\label{tab:omega_std_alpha_std})
@@ -565,43 +560,45 @@ Y_{i}=j1[\tau_{i(j-1)}\leq X_{i}\leq\tau_{ij}],\quad j = 1, \ldots,m_i. \label{e
 Here $-\infty=\tau_{i0}<\tau_{i1}<\ldots<\tau_{i(m_{i})}=\infty$
 are thresholds for each $i$ and $1[A]$ is the indicator function of $A$.
 This is a common model for Likert scales with $m_{i}$ levels for
-the $i$th item. If $X$ is multivariate normal, model (\ref{eq:discretization model})
+the $i$th item. 
+
+If $X$ is multivariate normal, model (\ref{eq:discretization model})
 is a congeneric \textit{normal-ogive model} \citep{Swaminathan2016-rg}.
 Under multivariate normality, the correlation matrix $\Phi=\Cor X$ is point-identified
 from the distribution of $Y$, and is called the \textit{polychoric
 correlation matrix}. It can be estimated by maximum likelihood directly
 or by a two-step procedure \citep{Olsson1979-ti}. To make the model
-identified, usual practice is to assume that $\Psi$ is a correlation matrix.
+identified, usual practice is to assume that $\Cov X = \Cor X = \Phi$. 
 
 \citet{Zumbo2007-ap} proposed what we will call the \textit{theoretical ordinal
 alpha}
 \begin{equation}
 \alpha=\frac{k}{k-1}\left(1-\frac{k}{\boldsymbol{1}^{T}\Phi\boldsymbol{1}}\right), \label{eq:ordinal alpha}
 \end{equation}
-where $\Phi=\Cor X$ is polychoric correlation matrix of $Y$, that is.
+where $\Phi=\Cor X$ is polychoric correlation matrix of $Y$.
 Theoretical ordinal alpha is a standardized alpha, but it is based
 on the latent correlation matrix between the unobserved $X$ instead
-of the correlation matrix of the observed $Y$. The population
-values of the theoretical ordinal alpha and the standardized alpha
-are not the same in general. \citet[p. 27]{Zumbo2007-ap}'s main argument
-in favor of the ordinal alpha is \enquote{coefficient alpha (and KR-20)
-are correlation-based statistics and hence assume continuous data}. \citet[p. 1060]{Chalmers2018-fj}
-persuasively argues against this idea, as does \citet{Raykov2019-yr}. The argument that correlations assume continuous data is reiterated
-by \citet{Gadermann2012-jl}, but \citet{Zumbo2019-lm} argue
-that the benefit of sample ordinal alpha is that we are truly interested
-in the reliability of $X$ as a predictor of $Y$.
+of the correlation matrix of the observed $Y$. 
+
+%The population values of the theoretical ordinal alpha and the standardized alpha are not the same in general. \citet[p. 27]{Zumbo2007-ap}'s main argument in favor of the ordinal alpha is \enquote{coefficient alpha (and KR-20) are correlation-based statistics and hence assume continuous data}. \citet[p. 1060]{Chalmers2018-fj} persuasively argues against this idea, as does \citet{Raykov2019-yr}. . 
+
+%The argument that correlations assume continuous data is reiterated by \citet{Gadermann2012-jl}, but \citet{Zumbo2019-lm} argue that the benefit of sample ordinal alpha is that we are truly interested in the reliability of $X$ as a predictor of $Y$.
  
-Just as the standardized alpha is an estimator of the standardized reliability \cref{eq:Standardized reliability}, the theoretical ordinal alpha is an estimator of the \textit{theoretical ordinal reliability}. Likewise, we can define
-analogues of the weighted reliability \eqref{eq:linear reliabiltiy} and weighed alphas \eqref{eq:weighted alpha} based on the polychoric correlation coefficient.
-Under the assumption that $\Psi$ is a correlation matrix, the ordinal variants of the standardized alpha and coefficient alpha are the same, and likewise for the ordinal standardized reliability and ordinal congeneric reliability. This makes it unnecessary talk about quantities such as the theoretical standardized ordinal alpha, as it equals the theoretical ordinal alpha. 
+%The congeneric model \eqref{eq:congeneric model} might be used for discrete data, but it is not necessarily a good model. They deserve to have their own reliability coefficients 
+ 
+Just as the standardized alpha is an estimator of the standardized reliability \cref{eq:Standardized reliability}, the theoretical ordinal alpha is an estimator of the \textit{theoretical ordinal congeneric reliability}. In full generality, define the theoretical weighted ordinal reliability, the ordinal analogue of the weighted reliability \eqref{eq:linear reliabiltiy}, by
+\begin{equation}
+\frac{w\lambda^*}{(w\lambda^* + \sigma^*}.
+\end{equation}
+Here $\lambda_i^* = \lambda_i/\sqrt(\lambda_i^2 + \sigma_i^2)$ and $\sigma_i^* = \sigma_i/\sqrt(\lambda_i^2 + \sigma_i^2)$. Similarly, we can define the ordinal analogue of the weighed alpha \eqref{eq:weighted alpha} as the weighted alpha based on the polychoric correlation coefficient. Under the assumption that $\Cov X$ is a correlation matrix, the ordinal variants of the standardized alpha and coefficient alpha are the same, and likewise for the ordinal standardized reliability and ordinal congeneric reliability. This makes it unnecessary talk about quantities such as the theoretical standardized ordinal alpha, as it equals the theoretical ordinal alpha. 
 
 There are several reasons to avoid the theoretical ordinal alpha. If your
 goal is to estimate the congeneric reliability or the standardized
-reliability, the theoretical ordinal alpha is inappropriate since
+reliability under the congeneric model, the theoretical ordinal alpha is inappropriate since
 it does not equal the congeneric reliability, even under the parallel
 model \citep[p. 1062, "Misconception 2"]{Chalmers2018-fj}, a point
 conceded by \citet{Zumbo2019-lm}. But this is not the worst problem.
-Even if you are interested in estimating the congeneric reliability
+Even if you are interested in estimating a reliability coefficient
 for the multivariate normal-ogive model, you should avoid the theoretical
 alpha.
 
@@ -718,9 +715,53 @@ ordinal alpha, namely as the theoretical reliability when the number
 of thresholds $\tau$ goes towards infinity. Point (iv) makes this
 claim concrete.
 
+
+The expectation of $\hat{X}_{i}$ is
+\begin{equation*}
+E\hat{X}_{i} = -\sum_{k=1}^{m_{i}}[\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})]=0,
+\end{equation*}
+and covariance matrix $\Cov\hat{X}=\Xi$ has elements
+\begin{eqnarray}
+E(\hat{X}_{i}\hat{X}_{j}) & = & E\left(\sum_{k=1}^{m_{i}}v_{ik}1[Y_{i}=k]\sum_{l=1}^{m_{j}}v_{jl}1[Y_{j}=l]\right),\nonumber \\
+ & = & \sum_{k=1}^{m_{i}}\sum_{l=1}^{m_{j}}v_{ik}v_{jl}P(\tau_{i(k-1)}\leq Z_{1}\leq\tau_{ik},\tau_{j(l-1)}\leq Z_{2}\leq\tau_{jl}).\label{eq:Xi element}
+\end{eqnarray}
+Here $Z=(Z_{1},Z_{2})$ is a bivariate normal with variances equal
+to $1$, and $$v_{ik}=-\frac{\phi(\tau_{ik})-\phi(\tau_{i(k-1)})}{F(\tau_{ik})-F(\tau_{i(k-1)})}.$$
+There are two natural estimators of $\Xi$. The plug-in estimator $\hat{\Xi}_{p}$ is calculated by
+plugging the estimated polychoric correlation $\hat{\Phi}$and thresholds
+$\hat{\tau}$ into (\ref{eq:Xi element}). The sample estimator $\hat{\Xi}_{s}$ equals the sample covariance matrix of $\hat{X_{i}}$ when $\hat{X_{i}}$ is formed using the estimated thresholds $\hat{\tau}$. The estimators
+tend to give roughly the same results, but the sample estimator is faster to compute, as it foregoes the computationally expensive bivariate normal probabilities. 
+
+The $\mathtt{R}$-package $\mathtt{conogive}$ is the companion $\mathtt{R}$-package of this paper. It can used to calculate concrete ordinal reliabilities. 
+\begin{itemize}
+\item[1.] The function $\mathtt{conogive}$ estimates a congeneric normal-ogive
+model using maximum likelihood. It is a wrapper for the $\mathtt{fa}$ function of the $\mathtt{psych}$
+package \citep{psych}.
+\item[2.] The function $\mathtt{ordinal\_r}$ calculates the concrete ordinal
+reliability, using either $\hat{\Xi}_{s}$ or $\hat{\Xi}_{p}$ as
+estimators of $\Xi$. It supports equal weights, optimal weights,
+and sigma weights.
+\item[3.] The functions $\mathtt{theoretical\_ordinal\_r}$ and $\mathtt{theoretical\_ordinal\_alpha}$
+calculate the theoretical ordinal reliability and the theoretical
+ordinal alpha. 
+\end{itemize}
+
+\begin{figure}
+\noindent \begin{centering}
+\includegraphics[scale=0.5]{chunks/ordinals}
+\par\end{centering}
+\caption{\label{fig:Ordinal reliability}Concrete ordinal reliability ($\fullmoon$)
+and concrete ordinal \textit{H} ($\newmoon$) for a selection of Likert levels. The
+theoretical coefficient $H$ is $0.81$ (solid line), and the theoretical
+composite reliability is $0.77$ (dashed line). All cutoffs are uniform,
+and every reliability has been calculated with $\lambda=(0.43,0.71,0.80,0.52,0.67)$
+and $\sigma=(0.90,0.70,0.59,0.86,0.74)$. The original number of levels
+($6$) and their corresponding concrete ordinal reliabilities $( R'_{H}=0.71, R'=0.67)$
+are marked for convenience. Notice the logarithmic $x$-axis.}
+\end{figure}
 \begin{example}
 We will yet again have a look at $6$-level agreeableness factor the
-personally data $\mathtt{bfi}$ from $\mathtt{psychTools}$. The calculations in this example were done with the $\mathtt{conogive}$ package \citep{conogive}. This package employs the \texttt{R} package $\mathtt{psych}$ \citep{psych} to fit the congeneric normal-ogive
+personally data $\mathtt{bfi}$ from $\mathtt{psychTools}$. The calculations in this example were done with \citep{conogive}. This package employs the $\mathtt{psych}$ \citep{psych} to fit the congeneric normal-ogive
 model \eqref{eq:discretization model}. First it uses the two-step procedure
 to estimate the polychoric correlation matrix, then it calls the $\mathtt{fa}$ function to run a factor analysis on the said matrix.
 The resulting estimates are 
@@ -743,22 +784,9 @@ $k+1$ Likert levels. The difference between the concrete ordinal congeneric reli
 The distance from theoretical ordinal reliability to the concrete is unacceptably large when the number of Likert levels is less than or equal to $6$, where it equals about $0.1$ for both reliabilities. 
 \end{example}
 
-\begin{figure}
-\noindent \begin{centering}
-\includegraphics[scale=0.5]{chunks/ordinals}
-\par\end{centering}
-\caption{\label{fig:Ordinal reliability}Concrete ordinal reliability ($\fullmoon$)
-and concrete ordinal \textit{H} ($\newmoon$) for a selection of Likert levels. The
-theoretical coefficient $H$ is $0.81$ (solid line), and the theoretical
-composite reliability is $0.77$ (dashed line). All cutoffs are uniform,
-and every reliability has been calculated with $\lambda=(0.43,0.71,0.80,0.52,0.67)$
-and $\sigma=(0.90,0.70,0.59,0.86,0.74)$. The original number of levels
-($6$) and their corresponding concrete ordinal reliabilities $( R'_{H}=0.71, R'=0.67)$
-are marked for convenience.}
-\end{figure}
 
 \section{Conclusion}
-The definition of reliability (\cref{defn:reliability}) entails a strong dependence between the predictor $\hat{Z}$ and the reliability coefficient $ R$. In particular, using standardized reliability (\cref{eq:Standardized reliability}) is only justified if $\hat{Z}$ is the standardized score. But since the standardized score should not be used, standardized reliability should not be used either.
+The definition of reliability \eqref{defn:reliability} entails a strong dependence between the predictor $\hat{Z}$ and the reliability coefficient $ R$. In particular, using standardized reliability \eqref{eq:Standardized reliability} is only justified if $\hat{Z}$ is the standardized score. But since the standardized score should not be used, standardized reliability should not be used either.
 
 \citet{McNeish2019-ea} uses similar arguments against sum-scores, and makes a strong case for $ R_H$, the coefficient \textit{H}. \Cref{sec:argument B} introduced the sigma-reliability $ R_\sigma$, and similar arguments can be made against that one too: Why bother with $ R_\sigma$ when $ R_H$ is superior by definition? The main point of $ R_\sigma$ is to give $ R_H$ skeptics an alternative to standardized reliability and congeneric reliability, and \cref{thm:Properties of three} shows that $ R_\sigma$ is superior to both. 
 
@@ -771,10 +799,7 @@ I am grateful to Riccardo De Bin and Kjersti Moss for helping me with the presen
 \section*{Appendix 1: Proofs}
 \label{Appendix 1}
 
-This lemma formulates the the squared correlation in terms of the mean squared error and establishes the connection between the correlation coefficient and $R^2$. It is used in in the proof of Proposition \ref{prop:reliability motivation}. 
-
-
-\begin{proof}
+\begin{proof}[Proof of \cref{lem:r^2 and correlation}]\label{proof:r^2 and correlation}
 Recenter $Y$ and $\hat{Y}$ so that $E(Y)=E(\hat{Y})=0$. Then $\MSE(\alpha+\beta\hat{Y})$ equals $\beta^{2}\Var(\hat{Y})-2\beta\Cov(\hat{Y},Y)+\Var Y^{2}$.
 Differentiate with respect to $\beta$ and set equal to zero, so that
 $2\beta\Var(\hat{Y})-2\Cov(\hat{Y},Y)=0$, which implies $\beta=\Cov(\hat{Y},Y)/\Var(\hat{Y})$. Plug the expression of $\beta$ into the expression for the $\MSE$ to get \cref{eq:rsq and correlation}.
@@ -831,10 +856,7 @@ The bias term for coefficient $\alpha_w$ can be derived as follows:
 Since $(\overline{w^{2}\lambda^{2}}-\overline{w\lambda}^{2})/(k\overline{w\lambda}^{2}+\overline{w^{2}\sigma^{2}})\geq0$
 and equals $0$ if and only if all products $w_i\lambda_i$ are equal by Chebyshev's inequality, $\alpha_w= R_w$
 iff all $w_i\lambda_i$ are equal and is otherwise an underestimate. 
-
-
 \end{proof}
-
 
 This lemma comes in handy in the proof of Proposition \ref{prop:Reliabilities.} as it allows us to use Jensen's inequality.
 
@@ -985,7 +1007,7 @@ values.
 (i) Assume the parallel model. Define $\psi^{2}$ and $\rho$ by
 $\sigma^{2}+\lambda^{2}=\psi^{2}$ and $\lambda^{2}=\psi^{2}\rho$.
 Then, by exercise 3.9 of \citet[][p. 114]{Muirhead2009-kq}, the maximum likelihood estimates of $\hat{\psi}^{2}$
-and $\hat{\rho}$ are
+and $\hat{\rho}$ (\citet[][Section B]{Kristof1963-tb} also worked at the maximum likelihood estimator of$\rho$) are
 \[
 \hat{\psi}^{2}=\tr S/k,\quad\hat{\rho}=\frac{\boldsymbol{1}^{T}S\boldsymbol{1}-\tr S}{(k-1)\tr S}1\{\boldsymbol{1}^{T}S\boldsymbol{1}\geq\tr S\}.
 \]
