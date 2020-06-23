@@ -1,0 +1,72 @@
+\documentclass[twoside]{article}
+\usepackage{arxiv} % contains layout and most imported packages.
+\usepackage{cleveref}
+\usepackage{amsbsy}
+\usepackage{booktabs}
+
+%%% ============================================================================
+%%% Macros.
+%%% ============================================================================
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\sd}{sd}
+\DeclareMathOperator{\argmin}{argmin}
+\DeclareMathOperator{\Cor}{Cor}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\vvec}{vec}
+\DeclareMathOperator{\vech}{vech}
+\DeclareMathOperator{\w}{w}
+\DeclareMathOperator{\diag}{diag} 
+\DeclareMathOperator{\MSE}{MSE_Z} 
+\DeclareMathOperator{\tsum}{\textstyle \sum}
+
+\renewcommand{\sqrt}[1]{{(#1)^{1/2}}}
+\newcommand\Tstrut{\rule{0pt}{2.6ex}}         % = `top' strut
+\newcommand\Bstrut{\rule[-0.9ex]{0pt}{0pt}}   % = `bottom' strut
+
+\DeclareMathOperator{\argmax}{argmax}
+
+\title{Please avoid the standardized alpha and the ordinal alpha}
+
+\author{
+  Jonas Moss \orcid{0000-0002-6876-6964} \\
+  Department of Mathematics, University of Oslo\\
+  PB 1053, Blindern, NO-0316, Oslo, Norway \\
+  \it{jonasmgj@math.uio.no}
+}
+
+\titletag{A PsyArXiv preprint, v1.0}
+\makeatletter
+\titlerunning{\@title}
+\makeatother
+\authorrunning{Jonas Moss}
+
+\begin{document}
+\maketitle
+
+
+
+An zero-mean random vector $(Y,X)$ is elliptically distributed if its density can be written as
+\begin{equation}
+    f(u) = |V|^{-1/2}cg(u^T V^{-1}u)
+\end{equation}
+for some function $g$ and positive $c$ \citep{Lee1988-sw}. 
+Elliptical distributions have many nice properties, see e.g. \citet{Cambanis1981-eg} for proofs.
+A zero-mean elliptically distributed variable is parameterized by its covariance matrix, for if each component of $U$ has finite variance, there is a constant $k$ such that $V = k\Cov U$. Let $U = (U_1,U_2)$ be a partition of $U$ and assume that $U$ is elliptically distributed. Then conditional distribution of $U_1 \mid U_2$ is elliptical, and the marginal distributions of $U_1$ and $U_2$ are elliptical as well.
+
+The class of elliptical distributions includes the multivariate normal, multivariate \textit{t}-distribution, and the multivariate logistic distribution, among others. 
+
+Let $\hat{X}_{i}$ denote the conditional mean of $X_i$ given $Y_i$. A straight-forward generalization of \citet[Theorem 1]{Landsman2003-ca} yields
+\begin{equation}
+\hat{X}_{i}=E(X_i\mid Y_i)=-\frac{f(\tau_{iY_{i}})-f(\tau_{i(Y_{i}-1)})}{F(\tau_{iY_{i}})-F(\tau_{i(Y_{i}-1)})},\label{eq:Predictor of X}
+\end{equation}
+where $f$ is the density of $X_i$ and $F$ is the cumulative distribution function of $X_i$.
+
+The conditional expectation $E(Z\mid X)$ is a linear function of $X_i$ by \citet[Corollary 5]{Cambanis1981-eg}, hence $E(Z\mid X)=\tsum_{i=1}^{k}v_{i}X_{i}$, where $v_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})]$
+are the Thurstone weights
+
+
+\bibliography{standardized}
+
+\end{document}

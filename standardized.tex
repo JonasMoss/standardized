@@ -129,7 +129,7 @@ where $\alpha=E(Z)-\beta E(\hat{Z})$ and $\beta=\Cov(\hat{Z},Z)/\Var(\hat{Z})$ a
 See Appendix 1, page \pageref{proof:r^2 and correlation}.
 \end{proof}
 
-Suppose we have no predictor $\hat{Z}$ available. Then we will minimize the mean squared error by guessing $E(Z)$, and in this case $\MSE[E(Z)]=\Var(Z)$. Therefore, \cref{eq:rsq and correlation} is a statement about the relative reduction in mean squared error when we use the best linear predictor based on $\hat{Z}$ instead of $E(Z)$. This interpretation of the reliability is concrete, as it numerically answers the question ``how good can I expected my best possible linear prediction of $Z$ based on $\hat{Z}$ to be?''.
+Suppose we decide not to use any random precdictor $\hat{Z}$. Then we will minimize the mean squared error by guessing $E(Z)$, and in this case $\MSE[E(Z)]=\Var(Z)$. Therefore, \cref{eq:rsq and correlation} is a statement about the relative reduction in mean squared error when we use the best linear predictor based on $\hat{Z}$ instead of $E(Z)$. This interpretation of the reliability is concrete, as it numerically answers the question ``how good can I expected my best possible linear prediction of $Z$ based on $\hat{Z}$ to be?''.
 
 In this paper the predictors $\hat{Z}$ are linear functions of $X$, that is, there are some real weights $w_{i},i=1,\ldots,k$, such that
 \begin{equation}
@@ -155,7 +155,7 @@ See Appendix 1, page \pageref{proof:reliability motivation} for a proof.
 \end{proof}
 
 Equation \eqref{eq:linear reliabiltiy} is the definition \citet[][p. 112]{Joreskog1971-nn} gave of the composite reliability under the congeneric model \eqref{eq:congeneric model}. 
-The role of $w_0$ in Proposition \ref{prop:reliability motivation} is to make sure $\hat{Z}$ predicts $Z$ on he right scale, and in this paper the scale of $Z$ is fixed by $\Var Z = 1$. Since $Z$ is latent we would usually not care about this scale, but it is handy to fix it to $1$ since it allows us to compare different predictors of $\hat{Z}$. The formulation $1-\MSE (w_{0}\hat{Z})$ is more concrete than the correlation formulation, as it explicitly references the predictor $w_{0}\hat{Z}$, while the correlation is scale-free and more abstract. The mean squared error definition is amenable to generalizations as well.
+The role of $w_0$ in Proposition \ref{prop:reliability motivation} is to make sure $\hat{Z}$ predicts $Z$ on he right scale, and in this paper the scale of $Z$ is fixed by $\Var Z = 1$. Since $Z$ is latent we would usually not care about this scale, but it is handy to fix it to $1$ since it allows us to compare different predictors of $\hat{Z}$. The formulation $1-\MSE (w_{0}\hat{Z})$ is more concrete than the correlation formulation, as it explicitly references the predictor $w_{0}\hat{Z}$, while the correlation is scale-free and more abstract. The mean squared error definition is amenable to generalizations as well \citep{Korn1991-lw}.
 
 A modestly popular choice for $w$ are the weights minimizing the mean squared error, known as the Thurstone weights \citep{thurshronebook}, $w_{i}=\lambda_{i}/[\sigma_{i}^{2}(1+k\overline{\lambda^{2}\sigma^{-2}})],\:i=1,\ldots,k$. Using these weights lead to coefficient $H$ \citep{hancock2001rethinking}, also known as the maximal reliability \citep{Li1997-yh}, 
 \begin{equation}
@@ -609,52 +609,26 @@ the correlation between a function of $X$ and a function of some
 other quantity $X'$. Due to this, the correction for attenuation formula
 will not work. 
 
-Moreover, if you want the standardized reliability of the unobserved
-$X$, the ordinal reliability is a better choice. For the conditions
-required for standardized alpha to equal the standardized reliability
-are still needed, i.e. the weighted $\tau$-equivalent model \eqref{eq:std-modified model}. The
-theoretical ordinal reliability can be estimated using e.g. $\mathtt{lavaan}$
-without much added complexity. Using the same arguments as in the
-previous section, the theoretical ordinal reliability with optimal
-weights (corresponding to coefficient \textit{H}) or weights $w_{i}=\sigma_{i}$
-(corresponding to the sigma reliability) should be preferred to the
-standardized reliability too.
+Moreover, if you want the standardized reliability of the unobserved $X$, the ordinal reliability is a better choice. For the conditions required for standardized alpha to equal the standardized reliability are still needed, i.e. the weighted $\tau$-equivalent model \eqref{eq:std-modified model}. The theoretical ordinal reliability can be estimated using e.g. $\mathtt{lavaan}$ without much added complexity. Using the same arguments as in the previous section, the theoretical ordinal reliability with optimal weights (corresponding to coefficient \textit{H}) or weights $w_{i}=\sigma_{i}$ (corresponding to the sigma reliability) should be preferred to the standardized reliability too.
 
-Finally, theoretical ordinal alpha only makes sense in relation to
-the congeneric multivariate normal-ogive model. But this model depends on
-the fundamentally unverifiable assumption of multivariate normality
-of $X$. As \citet{Foldnes2019-yd} argues, the polychoric correlation coefficient is not robust against normality in general.
+Finally, theoretical ordinal alpha only makes sense in relation to the congeneric multivariate normal-ogive model. But this model depends on the fundamentally unverifiable assumption of multivariate normality of $X$. As \citet{Foldnes2019-yd} argue, the polychoric correlation coefficient is not robust against normality in general.
 
 \subsection{A concrete ordinal reliability}
 
-The main argument of \citet{Zumbo2019-lm}'s rebuttal of \citet{Chalmers2018-fj}
-is that the congeneric normal-ogive model \eqref{eq:discretization model} 
-is a better approximation to reality than the congeneric model \eqref{eq:congeneric model}.
-Assume we believe in the discretized model and can be reasonably
-sure that $X$ is multivariate normal. Then theoretical ordinal reliability would still
-not be appropriate as it is theoretical and not concrete. However,
-it is possible to create a class of concrete reliability coefficients for the
-congeneric normal-ogive model.
+The main argument of \citet{Zumbo2019-lm}'s rebuttal of \citet{Chalmers2018-fj} is that the congeneric normal-ogive model \eqref{eq:discretization model}  is a better approximation to reality than the congeneric model \eqref{eq:congeneric model}. Assume we believe in the discretized model and can be reasonably sure that $X$ is multivariate normal. Then the theoretical ordinal reliability would still not be appropriate, as it is theoretical and not concrete. However, it is possible to create a class of concrete reliability coefficients for the congeneric normal-ogive model.
 
-Let $\hat{X}_{i}$ be the mean of a standard normal distribution
-truncated to $(\tau_{i(Y_{i}-1)},\tau_{iY_{i}}]$. Then
+Let $\hat{X}_{i}$ be the conditional mean of $X_i$ given $Y_i$. Then
 \begin{equation}
-\hat{X}_{i}\mid Y_i=-\frac{\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})}{F(\tau_{iY_{i}})-F(\tau_{i(Y_{i}-1)})},\label{eq:Predictor of X}
+\hat{X}_i=-\frac{\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})}{F(\tau_{iY_{i}})-F(\tau_{i(Y_{i}-1)})},\label{eq:Predictor of X}
 \end{equation}
-where $\phi$ is the density of a standard normal and $F$ is the cumulative distribution function of a standard normal \citep[Section 10.1]{Johnson1994-ag}. Since $\hat{X}_{i}$ is the
-conditional expectation of $X_{i}$ given $Y_{i}$, it is the optimal
-predictor of $X_{i}$ given $Y_{i}$ in the sense of minimizing the
-mean squared error. A natural class of predictors of $Z$ given $Y$ is are the linear
-functions of $\hat{X}_{i}$, i.e., $\hat{Z} = \sum_{i=1}^{k}w_{i}\hat{X}_{i}$
-for some weights $w_{i}$. Due to the connection between reliabilities and predictors in \cref{defn:reliability}, this gives rise to the analogue of the
-weighted reliability \eqref{eq:linear reliabiltiy} in the context of the congeneric normal-ogive model
-(\ref{eq:discretization model}).
+where $\phi$ is the density of a standard normal and $F$ is the cumulative distribution function of a standard normal \citep[Section 10.1]{Johnson1994-ag}. Since $\hat{X}_{i}$ is the conditional expectation of $X_{i}$ given $Y_{i}$, it is the optimal predictor of $X_{i}$ given $Y_{i}$ in the sense of minimizing the mean squared error. A natural class of predictors of $Z$ given $Y$ is are the linear
+functions of $\hat{X}_{i}$, i.e., $\hat{Z} = \sum_{i=1}^{k}w_{i}\hat{X}_{i}$ for some weights $w_{i}$. Due to the connection between reliabilities and predictors in \cref{defn:reliability}, this gives rise to the analogue of the weighted reliability \eqref{eq:linear reliabiltiy} in the context of the congeneric normal-ogive model (\ref{eq:discretization model}).
 \begin{defn}\label{defn:concrete ordinal reliability}
 Let $w$ be a vector of weights and $\hat{Z}=\sum_{i=1}^{k}w_{i}\hat{X}_{i}$, with $\hat{X}_i$ as in \eqref{eq:Predictor of X}. The \textit{concrete ordinal reliability} is $ R_{w}'=\Cor^2(\hat{Z},Z)$.
 \end{defn}
 Now define the natural analogues of the reliabilities in \Cref{sec:coefficienta alpha}: The concrete congeneric reliability is the weighted ordinal reliability with unit weights, while the concrete ordinal \textit{H} is the weighted ordinal reliability with optimal weights.  
 
-The following theorem shows how to calculate $ R_{w}'$ and
+The following theorem shows how to calculate the concrete ordinal alpha and
 some of its properties under the assumption that $\Phi$ is a correlation matrix.
 \begin{thm}
 \label{thm:omega-prime}Let $\hat{Z}=\sum_{i=1}^{k}w_{i}\hat{X}_{i}$
@@ -698,35 +672,21 @@ reliability in (ii) is similar to the representation of the weighted
 reliability in Proposition \ref{prop:reliability motivation}, but the covariance $\Xi$ is used
 instead of $\Sigma = \Cov X$. Moreover, $v^{T}\Xi v$ is easy to estimate
 provided we are able to estimate the Thurstone weights $v$. 
+Point (iii) demonstrates that the concrete ordinal congeneric reliability ($ R'$ with unit weights) can be calculated without running a factor analysis, since the average correlation $\boldsymbol{1}^{T}\Xi\boldsymbol{1}/\boldsymbol{1}^{T}\Psi\boldsymbol{1}$ is a simple function of the polychoric correlation matrix and the covariance matrix of $\hat{X}.$ It also provides a correction factor for the theoretical ordinal alpha as an estimator of the concrete ordinal congeneric reliability.
 
-Point (iii) demonstrates that the concrete ordinal congeneric reliability ($ R'$ with unit weights) can be
-calculated without running a factor analysis, since the average correlation
-$\boldsymbol{1}^{T}\Xi\boldsymbol{1}/\boldsymbol{1}^{T}\Psi\boldsymbol{1}$ is a simple
-function of the polychoric correlation matrix and the covariance matrix
-of $\hat{X}.$ It also provides a correction factor for the theoretical ordinal alpha as an estimator of the concrete ordinal congeneric reliability.
-
-\citet[p. 1068]{Chalmers2018-fj} discusses one possible use of the
-ordinal alpha, namely as the theoretical reliability when the number
-of thresholds $\tau$ goes towards infinity. Point (iv) makes this
-claim concrete.
-
+\citet[p. 1068]{Chalmers2018-fj} discusses one possible use of the ordinal alpha, namely as the theoretical reliability when the number of thresholds $\tau$ goes towards infinity. Point (iv) makes this claim concrete.
 
 The expectation of $\hat{X}_{i}$ is
 \begin{equation*}
 E\hat{X}_{i} = -\sum_{k=1}^{m_{i}}[\phi(\tau_{iY_{i}})-\phi(\tau_{i(Y_{i}-1)})]=0,
 \end{equation*}
-and The covariance matrix $\Cov\hat{X}=\Xi$ has elements
+and the covariance matrix $\Cov\hat{X}=\Xi$ has elements
 \begin{eqnarray}
 E(\hat{X}_{i}\hat{X}_{j}) & = & E\left(\sum_{k=1}^{m_{i}}v_{ik}1[Y_{i}=k]\sum_{l=1}^{m_{j}}v_{jl}1[Y_{j}=l]\right),\nonumber \\
 & = & \sum_{k=1}^{m_{i}}v_{ik}^2P(\tau_{i(k-1)}\leq Z_{1}\leq\tau_{ik}), \: \textrm{when } i = j, \label{eq:Xi element_1}\\
  & = & \sum_{k=1}^{m_{i}}\sum_{l=1}^{m_{j}}v_{ik}v_{jl}P(\tau_{i(k-1)}\leq Z_{1}\leq\tau_{ik},\tau_{j(l-1)}\leq Z_{2}\leq\tau_{jl}), \: \textrm{when } i\neq j.\label{eq:Xi element_2}
 \end{eqnarray}
-Here $Z=(Z_{1},Z_{2})$ is a bivariate normal with variances equal
-to $1$, and $$v_{ik}=-\frac{\phi(\tau_{ik})-\phi(\tau_{i(k-1)})}{F(\tau_{ik})-F(\tau_{i(k-1)})}.$$
-There are two natural estimators of $\Xi$. The plug-in estimator $\hat{\Xi}_{p}$ is calculated by
-plugging the estimated polychoric correlation $\hat{\Phi}$ and thresholds
-$\hat{\tau}$ into \eqref{eq:Xi element_1} and \eqref{eq:Xi element_2}. The sample estimator $\hat{\Xi}_{s}$ equals the sample covariance matrix of $\hat{X_{i}}$ when $\hat{X_{i}}$ is formed using the estimated thresholds $\hat{\tau}$. The estimators
-tend to give roughly the same results, but the sample estimator is faster to compute, as it foregoes the computationally expensive bivariate normal probabilities. 
+Here $Z=(Z_{1},Z_{2})$ is a bivariate normal with variances equal to $1$, and $$v_{ik}=-\frac{\phi(\tau_{ik})-\phi(\tau_{i(k-1)})}{F(\tau_{ik})-F(\tau_{i(k-1)})}.$$ There are two natural estimators of $\Xi$. The plug-in estimator $\hat{\Xi}_{p}$ is calculated by plugging the estimated polychoric correlation $\hat{\Phi}$ and thresholds $\hat{\tau}$ into \eqref{eq:Xi element_1} and \eqref{eq:Xi element_2}. The sample estimator $\hat{\Xi}_{s}$ equals the sample covariance matrix of $\hat{X_{i}}$ when $\hat{X_{i}}$ is formed using the estimated thresholds $\hat{\tau}$. The estimators tend to give roughly the same results, but the sample estimator is faster to compute, as it foregoes the computationally expensive bivariate normal probabilities. 
 
 The $\mathtt{R}$-package $\mathtt{conogive}$ is the companion $\mathtt{R}$-package of this paper. It can used to calculate concrete ordinal reliabilities. 
 \begin{itemize}
