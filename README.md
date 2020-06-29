@@ -8,7 +8,7 @@ Status](https://travis-ci.com/JonasMoss/standardized.svg?branch=master)](https:/
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/JonasMoss/standardized?branch=master&svg=true)](https://ci.appveyor.com/project/JonasMoss/standardized)
 
-Repository for the arXiv version of the paper “Please avoid the
+Repository for the PsyArXiv version of the paper “Please avoid the
 standardized alpha and the ordinal alpha”.
 
 ## Overview
