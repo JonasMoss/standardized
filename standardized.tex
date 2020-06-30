@@ -673,7 +673,7 @@ E(\hat{X}_{i}\hat{X}_{j}) & = & E\left(\sum_{k=1}^{m_{i}}v_{ik}1[Y_{i}=k]\sum_{l
 \end{eqnarray}
 Here $Z=(Z_{1},Z_{2})$ is a bivariate normal with variances equal to $1$, and $$v_{ik}=-\frac{\phi(\tau_{ik})-\phi(\tau_{i(k-1)})}{F(\tau_{ik})-F(\tau_{i(k-1)})}.$$ There are two natural estimators of $\Xi$. The plug-in estimator $\hat{\Xi}_{p}$ is calculated by plugging the estimated polychoric correlation $\hat{\Phi}$ and thresholds $\hat{\tau}$ into \eqref{eq:Xi element_1} and \eqref{eq:Xi element_2}. The sample estimator $\hat{\Xi}_{s}$ equals the sample covariance matrix of $\hat{X_{i}}$ when $\hat{X_{i}}$ is formed using the estimated thresholds $\hat{\tau}$. The estimators tend to give roughly the same results, but the sample estimator is faster to compute, as it foregoes the computationally expensive bivariate normal probabilities. 
 
-The $\mathtt{R}$-package $\mathtt{conogive}$ is the companion $\mathtt{R}$-package of this paper, available at \url{https://github.com/JonasMoss/conogive}. It can used to calculate concrete ordinal reliabilities. 
+The $\mathtt{R}$-package $\mathtt{conogive}$ is the companion $\mathtt{R}$-package of this paper, available at \texttt{CRAN} and the Github repository \url{https://github.com/JonasMoss/conogive}. It can used to calculate concrete ordinal reliabilities. 
 \begin{itemize}
 \item[1.] The function $\mathtt{conogive}$ estimates a congeneric normal-ogive
 model using maximum likelihood. It is a wrapper for the $\mathtt{fa}$ and \texttt{polychoric} functions of the $\mathtt{psych}$
